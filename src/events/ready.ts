@@ -38,6 +38,26 @@ module.exports = class extends ClientEvent {
 		} catch (error) {
 			CustomConsole.log(error);
 		}
+
+		try {
+			CustomConsole.log("Setting default permission for guild (/) commands.");
+
+			for(const command of (await (await client.guilds.fetch(guildId)).commands.fetch()).values()){
+				await command.permissions.add({
+					permissions: [
+						{
+							id: process.env.OWNER,
+							type: "USER",
+							permission: true
+						}
+					]
+				});
+			}
+
+			CustomConsole.log("Successfully set default permission for guild (/) commands.");
+		} catch (error) {
+			CustomConsole.log(error);
+		}
 		
 		CustomConsole.log(`${client.user.username} is ready`);
 	}
