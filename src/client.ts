@@ -6,12 +6,10 @@ class CustomClient<Ready extends boolean = boolean> extends Client<Ready> {
 }
 
 abstract class ClientEvent {
-	public readonly client: CustomClient;
 	public readonly name: keyof ClientEvents;
 	public readonly once: boolean;
 
-	public constructor(client: CustomClient, name: keyof ClientEvents, once?: boolean){
-		this.client = client;
+	public constructor(name: keyof ClientEvents, once?: boolean){
 		this.name = name;
 		this.once = once ?? false;
 	}

@@ -1,9 +1,9 @@
-import { ClientEvent, CustomClient } from "../client";
+import { ClientEvent } from "../client";
 import { CustomConsole } from "../console";
 
 module.exports = class extends ClientEvent {
-	constructor(client: CustomClient){
-		super(client, "debug");
+	constructor(){
+		super("debug");
 	}
 
 	run(info: string){

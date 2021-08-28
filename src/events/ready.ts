@@ -4,8 +4,8 @@ import { ClientEvent, CustomClient } from "../client";
 import { CustomConsole } from "../console";
 
 module.exports = class extends ClientEvent {
-	constructor(client: CustomClient){
-		super(client, "ready", true);
+	constructor(){
+		super("ready", true);
 	}
 
 	async run(client: CustomClient<true>){
