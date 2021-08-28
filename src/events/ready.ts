@@ -1,11 +1,21 @@
 import {REST} from "@discordjs/rest";
 import { Routes } from "discord-api-types/v9";
+import { ActivityOptions } from "discord.js";
 import { ClientEvent, CustomClient } from "../client";
 import { CustomConsole } from "../console";
 
 module.exports = class extends ClientEvent {
 	constructor(){
 		super("ready", true);
+	}
+
+	private cycleActivities(client: CustomClient<true>, activities: ActivityOptions[], interval: number){
+		let index = 0;
+		client.user?.setActivity(activities[index]);
+		setInterval(() => {
+			index = index === activities.length - 1 ? 0 : index + 1;
+			client.user?.setActivity(activities[index]);
+		}, interval);
 	}
 
 	async run(client: CustomClient<true>){
@@ -59,6 +69,20 @@ module.exports = class extends ClientEvent {
 			CustomConsole.log(error);
 		}
 		
+		const activities: ActivityOptions[] = [{
+			type: "PLAYING",
+			name: "Music"
+		}, {
+			type: "LISTENING",
+			name: `${client.guilds.cache.size} guilds`
+		}];
+		let activityIndex = 0;
+		client.user.setActivity(activities[activityIndex]);
+		setInterval(() => {
+			activityIndex = activityIndex === activities.length - 1 ? 0 : activityIndex + 1;
+			client.user.setActivity(activities[activityIndex]);
+		}, 5 * 60 * 1000);
+
 		CustomConsole.log(`${client.user.username} is ready`);
 	}
 }
