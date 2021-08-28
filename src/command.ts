@@ -3,7 +3,6 @@ import { CommandInteraction } from "discord.js";
 import { CustomClient } from "./client";
 
 abstract class SlashCommand {
-	public readonly client: CustomClient<true>;
 	public readonly data: SlashCommandBuilder //| Omit<SlashCommandBuilder, "addSubcommand" | "addSubcommandGroup">;
 	public get global(){
 		return this.data.defaultPermission;
@@ -11,8 +10,7 @@ abstract class SlashCommand {
 	public readonly defer: boolean;
 	public readonly ephemeral: boolean;
 
-	public constructor(client: CustomClient, data: SlashCommandBuilder, {defer = true, ephemeral = true} = {}){
-		this.client = client;
+	public constructor(data: SlashCommandBuilder, {defer = true, ephemeral = true} = {}){
 		this.data = data;
 		this.defer = defer;
 		this.ephemeral = ephemeral;
