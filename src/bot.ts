@@ -5,7 +5,9 @@ import { CustomClient } from "./client";
 config();
 
 const client = new CustomClient({
-	intents: []
+	intents: [
+		"GUILDS"
+	]
 });
 
 for(const file of readdirSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"))){
