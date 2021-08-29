@@ -4,11 +4,11 @@ import { CustomClient } from "./client";
 
 abstract class SlashCommand {
 	public readonly data: SlashCommandBuilder //| Omit<SlashCommandBuilder, "addSubcommand" | "addSubcommandGroup">;
-	public get global(){
-		return this.data.defaultPermission;
-	}
 	public readonly defer: boolean;
 	public readonly ephemeral: boolean;
+	public get global(){
+		return this.data.defaultPermission ?? true;
+	}
 
 	public constructor(data: SlashCommandBuilder, {defer = true, ephemeral = true} = {}){
 		this.data = data;
