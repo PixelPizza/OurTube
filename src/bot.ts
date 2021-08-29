@@ -6,7 +6,8 @@ config();
 
 const client = new CustomClient({
 	intents: [
-		"GUILDS"
+		"GUILDS",
+		"GUILD_VOICE_STATES"
 	]
 });
 
