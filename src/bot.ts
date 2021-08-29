@@ -22,11 +22,7 @@ for(const file of readdirSync(join(__dirname, "events")).filter(file => file.end
 	let event = require(`./events/${file}`);
 	// make a new event if a class is being used
 	try { event = new event(); } catch (error) {}
-	if(event.once){
-		client.once(event.name, (...args) => event.run(...args));
-		continue;
-	}
-	client.on(event.name, (...args) => event.run(...args));
+	client.onCustom(file, event.name, (...args) => event.run(...args), event.once);
 }
 
 client.login(process.env.TOKEN);
