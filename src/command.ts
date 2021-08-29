@@ -1,6 +1,8 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { CommandInteraction } from "discord.js";
 
+type SlashCommandData = SlashCommandBuilder | Omit<SlashCommandBuilder, "addSubcommand" | "addSubcommandGroup">;
+
 /**
  * Base class for commands
  */
@@ -12,7 +14,7 @@ abstract class SlashCommand {
 	 * * default permission
 	 * * options
 	*/
-	public readonly data: SlashCommandBuilder //| Omit<SlashCommandBuilder, "addSubcommand" | "addSubcommandGroup">;
+	public readonly data: SlashCommandData;
 	/**
 	 * If the command defers the reply before being run
 	 * @default true
@@ -38,7 +40,7 @@ abstract class SlashCommand {
 	 * @param data The data of the command
 	 * @param options Options for the command
 	 */
-	public constructor(data: SlashCommandBuilder, {defer = true, ephemeral = true} = {}){
+	public constructor(data: SlashCommandData, {defer = true, ephemeral = true} = {}){
 		this.data = data;
 		this.defer = defer;
 		this.ephemeral = ephemeral;
