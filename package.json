@@ -7,7 +7,8 @@
     "start": "npm run build && npm run startNoBuild",
     "build": "tsc",
     "startNoBuild": "node dist/sharder.js",
-    "register": "node dist/deploy.js"
+    "register": "node dist/deploy.js",
+    "watch": "node dist/watch.js"
   },
   "repository": {
     "type": "git",
