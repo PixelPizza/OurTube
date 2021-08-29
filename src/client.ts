@@ -19,6 +19,10 @@ class CustomClient<Ready extends boolean = boolean> extends Client<Ready> {
 	 * The commands of the client
 	 */
 	public readonly commands: Collection<string, SlashCommand> = new Collection();
+	/**
+	 * The settings of the client per guild
+	 */
+	public readonly settings: Collection<string, GuildSettings> = new Collection();
 }
 
 /**
