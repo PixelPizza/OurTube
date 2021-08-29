@@ -26,6 +26,16 @@ abstract class SlashCommand {
 	 */
 	public readonly ephemeral: boolean;
 	/**
+	 * If the command can only be used in a guild
+	 * @default false
+	 */
+	public readonly guildOnly: boolean;
+	/**
+	 * If the command needs the user to be in a voice channel
+	 * @default false
+	 */
+	public readonly needsVoiceChannel: boolean;
+	/**
 	 * If the command is a global command
 	 * 
 	 * **Note:** This value is always the same as the defaultPermission of the command
@@ -40,10 +50,17 @@ abstract class SlashCommand {
 	 * @param data The data of the command
 	 * @param options Options for the command
 	 */
-	public constructor(data: SlashCommandData, {defer = true, ephemeral = true} = {}){
+	public constructor(data: SlashCommandData, {
+		defer = true,
+		ephemeral = true,
+		guildOnly = false,
+		needsVoiceChannel = false
+	} = {}){
 		this.data = data;
 		this.defer = defer;
 		this.ephemeral = ephemeral;
+		this.guildOnly = guildOnly;
+		this.needsVoiceChannel = needsVoiceChannel;
 	}
 
 	/**

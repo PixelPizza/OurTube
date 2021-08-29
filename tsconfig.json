@@ -4,7 +4,8 @@
 		"module": "CommonJS",
 		"outDir": "dist",
 		"allowJs": true,
-		"removeComments": true
+		"removeComments": true,
+		"esModuleInterop": true
 	},
 	"include": ["src"]
 }
