@@ -1,5 +1,15 @@
+import { VoiceConnection } from "@discordjs/voice";
 import { Client, ClientEvents, Collection } from "discord.js";
 import { SlashCommand } from "./command";
+interface GuildSettings {
+	connection: VoiceConnection | null;
+}
+
+class GuildSettings {
+	static default: GuildSettings = {
+		connection: null
+	};
+}
 
 /**
  * An extended client class
@@ -42,5 +52,6 @@ abstract class ClientEvent {
 
 export {
 	CustomClient,
-	ClientEvent
+	ClientEvent,
+	GuildSettings
 };

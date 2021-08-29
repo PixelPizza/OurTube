@@ -1,5 +1,5 @@
-import { Interaction } from "discord.js";
-import { ClientEvent, CustomClient } from "../client";
+import { CommandInteraction, GuildMember, Interaction, MessageEmbed } from "discord.js";
+import { ClientEvent, CustomClient, GuildSettings } from "../client";
 import { CustomConsole } from "../console";
 
 module.exports = class extends ClientEvent {
@@ -10,9 +10,40 @@ module.exports = class extends ClientEvent {
 	async run(interaction: Interaction){
 		if(!interaction.isCommand()) return;
 
-		const command = (interaction.client as CustomClient<true>).commands.get(interaction.commandName);
+		const client = interaction.client as CustomClient<true>,
+			command = client.commands.get(interaction.commandName);
 
 		if(!command) return;
+
+		const {guildId} = interaction;
+
+		if(interaction.inGuild() && !client.settings.has(guildId)) client.settings.set(guildId, GuildSettings.default);
+
+		//#region checks
+		if(command.guildOnly && !interaction.inGuild())
+			return (interaction as CommandInteraction).reply({
+				embeds: [
+					new MessageEmbed({
+						color: "RED",
+						title: "Guild only",
+						description: "This command can only be used in a guild"
+					})
+				],
+				ephemeral: true
+			});
+		
+		if(command.needsVoiceChannel && !(interaction.member as GuildMember).voice.channel)
+			return interaction.reply({
+				embeds: [
+					new MessageEmbed({
+						color: "RED",
+						title: "Voice channel not found",
+						description: "You need to join a voice channel to use this command"
+					})
+				],
+				ephemeral: true
+			});
+		//#endregion
 
 		if(command.defer) await interaction.deferReply({ephemeral: command.ephemeral});
 
