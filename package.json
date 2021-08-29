@@ -4,9 +4,11 @@
   "description": "A music discord bot written in discord.js",
   "main": "dist/sharder.js",
   "scripts": {
-    "start": "node dist/sharder.js",
+    "start": "npm run build && npm run startNoBuild",
     "build": "tsc",
-    "register": "node dist/deploy.js"
+    "startNoBuild": "node dist/sharder.js",
+    "register": "node dist/deploy.js",
+    "watch": "node dist/watch.js"
   },
   "repository": {
     "type": "git",
