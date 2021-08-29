@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node dist/sharder.js",
     "build": "tsc",
-    "register": "node dist/deploy.js"
+    "startNoBuild": "node dist/sharder.js",
+    "register": "node dist/deploy.js",
+    "watch": "node dist/watch.js"
   },
   "repository": {
     "type": "git",
