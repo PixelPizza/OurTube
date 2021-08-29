@@ -19,10 +19,16 @@ module.exports = class extends SlashCommand {
 					title: "OurTube invite links",
 					description: stripIndents`
 						[Recommended](${client.generateInvite({
-							scopes: ["bot"]
+							scopes: [
+								"bot",
+								"applications.commands"
+							]
 						})})
 						[Admin](${client.generateInvite({
-							scopes: ["bot"],
+							scopes: [
+								"bot",
+								"applications.commands"
+							],
 							permissions: ["ADMINISTRATOR"]
 						})})
 					`
