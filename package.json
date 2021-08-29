@@ -6,7 +6,8 @@
   "scripts": {
     "start": "npm run build && npm run startNoBuild",
     "build": "tsc",
-    "startNoBuild": "node dist/sharder.js"
+    "startNoBuild": "node dist/sharder.js",
+    "register": "node dist/deploy.js"
   },
   "repository": {
     "type": "git",
