@@ -1,4 +1,5 @@
 import { ActivityOptions } from "discord.js";
+import { watch } from "fs";
 import { ClientEvent, CustomClient } from "../client";
 import { CustomConsole } from "../console";
 
@@ -8,6 +9,24 @@ module.exports = class extends ClientEvent {
 	}
 
 	async run(client: CustomClient<true>){
+		watch("dist/commands", "utf8", (eventType, file) => {
+			if(eventType != "change") return;
+			const path = `../commands/${file}`;
+			delete require.cache[require.resolve(path)];
+			let command = require(path);
+			try { command = new command(); } catch (error) {}
+			client.commands.set(command.data.name, command);
+		});
+		watch("dist/events", "utf8", (eventType, file) => {
+			if(eventType != "change") return;
+			client.offCustom(file);
+			const path = `../events/${file}`;
+			delete require.cache[require.resolve(path)];
+			let event = require(path);
+			try { event = new event(); } catch (error) {}
+			client.onCustom(file, event.name, (...args) => event.run(...args));
+		});
+
 		try {
 			CustomConsole.log("Setting default permission for guild (/) commands.");
 
