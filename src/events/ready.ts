@@ -9,15 +9,6 @@ module.exports = class extends ClientEvent {
 		super("ready", true);
 	}
 
-	private cycleActivities(client: CustomClient<true>, activities: ActivityOptions[], interval: number){
-		let index = 0;
-		client.user?.setActivity(activities[index]);
-		setInterval(() => {
-			index = index === activities.length - 1 ? 0 : index + 1;
-			client.user?.setActivity(activities[index]);
-		}, interval);
-	}
-
 	async run(client: CustomClient<true>){
 		const rest = new REST({version: "9"}).setToken(client.token),
 			guildId = process.env.GUILD;
