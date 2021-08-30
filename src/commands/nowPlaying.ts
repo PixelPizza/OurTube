@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { stripIndents } from "common-tags";
-import { CommandInteraction, GuildMember, MessageEmbed } from "discord.js";
+import { CommandInteraction, MessageEmbed } from "discord.js";
 import { CustomClient } from "../client";
 import { SlashCommand } from "../command";
 
@@ -11,7 +11,7 @@ module.exports = class extends SlashCommand {
 			.setDescription("show the current playing song"),
 		{
 			guildOnly: true,
-			needsVoiceChannel: true
+			needsSameVoiceChannel: true
 		});
 	}
 
@@ -29,17 +29,6 @@ module.exports = class extends SlashCommand {
 				})
 			]
 		});
-
-		if(!(interaction.member as GuildMember).voice.channel.equals(interaction.guild.me.voice.channel))
-			return interaction.editReply({
-				embeds: [
-					new MessageEmbed({
-						color: "RED",
-						title: "Not in voice channel",
-						description: "You need to be in the same voice channel to show the current song"
-					})
-				]
-			});
 
 		interaction.editReply({
 			embeds: [
