@@ -6,7 +6,7 @@ module.exports = class extends SlashCommandCheck {
 		super({
 			title: "No voice channel",
 			description: "I'm not connected to a voice channel"
-		});
+		}, 2);
 	}
 
 	isValid(interaction: CommandInteraction, command: SlashCommand){

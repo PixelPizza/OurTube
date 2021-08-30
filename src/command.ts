@@ -103,13 +103,15 @@ abstract class SlashCommandCheck {
 			ephemeral: true
 		};
 	}
+	public readonly index: number;
 
 	/**
 	 * Make a new command check
 	 * @param reply The reply to send if invalid
 	 */
-	constructor(reply: Omit<MessageEmbedOptions, "color">){
+	constructor(reply: Omit<MessageEmbedOptions, "color">, index: number){
 		this._reply = reply;
+		this.index = index;
 	}
 
 	/**
