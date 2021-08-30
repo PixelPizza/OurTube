@@ -1,5 +1,5 @@
-import { ClientEvent } from "../client";
-import { CustomConsole } from "../console";
+import { ClientEvent } from "../../event";
+import { CustomConsole } from "../../console";
 
 module.exports = class extends ClientEvent {
 	constructor(){
