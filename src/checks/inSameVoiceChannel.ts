@@ -6,7 +6,7 @@ module.exports = class extends SlashCommandCheck {
 		super({
 			title: "Not in same voice channel",
 			description: "You need to be in the same voice channel as me to use this command"
-		});
+		}, 3);
 	}
 
 	isValid(interaction: CommandInteraction, command: SlashCommand){

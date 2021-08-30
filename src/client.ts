@@ -36,7 +36,7 @@ class CustomClient<Ready extends boolean = boolean> extends Client<Ready> {
 
 				if(!command) return;
 
-				for(const check of checks)
+				for(const check of checks.sort((first, second) => first.index - second.index))
 					if(!check.isValid(interaction, command)) return interaction.reply(check.reply);
 
 				this.emit("command", interaction, command);
