@@ -1,5 +1,6 @@
 import { VoiceConnection } from "@discordjs/voice";
-import { Awaited, Client, ClientEvents, Collection } from "discord.js";
+import { Player } from "discord-player";
+import { Awaited, Client, ClientEvents, ClientOptions, Collection } from "discord.js";
 import { SlashCommand } from "./command";
 interface GuildSettings {
 	connection: VoiceConnection | null;
@@ -23,11 +24,20 @@ class CustomClient<Ready extends boolean = boolean> extends Client<Ready> {
 	 * The settings of the client per guild
 	 */
 	public readonly settings: Collection<string, GuildSettings> = new Collection();
+	/**
+	 * The player used to play songs
+	 */
+	public readonly player: Player;
 
 	private readonly events: Collection<string, {
 		name: string,
 		listener: (...args: any[]) => any
 	}> = new Collection();
+
+	constructor(options: ClientOptions){
+		super(options);
+		this.player = new Player(this);
+	}
 
 	public onCustom<K extends keyof ClientEvents>(file: string, event: K, listener: (...args: ClientEvents[K]) => Awaited<void>, once: boolean = false): this {
 		this.events.set(file, {
