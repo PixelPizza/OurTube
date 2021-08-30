@@ -1,16 +1,6 @@
-import { VoiceConnection } from "@discordjs/voice";
 import { Player } from "discord-player";
 import { Awaited, Client, ClientEvents, ClientOptions, Collection } from "discord.js";
 import { SlashCommand } from "./command";
-interface GuildSettings {
-	connection: VoiceConnection | null;
-}
-
-class GuildSettings {
-	static default: GuildSettings = {
-		connection: null
-	};
-}
 
 /**
  * An extended client class
@@ -20,10 +10,6 @@ class CustomClient<Ready extends boolean = boolean> extends Client<Ready> {
 	 * The commands of the client
 	 */
 	public readonly commands: Collection<string, SlashCommand> = new Collection();
-	/**
-	 * The settings of the client per guild
-	 */
-	public readonly settings: Collection<string, GuildSettings> = new Collection();
 	/**
 	 * The player used to play songs
 	 */
@@ -85,6 +71,5 @@ abstract class ClientEvent {
 
 export {
 	CustomClient,
-	ClientEvent,
-	GuildSettings
+	ClientEvent
 };
