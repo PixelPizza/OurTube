@@ -31,11 +31,7 @@ for(const file of readdirSync(join(__dirname, "events/player")).filter(file => f
 	// make a new event if a class is being used
 	// @ts-ignore
 	try { event = new event(); } catch {}
-	if(event.once){
-		client.player.once(event.name, event.run);
-		continue;
-	}
-	client.player.on(event.name, event.run);
+	client.player.onCustom(file, event.name, event.run);
 }
 
 client.login(process.env.TOKEN);

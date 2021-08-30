@@ -2,7 +2,7 @@ import { ActivityOptions } from "discord.js";
 import { watch } from "fs";
 import { CustomClient } from "../../client";
 import { CustomConsole } from "../../console";
-import { ClientEvent } from "../../event";
+import { ClientEvent, PlayerEvent } from "../../event";
 
 module.exports = class extends ClientEvent {
 	constructor(){
@@ -26,6 +26,16 @@ module.exports = class extends ClientEvent {
 			let event = require(path);
 			try { event = new event(); } catch (error) {}
 			client.onCustom(file, event.name, (...args) => event.run(...args));
+		});
+		watch("dist/events/player", "utf8", (eventType, file) => {
+			if(eventType != "change") return;
+			client.player.offCustom(file);
+			const path = `../player/${file}`;
+			delete require.cache[require.resolve(path)];
+			let event: PlayerEvent = require(path);
+			// @ts-ignore
+			try { event = new event(); } catch {}
+			client.player.onCustom(file, event.name, event.run);
 		});
 
 		try {
