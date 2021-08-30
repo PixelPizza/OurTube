@@ -1,5 +1,4 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { joinVoiceChannel } from "@discordjs/voice";
 import { CommandInteraction, GuildMember, MessageEmbed } from "discord.js";
 import { CustomClient } from "../client";
 import { SlashCommand } from "../command";
@@ -16,17 +15,29 @@ module.exports = class extends SlashCommand {
 		});
 	}
 
-	run(interaction: CommandInteraction){
+	async run(interaction: CommandInteraction){
 		const client = interaction.client as CustomClient,
-			{guildId, member, guild} = interaction,
-			{voice} = member as GuildMember,
-			settings = client.settings.get(guildId);
-		
-		settings.connection = joinVoiceChannel({
-			guildId: guildId,
-			channelId: voice.channelId,
-			adapterCreator: guild.voiceAdapterCreator
+			{member, guild} = interaction,
+			{voice} = member as GuildMember;
+
+		const queue = client.player.createQueue(guild, {
+			metadata: interaction.channel
 		});
+
+		try {
+			if (!queue.connection) await queue.connect(voice.channel);
+		} catch {
+			client.player.deleteQueue(guild);
+			return void interaction.editReply({
+				embeds: [
+					new MessageEmbed({
+						color: "RED",
+						title: "Can't join voice channel",
+						description: "Unable to join your voice channel"
+					})
+				]
+			});
+		}
 
 		interaction.editReply({
 			embeds: [
@@ -37,6 +48,5 @@ module.exports = class extends SlashCommand {
 				})
 			]
 		});
-		client.settings.set(guildId, settings);
 	}
 }
