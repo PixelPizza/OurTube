@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { QueryType } from "discord-player";
-import { CommandInteraction, GuildMember, MessageEmbed } from "discord.js";
+import { QueryType, Queue } from "discord-player";
+import { CommandInteraction, MessageEmbed } from "discord.js";
 import { CustomClient } from "../client";
 import { SlashCommand } from "../command";
 
@@ -26,10 +26,9 @@ module.exports = class extends SlashCommand {
 			result = await client.player.search(query, {
 				requestedBy: interaction.user,
 				searchEngine: QueryType.AUTO
-			}),
-			{guild} = interaction;
+			});
 
-		if(!result || !result.tracks.length) return void interaction.editReply({
+		if(!result || !result.tracks.length) return interaction.editReply({
 			embeds: [
 				new MessageEmbed({
 					color: "RED",
@@ -39,22 +38,8 @@ module.exports = class extends SlashCommand {
 			]
 		});
 
-		const queue = client.player.createQueue(guild, {metadata: interaction});
-
-		try {
-			if (!queue.connection) await queue.connect((interaction.member as GuildMember).voice.channel);
-		} catch {
-			client.player.deleteQueue(guild);
-			return void interaction.editReply({
-				embeds: [
-					new MessageEmbed({
-						color: "RED",
-						title: "Can't join voice channel",
-						description: "Unable to join your voice channel"
-					})
-				]
-			});
-		}
+		const queue = await client.commands.get("join").run(interaction, false);
+		if(!(queue instanceof Queue)) return;
 
 		const type = result.playlist ? "playlist" : "song";
 

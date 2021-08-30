@@ -10,10 +10,11 @@ config();
 const commands: SlashCommand[] = readdirSync(join(__dirname, "commands"))
 	.filter(file => file.endsWith(".js"))
 	.map(file => {
-		let command = require(`./commands/${file}`);
+		let command: SlashCommand = require(`./commands/${file}`);
 		// make a new command if a class is being used
+		// @ts-ignore
 		try { command = new command(); } catch (error) {}
-		return command as SlashCommand;
+		return command;
 	}),
 	rest = new REST({version: "9"}).setToken(process.env.TOKEN),
 	guildId = process.env.GUILD,

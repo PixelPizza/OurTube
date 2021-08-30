@@ -1,8 +1,9 @@
 import { ActivityOptions } from "discord.js";
-import { watch } from "fs";
 import { CustomClient } from "../../client";
+import { SlashCommand } from "../../command";
 import { CustomConsole } from "../../console";
 import { ClientEvent, PlayerEvent } from "../../event";
+import { Util } from "../../util";
 
 module.exports = class extends ClientEvent {
 	constructor(){
@@ -10,33 +11,10 @@ module.exports = class extends ClientEvent {
 	}
 
 	async run(client: CustomClient<true>){
-		watch("dist/commands", "utf8", (eventType, file) => {
-			if(eventType != "change") return;
-			const path = `../../commands/${file}`;
-			delete require.cache[require.resolve(path)];
-			let command = require(path);
-			try { command = new command(); } catch (error) {}
-			client.commands.set(command.data.name, command);
-		});
-		watch("dist/events/client", "utf8", (eventType, file) => {
-			if(eventType != "change") return;
-			client.offCustom(file);
-			const path = `./${file}`;
-			delete require.cache[require.resolve(path)];
-			let event = require(path);
-			try { event = new event(); } catch (error) {}
-			client.onCustom(file, event.name, (...args) => event.run(...args));
-		});
-		watch("dist/events/player", "utf8", (eventType, file) => {
-			if(eventType != "change") return;
-			client.player.offCustom(file);
-			const path = `../player/${file}`;
-			delete require.cache[require.resolve(path)];
-			let event: PlayerEvent = require(path);
-			// @ts-ignore
-			try { event = new event(); } catch {}
-			client.player.onCustom(file, event.name, event.run);
-		});
+		Util
+			.watchDir("dist/commands", (command: SlashCommand) => client.commands.set(command.data.name, command))
+			.watchDir("dist/events/client", (event: ClientEvent, file: string) => client.reloadEvent(event, file))
+			.watchDir("dist/events/player", (event: PlayerEvent, file: string) => client.player.reloadEvent(event, file));
 
 		try {
 			CustomConsole.log("Setting default permission for guild (/) commands.");
