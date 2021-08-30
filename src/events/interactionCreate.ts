@@ -1,5 +1,5 @@
 import { CommandInteraction, GuildMember, Interaction, MessageEmbed } from "discord.js";
-import { ClientEvent, CustomClient, GuildSettings } from "../client";
+import { ClientEvent, CustomClient } from "../client";
 import { CustomConsole } from "../console";
 
 module.exports = class extends ClientEvent {
@@ -14,10 +14,6 @@ module.exports = class extends ClientEvent {
 			command = client.commands.get(interaction.commandName);
 
 		if(!command) return;
-
-		const {guildId} = interaction;
-
-		if(interaction.inGuild() && !client.settings.has(guildId)) client.settings.set(guildId, GuildSettings.default);
 
 		//#region checks
 		if(command.guildOnly && !interaction.inGuild())
