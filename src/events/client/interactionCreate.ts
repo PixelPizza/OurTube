@@ -1,6 +1,7 @@
 import { CommandInteraction, GuildMember, Interaction, MessageEmbed } from "discord.js";
-import { ClientEvent, CustomClient } from "../client";
-import { CustomConsole } from "../console";
+import { CustomClient } from "../../client";
+import { CustomConsole } from "../../console";
+import { ClientEvent } from "../../event";
 
 module.exports = class extends ClientEvent {
 	constructor(){

@@ -2,6 +2,7 @@ import {config} from "dotenv";
 import {readdirSync} from "fs";
 import {join} from "path";
 import { CustomClient } from "./client";
+import { PlayerEvent } from "./event";
 config();
 
 const client = new CustomClient({
@@ -18,11 +19,23 @@ for(const file of readdirSync(join(__dirname, "commands")).filter(file => file.e
 	client.commands.set(command.data.name, command);
 }
 
-for(const file of readdirSync(join(__dirname, "events")).filter(file => file.endsWith(".js"))){
-	let event = require(`./events/${file}`);
+for(const file of readdirSync(join(__dirname, "events/client")).filter(file => file.endsWith(".js"))){
+	let event = require(`./events/client/${file}`);
 	// make a new event if a class is being used
 	try { event = new event(); } catch (error) {}
 	client.onCustom(file, event.name, (...args) => event.run(...args), event.once);
+}
+
+for(const file of readdirSync(join(__dirname, "events/player")).filter(file => file.endsWith(".js"))){
+	let event: PlayerEvent = require(`./events/player/${file}`);
+	// make a new event if a class is being used
+	// @ts-ignore
+	try { event = new event(); } catch {}
+	if(event.once){
+		client.player.once(event.name, event.run);
+		continue;
+	}
+	client.player.on(event.name, event.run);
 }
 
 client.login(process.env.TOKEN);
