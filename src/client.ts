@@ -1,7 +1,10 @@
-import { Awaited, Client, ClientEvents, ClientOptions, Collection } from "discord.js";
-import { SlashCommand } from "./command";
+import { Awaited, Client, ClientEvents, ClientOptions, Collection, CommandInteraction } from "discord.js";
+import { SlashCommand, SlashCommandCheck } from "./command";
 import { ClientEvent } from "./event";
 import { CustomPlayer } from "./player";
+import { Util } from "./util";
+
+type CustomClientEvents = ClientEvents & {command: [interaction: CommandInteraction, command: SlashCommand]};
 
 /**
  * An extended client class
@@ -17,16 +20,43 @@ class CustomClient<Ready extends boolean = boolean> extends Client<Ready> {
 	public readonly player: CustomPlayer;
 
 	private readonly events: Collection<string, {
-		name: keyof ClientEvents;
-		listener: (...args: ClientEvents[keyof ClientEvents]) => Awaited<void>;
+		name: keyof CustomClientEvents;
+		listener: (...args: CustomClientEvents[keyof CustomClientEvents]) => Awaited<void>;
 	}> = new Collection();
 
 	constructor(options: ClientOptions){
 		super(options);
 		this.player = new CustomPlayer(this);
+
+		Util.getJSFiles("checks", (checks: SlashCommandCheck[]) => {
+			this.on("interactionCreate", interaction => {
+				if(!interaction.isCommand()) return;
+
+				const command = this.commands.get(interaction.commandName);
+
+				if(!command) return;
+
+				for(const check of checks)
+					if(!check.isValid(interaction, command)) return interaction.reply(check.reply);
+
+				this.emit("command", interaction, command);
+			});
+		});
 	}
 
-	public onCustom<K extends keyof ClientEvents>(file: string, event: K, listener: (...args: ClientEvents[K]) => Awaited<void>): this {
+	public once<K extends keyof CustomClientEvents>(event: K, listener: (...args: CustomClientEvents[K]) => Awaited<void>): this {
+		return super.once(event as string, listener);
+	}
+
+	public on<K extends keyof CustomClientEvents>(event: K, listener: (...args: CustomClientEvents[K]) => Awaited<void>) : this {
+		return super.on(event as string, listener);
+	}
+
+	public off<K extends keyof CustomClientEvents>(event: K, listener: (...args: CustomClientEvents[K]) => Awaited<void>): this {
+		return super.off(event as string, listener);
+	}
+
+	public onCustom<K extends keyof CustomClientEvents>(file: string, event: K, listener: (...args: CustomClientEvents[K]) => Awaited<void>): this {
 		this.events.set(file, {
 			name: event,
 			listener
@@ -44,4 +74,7 @@ class CustomClient<Ready extends boolean = boolean> extends Client<Ready> {
 	}
 }
 
-export {CustomClient};
+export {
+	CustomClient,
+	CustomClientEvents
+};
