@@ -67,7 +67,7 @@ module.exports = class extends SlashCommand {
 				})
 			]
 		});
-		queue.addTracks(result.tracks);
+		result.playlist ? queue.addTracks(result.tracks) : queue.addTrack(result.tracks[0]);
 		if(!queue.playing) await queue.play();
 	}
 }
