@@ -4,9 +4,7 @@ import {join} from "path";
 import { CustomConsole } from "./console";
 config();
 
-const logShardEvent = (shard: Shard, event: string) => {
-	CustomConsole.log(`Shard ${shard.id} ${event}`);
-}
+const logShardEvent = (shard: Shard, event: string) =>  CustomConsole.log(`Shard ${shard.id} ${event}`);
 
 new ShardingManager(join(__dirname, "bot.js"), {
 	token: process.env.TOKEN,

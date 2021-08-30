@@ -66,7 +66,7 @@ abstract class SlashCommand {
 	/**
 	 * Run this command
 	 */
-	public abstract run(interaction: CommandInteraction): void | Promise<void>;
+	public abstract run(interaction: CommandInteraction, ...args: any[]): any;
 }
 
 export {SlashCommand};
