@@ -1,5 +1,6 @@
 import { PlayerEvents } from "discord-player";
-import { Awaited, ClientEvents } from "discord.js";
+import { Awaited } from "discord.js";
+import { CustomClientEvents } from "./client";
 
 /**
  * Base class for events
@@ -34,8 +35,8 @@ abstract class OTEvent<Name extends string> {
 /**
  * Base class for client events
  */
-abstract class ClientEvent<K extends keyof ClientEvents = keyof ClientEvents> extends OTEvent<K> {
-	public abstract run(...args: ClientEvents[K]): Awaited<void>;
+abstract class ClientEvent<K extends keyof CustomClientEvents = keyof CustomClientEvents> extends OTEvent<K> {
+	public abstract run(...args: CustomClientEvents[K]): Awaited<void>;
 }
 
 /**
