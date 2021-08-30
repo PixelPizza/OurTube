@@ -39,9 +39,7 @@ module.exports = class extends SlashCommand {
 			]
 		});
 
-		const queue = client.player.createQueue(guild, {
-			metadata: interaction.channel
-		});
+		const queue = client.player.createQueue(guild, {metadata: interaction});
 
 		try {
 			if (!queue.connection) await queue.connect((interaction.member as GuildMember).voice.channel);
