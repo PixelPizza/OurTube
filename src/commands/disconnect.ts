@@ -11,7 +11,8 @@ module.exports = class extends SlashCommand {
 		{
 			ephemeral: false,
 			guildOnly: true,
-			needsSameVoiceChannel: true
+			needsSameVoiceChannel: true,
+			botNeedsVoiceChannel: true
 		});
 	}
 
