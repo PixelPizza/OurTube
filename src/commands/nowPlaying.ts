@@ -11,7 +11,8 @@ module.exports = class extends SlashCommand {
 			.setDescription("show the current playing song"),
 		{
 			guildOnly: true,
-			needsSameVoiceChannel: true
+			needsSameVoiceChannel: true,
+			botNeedsVoiceChannel: true
 		});
 	}
 
