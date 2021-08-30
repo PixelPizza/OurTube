@@ -10,7 +10,6 @@ module.exports = class extends SlashCommand {
 			.setDescription("let the bot join your voice channel"),
 		{
 			ephemeral: false,
-			guildOnly: true,
 			needsVoiceChannel: true
 		});
 	}

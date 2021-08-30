@@ -32,16 +32,22 @@ abstract class SlashCommand {
 	public readonly guildOnly: boolean;
 	/**
 	 * If the command needs the user to be in a voice channel
+	 * 
+	 * **Note:** Also sets guildOnly to true
 	 * @default false
 	 */
 	public readonly needsVoiceChannel: boolean;
 	/**
 	 * If the command needs the user to be in the same voice channel as the bot
+	 * 
+	 * **Note:** Also sets guildOnly to true
 	 * @default false
 	 */
 	public readonly needsSameVoiceChannel: boolean;
 	/**
 	 * If the bot needs to be in a voice channel to use this command
+	 * 
+	 * **Note:** Also sets guildOnly to true
 	 * @default false
 	 */
 	public readonly botNeedsVoiceChannel: boolean;
@@ -71,7 +77,7 @@ abstract class SlashCommand {
 		this.data = data;
 		this.defer = defer;
 		this.ephemeral = ephemeral;
-		this.guildOnly = guildOnly;
+		this.guildOnly = needsVoiceChannel || needsSameVoiceChannel || botNeedsVoiceChannel || guildOnly;
 		this.needsVoiceChannel = needsVoiceChannel;
 		this.needsSameVoiceChannel = needsSameVoiceChannel;
 		this.botNeedsVoiceChannel = botNeedsVoiceChannel;

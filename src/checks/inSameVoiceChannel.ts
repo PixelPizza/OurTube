@@ -11,6 +11,6 @@ module.exports = class extends SlashCommandCheck {
 
 	isValid(interaction: CommandInteraction, command: SlashCommand){
 		return !command.needsSameVoiceChannel ||
-			(interaction.inGuild() && interaction.guild.me.voice.channel.equals((interaction.member as GuildMember).voice.channel));
+			interaction.guild.me.voice.channel.equals((interaction.member as GuildMember).voice.channel);
 	}
 }

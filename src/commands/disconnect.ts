@@ -10,7 +10,6 @@ module.exports = class extends SlashCommand {
 			.setDescription("let the bot disconnect from the currently joined voice channel"), 
 		{
 			ephemeral: false,
-			guildOnly: true,
 			needsSameVoiceChannel: true,
 			botNeedsVoiceChannel: true
 		});

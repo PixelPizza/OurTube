@@ -10,6 +10,6 @@ module.exports = class extends SlashCommandCheck {
 	}
 
 	isValid(interaction: CommandInteraction, command: SlashCommand){
-		return !command.needsVoiceChannel || (interaction.inGuild() && !!(interaction.member as GuildMember).voice.channel);
+		return !command.needsVoiceChannel || !!(interaction.member as GuildMember).voice.channel;
 	}
 }

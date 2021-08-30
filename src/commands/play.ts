@@ -26,7 +26,6 @@ module.exports = class extends SlashCommand {
 					].includes(value))
 					.map(value => [value.replace("_", " "), value]))),
 		{
-			guildOnly: true,
 			ephemeral: false,
 			needsVoiceChannel: true
 		})
