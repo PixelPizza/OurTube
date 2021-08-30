@@ -12,7 +12,19 @@ module.exports = class extends SlashCommand {
 			.addStringOption(option => option
 				.setName("query")
 				.setDescription("the song to play")
-				.setRequired(true)),
+				.setRequired(true))
+			.addStringOption(option => option
+				.setName("type")
+				.setDescription("where to search for the song")
+				.addChoices(Object.values(QueryType)
+					.filter(value => ![
+						"auto", 
+						"facebook", 
+						"vimeo", 
+						"arbitrary", 
+						"reverbnation"
+					].includes(value))
+					.map(value => [value.replace("_", " "), value]))),
 		{
 			guildOnly: true,
 			ephemeral: false,
@@ -25,7 +37,7 @@ module.exports = class extends SlashCommand {
 			query = interaction.options.getString("query", true),
 			result = await client.player.search(query, {
 				requestedBy: interaction.user,
-				searchEngine: QueryType.AUTO
+				searchEngine: interaction.options.getString("type") as QueryType ?? QueryType.AUTO
 			});
 
 		if(!result || !result.tracks.length) return interaction.editReply({
