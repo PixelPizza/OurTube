@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { CommandInteraction, GuildMember, MessageEmbed } from "discord.js";
+import { CommandInteraction, MessageEmbed } from "discord.js";
 import { CustomClient } from "../client";
 import { SlashCommand } from "../command";
 
@@ -11,7 +11,7 @@ module.exports = class extends SlashCommand {
 		{
 			ephemeral: false,
 			guildOnly: true,
-			needsVoiceChannel: true
+			needsSameVoiceChannel: true
 		});
 	}
 
@@ -19,16 +19,6 @@ module.exports = class extends SlashCommand {
 		const client = interaction.client as CustomClient<true>,
 			{guild} = interaction,
 			{channel} = guild.me.voice;
-
-		if(!(interaction.member as GuildMember).voice.channel.equals(channel)) return interaction.editReply({
-			embeds: [
-				new MessageEmbed({
-					color: "RED",
-					title: "Can't disconnect",
-					description: "You need to be in the same voice channel to disconnect"
-				})
-			]
-		});
 
 		client.player.deleteQueue(guild);
 

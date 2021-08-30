@@ -1,5 +1,6 @@
-import { CommandInteraction, GuildMember, Interaction, MessageEmbed } from "discord.js";
+import { CommandInteraction, GuildMember, Interaction, MessageEmbed, MessageEmbedOptions } from "discord.js";
 import { CustomClient } from "../../client";
+import { SlashCommand } from "../../command";
 import { CustomConsole } from "../../console";
 import { ClientEvent } from "../../event";
 
@@ -7,6 +8,21 @@ module.exports = class extends ClientEvent {
 	constructor(){
 		super("interactionCreate");
 	}
+
+	checks: {
+		fn: (interaction: CommandInteraction, command: SlashCommand) => boolean;
+		reply: Omit<MessageEmbedOptions, "color">;
+	}[] = [
+		{
+			fn(interaction, command){
+				return command.guildOnly && !interaction.inGuild();
+			},
+			reply: {
+				title: "Guild Only",
+				description: "This command can only be used in a guild"
+			}
+		}
+	];
 
 	async run(interaction: Interaction){
 		if(!interaction.isCommand()) return;
@@ -16,7 +32,7 @@ module.exports = class extends ClientEvent {
 
 		if(!command) return;
 
-		//#region checks
+		//#region misc checks
 		if(command.guildOnly && !interaction.inGuild())
 			return (interaction as CommandInteraction).reply({
 				embeds: [
@@ -28,14 +44,30 @@ module.exports = class extends ClientEvent {
 				],
 				ephemeral: true
 			});
+		//#endregion
 		
-		if(command.needsVoiceChannel && !(interaction.member as GuildMember).voice.channel)
+		//#region voice channel checks
+		const voiceChannel = (interaction.member as GuildMember).voice.channel;
+
+		if(command.needsVoiceChannel && !voiceChannel)
 			return interaction.reply({
 				embeds: [
 					new MessageEmbed({
 						color: "RED",
 						title: "Voice channel not found",
 						description: "You need to join a voice channel to use this command"
+					})
+				],
+				ephemeral: true
+			});
+
+		if(command.needsSameVoiceChannel && !interaction.guild.me.voice.channel?.equals(voiceChannel))
+			return interaction.reply({
+				embeds: [
+					new MessageEmbed({
+						color: "RED",
+						title: "Not in voice channel",
+						description: "You need to be in the same voice channel as me to use this command"
 					})
 				],
 				ephemeral: true
