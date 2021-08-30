@@ -15,7 +15,7 @@ module.exports = class extends SlashCommand {
 		});
 	}
 
-	async run(interaction: CommandInteraction){
+	async run(interaction: CommandInteraction, sendReply: boolean = true){
 		const client = interaction.client as CustomClient,
 			{member, guild} = interaction,
 			{voice} = member as GuildMember;
@@ -26,7 +26,7 @@ module.exports = class extends SlashCommand {
 			if (!queue.connection) await queue.connect(voice.channel);
 		} catch {
 			client.player.deleteQueue(guild);
-			return void interaction.editReply({
+			return interaction.editReply({
 				embeds: [
 					new MessageEmbed({
 						color: "RED",
@@ -37,7 +37,7 @@ module.exports = class extends SlashCommand {
 			});
 		}
 
-		interaction.editReply({
+		if(sendReply) interaction.editReply({
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
@@ -46,5 +46,7 @@ module.exports = class extends SlashCommand {
 				})
 			]
 		});
+
+		return queue;
 	}
 }

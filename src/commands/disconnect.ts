@@ -20,17 +20,15 @@ module.exports = class extends SlashCommand {
 			{guild} = interaction,
 			{channel} = guild.me.voice;
 
-		if(!(interaction.member as GuildMember).voice.channel.equals(channel)){
-			return void interaction.editReply({
-				embeds: [
-					new MessageEmbed({
-						color: "RED",
-						title: "Can't disconnect",
-						description: "You need to be in the same voice channel to disconnect"
-					})
-				]
-			});
-		}
+		if(!(interaction.member as GuildMember).voice.channel.equals(channel)) return interaction.editReply({
+			embeds: [
+				new MessageEmbed({
+					color: "RED",
+					title: "Can't disconnect",
+					description: "You need to be in the same voice channel to disconnect"
+				})
+			]
+		});
 
 		client.player.deleteQueue(guild);
 

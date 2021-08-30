@@ -1,14 +1,14 @@
 import { PlayerEvents } from "discord-player";
-import { ClientEvents } from "discord.js";
+import { Awaited, ClientEvents } from "discord.js";
 
 /**
  * Base class for events
  */
-abstract class OTEvent {
+abstract class OTEvent<Name extends string> {
 	/**
 	 * The name of the event
 	 */
-	public readonly name: string;
+	public readonly name: Name;
 	/**
 	 * If this event should only be run once
 	 */
@@ -20,7 +20,7 @@ abstract class OTEvent {
 	 * @param name The name of the event
 	 * @param once If this event should only be run once
 	 */
-	public constructor(name: string, once: boolean = false){
+	public constructor(name: Name, once: boolean = false){
 		this.name = name;
 		this.once = once;
 	}
@@ -28,49 +28,20 @@ abstract class OTEvent {
 	/**
 	 * Run this event
 	 */
-	public abstract run(...args: unknown[]): void;
+	public abstract run(...args: unknown[]): unknown;
 }
 
 /**
  * Base class for client events
  */
-abstract class ClientEvent extends OTEvent {
-	/**
-	 * The name of the event
-	 */
-	declare public readonly name: keyof ClientEvents;
-
-	/**
-	 * Make a new client event
-	 * @param name The name of the event
-	 * @param once If this event should only be run once
-	 */
-	public constructor(name: keyof ClientEvents, once: boolean = false){
-		super(name, once);
-	}
+abstract class ClientEvent<K extends keyof ClientEvents = keyof ClientEvents> extends OTEvent<K> {
+	public abstract run(...args: ClientEvents[K]): Awaited<void>;
 }
 
 /**
  * Base class for player events
  */
-abstract class PlayerEvent<K extends keyof PlayerEvents = keyof PlayerEvents> extends OTEvent {
-	/**
-	 * The name of the event
-	 */
-	declare public readonly name: K;
-
-	/**
-	 * Make a new player event
-	 * @param name The name of the event
-	 * @param once If this event should only be run once
-	 */
-	public constructor(name: K, once: boolean = false){
-		super(name, once);
-	}
-
-	/**
-	 * Run this event
-	 */
+abstract class PlayerEvent<K extends keyof PlayerEvents = keyof PlayerEvents> extends OTEvent<K> {
 	public abstract run: PlayerEvents[K];
 }
 
