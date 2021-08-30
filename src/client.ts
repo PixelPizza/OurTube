@@ -1,6 +1,6 @@
-import { Player } from "discord-player";
 import { Awaited, Client, ClientEvents, ClientOptions, Collection } from "discord.js";
 import { SlashCommand } from "./command";
+import { CustomPlayer } from "./player";
 
 /**
  * An extended client class
@@ -13,7 +13,7 @@ class CustomClient<Ready extends boolean = boolean> extends Client<Ready> {
 	/**
 	 * The player used to play songs
 	 */
-	public readonly player: Player;
+	public readonly player: CustomPlayer;
 
 	private readonly events: Collection<string, {
 		name: string,
@@ -22,7 +22,7 @@ class CustomClient<Ready extends boolean = boolean> extends Client<Ready> {
 
 	constructor(options: ClientOptions){
 		super(options);
-		this.player = new Player(this);
+		this.player = new CustomPlayer(this);
 	}
 
 	public onCustom<K extends keyof ClientEvents>(file: string, event: K, listener: (...args: ClientEvents[K]) => Awaited<void>, once: boolean = false): this {
