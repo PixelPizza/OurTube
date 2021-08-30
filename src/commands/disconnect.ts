@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { CommandInteraction, GuildMember, MessageEmbed } from "discord.js";
-import { CustomClient, GuildSettings } from "../client";
+import { CustomClient } from "../client";
 import { SlashCommand } from "../command";
 
 module.exports = class extends SlashCommand {
@@ -17,10 +17,11 @@ module.exports = class extends SlashCommand {
 
 	run(interaction: CommandInteraction){
 		const client = interaction.client as CustomClient<true>,
-			{guildId} = interaction;
+			{guild} = interaction,
+			{channel} = guild.me.voice;
 
-		if(!(interaction.member as GuildMember).voice.channel.equals(interaction.guild.me.voice.channel)){
-			interaction.editReply({
+		if(!(interaction.member as GuildMember).voice.channel.equals(channel)){
+			return void interaction.editReply({
 				embeds: [
 					new MessageEmbed({
 						color: "RED",
@@ -29,18 +30,16 @@ module.exports = class extends SlashCommand {
 					})
 				]
 			});
-			return;
 		}
 
-		client.settings.get(guildId).connection.destroy();
-		client.settings.set(guildId, GuildSettings.default);
+		client.player.deleteQueue(guild);
 
 		interaction.editReply({
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
 					title: "Disconnect",
-					description: `Disconnected from \`${interaction.guild.me.voice.channel.name}\` 🔊`
+					description: `Disconnected from \`${channel.name}\` 🔊`
 				})
 			]
 		});
