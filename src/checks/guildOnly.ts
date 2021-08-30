@@ -6,7 +6,7 @@ module.exports = class extends SlashCommandCheck {
 		super({
 			title: "Guild Only",
 			description: "This command can only be used in a guild"
-		});
+		}, 0);
 	}
 
 	isValid(interaction: CommandInteraction, command: SlashCommand){
