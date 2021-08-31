@@ -1,14 +1,12 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
 import { CommandInteraction, MessageEmbed } from "discord.js";
 import { CustomClient } from "../client";
-import { SlashCommand } from "../command";
+import { CustomSlashCommand } from "../command";
 
-module.exports = class extends SlashCommand {
+module.exports = class extends CustomSlashCommand {
 	constructor(){
-		super(new SlashCommandBuilder()
-			.setName("disconnect")
-			.setDescription("let the bot disconnect from the currently joined voice channel"), 
-		{
+		super({
+			name: "disconnect",
+			description: "let the bot disconnect from the currently joined voice channel",
 			ephemeral: false,
 			needsSameVoiceChannel: true,
 			botNeedsVoiceChannel: true

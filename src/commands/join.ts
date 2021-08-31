@@ -1,14 +1,12 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
 import { CommandInteraction, GuildMember, MessageEmbed } from "discord.js";
 import { CustomClient } from "../client";
-import { SlashCommand } from "../command";
+import { CustomSlashCommand } from "../command";
 
-module.exports = class extends SlashCommand {
+module.exports = class extends CustomSlashCommand {
 	constructor(){
-		super(new SlashCommandBuilder()
-			.setName("join")
-			.setDescription("let the bot join your voice channel"),
-		{
+		super({
+			name: "join",
+			description: "let the bot join your voice channel",
 			ephemeral: false,
 			needsVoiceChannel: true
 		});

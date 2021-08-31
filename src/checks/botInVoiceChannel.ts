@@ -1,5 +1,5 @@
 import { CommandInteraction } from "discord.js";
-import { SlashCommand, SlashCommandCheck } from "../command";
+import { CustomSlashCommand, SlashCommandCheck } from "../command";
 
 module.exports = class extends SlashCommandCheck {
 	constructor(){
@@ -9,7 +9,7 @@ module.exports = class extends SlashCommandCheck {
 		}, 2);
 	}
 
-	isValid(interaction: CommandInteraction, command: SlashCommand){
+	isValid(interaction: CommandInteraction, command: CustomSlashCommand){
 		return !command.botNeedsVoiceChannel || !!interaction.guild.me.voice.channel;
 	}
 }

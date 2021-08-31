@@ -1,5 +1,5 @@
 import { CommandInteraction } from "discord.js";
-import { SlashCommand } from "../../command";
+import { CustomSlashCommand } from "../../command";
 import { CustomConsole } from "../../console";
 import { ClientEvent } from "../../event";
 
@@ -8,7 +8,7 @@ module.exports = class extends ClientEvent<"command"> {
 		super("command");
 	}
 
-	async run(interaction: CommandInteraction, command: SlashCommand){
+	async run(interaction: CommandInteraction, command: CustomSlashCommand){
 		if(command.defer) await interaction.deferReply({ephemeral: command.ephemeral});
 
 		try {

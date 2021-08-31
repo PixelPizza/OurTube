@@ -1,34 +1,41 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
 import { QueryType, Queue } from "discord-player";
 import { CommandInteraction, MessageEmbed } from "discord.js";
 import { CustomClient } from "../client";
-import { SlashCommand } from "../command";
+import { CustomSlashCommand } from "../command";
 
-module.exports = class extends SlashCommand {
+module.exports = class extends CustomSlashCommand {
 	constructor(){
-		super(new SlashCommandBuilder()
-			.setName("play")
-			.setDescription("play a song")
-			.addStringOption(option => option
-				.setName("query")
-				.setDescription("the song to play")
-				.setRequired(true))
-			.addStringOption(option => option
-				.setName("type")
-				.setDescription("where to search for the song")
-				.addChoices(Object.values(QueryType)
-					.filter(value => ![
-						"auto", 
-						"facebook", 
-						"vimeo", 
-						"arbitrary", 
-						"reverbnation"
-					].includes(value))
-					.map(value => [value.replace("_", " "), value]))),
-		{
+		super({
+			name: "play",
+			description: "play a song",
+			options: [
+				{
+					type: "STRING",
+					name: "query",
+					description: "the song to play",
+					required: true
+				},
+				{
+					type: "STRING",
+					name: "type",
+					description: "where to search for the song",
+					choices: Object.values(QueryType)
+						.filter(value => ![
+							"auto", 
+							"facebook", 
+							"vimeo", 
+							"arbitrary", 
+							"reverbnation"
+						].includes(value))
+						.map(value => ({
+							name: value.replace("_", " "),
+							value: value
+						}))
+				}
+			],
 			ephemeral: false,
 			needsVoiceChannel: true
-		})
+		});
 	}
 
 	async run(interaction: CommandInteraction){
