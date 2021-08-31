@@ -1,10 +1,10 @@
 import { Awaited, Client, ClientEvents, ClientOptions, Collection, CommandInteraction } from "discord.js";
-import { SlashCommand, SlashCommandCheck } from "./command";
+import { CustomSlashCommand, SlashCommandCheck } from "./command";
 import { ClientEvent } from "./event";
 import { CustomPlayer } from "./player";
 import { Util } from "./util";
 
-type CustomClientEvents = ClientEvents & {command: [interaction: CommandInteraction, command: SlashCommand]};
+type CustomClientEvents = ClientEvents & {command: [interaction: CommandInteraction, command: CustomSlashCommand]};
 
 /**
  * An extended client class
@@ -13,7 +13,7 @@ class CustomClient<Ready extends boolean = boolean> extends Client<Ready> {
 	/**
 	 * The commands of the client
 	 */
-	public readonly commands: Collection<string, SlashCommand> = new Collection();
+	public readonly commands: Collection<string, CustomSlashCommand> = new Collection();
 	/**
 	 * The player used to play songs
 	 */

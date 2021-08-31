@@ -1,15 +1,13 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
 import { stripIndents } from "common-tags";
 import { CommandInteraction, MessageEmbed } from "discord.js";
 import { CustomClient } from "../client";
-import { SlashCommand } from "../command";
+import { CustomSlashCommand } from "../command";
 
-module.exports = class extends SlashCommand {
+module.exports = class extends CustomSlashCommand {
 	constructor(){
-		super(new SlashCommandBuilder()
-			.setName("nowplaying")
-			.setDescription("show the current playing song"),
-		{
+		super({
+			name: "nowplaying",
+			description: "show the current playing song",
 			needsSameVoiceChannel: true,
 			botNeedsVoiceChannel: true
 		});

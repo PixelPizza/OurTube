@@ -1,6 +1,6 @@
 import {config} from "dotenv";
 import { CustomClient } from "./client";
-import { SlashCommand } from "./command";
+import { CustomSlashCommand } from "./command";
 import { ClientEvent, PlayerEvent } from "./event";
 import { Util } from "./util";
 config();
@@ -13,8 +13,8 @@ const client = new CustomClient({
 });
 
 Util
-	.getJSFiles("commands", (commands: SlashCommand[]) => {
-		commands.forEach(command => client.commands.set(command.data.name, command));
+	.getJSFiles("commands", (commands: CustomSlashCommand[]) => {
+		commands.forEach(command => client.commands.set(command.name, command));
 	})
 	.getJSFiles("events/client", (events: ClientEvent[], files: string[]) => {
 		events.forEach((event, index) => event.once ?

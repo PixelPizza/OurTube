@@ -1,12 +1,12 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
 import { CommandInteraction, MessageEmbed } from "discord.js";
-import { SlashCommand } from "../command";
+import { CustomSlashCommand } from "../command";
 
-module.exports = class extends SlashCommand {
+module.exports = class extends CustomSlashCommand {
 	constructor(){
-		super(new SlashCommandBuilder()
-			.setName("support")
-			.setDescription("get the invite link of the support server"))
+		super({
+			name: "support",
+			description: "get the invite link of the support server"
+		});
 	}
 
 	async run(interaction: CommandInteraction){
