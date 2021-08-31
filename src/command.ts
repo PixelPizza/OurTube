@@ -1,20 +1,10 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
 import { CommandInteraction, InteractionReplyOptions, MessageEmbed, MessageEmbedOptions } from "discord.js";
-
-type SlashCommandData = SlashCommandBuilder | Omit<SlashCommandBuilder, "addSubcommand" | "addSubcommandGroup">;
+import { SlashCommand, SlashCommandInfo } from "discord-extend";
 
 /**
  * Base class for commands
  */
-abstract class SlashCommand {
-	/**
-	 * The data of the command
-	 * * name
-	 * * description
-	 * * default permission
-	 * * options
-	*/
-	public readonly data: SlashCommandData;
+abstract class CustomSlashCommand extends SlashCommand {
 	/**
 	 * If the command defers the reply before being run
 	 * @default true
@@ -51,30 +41,37 @@ abstract class SlashCommand {
 	 * @default false
 	 */
 	public readonly botNeedsVoiceChannel: boolean;
-	/**
-	 * If the command is a global command
-	 * 
-	 * **Note:** This value is always the same as the defaultPermission of the command
-	 * @default true
-	 */
-	public get global(){
-		return this.data.defaultPermission ?? true;
-	}
+	// /**
+	//  * If the command is a global command
+	//  * 
+	//  * **Note:** This value is always the same as the defaultPermission of the command
+	//  * @default true
+	//  */
+	// public get global(){
+	// 	return this.defaultPermission ?? true;
+	// }
 
 	/**
 	 * Make a new slash command
-	 * @param data The data of the command
-	 * @param options Options for the command
+	 * @param info - The command information
 	 */
-	public constructor(data: SlashCommandData, {
-		defer = true,
-		ephemeral = true,
-		guildOnly = false,
-		needsVoiceChannel = false,
-		needsSameVoiceChannel = false,
-		botNeedsVoiceChannel = false
-	} = {}){
-		this.data = data;
+	public constructor(info: SlashCommandInfo & {
+		defer?: boolean;
+		ephemeral?: boolean;
+		guildOnly?: boolean;
+		needsVoiceChannel?: boolean;
+		needsSameVoiceChannel?: boolean;
+		botNeedsVoiceChannel?: boolean;
+	}){
+		super(info);
+		const {
+			defer = true,
+			ephemeral = true,
+			guildOnly = false,
+			needsVoiceChannel = false,
+			needsSameVoiceChannel = false,
+			botNeedsVoiceChannel = false
+		} = info;
 		this.defer = defer;
 		this.ephemeral = ephemeral;
 		this.guildOnly = needsVoiceChannel || needsSameVoiceChannel || botNeedsVoiceChannel || guildOnly;
@@ -82,11 +79,6 @@ abstract class SlashCommand {
 		this.needsSameVoiceChannel = needsSameVoiceChannel;
 		this.botNeedsVoiceChannel = botNeedsVoiceChannel;
 	}
-
-	/**
-	 * Run this command
-	 */
-	public abstract run(interaction: CommandInteraction, ...args: any[]): any;
 }
 
 /**
@@ -117,10 +109,10 @@ abstract class SlashCommandCheck {
 	/**
 	 * Check if valid
 	 */
-	public abstract isValid(interaction: CommandInteraction, command: SlashCommand): boolean;
+	public abstract isValid(interaction: CommandInteraction, command: CustomSlashCommand): boolean;
 }
 
 export {
-	SlashCommand,
+	CustomSlashCommand,
 	SlashCommandCheck
 };
