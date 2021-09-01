@@ -12,7 +12,7 @@ module.exports = class extends ClientEvent {
 
 	async run(client: CustomClient<true>){
 		Util
-			.watchDir("dist/commands", (command: CustomSlashCommand) => client.commands.set(command.name, command))
+			.watchDir("dist/commands", (command: CustomSlashCommand) => client.registerCommand(command))
 			.watchDir("dist/events/client", (event: ClientEvent, file: string) => client.reloadEvent(event, file))
 			.watchDir("dist/events/player", (event: PlayerEvent, file: string) => client.player.reloadEvent(event, file));
 

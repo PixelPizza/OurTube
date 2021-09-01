@@ -1,4 +1,5 @@
-import { Awaited, Client, ClientEvents, ClientOptions, Collection, CommandInteraction } from "discord.js";
+import { Awaited, ClientEvents, ClientOptions, Collection, CommandInteraction } from "discord.js";
+import {Client} from "discord-extend";
 import { CustomSlashCommand, SlashCommandCheck } from "./command";
 import { ClientEvent } from "./event";
 import { CustomPlayer } from "./player";
