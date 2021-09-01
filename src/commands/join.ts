@@ -1,9 +1,9 @@
-import { CommandInteraction, GuildMember, MessageEmbed } from "discord.js";
-import { CustomClient } from "../client";
-import { CustomSlashCommand } from "../command";
+import {CommandInteraction, GuildMember, MessageEmbed} from "discord.js";
+import {CustomClient} from "../client";
+import {CustomSlashCommand} from "../command";
 
 module.exports = class extends CustomSlashCommand {
-	constructor(){
+	constructor() {
 		super({
 			name: "join",
 			description: "let the bot join your voice channel",
@@ -12,7 +12,7 @@ module.exports = class extends CustomSlashCommand {
 		});
 	}
 
-	async run(interaction: CommandInteraction, sendReply: boolean = true){
+	async run(interaction: CommandInteraction, sendReply: boolean = true) {
 		const client = interaction.client as CustomClient,
 			{member, guild} = interaction,
 			{voice} = member as GuildMember;
@@ -34,16 +34,17 @@ module.exports = class extends CustomSlashCommand {
 			});
 		}
 
-		if(sendReply) interaction.editReply({
-			embeds: [
-				new MessageEmbed({
-					color: "GREEN",
-					title: "Join",
-					description: `Joined \`${voice.channel.name}\` 🔊`
-				})
-			]
-		});
+		if (sendReply)
+			interaction.editReply({
+				embeds: [
+					new MessageEmbed({
+						color: "GREEN",
+						title: "Join",
+						description: `Joined \`${voice.channel.name}\` 🔊`
+					})
+				]
+			});
 
 		return queue;
 	}
-}
+};

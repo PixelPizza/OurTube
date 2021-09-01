@@ -1,10 +1,10 @@
-import { QueryType, Queue } from "discord-player";
-import { CommandInteraction, MessageEmbed } from "discord.js";
-import { CustomClient } from "../client";
-import { CustomSlashCommand } from "../command";
+import {QueryType, Queue} from "discord-player";
+import {CommandInteraction, MessageEmbed} from "discord.js";
+import {CustomClient} from "../client";
+import {CustomSlashCommand} from "../command";
 
 module.exports = class extends CustomSlashCommand {
-	constructor(){
+	constructor() {
 		super({
 			name: "play",
 			description: "play a song",
@@ -20,13 +20,7 @@ module.exports = class extends CustomSlashCommand {
 					name: "type",
 					description: "where to search for the song",
 					choices: Object.values(QueryType)
-						.filter(value => ![
-							"auto", 
-							"facebook", 
-							"vimeo", 
-							"arbitrary", 
-							"reverbnation"
-						].includes(value))
+						.filter(value => !["auto", "facebook", "vimeo", "arbitrary", "reverbnation"].includes(value))
 						.map(value => ({
 							name: value.replace("_", " "),
 							value: value
@@ -38,26 +32,27 @@ module.exports = class extends CustomSlashCommand {
 		});
 	}
 
-	async run(interaction: CommandInteraction){
+	async run(interaction: CommandInteraction) {
 		const client = interaction.client as CustomClient<true>,
 			query = interaction.options.getString("query", true),
 			result = await client.player.search(query, {
 				requestedBy: interaction.user,
-				searchEngine: interaction.options.getString("type") as QueryType ?? QueryType.AUTO
+				searchEngine: (interaction.options.getString("type") as QueryType) ?? QueryType.AUTO
 			});
 
-		if(!result || !result.tracks.length) return interaction.editReply({
-			embeds: [
-				new MessageEmbed({
-					color: "RED",
-					title: "No song found",
-					description: "No results were found"
-				})
-			]
-		});
+		if (!result || !result.tracks.length)
+			return interaction.editReply({
+				embeds: [
+					new MessageEmbed({
+						color: "RED",
+						title: "No song found",
+						description: "No results were found"
+					})
+				]
+			});
 
 		const queue = await client.commands.get("join").run(interaction, false);
-		if(!(queue instanceof Queue)) return;
+		if (!(queue instanceof Queue)) return;
 
 		const type = result.playlist ? "playlist" : "song";
 
@@ -71,6 +66,6 @@ module.exports = class extends CustomSlashCommand {
 			]
 		});
 		result.playlist ? queue.addTracks(result.tracks) : queue.addTrack(result.tracks[0]);
-		if(!queue.playing) await queue.play();
+		if (!queue.playing) await queue.play();
 	}
-}
+};
