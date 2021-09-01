@@ -1,7 +1,6 @@
-import { Awaited, ClientEvents, ClientOptions, Collection, CommandInteraction } from "discord.js";
+import { ClientEvents, ClientOptions, Collection, CommandInteraction } from "discord.js";
 import {Client} from "discord-extend";
 import { CustomSlashCommand, SlashCommandCheck } from "./command";
-import { ClientEvent } from "./event";
 import { CustomPlayer } from "./player";
 import { Util } from "./util";
 
@@ -19,11 +18,6 @@ class CustomClient<Ready extends boolean = boolean> extends Client<Ready> {
 	 * The player used to play songs
 	 */
 	public readonly player: CustomPlayer;
-
-	private readonly events: Collection<string, {
-		name: keyof CustomClientEvents;
-		listener: (...args: CustomClientEvents[keyof CustomClientEvents]) => Awaited<void>;
-	}> = new Collection();
 
 	constructor(options: ClientOptions){
 		super(options);
@@ -43,35 +37,6 @@ class CustomClient<Ready extends boolean = boolean> extends Client<Ready> {
 				this.emit("command", interaction, command);
 			});
 		});
-	}
-
-	public once<K extends keyof CustomClientEvents>(event: K, listener: (...args: CustomClientEvents[K]) => Awaited<void>): this {
-		return super.once(event as string, listener);
-	}
-
-	public on<K extends keyof CustomClientEvents>(event: K, listener: (...args: CustomClientEvents[K]) => Awaited<void>) : this {
-		return super.on(event as string, listener);
-	}
-
-	public off<K extends keyof CustomClientEvents>(event: K, listener: (...args: CustomClientEvents[K]) => Awaited<void>): this {
-		return super.off(event as string, listener);
-	}
-
-	public onCustom<K extends keyof CustomClientEvents>(file: string, event: K, listener: (...args: CustomClientEvents[K]) => Awaited<void>): this {
-		this.events.set(file, {
-			name: event,
-			listener
-		});
-		return this.on(event, listener);
-	}
-
-	public reloadEvent(newEvent: ClientEvent, file: string): this {
-		if(newEvent.once) return;
-		const oldEvent = this.events.get(file);
-		this.events.delete(file);
-		return this
-			.off(oldEvent.name, oldEvent.listener)
-			.onCustom(file, newEvent.name, newEvent.run);
 	}
 }
 
