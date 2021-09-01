@@ -7,7 +7,8 @@
     "start": "node dist/sharder.js",
     "register": "node dist/deploy.js",
     "build": "tsc",
-    "watch": "tsc -w"
+    "watch": "tsc -w",
+    "prettier": "prettier --write src/**/*.ts"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
   "devDependencies": {
     "@types/common-tags": "^1.8.1",
     "@types/node": "^16.7.4",
+    "prettier": "^2.3.2",
     "typescript": "^4.4.2"
   }
 }

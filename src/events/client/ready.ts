@@ -1,26 +1,28 @@
-import { ActivityOptions } from "discord.js";
-import { CustomClient } from "../../client";
-import { CustomSlashCommand } from "../../command";
-import { CustomConsole } from "../../console";
-import { ClientEvent, PlayerEvent } from "../../event";
-import { Util } from "../../util";
+import {ActivityOptions} from "discord.js";
+import {CustomClient} from "../../client";
+import {CustomSlashCommand} from "../../command";
+import {CustomConsole} from "../../console";
+import {ClientEvent, PlayerEvent} from "../../event";
+import {Util} from "../../util";
 
 module.exports = class extends ClientEvent {
-	constructor(){
+	constructor() {
 		super("ready", "ready", true);
 	}
 
-	async run(client: CustomClient<true>){
-		Util
-			.watchDir("dist/commands", (command: CustomSlashCommand) => client.registerCommand(command))
+	async run(client: CustomClient<true>) {
+		Util.watchDir("dist/commands", (command: CustomSlashCommand) => client.registerCommand(command))
 			.watchDir("dist/events/client", (event: ClientEvent) =>
-				client.offEvent(client.events.get(event.id)).onEvent(event))
-			.watchDir("dist/events/player", (event: PlayerEvent, file: string) => client.player.reloadEvent(event, file));
+				client.offEvent(client.events.get(event.id)).onEvent(event)
+			)
+			.watchDir("dist/events/player", (event: PlayerEvent, file: string) =>
+				client.player.reloadEvent(event, file)
+			);
 
 		try {
 			CustomConsole.log("Setting default permission for guild (/) commands.");
 
-			for(const command of (await (await client.guilds.fetch(process.env.GUILD)).commands.fetch()).values()){
+			for (const command of (await (await client.guilds.fetch(process.env.GUILD)).commands.fetch()).values()) {
 				await command.permissions.add({
 					permissions: [
 						{
@@ -36,14 +38,17 @@ module.exports = class extends ClientEvent {
 		} catch (error) {
 			CustomConsole.log(error);
 		}
-		
-		const activities: ActivityOptions[] = [{
-			type: "PLAYING",
-			name: "Music"
-		}, {
-			type: "LISTENING",
-			name: `${client.guilds.cache.size} guilds`
-		}];
+
+		const activities: ActivityOptions[] = [
+			{
+				type: "PLAYING",
+				name: "Music"
+			},
+			{
+				type: "LISTENING",
+				name: `${client.guilds.cache.size} guilds`
+			}
+		];
 		let activityIndex = 0;
 		client.user.setActivity(activities[activityIndex]);
 		setInterval(() => {
@@ -53,4 +58,4 @@ module.exports = class extends ClientEvent {
 
 		CustomConsole.log(`${client.user.username} is ready`);
 	}
-}
+};

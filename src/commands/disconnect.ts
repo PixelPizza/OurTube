@@ -1,9 +1,9 @@
-import { CommandInteraction, MessageEmbed } from "discord.js";
-import { CustomClient } from "../client";
-import { CustomSlashCommand } from "../command";
+import {CommandInteraction, MessageEmbed} from "discord.js";
+import {CustomClient} from "../client";
+import {CustomSlashCommand} from "../command";
 
 module.exports = class extends CustomSlashCommand {
-	constructor(){
+	constructor() {
 		super({
 			name: "disconnect",
 			description: "let the bot disconnect from the currently joined voice channel",
@@ -13,7 +13,7 @@ module.exports = class extends CustomSlashCommand {
 		});
 	}
 
-	run(interaction: CommandInteraction){
+	run(interaction: CommandInteraction) {
 		const client = interaction.client as CustomClient<true>,
 			{guild} = interaction,
 			{channel} = guild.me.voice;
@@ -30,4 +30,4 @@ module.exports = class extends CustomSlashCommand {
 			]
 		});
 	}
-}
+};

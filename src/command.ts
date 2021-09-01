@@ -1,5 +1,5 @@
-import { CommandInteraction, InteractionReplyOptions, MessageEmbed, MessageEmbedOptions } from "discord.js";
-import { SlashCommand, SlashCommandInfo } from "discord-extend";
+import {CommandInteraction, InteractionReplyOptions, MessageEmbed, MessageEmbedOptions} from "discord.js";
+import {SlashCommand, SlashCommandInfo} from "discord-extend";
 
 /**
  * Base class for commands
@@ -22,28 +22,28 @@ abstract class CustomSlashCommand extends SlashCommand {
 	public readonly guildOnly: boolean;
 	/**
 	 * If the command needs the user to be in a voice channel
-	 * 
+	 *
 	 * **Note:** Also sets guildOnly to true
 	 * @default false
 	 */
 	public readonly needsVoiceChannel: boolean;
 	/**
 	 * If the command needs the user to be in the same voice channel as the bot
-	 * 
+	 *
 	 * **Note:** Also sets guildOnly to true
 	 * @default false
 	 */
 	public readonly needsSameVoiceChannel: boolean;
 	/**
 	 * If the bot needs to be in a voice channel to use this command
-	 * 
+	 *
 	 * **Note:** Also sets guildOnly to true
 	 * @default false
 	 */
 	public readonly botNeedsVoiceChannel: boolean;
 	// /**
 	//  * If the command is a global command
-	//  * 
+	//  *
 	//  * **Note:** This value is always the same as the defaultPermission of the command
 	//  * @default true
 	//  */
@@ -55,14 +55,16 @@ abstract class CustomSlashCommand extends SlashCommand {
 	 * Make a new slash command
 	 * @param info - The command information
 	 */
-	public constructor(info: SlashCommandInfo & {
-		defer?: boolean;
-		ephemeral?: boolean;
-		guildOnly?: boolean;
-		needsVoiceChannel?: boolean;
-		needsSameVoiceChannel?: boolean;
-		botNeedsVoiceChannel?: boolean;
-	}){
+	public constructor(
+		info: SlashCommandInfo & {
+			defer?: boolean;
+			ephemeral?: boolean;
+			guildOnly?: boolean;
+			needsVoiceChannel?: boolean;
+			needsSameVoiceChannel?: boolean;
+			botNeedsVoiceChannel?: boolean;
+		}
+	) {
 		super(info);
 		const {
 			defer = true,
@@ -101,7 +103,7 @@ abstract class SlashCommandCheck {
 	 * Make a new command check
 	 * @param reply The reply to send if invalid
 	 */
-	constructor(reply: Omit<MessageEmbedOptions, "color">, index: number){
+	constructor(reply: Omit<MessageEmbedOptions, "color">, index: number) {
 		this._reply = reply;
 		this.index = index;
 	}
@@ -112,7 +114,4 @@ abstract class SlashCommandCheck {
 	public abstract isValid(interaction: CommandInteraction, command: CustomSlashCommand): boolean;
 }
 
-export {
-	CustomSlashCommand,
-	SlashCommandCheck
-};
+export {CustomSlashCommand, SlashCommandCheck};

@@ -1,8 +1,8 @@
-import { ClientEvents, ClientOptions, Collection, CommandInteraction } from "discord.js";
+import {ClientEvents, ClientOptions, Collection, CommandInteraction} from "discord.js";
 import {Client} from "discord-extend";
-import { CustomSlashCommand, SlashCommandCheck } from "./command";
-import { CustomPlayer } from "./player";
-import { Util } from "./util";
+import {CustomSlashCommand, SlashCommandCheck} from "./command";
+import {CustomPlayer} from "./player";
+import {Util} from "./util";
 
 type CustomClientEvents = ClientEvents & {command: [interaction: CommandInteraction, command: CustomSlashCommand]};
 
@@ -19,20 +19,20 @@ class CustomClient<Ready extends boolean = boolean> extends Client<Ready> {
 	 */
 	public readonly player: CustomPlayer;
 
-	constructor(options: ClientOptions){
+	constructor(options: ClientOptions) {
 		super(options);
 		this.player = new CustomPlayer(this);
 
 		Util.getJSFiles("checks", (checks: SlashCommandCheck[]) => {
 			this.on("interactionCreate", interaction => {
-				if(!interaction.isCommand()) return;
+				if (!interaction.isCommand()) return;
 
 				const command = this.commands.get(interaction.commandName);
 
-				if(!command) return;
+				if (!command) return;
 
-				for(const check of checks.sort((first, second) => first.index - second.index))
-					if(!check.isValid(interaction, command)) return interaction.reply(check.reply);
+				for (const check of checks.sort((first, second) => first.index - second.index))
+					if (!check.isValid(interaction, command)) return interaction.reply(check.reply);
 
 				this.emit("command", interaction, command);
 			});
@@ -40,7 +40,4 @@ class CustomClient<Ready extends boolean = boolean> extends Client<Ready> {
 	}
 }
 
-export {
-	CustomClient,
-	CustomClientEvents
-};
+export {CustomClient, CustomClientEvents};

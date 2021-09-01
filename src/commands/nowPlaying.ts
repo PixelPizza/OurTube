@@ -1,10 +1,10 @@
-import { stripIndents } from "common-tags";
-import { CommandInteraction, MessageEmbed } from "discord.js";
-import { CustomClient } from "../client";
-import { CustomSlashCommand } from "../command";
+import {stripIndents} from "common-tags";
+import {CommandInteraction, MessageEmbed} from "discord.js";
+import {CustomClient} from "../client";
+import {CustomSlashCommand} from "../command";
 
 module.exports = class extends CustomSlashCommand {
-	constructor(){
+	constructor() {
 		super({
 			name: "nowplaying",
 			description: "show the current playing song",
@@ -18,15 +18,16 @@ module.exports = class extends CustomSlashCommand {
 			queue = client.player.getQueue(interaction.guild),
 			nowPlaying = queue?.nowPlaying();
 
-		if(!nowPlaying) return interaction.editReply({
-			embeds: [
-				new MessageEmbed({
-					color: "RED",
-					title: "Not playing",
-					description: "I'm not playing anything"
-				})
-			]
-		});
+		if (!nowPlaying)
+			return interaction.editReply({
+				embeds: [
+					new MessageEmbed({
+						color: "RED",
+						title: "Not playing",
+						description: "I'm not playing anything"
+					})
+				]
+			});
 
 		interaction.editReply({
 			embeds: [
@@ -43,4 +44,4 @@ module.exports = class extends CustomSlashCommand {
 			]
 		});
 	}
-}
+};
