@@ -5,7 +5,7 @@ import { ClientEvent } from "../../event";
 
 module.exports = class extends ClientEvent<"command"> {
 	constructor(){
-		super("command");
+		super("command", "command");
 	}
 
 	async run(interaction: CommandInteraction, command: CustomSlashCommand){
