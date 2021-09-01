@@ -1,6 +1,6 @@
 import {config} from "dotenv";
+import { join } from "path";
 import { CustomClient } from "./client";
-import { CustomSlashCommand } from "./command";
 import { ClientEvent, PlayerEvent } from "./event";
 import { Util } from "./util";
 config();
@@ -10,12 +10,9 @@ const client = new CustomClient({
 		"GUILDS",
 		"GUILD_VOICE_STATES"
 	]
-});
+}).registerCommandsIn(join(__dirname, "commands"));
 
 Util
-	.getJSFiles("commands", (commands: CustomSlashCommand[]) => {
-		commands.forEach(command => client.commands.set(command.name, command));
-	})
 	.getJSFiles("events/client", (events: ClientEvent[], files: string[]) => {
 		events.forEach((event, index) => event.once ?
 			client.once(event.name, event.run) : client.onCustom(files[index], event.name, event.run));
