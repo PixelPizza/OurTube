@@ -3,7 +3,7 @@ import { CustomConsole } from "../../console";
 
 module.exports = class extends ClientEvent {
 	constructor(){
-		super("error");
+		super("error", "error");
 	}
 
 	run(error: string){
