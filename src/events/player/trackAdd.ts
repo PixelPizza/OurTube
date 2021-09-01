@@ -1,9 +1,9 @@
-import { Queue, Track } from "discord-player";
-import { CommandInteraction, MessageEmbed } from "discord.js";
-import { PlayerEvent } from "../../event";
+import {Queue, Track} from "discord-player";
+import {CommandInteraction, MessageEmbed} from "discord.js";
+import {PlayerEvent} from "../../event";
 
 module.exports = class extends PlayerEvent<"trackAdd"> {
-	constructor(){
+	constructor() {
 		super("trackAdd");
 	}
 
@@ -18,5 +18,5 @@ module.exports = class extends PlayerEvent<"trackAdd"> {
 				})
 			]
 		});
-	}
-}
+	};
+};

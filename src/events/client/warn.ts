@@ -1,12 +1,12 @@
-import { ClientEvent } from "../../event";
-import { CustomConsole } from "../../console";
+import {ClientEvent} from "../../event";
+import {CustomConsole} from "../../console";
 
 module.exports = class extends ClientEvent {
-	constructor(){
+	constructor() {
 		super("warn", "warn");
 	}
 
-	run(warning: string){
+	run(warning: string) {
 		CustomConsole.log(warning);
 	}
-}
+};

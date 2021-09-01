@@ -1,15 +1,12 @@
 import {config} from "dotenv";
-import { join } from "path";
-import { CustomClient } from "./client";
-import { PlayerEvent } from "./event";
-import { Util } from "./util";
+import {join} from "path";
+import {CustomClient} from "./client";
+import {PlayerEvent} from "./event";
+import {Util} from "./util";
 config();
 
 const client = new CustomClient({
-	intents: [
-		"GUILDS",
-		"GUILD_VOICE_STATES"
-	]
+	intents: ["GUILDS", "GUILD_VOICE_STATES"]
 })
 	.registerCommandsIn(join(__dirname, "commands"))
 	.addEventsIn(join(__dirname, "events/client"));
