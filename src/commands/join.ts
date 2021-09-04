@@ -1,18 +1,22 @@
+import { SlashCommand } from "discord-extend";
 import {CommandInteraction, GuildMember, MessageEmbed} from "discord.js";
 import {CustomClient} from "../client";
-import {CustomSlashCommand} from "../command";
 
-module.exports = class extends CustomSlashCommand {
+module.exports = class extends SlashCommand {
 	constructor() {
 		super({
 			name: "join",
 			description: "let the bot join your voice channel",
-			ephemeral: false,
-			needsVoiceChannel: true
+			checks: [
+				"guildOnly",
+				"userVoiceChannel"
+			]
 		});
 	}
 
 	async run(interaction: CommandInteraction, sendReply: boolean = true) {
+		await interaction.deferReply();
+
 		const client = interaction.client as CustomClient,
 			{member, guild} = interaction,
 			{voice} = member as GuildMember;

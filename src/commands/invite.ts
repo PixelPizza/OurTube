@@ -1,8 +1,8 @@
 import {stripIndents} from "common-tags";
+import { SlashCommand } from "discord-extend";
 import {CommandInteraction, MessageEmbed} from "discord.js";
-import {CustomSlashCommand} from "../command";
 
-module.exports = class extends CustomSlashCommand {
+module.exports = class extends SlashCommand {
 	constructor() {
 		super({
 			name: "invite",
@@ -10,7 +10,9 @@ module.exports = class extends CustomSlashCommand {
 		});
 	}
 
-	run(interaction: CommandInteraction) {
+	async run(interaction: CommandInteraction) {
+		await interaction.deferReply({ephemeral: true});
+
 		const {client} = interaction;
 		interaction.editReply({
 			embeds: [

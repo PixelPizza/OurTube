@@ -1,9 +1,9 @@
+import { SlashCommand } from "discord-extend";
 import {QueryType, Queue} from "discord-player";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 import {CustomClient} from "../client";
-import {CustomSlashCommand} from "../command";
 
-module.exports = class extends CustomSlashCommand {
+module.exports = class extends SlashCommand {
 	constructor() {
 		super({
 			name: "play",
@@ -27,12 +27,16 @@ module.exports = class extends CustomSlashCommand {
 						}))
 				}
 			],
-			ephemeral: false,
-			needsVoiceChannel: true
+			checks: [
+				"guildOnly",
+				"userVoiceChannel"
+			]
 		});
 	}
 
 	async run(interaction: CommandInteraction) {
+		await interaction.deferReply();
+
 		const client = interaction.client as CustomClient<true>,
 			query = interaction.options.getString("query", true),
 			result = await client.player.search(query, {
@@ -51,7 +55,7 @@ module.exports = class extends CustomSlashCommand {
 				]
 			});
 
-		const queue = await client.commands.get("join").run(interaction, false);
+		const queue = await client.registry.commands.get("join").run(interaction, false);
 		if (!(queue instanceof Queue)) return;
 
 		const type = result.playlist ? "playlist" : "song";
