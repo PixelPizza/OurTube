@@ -1,17 +1,17 @@
+import { ClientEvent, SlashCommand } from "discord-extend";
 import {ActivityOptions} from "discord.js";
 import {CustomClient} from "../../client";
-import {CustomSlashCommand} from "../../command";
 import {CustomConsole} from "../../console";
-import {ClientEvent, PlayerEvent} from "../../event";
+import {PlayerEvent} from "../../event";
 import {Util} from "../../util";
 
-module.exports = class extends ClientEvent {
+module.exports = class extends ClientEvent<"ready"> {
 	constructor() {
 		super("ready", "ready", true);
 	}
 
 	async run(client: CustomClient<true>) {
-		Util.watchDir("dist/commands", (command: CustomSlashCommand) => client.registerCommand(command))
+		Util.watchDir("dist/commands", (command: SlashCommand) => client.registry.registerCommand(command))
 			.watchDir("dist/events/client", (event: ClientEvent) =>
 				client.offEvent(client.events.get(event.id)).onEvent(event)
 			)

@@ -3,12 +3,12 @@ import {CommandInteraction, MessageEmbed} from "discord.js";
 
 module.exports = class extends SlashCommandCheck {
 	constructor() {
-		super("guildOnly", {
+		super("botVoiceChannel", {
 			embeds: [
 				new MessageEmbed({
 					color: "RED",
-					title: "Guild Only",
-					description: "This command can only be used in a guild"
+					title: "No voice channel",
+					description: "I'm not connected to a voice channel"
 				})
 			],
 			ephemeral: true
@@ -16,6 +16,6 @@ module.exports = class extends SlashCommandCheck {
 	}
 
 	isValid(interaction: CommandInteraction) {
-		return interaction.inGuild();
+		return !!interaction.guild.me.voice.channel;
 	}
 };

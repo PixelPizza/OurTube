@@ -1,19 +1,19 @@
 import {REST} from "@discordjs/rest";
 import {Routes} from "discord-api-types/v9";
+import { SlashCommand } from "discord-extend";
 import {config} from "dotenv";
 import {readdirSync} from "fs";
-import {join} from "path/posix";
-import {CustomSlashCommand} from "./command";
+import {join} from "path";
 import {CustomConsole} from "./console";
 config();
 
-const commands: CustomSlashCommand[] = readdirSync(join(__dirname, "commands"))
+const commands: SlashCommand[] = readdirSync(join(__dirname, "commands"))
 		.filter(file => file.endsWith(".js"))
 		.map(file => {
-			let command: CustomSlashCommand = require(`./commands/${file}`);
+			let command: SlashCommand = require(`./commands/${file}`);
 			// make a new command if a class is being used
-			// @ts-ignore
 			try {
+				// @ts-ignore
 				command = new command();
 			} catch (error) {}
 			return command;
