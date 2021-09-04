@@ -1,19 +1,24 @@
 import {stripIndents} from "common-tags";
+import { SlashCommand } from "discord-extend";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 import {CustomClient} from "../client";
-import {CustomSlashCommand} from "../command";
 
-module.exports = class extends CustomSlashCommand {
+module.exports = class extends SlashCommand {
 	constructor() {
 		super({
 			name: "nowplaying",
 			description: "show the current playing song",
-			needsSameVoiceChannel: true,
-			botNeedsVoiceChannel: true
+			checks: [
+				"guildOnly",
+				"botVoiceChannel",
+				"sameVoiceChannel"
+			]
 		});
 	}
 
 	async run(interaction: CommandInteraction) {
+		await interaction.deferReply({ephemeral: true});
+
 		const client = interaction.client as CustomClient<true>,
 			queue = client.player.getQueue(interaction.guild),
 			nowPlaying = queue?.nowPlaying();

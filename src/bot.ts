@@ -7,9 +7,11 @@ config();
 
 const client = new CustomClient({
 	intents: ["GUILDS", "GUILD_VOICE_STATES"]
-})
+}).addEventsIn(join(__dirname, "events/client"));
+
+client.registry
 	.registerCommandsIn(join(__dirname, "commands"))
-	.addEventsIn(join(__dirname, "events/client"));
+	.registerCommandChecksIn(join(__dirname, "checks"));
 
 Util.getJSFiles("events/player", (events: PlayerEvent[], files: string[]) => {
 	events.forEach((event, index) => client.player.onCustom(files[index], event.name, event.run, event.once));

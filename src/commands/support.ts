@@ -1,7 +1,7 @@
+import { SlashCommand } from "discord-extend";
 import {CommandInteraction, MessageEmbed} from "discord.js";
-import {CustomSlashCommand} from "../command";
 
-module.exports = class extends CustomSlashCommand {
+module.exports = class extends SlashCommand {
 	constructor() {
 		super({
 			name: "support",
@@ -10,6 +10,8 @@ module.exports = class extends CustomSlashCommand {
 	}
 
 	async run(interaction: CommandInteraction) {
+		await interaction.deferReply({ephemeral: true});
+
 		const guild = await interaction.client.guilds.fetch(process.env.GUILD);
 		interaction.editReply({
 			embeds: [
