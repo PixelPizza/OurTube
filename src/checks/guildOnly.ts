@@ -1,4 +1,4 @@
-import { SlashCommandCheck } from "discord-extend";
+import {SlashCommandCheck} from "discord-extend";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 
 module.exports = class extends SlashCommandCheck {

@@ -1,4 +1,4 @@
-import { SlashCommand } from "discord-extend";
+import {SlashCommand} from "discord-extend";
 import {QueryType, Queue} from "discord-player";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 import {CustomClient} from "../client";
@@ -27,10 +27,7 @@ module.exports = class extends SlashCommand {
 						}))
 				}
 			],
-			checks: [
-				"guildOnly",
-				"userVoiceChannel"
-			]
+			checks: ["guildOnly", "userVoiceChannel"]
 		});
 	}
 

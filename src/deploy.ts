@@ -1,6 +1,6 @@
 import {REST} from "@discordjs/rest";
 import {Routes} from "discord-api-types/v9";
-import { SlashCommand } from "discord-extend";
+import {SlashCommand} from "discord-extend";
 import {config} from "dotenv";
 import {readdirSync} from "fs";
 import {join} from "path";
