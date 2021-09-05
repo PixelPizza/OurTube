@@ -12,7 +12,7 @@ module.exports = class extends SlashCommand {
 	}
 
 	async run(interaction: CommandInteraction, sendReply: boolean = true) {
-		await interaction.deferReply();
+		if (sendReply) await interaction.deferReply();
 
 		const client = interaction.client as CustomClient,
 			{member, guild} = interaction,
