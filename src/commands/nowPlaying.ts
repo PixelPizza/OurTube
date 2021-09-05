@@ -1,5 +1,5 @@
 import {stripIndents} from "common-tags";
-import { SlashCommand } from "discord-extend";
+import {SlashCommand} from "discord-extend";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 import {CustomClient} from "../client";
 
@@ -8,11 +8,7 @@ module.exports = class extends SlashCommand {
 		super({
 			name: "nowplaying",
 			description: "show the current playing song",
-			checks: [
-				"guildOnly",
-				"botVoiceChannel",
-				"sameVoiceChannel"
-			]
+			checks: ["guildOnly", "botVoiceChannel", "sameVoiceChannel"]
 		});
 	}
 

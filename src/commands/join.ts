@@ -1,4 +1,4 @@
-import { SlashCommand } from "discord-extend";
+import {SlashCommand} from "discord-extend";
 import {CommandInteraction, GuildMember, MessageEmbed} from "discord.js";
 import {CustomClient} from "../client";
 
@@ -7,10 +7,7 @@ module.exports = class extends SlashCommand {
 		super({
 			name: "join",
 			description: "let the bot join your voice channel",
-			checks: [
-				"guildOnly",
-				"userVoiceChannel"
-			]
+			checks: ["guildOnly", "userVoiceChannel"]
 		});
 	}
 

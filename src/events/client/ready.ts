@@ -1,4 +1,4 @@
-import { ClientEvent, SlashCommand } from "discord-extend";
+import {ClientEvent, SlashCommand} from "discord-extend";
 import {ActivityOptions} from "discord.js";
 import {CustomClient} from "../../client";
 import {CustomConsole} from "../../console";
