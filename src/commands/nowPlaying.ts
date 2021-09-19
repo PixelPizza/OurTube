@@ -8,7 +8,7 @@ module.exports = class extends SlashCommand {
 		super({
 			name: "nowplaying",
 			description: "show the current playing song",
-			checks: ["guildOnly", "botVoiceChannel", "sameVoiceChannel"]
+			checks: ["guildOnly", "botInVoice", "inSameVoice"]
 		});
 	}
 
