@@ -7,7 +7,7 @@ module.exports = class extends SlashCommand {
 		super({
 			name: "join",
 			description: "let the bot join your voice channel",
-			checks: ["guildOnly", "userVoiceChannel"]
+			checks: ["guildOnly", "userInVoice"]
 		});
 	}
 

@@ -27,7 +27,7 @@ module.exports = class extends SlashCommand {
 						}))
 				}
 			],
-			checks: ["guildOnly", "userVoiceChannel"]
+			checks: ["guildOnly", "userInVoice"]
 		});
 	}
 
