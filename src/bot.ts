@@ -1,3 +1,4 @@
+import {SlashCommandCheck} from "discord-extend";
 import {config} from "dotenv";
 import {join} from "path";
 import {CustomClient} from "./client";
@@ -9,7 +10,9 @@ const client = new CustomClient({
 	intents: ["GUILDS", "GUILD_VOICE_STATES"]
 }).addEventsIn(join(__dirname, "events/client"));
 
-client.registry.registerCommandsIn(join(__dirname, "commands")).registerCommandChecksIn(join(__dirname, "checks"));
+client.registry
+	.registerCommandsIn(join(__dirname, "commands"))
+	.registerCommandChecks(...Object.values(SlashCommandCheck.DEFAULT));
 
 Util.getJSFiles("events/player", (events: PlayerEvent[], files: string[]) => {
 	events.forEach((event, index) => client.player.onCustom(files[index], event.name, event.run, event.once));

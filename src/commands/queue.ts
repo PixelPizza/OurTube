@@ -7,7 +7,7 @@ module.exports = class extends SlashCommand {
 		super({
 			name: "queue",
 			description: "show the current queue",
-			checks: ["guildOnly", "botVoiceChannel", "sameVoiceChannel"]
+			checks: ["guildOnly", "botInVoice", "inSameVoice"]
 		});
 	}
 

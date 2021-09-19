@@ -7,7 +7,7 @@ module.exports = class extends SlashCommand {
 		super({
 			name: "disconnect",
 			description: "let the bot disconnect from the currently joined voice channel",
-			checks: ["guildOnly", "botVoiceChannel", "sameVoiceChannel"]
+			checks: ["guildOnly", "botInVoice", "inSameVoice"]
 		});
 	}
 
