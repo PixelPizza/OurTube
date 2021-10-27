@@ -1,4 +1,4 @@
-import {Queue} from "discord-player";
+import {Queue, Util} from "discord-player";
 import {CustomConsole} from "../../console";
 import {PlayerEvent} from "../../event";
 
@@ -8,6 +8,9 @@ module.exports = class extends PlayerEvent<"queueEnd"> {
 	}
 
 	run = (queue: Queue) => {
-		CustomConsole.log(`[${queue.guild.name}] Queue finished!`);
+		if(Util.isVoiceEmpty(queue.connection.channel)) {
+			queue.destroy();
+			CustomConsole.log(`[${queue.guild.name}] Queue finished!`);
+		}
 	};
 };

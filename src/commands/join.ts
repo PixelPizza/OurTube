@@ -19,6 +19,8 @@ module.exports = class extends SlashCommand {
 			{voice} = member as GuildMember;
 
 		const queue = client.player.createQueue(guild, {
+			leaveOnEmpty: false,
+			leaveOnEnd: false,
 			ytdlOptions: {
 				quality: "highest",
 				filter: "audioonly",
