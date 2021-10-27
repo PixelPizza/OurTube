@@ -8,6 +8,9 @@ module.exports = class extends PlayerEvent<"channelEmpty"> {
 	}
 
 	run = (queue: Queue) => {
-		CustomConsole.log(`[${queue.guild.name}] Voice channel empty, now leaving...`);
+		if(!queue.nowPlaying()) {
+			queue.destroy();
+			CustomConsole.log(`[${queue.guild.name}] Voice channel empty, now leaving...`);
+		}
 	};
 };
