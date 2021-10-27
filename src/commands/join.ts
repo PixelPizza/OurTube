@@ -18,7 +18,15 @@ module.exports = class extends SlashCommand {
 			{member, guild} = interaction,
 			{voice} = member as GuildMember;
 
-		const queue = client.player.createQueue(guild, {metadata: interaction});
+		const queue = client.player.createQueue(guild, {
+			ytdlOptions: {
+				quality: "highest",
+				filter: "audioonly",
+				highWaterMark: 1 << 25,
+				dlChunkSize: 0
+			},
+			metadata: interaction
+		});
 
 		try {
 			if (!queue.connection) await queue.connect(voice.channel);
