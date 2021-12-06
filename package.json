@@ -25,6 +25,8 @@
     "@discordjs/builders": "^0.6.0",
     "@discordjs/opus": "^0.5.3",
     "@discordjs/rest": "^0.1.0-canary.0",
+    "@sapphire/decorators": "^3.1.4",
+    "@sapphire/framework": "^2.3.0-pr-293.f4a0d9e.0",
     "common-tags": "^1.8.0",
     "discord-api-types": "^0.22.0",
     "discord-extend": "^0.1.0",
