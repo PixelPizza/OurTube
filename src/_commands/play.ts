@@ -1,8 +1,7 @@
 import {SlashCommand} from "discord-extend";
 import {QueryType, Queue} from "discord-player";
 import {CommandInteraction, MessageEmbed} from "discord.js";
-import {Client} from "discord-extend";
-import {container} from "@sapphire/framework";
+import {container, SapphireClient} from "@sapphire/framework";
 
 module.exports = class extends SlashCommand {
 	constructor() {
@@ -35,7 +34,7 @@ module.exports = class extends SlashCommand {
 	async run(interaction: CommandInteraction) {
 		await interaction.deferReply();
 
-		const client = interaction.client as Client<true>,
+		const client = interaction.client as SapphireClient<true>,
 			query = interaction.options.getString("query", true),
 			result = await container.player.search(query, {
 				requestedBy: interaction.user,
@@ -53,7 +52,7 @@ module.exports = class extends SlashCommand {
 				]
 			});
 
-		const queue = await client.registry.commands.get("join").run(interaction, false);
+		const queue = await client.stores.get("commands").get("join").chatInputRun(interaction, {commandId: "", commandName: ""});
 		if (!(queue instanceof Queue)) return;
 
 		const type = result.playlist ? "playlist" : "song";
