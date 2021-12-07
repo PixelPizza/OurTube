@@ -5,7 +5,8 @@ import { stripIndents } from "common-tags";
 import { CommandInteraction, MessageEmbed } from "discord.js";
 
 @ApplyOptions<CommandOptions>({
-	description: "show the current playing song"
+	description: "show the current playing song",
+	preconditions: ["GuildOnly"]
 })
 export class NowPlayingCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {

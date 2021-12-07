@@ -4,7 +4,8 @@ import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/f
 import { CommandInteraction, MessageEmbed } from "discord.js";
 
 @ApplyOptions<CommandOptions>({
-	description: "let the bot disconnect from the currently joined voice channel"
+	description: "let the bot disconnect from the currently joined voice channel",
+	preconditions: ["GuildOnly"]
 })
 export class DisconnectCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {

@@ -4,7 +4,8 @@ import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/f
 import { CommandInteraction, MessageEmbed } from "discord.js";
 
 @ApplyOptions<CommandOptions>({
-	description: "resume the current song"
+	description: "resume the current song",
+	preconditions: ["GuildOnly"]
 })
 export class ResumeCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {

@@ -4,7 +4,8 @@ import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/f
 import { CommandInteraction, MessageEmbed } from "discord.js";
 
 @ApplyOptions<CommandOptions>({
-	description: "show the current queue"
+	description: "show the current queue",
+	preconditions: ["GuildOnly"]
 })
 export class QueueCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {

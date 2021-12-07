@@ -6,7 +6,8 @@ import { CommandInteraction, MessageEmbed } from "discord.js";
 import { JoinCommand } from "./join";
 
 @ApplyOptions<CommandOptions>({
-	description: "play a song"
+	description: "play a song",
+	preconditions: ["GuildOnly"]
 })
 export class PlayCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {

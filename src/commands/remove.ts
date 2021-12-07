@@ -4,7 +4,8 @@ import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/f
 import { CommandInteraction, MessageEmbed } from "discord.js";
 
 @ApplyOptions<CommandOptions>({
-	description: "remove a song from the current queue"
+	description: "remove a song from the current queue",
+	preconditions: ["GuildOnly"]
 })
 export class RemoveCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {

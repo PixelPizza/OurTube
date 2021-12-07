@@ -4,7 +4,8 @@ import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/f
 import { CommandInteraction, GuildMember, MessageEmbed } from "discord.js";
 
 @ApplyOptions<CommandOptions>({
-	description: "let the bot join your voice channel"
+	description: "let the bot join your voice channel",
+	preconditions: ["GuildOnly"]
 })
 export class JoinCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {

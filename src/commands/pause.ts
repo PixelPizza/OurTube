@@ -4,7 +4,8 @@ import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/f
 import { CommandInteraction, MessageEmbed } from "discord.js";
 
 @ApplyOptions<CommandOptions>({
-	description: "pause the current song"
+	description: "pause the current song",
+	preconditions: ["GuildOnly"]
 })
 export class PauseCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
