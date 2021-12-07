@@ -1,20 +1,20 @@
-import { container } from "@sapphire/framework";
-import {SlashCommand} from "discord-extend";
-import {CommandInteraction, MessageEmbed} from "discord.js";
+import { SlashCommandBuilder } from "@discordjs/builders";
+import { ApplyOptions } from "@sapphire/decorators";
+import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/framework";
+import { CommandInteraction, MessageEmbed } from "discord.js";
 
-module.exports = class extends SlashCommand {
-	constructor() {
-		super({
-			name: "queue",
-			description: "show the current queue",
-			checks: ["guildOnly", "botInVoice", "inSameVoice"]
-		});
+@ApplyOptions<CommandOptions>({
+	description: "show the current queue"
+})
+export class QueueCommand extends Command {
+	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
+		registry.registerChatInputCommand(new SlashCommandBuilder().setName(this.name).setDescription(this.description));
 	}
 
-	async run(interaction: CommandInteraction) {
+	public async chatInputRun(interaction: CommandInteraction) {
 		await interaction.deferReply({ephemeral: true});
 
-		const queue = container.player.getQueue(interaction.guild),
+		const queue = this.container.player.getQueue(interaction.guild),
 			nowPlaying = queue?.nowPlaying();
 
 		if (!queue.tracks.length && !nowPlaying) {
@@ -55,4 +55,4 @@ module.exports = class extends SlashCommand {
 			]
 		});
 	}
-};
+}
