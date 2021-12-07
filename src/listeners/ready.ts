@@ -1,24 +1,13 @@
-import {ClientEvent, SlashCommand} from "discord-extend";
-import {ActivityOptions} from "discord.js";
-import {CustomClient} from "../../client";
-import {CustomConsole} from "../../console";
-import {PlayerEvent} from "../../event";
-import {Util} from "../../util";
+import { ApplyOptions } from "@sapphire/decorators";
+import { Listener, ListenerOptions, SapphireClient } from "@sapphire/framework";
+import { ActivityOptions } from "discord.js";
+import { CustomConsole } from "../console";
 
-module.exports = class extends ClientEvent<"ready"> {
-	constructor() {
-		super("ready", "ready", true);
-	}
-
-	async run(client: CustomClient<true>) {
-		Util.watchDir("dist/commands", (command: SlashCommand) => client.registry.registerCommand(command))
-			.watchDir("dist/events/client", (event: ClientEvent) =>
-				client.offEvent(client.events.get(event.id)).onEvent(event)
-			)
-			.watchDir("dist/events/player", (event: PlayerEvent, file: string) =>
-				client.player.reloadEvent(event, file)
-			);
-
+@ApplyOptions<ListenerOptions>({
+	event: "ready"
+})
+export class ReadyListener extends Listener<"ready"> {
+	async run(client: SapphireClient<true>) {
 		try {
 			CustomConsole.log("Setting default permission for guild (/) commands.");
 
@@ -58,4 +47,4 @@ module.exports = class extends ClientEvent<"ready"> {
 
 		CustomConsole.log(`${client.user.username} is ready`);
 	}
-};
+}
