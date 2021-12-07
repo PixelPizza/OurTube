@@ -1,6 +1,6 @@
 import { ApplyOptions } from "@sapphire/decorators";
 import { Listener, ListenerOptions } from "@sapphire/framework";
-import { CustomConsole } from "../console";
+import { CustomConsole } from "../../console";
 
 @ApplyOptions<ListenerOptions>({
 	event: "warn"

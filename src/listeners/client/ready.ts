@@ -1,7 +1,7 @@
 import { ApplyOptions } from "@sapphire/decorators";
 import { Listener, ListenerOptions, SapphireClient } from "@sapphire/framework";
 import { ActivityOptions } from "discord.js";
-import { CustomConsole } from "../console";
+import { CustomConsole } from "../../console";
 
 @ApplyOptions<ListenerOptions>({
 	event: "ready"
