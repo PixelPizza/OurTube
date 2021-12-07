@@ -1,15 +1,16 @@
 import { ApplyOptions } from "@sapphire/decorators";
 import { Listener, ListenerOptions, SapphireClient } from "@sapphire/framework";
 import { ActivityOptions } from "discord.js";
-import { CustomConsole } from "../../console";
 
 @ApplyOptions<ListenerOptions>({
 	event: "ready"
 })
 export class ReadyListener extends Listener<"ready"> {
 	async run(client: SapphireClient<true>) {
+		const {logger} = this.container;
+
 		try {
-			CustomConsole.log("Setting default permission for guild (/) commands.");
+			logger.info("Setting default permission for guild (/) commands.");
 
 			for (const command of (await (await client.guilds.fetch(process.env.GUILD)).commands.fetch()).values()) {
 				await command.permissions.add({
@@ -23,9 +24,9 @@ export class ReadyListener extends Listener<"ready"> {
 				});
 			}
 
-			CustomConsole.log("Successfully set default permission for guild (/) commands.");
+			logger.info("Successfully set default permission for guild (/) commands.");
 		} catch (error) {
-			CustomConsole.log(error);
+			logger.error(error);
 		}
 
 		const activities: ActivityOptions[] = [
@@ -45,6 +46,6 @@ export class ReadyListener extends Listener<"ready"> {
 			client.user.setActivity(activities[activityIndex]);
 		}, 5 * 60 * 1000);
 
-		CustomConsole.log(`${client.user.username} is ready`);
+		logger.info(`${client.user.username} is ready`);
 	}
 }
