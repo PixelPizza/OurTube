@@ -1,6 +1,6 @@
+import { container } from "@sapphire/framework";
 import {SlashCommand} from "discord-extend";
 import {CommandInteraction, MessageEmbed} from "discord.js";
-import {CustomClient} from "../client";
 
 module.exports = class extends SlashCommand {
 	constructor() {
@@ -22,8 +22,7 @@ module.exports = class extends SlashCommand {
 	async run(interaction: CommandInteraction) {
 		await interaction.deferReply({ephemeral: true});
 
-		const client = interaction.client as CustomClient<true>,
-			queue = client.player.getQueue(interaction.guild),
+		const queue = container.player.getQueue(interaction.guild),
 			index = interaction.options.getInteger("index"),
 			removed = queue.remove(index-1);
 

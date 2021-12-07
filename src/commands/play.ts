@@ -1,7 +1,8 @@
 import {SlashCommand} from "discord-extend";
 import {QueryType, Queue} from "discord-player";
 import {CommandInteraction, MessageEmbed} from "discord.js";
-import {CustomClient} from "../client";
+import {Client} from "discord-extend";
+import {container} from "@sapphire/framework";
 
 module.exports = class extends SlashCommand {
 	constructor() {
@@ -34,9 +35,9 @@ module.exports = class extends SlashCommand {
 	async run(interaction: CommandInteraction) {
 		await interaction.deferReply();
 
-		const client = interaction.client as CustomClient<true>,
+		const client = interaction.client as Client<true>,
 			query = interaction.options.getString("query", true),
-			result = await client.player.search(query, {
+			result = await container.player.search(query, {
 				requestedBy: interaction.user,
 				searchEngine: (interaction.options.getString("type") as QueryType) ?? QueryType.AUTO
 			});

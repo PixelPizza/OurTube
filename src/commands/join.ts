@@ -1,6 +1,6 @@
 import {SlashCommand} from "discord-extend";
 import {CommandInteraction, GuildMember, MessageEmbed} from "discord.js";
-import {CustomClient} from "../client";
+import {container} from "@sapphire/framework";
 
 module.exports = class extends SlashCommand {
 	constructor() {
@@ -14,11 +14,10 @@ module.exports = class extends SlashCommand {
 	async run(interaction: CommandInteraction, sendReply: boolean = true) {
 		if (sendReply) await interaction.deferReply();
 
-		const client = interaction.client as CustomClient,
-			{member, guild} = interaction,
+		const {member, guild} = interaction,
 			{voice} = member as GuildMember;
 
-		const queue = client.player.createQueue(guild, {
+		const queue = container.player.createQueue(guild, {
 			leaveOnEmpty: false,
 			leaveOnEnd: false,
 			ytdlOptions: {
@@ -33,7 +32,7 @@ module.exports = class extends SlashCommand {
 		try {
 			if (!queue.connection) await queue.connect(voice.channel);
 		} catch {
-			client.player.deleteQueue(guild);
+			container.player.deleteQueue(guild);
 			return interaction.editReply({
 				embeds: [
 					new MessageEmbed({
