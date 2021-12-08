@@ -5,7 +5,7 @@ import { CommandInteraction, MessageEmbed } from "discord.js";
 
 @ApplyOptions<CommandOptions>({
 	description: "show the current queue",
-	preconditions: ["GuildOnly"]
+	preconditions: ["GuildOnly", "BotInVoice", "InSameVoice"]
 })
 export class QueueCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {

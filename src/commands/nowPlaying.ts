@@ -6,7 +6,7 @@ import { CommandInteraction, MessageEmbed } from "discord.js";
 
 @ApplyOptions<CommandOptions>({
 	description: "show the current playing song",
-	preconditions: ["GuildOnly"]
+	preconditions: ["GuildOnly", "BotInVoice", "InSameVoice"]
 })
 export class NowPlayingCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {

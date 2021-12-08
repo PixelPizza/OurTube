@@ -5,7 +5,7 @@ import { CommandInteraction, MessageEmbed } from "discord.js";
 
 @ApplyOptions<CommandOptions>({
 	description: "remove a song from the current queue",
-	preconditions: ["GuildOnly"]
+	preconditions: ["GuildOnly", "BotInVoice", "InSameVoice"]
 })
 export class RemoveCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {

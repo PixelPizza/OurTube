@@ -5,7 +5,7 @@ import { CommandInteraction, GuildMember, MessageEmbed } from "discord.js";
 
 @ApplyOptions<CommandOptions>({
 	description: "let the bot join your voice channel",
-	preconditions: ["GuildOnly"]
+	preconditions: ["GuildOnly", "UserInVoice"]
 })
 export class JoinCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {

@@ -7,7 +7,7 @@ import { JoinCommand } from "./join";
 
 @ApplyOptions<CommandOptions>({
 	description: "play a song",
-	preconditions: ["GuildOnly"]
+	preconditions: ["GuildOnly", "UserInVoice"]
 })
 export class PlayCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {

@@ -5,7 +5,7 @@ import { CommandInteraction, MessageEmbed } from "discord.js";
 
 @ApplyOptions<CommandOptions>({
 	description: "let the bot disconnect from the currently joined voice channel",
-	preconditions: ["GuildOnly"]
+	preconditions: ["GuildOnly", "BotInVoice", "InSameVoice"]
 })
 export class DisconnectCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {

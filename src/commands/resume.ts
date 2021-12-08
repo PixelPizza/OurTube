@@ -5,7 +5,7 @@ import { CommandInteraction, MessageEmbed } from "discord.js";
 
 @ApplyOptions<CommandOptions>({
 	description: "resume the current song",
-	preconditions: ["GuildOnly"]
+	preconditions: ["GuildOnly", "BotInVoice", "InSameVoice"]
 })
 export class ResumeCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {

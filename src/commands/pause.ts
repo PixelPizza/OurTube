@@ -5,7 +5,7 @@ import { CommandInteraction, MessageEmbed } from "discord.js";
 
 @ApplyOptions<CommandOptions>({
 	description: "pause the current song",
-	preconditions: ["GuildOnly"]
+	preconditions: ["GuildOnly", "BotInVoice", "InSameVoice"]
 })
 export class PauseCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
