@@ -1,10 +1,15 @@
 import {config} from "dotenv";
 import {Shard, ShardingManager} from "discord.js";
 import {join} from "path";
-import {CustomConsole} from "./console";
+import {LogLevel} from "@sapphire/framework";
+import {Logger} from "./logger";
 config();
 
-const logShardEvent = (shard: Shard, event: string) => CustomConsole.log(`Shard ${shard.id} ${event}`);
+const logger = new Logger({
+	level: LogLevel.Debug
+})
+
+const logShardEvent = (shard: Shard, event: string) => logger.debug(`Shard ${shard.id} ${event}`);
 
 new ShardingManager(join(__dirname, "bot.js"), {
 	token: process.env.TOKEN,
@@ -19,4 +24,4 @@ new ShardingManager(join(__dirname, "bot.js"), {
 			.on("reconnecting", () => logShardEvent(shard, "reconnecting"));
 	})
 	.spawn()
-	.catch(reason => CustomConsole.log("Shard spawn error", reason));
+	.catch(reason => logger.error("Shard spawn error", reason));

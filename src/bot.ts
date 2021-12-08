@@ -1,21 +1,14 @@
-import {SlashCommandCheck} from "discord-extend";
 import {config} from "dotenv";
-import {join} from "path";
-import {CustomClient} from "./client";
-import {PlayerEvent} from "./event";
-import {Util} from "./util";
+import {Player} from "discord-player";
+import {Logger} from "./logger";
+import {container, LogLevel, SapphireClient} from "@sapphire/framework";
+import "@sapphire/plugin-logger/register";
 config();
 
-const client = new CustomClient({
+const client = new SapphireClient({
 	intents: ["GUILDS", "GUILD_VOICE_STATES"]
-}).addEventsIn(join(__dirname, "events/client"));
-
-client.registry
-	.registerCommandsIn(join(__dirname, "commands"))
-	.registerCommandChecks(...Object.values(SlashCommandCheck.DEFAULT));
-
-Util.getJSFiles("events/player", (events: PlayerEvent[], files: string[]) => {
-	events.forEach((event, index) => client.player.onCustom(files[index], event.name, event.run, event.once));
 });
+container.player = new Player(client);
+container.logger = new Logger({level: LogLevel.Debug});
 
 client.login(process.env.TOKEN);

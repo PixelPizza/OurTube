@@ -1,16 +1,18 @@
-import {stripIndents} from "common-tags";
-import {SlashCommand} from "discord-extend";
-import {CommandInteraction, MessageEmbed} from "discord.js";
+import { SlashCommandBuilder } from "@discordjs/builders";
+import { ApplyOptions } from "@sapphire/decorators";
+import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/framework";
+import { stripIndents } from "common-tags";
+import { CommandInteraction, MessageEmbed } from "discord.js";
 
-module.exports = class extends SlashCommand {
-	constructor() {
-		super({
-			name: "invite",
-			description: "get the invite link of the bot"
-		});
+@ApplyOptions<CommandOptions>({
+	description: "get the invite link of the bot"
+})
+export class InviteCommand extends Command {
+	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
+		registry.registerChatInputCommand(new SlashCommandBuilder().setName(this.name).setDescription(this.description));
 	}
 
-	async run(interaction: CommandInteraction) {
+	public async chatInputRun(interaction: CommandInteraction) {
 		await interaction.deferReply({ephemeral: true});
 
 		const {client} = interaction;
@@ -32,4 +34,4 @@ module.exports = class extends SlashCommand {
 			]
 		});
 	}
-};
+}
