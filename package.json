@@ -26,7 +26,7 @@
     "@discordjs/opus": "^0.5.3",
     "@discordjs/rest": "^0.1.0-canary.0",
     "@sapphire/decorators": "^3.1.4",
-    "@sapphire/framework": "^2.3.0-pr-293.f4a0d9e.0",
+    "@sapphire/framework": "^2.3.0-pr-293.3cf4ed8.0",
     "@sapphire/pieces": "^3.2.0",
     "@sapphire/plugin-logger": "^2.1.1",
     "common-tags": "^1.8.0",
