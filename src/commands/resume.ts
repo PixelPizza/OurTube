@@ -1,21 +1,21 @@
-import {SlashCommand} from "discord-extend";
-import {CommandInteraction, MessageEmbed} from "discord.js";
-import {CustomClient} from "../client";
+import { SlashCommandBuilder } from "@discordjs/builders";
+import { ApplyOptions } from "@sapphire/decorators";
+import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/framework";
+import { CommandInteraction, MessageEmbed } from "discord.js";
 
-module.exports = class extends SlashCommand {
-	constructor() {
-		super({
-			name: "resume",
-			description: "resume the current song",
-			checks: ["guildOnly", "botInVoice", "inSameVoice"]
-		});
+@ApplyOptions<CommandOptions>({
+	description: "resume the current song",
+	preconditions: ["GuildOnly", "BotInVoice", "InSameVoice"]
+})
+export class ResumeCommand extends Command {
+	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
+		registry.registerChatInputCommand(new SlashCommandBuilder().setName(this.name).setDescription(this.description));
 	}
 
-	async run(interaction: CommandInteraction) {
+	public async chatInputRun(interaction: CommandInteraction) {
 		await interaction.deferReply({ephemeral: true});
 
-		const client = interaction.client as CustomClient<true>,
-			queue = client.player.getQueue(interaction.guild);
+		const queue = this.container.player.getQueue(interaction.guild);
 		
 		queue.setPaused(false);
 
@@ -29,4 +29,4 @@ module.exports = class extends SlashCommand {
 			]
 		});
 	}
-};
+}

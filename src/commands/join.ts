@@ -1,24 +1,28 @@
-import {SlashCommand} from "discord-extend";
-import {CommandInteraction, GuildMember, MessageEmbed} from "discord.js";
-import {CustomClient} from "../client";
+import { SlashCommandBuilder } from "@discordjs/builders";
+import { ApplyOptions } from "@sapphire/decorators";
+import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/framework";
+import { CommandInteraction, GuildMember, MessageEmbed } from "discord.js";
 
-module.exports = class extends SlashCommand {
-	constructor() {
-		super({
-			name: "join",
-			description: "let the bot join your voice channel",
-			checks: ["guildOnly", "userInVoice"]
-		});
+@ApplyOptions<CommandOptions>({
+	description: "let the bot join your voice channel",
+	preconditions: ["GuildOnly", "UserInVoice"]
+})
+export class JoinCommand extends Command {
+	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
+		registry.registerChatInputCommand(new SlashCommandBuilder().setName(this.name).setDescription(this.description));
 	}
 
-	async run(interaction: CommandInteraction, sendReply: boolean = true) {
-		if (sendReply) await interaction.deferReply();
-
-		const client = interaction.client as CustomClient,
-			{member, guild} = interaction,
+	/**
+	 * Join the voice channel of the interaction member
+	 * @param interaction The interaction to get guild data from
+	 * @returns The created queue of the interaction guild
+	 */
+	public async joinChannel(interaction: CommandInteraction) {
+		const {member, guild} = interaction,
+			{player} = this.container,
 			{voice} = member as GuildMember;
-
-		const queue = client.player.createQueue(guild, {
+		
+		const queue = player.createQueue(guild, {
 			leaveOnEmpty: false,
 			leaveOnEnd: false,
 			ytdlOptions: {
@@ -33,8 +37,8 @@ module.exports = class extends SlashCommand {
 		try {
 			if (!queue.connection) await queue.connect(voice.channel);
 		} catch {
-			client.player.deleteQueue(guild);
-			return interaction.editReply({
+			player.deleteQueue(guild);
+			return void interaction.editReply({
 				embeds: [
 					new MessageEmbed({
 						color: "RED",
@@ -45,17 +49,21 @@ module.exports = class extends SlashCommand {
 			});
 		}
 
-		if (sendReply)
-			interaction.editReply({
-				embeds: [
-					new MessageEmbed({
-						color: "GREEN",
-						title: "Join",
-						description: `Joined \`${voice.channel.name}\` 🔊`
-					})
-				]
-			});
-
 		return queue;
 	}
-};
+
+	public async chatInputRun(interaction: CommandInteraction) {
+		await interaction.deferReply();
+		await this.joinChannel(interaction);
+
+		interaction.editReply({
+			embeds: [
+				new MessageEmbed({
+					color: "GREEN",
+					title: "Join",
+					description: `Joined \`${(interaction.member as GuildMember).voice.channel.name}\` 🔊`
+				})
+			]
+		});
+	}
+}

@@ -1,15 +1,17 @@
-import {SlashCommand} from "discord-extend";
-import {CommandInteraction, MessageEmbed} from "discord.js";
+import { SlashCommandBuilder } from "@discordjs/builders";
+import { ApplyOptions } from "@sapphire/decorators";
+import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/framework";
+import { CommandInteraction, MessageEmbed } from "discord.js";
 
-module.exports = class extends SlashCommand {
-	constructor() {
-		super({
-			name: "support",
-			description: "get the invite link of the support server"
-		});
+@ApplyOptions<CommandOptions>({
+	description: "get the invite link of the support server"
+})
+export class SupportCommand extends Command {
+	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
+		registry.registerChatInputCommand(new SlashCommandBuilder().setName(this.name).setDescription(this.description));
 	}
 
-	async run(interaction: CommandInteraction) {
+	public async chatInputRun(interaction: CommandInteraction) {
 		await interaction.deferReply({ephemeral: true});
 
 		const guild = await interaction.client.guilds.fetch(process.env.GUILD);
@@ -29,4 +31,4 @@ module.exports = class extends SlashCommand {
 			]
 		});
 	}
-};
+}

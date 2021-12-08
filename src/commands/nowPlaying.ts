@@ -1,22 +1,22 @@
-import {stripIndents} from "common-tags";
-import {SlashCommand} from "discord-extend";
-import {CommandInteraction, MessageEmbed} from "discord.js";
-import {CustomClient} from "../client";
+import { SlashCommandBuilder } from "@discordjs/builders";
+import { ApplyOptions } from "@sapphire/decorators";
+import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/framework";
+import { stripIndents } from "common-tags";
+import { CommandInteraction, MessageEmbed } from "discord.js";
 
-module.exports = class extends SlashCommand {
-	constructor() {
-		super({
-			name: "nowplaying",
-			description: "show the current playing song",
-			checks: ["guildOnly", "botInVoice", "inSameVoice"]
-		});
+@ApplyOptions<CommandOptions>({
+	description: "show the current playing song",
+	preconditions: ["GuildOnly", "BotInVoice", "InSameVoice"]
+})
+export class NowPlayingCommand extends Command {
+	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
+		registry.registerChatInputCommand(new SlashCommandBuilder().setName("nowplaying").setDescription(this.description));
 	}
 
-	async run(interaction: CommandInteraction) {
+	public async chatInputRun(interaction: CommandInteraction) {
 		await interaction.deferReply({ephemeral: true});
 
-		const client = interaction.client as CustomClient<true>,
-			queue = client.player.getQueue(interaction.guild),
+		const queue = this.container.player.getQueue(interaction.guild),
 			nowPlaying = queue?.nowPlaying();
 
 		if (!nowPlaying)
@@ -45,4 +45,4 @@ module.exports = class extends SlashCommand {
 			]
 		});
 	}
-};
+}

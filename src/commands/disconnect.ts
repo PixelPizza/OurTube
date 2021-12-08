@@ -1,24 +1,24 @@
-import {SlashCommand} from "discord-extend";
-import {CommandInteraction, MessageEmbed} from "discord.js";
-import {CustomClient} from "../client";
+import { SlashCommandBuilder } from "@discordjs/builders";
+import { ApplyOptions } from "@sapphire/decorators";
+import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/framework";
+import { CommandInteraction, MessageEmbed } from "discord.js";
 
-module.exports = class extends SlashCommand {
-	constructor() {
-		super({
-			name: "disconnect",
-			description: "let the bot disconnect from the currently joined voice channel",
-			checks: ["guildOnly", "botInVoice", "inSameVoice"]
-		});
+@ApplyOptions<CommandOptions>({
+	description: "let the bot disconnect from the currently joined voice channel",
+	preconditions: ["GuildOnly", "BotInVoice", "InSameVoice"]
+})
+export class DisconnectCommand extends Command {
+	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
+		registry.registerChatInputCommand(new SlashCommandBuilder().setName(this.name).setDescription(this.description));
 	}
 
-	async run(interaction: CommandInteraction) {
+	public async chatInputRun(interaction: CommandInteraction) {
 		await interaction.deferReply();
 
-		const client = interaction.client as CustomClient<true>,
-			{guild} = interaction,
+		const {guild} = interaction,
 			{channel} = guild.me.voice;
 
-		client.player.deleteQueue(guild);
+		this.container.player.deleteQueue(guild);
 
 		interaction.editReply({
 			embeds: [
@@ -30,4 +30,4 @@ module.exports = class extends SlashCommand {
 			]
 		});
 	}
-};
+}

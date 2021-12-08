@@ -1,29 +1,31 @@
-import {SlashCommand} from "discord-extend";
-import {CommandInteraction, MessageEmbed} from "discord.js";
-import {CustomClient} from "../client";
+import { SlashCommandBuilder } from "@discordjs/builders";
+import { ApplyOptions } from "@sapphire/decorators";
+import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/framework";
+import { CommandInteraction, MessageEmbed } from "discord.js";
 
-module.exports = class extends SlashCommand {
-	constructor() {
-		super({
-			name: "remove",
-			description: "remove a song from the current queue",
-			options: [
-				{
-					type: "INTEGER",
-					name: "index",
-					description: "The queue index of the song to remove",
-					required: true
-				}
-			],
-			checks: ["guildOnly", "botInVoice", "inSameVoice"]
-		});
+@ApplyOptions<CommandOptions>({
+	description: "remove a song from the current queue",
+	preconditions: ["GuildOnly", "BotInVoice", "InSameVoice"]
+})
+export class RemoveCommand extends Command {
+	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
+		registry.registerChatInputCommand(
+			new SlashCommandBuilder()
+				.setName(this.name)
+				.setDescription(this.description)
+				.addIntegerOption(input =>
+					input
+						.setName("index")
+						.setDescription("The queue index of the song to remove")
+						.setRequired(true)
+				) as SlashCommandBuilder
+		);
 	}
 
-	async run(interaction: CommandInteraction) {
+	public async chatInputRun(interaction: CommandInteraction) {
 		await interaction.deferReply({ephemeral: true});
 
-		const client = interaction.client as CustomClient<true>,
-			queue = client.player.getQueue(interaction.guild),
+		const queue = this.container.player.getQueue(interaction.guild),
 			index = interaction.options.getInteger("index"),
 			removed = queue.remove(index-1);
 
@@ -37,4 +39,4 @@ module.exports = class extends SlashCommand {
 			]
 		});
 	}
-};
+}
