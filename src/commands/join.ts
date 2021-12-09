@@ -54,7 +54,7 @@ export class JoinCommand extends Command {
 
 	public async chatInputRun(interaction: CommandInteraction) {
 		await interaction.deferReply();
-		await this.joinChannel(interaction);
+		if(!await this.joinChannel(interaction)) return;
 
 		interaction.editReply({
 			embeds: [
