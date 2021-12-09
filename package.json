@@ -22,15 +22,14 @@
   },
   "homepage": "https://github.com/JTTechnic/OurTube#readme",
   "dependencies": {
-    "@discordjs/builders": "^0.6.0",
     "@discordjs/opus": "^0.5.3",
     "@sapphire/decorators": "^3.1.4",
     "@sapphire/framework": "^2.3.0-pr-293.d8e9f21.0",
     "@sapphire/pieces": "^3.2.0",
     "@sapphire/plugin-logger": "^2.1.1",
     "common-tags": "^1.8.0",
-    "discord-player": "^5.1.0",
-    "discord.js": "^13.3.1",
+    "discord-player": "^5.2.0",
+    "discord.js": "^13.4.0-dev.1639008339.6e57b65",
     "dotenv": "^10.0.0"
   },
   "devDependencies": {
