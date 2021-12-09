@@ -27,10 +27,10 @@ export class PlayCommand extends Command {
 						.setName("type")
 						.setDescription("where to search for the song")
 						.addChoices(Object.values(QueryType)
-							.filter(value => !["auto", "facebook", "vimeo", "arbitrary", "reverbnation"].includes(value))
+							.filter(value => !["auto", "facebook", "vimeo", "arbitrary", "reverbnation"].includes(value.toString()))
 							.map(value => [
-								value.replace("_", " "),
-								value
+								value.toString().replace("_", " "),
+								value.toString()
 							])
 						)
 				) as SlashCommandBuilder
@@ -44,7 +44,7 @@ export class PlayCommand extends Command {
 			query = interaction.options.getString("query", true),
 			result = await this.container.player.search(query, {
 				requestedBy: interaction.user,
-				searchEngine: (interaction.options.getString("type") as QueryType) ?? QueryType.AUTO
+				searchEngine: interaction.options.getString("type") ?? QueryType.AUTO
 			});
 
 		if (!result || !result.tracks.length)
