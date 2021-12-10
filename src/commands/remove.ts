@@ -18,7 +18,7 @@ export class RemoveCommand extends Command {
 						.setName("index")
 						.setDescription("The queue index of the song to remove")
 						.setRequired(true)
-				) as SlashCommandBuilder
+				)
 		);
 	}
 

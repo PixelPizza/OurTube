@@ -33,7 +33,7 @@ export class PlayCommand extends Command {
 								value.toString()
 							])
 						)
-				) as SlashCommandBuilder
+				)
 		);
 	}
 
