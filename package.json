@@ -30,7 +30,7 @@
     "@sapphire/plugin-logger": "^2.1.1",
     "common-tags": "^1.8.0",
     "discord-player": "^5.2.0",
-    "discord.js": "^13.4.0-dev.1639008339.6e57b65",
+    "discord.js": "^13.6.0",
     "dotenv": "^10.0.0",
     "ytdl-core": "^4.9.2"
   },
