@@ -6,6 +6,16 @@ A music discord bot written in discord.js
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/mcpsbot"><img src="https://avatars.githubusercontent.com/u/83839790?v=4?s=100" width="100px;" alt=""/><br /><sub><b>mcpsbot</b></sub></a><br /><a href="https://github.com/PixelPizza/OurTube/commits?author=mcpsbot" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
