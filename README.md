@@ -10,7 +10,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/mcpsbot"><img src="https://avatars.githubusercontent.com/u/83839790?v=4?s=100" width="100px;" alt=""/><br /><sub><b>mcpsbot</b></sub></a><br /><a href="https://github.com/PixelPizza/OurTube/commits?author=mcpsbot" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/mcpsbot"><img src="https://avatars.githubusercontent.com/u/83839790?v=4?s=100" width="100px;" alt=""/><br /><sub><b>mcpsbot</b></sub></a><br /><a href="https://github.com/PixelPizza/OurTube/commits?author=mcpsbot" title="Code">💻</a> <a href="#ideas-mcpsbot" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
