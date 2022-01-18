@@ -21,6 +21,24 @@
         "code",
         "ideas"
       ]
+    },
+    {
+      "login": "JaronZ",
+      "name": "Jaron",
+      "avatar_url": "https://avatars.githubusercontent.com/u/60853956?v=4",
+      "profile": "https://github.com/JaronZ",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "allcontributors[bot]",
+      "name": "allcontributors[bot]",
+      "avatar_url": "https://avatars.githubusercontent.com/in/23186?v=4",
+      "profile": "https://github.com/apps/allcontributors",
+      "contributions": [
+        "doc"
+      ]
     }
   ]
 }
