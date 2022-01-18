@@ -12,6 +12,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/mcpsbot"><img src="https://avatars.githubusercontent.com/u/83839790?v=4?s=100" width="100px;" alt=""/><br /><sub><b>mcpsbot</b></sub></a><br /><a href="https://github.com/PixelPizza/OurTube/commits?author=mcpsbot" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/JaronZ"><img src="https://avatars.githubusercontent.com/u/60853956?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jaron</b></sub></a><br /><a href="https://github.com/PixelPizza/OurTube/commits?author=JaronZ" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/all-"><img src="https://avatars.githubusercontent.com/u/4088712?v=4?s=100" width="100px;" alt=""/><br /><sub><b>all-</b></sub></a><br /><a href="https://github.com/PixelPizza/OurTube/commits?author=all-" title="Documentation">📖</a></td>
   </tr>
 </table>
 
