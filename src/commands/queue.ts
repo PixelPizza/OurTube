@@ -23,8 +23,8 @@ export class QueueCommand extends Command {
 				embeds: [
 					new MessageEmbed({
 						color: "RED",
-						title: this.container.getTranslation(interaction, "errors:queueEmpty.title"),
-						description: this.container.getTranslation(interaction, "errors:queueEmpty.description")
+						title: this.container.getTranslation(interaction, "commands/queue:error.title"),
+						description: this.container.getTranslation(interaction, "commands/queue:error.description")
 					})
 				]
 			});

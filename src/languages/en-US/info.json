@@ -1,6 +1,0 @@
-{
-    "trackAdd": "{{track}} has been added to the queue",
-    "tracksAdd": "{{count}} songs added",
-    "trackStart": "Now Playing {{track}}",
-    "play": "Play"
-}

@@ -43,8 +43,8 @@ export class JoinCommand extends Command {
 				embeds: [
 					new MessageEmbed({
 						color: "RED",
-						title: this.container.getTranslation(interaction, "errors:joinError.title"),
-						description: this.container.getTranslation(interaction, "errors:joinError.description")
+						title: this.container.getTranslation(interaction, "commands/join:error.title"),
+						description: this.container.getTranslation(interaction, "commands/join:error.description")
 					})
 				]
 			});

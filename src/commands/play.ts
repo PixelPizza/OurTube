@@ -52,8 +52,8 @@ export class PlayCommand extends Command {
 				embeds: [
 					new MessageEmbed({
 						color: "RED",
-						title: this.container.getTranslation(interaction, "errors:noSong.title"),
-						description: this.container.getTranslation(interaction, "errors:noSong.description")
+						title: this.container.getTranslation(interaction, "commands/play:error.title"),
+						description: this.container.getTranslation(interaction, "commands/play:error.description")
 					})
 				]
 			});

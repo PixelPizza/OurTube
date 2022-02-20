@@ -11,7 +11,7 @@ export class CommandDeniedListener extends Listener<"chatInputCommandDenied"> {
 			embeds: [
 				new MessageEmbed({
 					color: "RED",
-					title: this.container.getTranslation(interaction, "errors:commandFailed"),
+					title: this.container.getTranslation(interaction, "listeners/commanddenied:title"),
 					description: error.message
 				})
 			]

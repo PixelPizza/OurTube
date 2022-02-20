@@ -8,5 +8,9 @@
             "playlist": "Nu je aangevraagde afspeellijst aan het laden",
             "song": "Nu je aangevraagde nummer aan het laden"
         }
+    },
+    "error": {
+        "title": "Geen nummer gevonden",
+        "description": "Er zijn geen resultaten gevonden"
     }
 }

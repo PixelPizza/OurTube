@@ -5,7 +5,7 @@ export class InSameVoicePrecondition extends Precondition {
 	public chatInputRun(interaction: CommandInteraction) {
 		return interaction.guild.me.voice.channel.equals((interaction.member as GuildMember).voice.channel) ?
 			this.ok() :
-			this.error({message: this.container.getTranslation(interaction, "errors:inSameVoice")});
+			this.error({message: this.container.getTranslation(interaction, "preconditions/insamevoice:error")});
 	}
 }
 

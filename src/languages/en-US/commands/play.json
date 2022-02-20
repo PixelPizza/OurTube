@@ -8,5 +8,9 @@
             "playlist": "Now loading your requested playlist",
             "song": "Now loading your requested song"
         }
+    },
+    "error": {
+        "title": "No song found",
+        "description": "No results were found"
     }
 }

@@ -13,8 +13,8 @@ export class TrackStartListener extends Listener {
 			embeds: [
 				new MessageEmbed({
 					color: "BLUE",
-					title: this.container.getTranslation(queue.metadata, "info:play"),
-					description: this.container.getTranslation(queue.metadata, "info:trackStart", { replace: { track: `[${track.title}](${track.url})` } })
+					title: this.container.getTranslation(queue.metadata, "listeners/trackstart:title"),
+					description: this.container.getTranslation(queue.metadata, "listeners/trackstart:description", { replace: { track: `[${track.title}](${track.url})` } })
 				})
 			]
 		});

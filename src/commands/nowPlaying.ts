@@ -24,8 +24,8 @@ export class NowPlayingCommand extends Command {
 				embeds: [
 					new MessageEmbed({
 						color: "RED",
-						title: this.container.getTranslation(interaction, "errors:notPlaying.title"),
-						description: this.container.getTranslation(interaction, "errors:notPlaying.description")
+						title: this.container.getTranslation(interaction, "commands/nowplaying:error.title"),
+						description: this.container.getTranslation(interaction, "commands/nowplaying:error.description")
 					})
 				]
 			});
