@@ -17,8 +17,8 @@ export class ClearCommand extends Command {
             embeds: [
                 new MessageEmbed({
                     color: "GREEN",
-                    title: "Queue cleared",
-                    description: "The queue has been cleared."
+                    title: this.container.getTranslation(interaction, "commands/clear:success.title"),
+                    description: this.container.getTranslation(interaction, "commands/clear:success.description")
                 })
             ]
         });

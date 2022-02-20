@@ -13,8 +13,8 @@ export class TracksAddListener extends Listener {
 			embeds: [
 				new MessageEmbed({
 					color: "BLUE",
-					title: "Play",
-					description: `${tracks.length} songs added`
+					title: this.container.getTranslation(queue.metadata, "info:play"),
+					description: this.container.getTranslation(queue.metadata, "info:tracksAdd", { replace: { count: tracks.length } })
 				})
 			]
 		});

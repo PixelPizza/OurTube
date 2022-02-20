@@ -1,0 +1,6 @@
+{
+    "success": {
+        "title": "Verwijderen",
+        "description": "{{track}} verwijderd van de wachtlijst op index {{index}}"
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "botInVoice": "Ik ben niet verbonden met een spraakkanaal",
+    "inSameVoice": "Je moet in hetzelfde spraakkanaal zitten als ik om deze opdracht te gebruiken",
+    "userInVoice": "Je moet verbinding maken met een spraakkanaal om deze opdracht te gebruiken",
+    "commandFailed": "Opdracht mislukt",
+    "joinError": {
+        "title": "Kan geen verbinding maken met spraakkanaal",
+        "description": "Het lukt niet om met je spraakkanaal te verbinden"
+    },
+    "notPlaying": {
+        "title": "Niet aan het afspelen",
+        "description": "Ik ben niks aan het afspelen"
+    },
+    "noSong": {
+        "title": "Geen nummer gevonden",
+        "description": "Er zijn geen resultaten gevonden"
+    },
+    "queueEmpty": {
+        "title": "Wachtrij leeg",
+        "description": "Er zitten geen nummers in de wachtrij"
+    }
+}

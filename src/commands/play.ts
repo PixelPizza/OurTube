@@ -52,8 +52,8 @@ export class PlayCommand extends Command {
 				embeds: [
 					new MessageEmbed({
 						color: "RED",
-						title: "No song found",
-						description: "No results were found"
+						title: this.container.getTranslation(interaction, "errors:noSong.title"),
+						description: this.container.getTranslation(interaction, "errors:noSong.description")
 					})
 				]
 			});
@@ -67,8 +67,8 @@ export class PlayCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "BLUE",
-					title: `Loading ${type}`,
-					description: `Now loading your requested ${type}`
+					title: this.container.getTranslation(interaction, `commands/play:success.title.${type}`),
+					description: this.container.getTranslation(interaction, `commands/play:success.description.${type}`)
 				})
 			]
 		});
