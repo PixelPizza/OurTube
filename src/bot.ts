@@ -3,6 +3,7 @@ import {Player} from "discord-player";
 import {Logger} from "./logger";
 import {container, LogLevel, SapphireClient} from "@sapphire/framework";
 import "@sapphire/plugin-logger/register";
+import "@sapphire/plugin-i18next/register";
 config();
 
 const client = new SapphireClient({
