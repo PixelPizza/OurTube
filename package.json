@@ -33,7 +33,6 @@
     "discord-player": "^5.2.2",
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.0",
-    "sodium": "^3.0.2",
     "ytdl-core": "^4.10.1"
   },
   "devDependencies": {
