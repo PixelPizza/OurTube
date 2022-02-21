@@ -33,8 +33,8 @@ export class RemoveCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
-					title: "Remove",
-					description: `Removed [${removed.title}](${removed.url}) from the queue at index ${index}`
+					title: this.container.getTranslation(interaction, "commands/remove:success.title"),
+					description: this.container.getTranslation(interaction, "commands/remove:success.description", { replace: { track: `[${removed.title}](${removed.url})`, index } })
 				})
 			]
 		});

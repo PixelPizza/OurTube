@@ -26,8 +26,8 @@ export class SkipCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
-					title: "Skipped",
-					description: `Skipped to next song`
+					title: this.container.getTranslation(interaction, "commands/skip:success.title"),
+					description: this.container.getTranslation(interaction, "commands/skip:success.description")
 				})
 			]
 		});

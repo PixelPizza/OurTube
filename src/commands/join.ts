@@ -43,8 +43,8 @@ export class JoinCommand extends Command {
 				embeds: [
 					new MessageEmbed({
 						color: "RED",
-						title: "Can't join voice channel",
-						description: "Unable to join your voice channel"
+						title: this.container.getTranslation(interaction, "commands/join:error.title"),
+						description: this.container.getTranslation(interaction, "commands/join:error.description")
 					})
 				]
 			});
@@ -61,8 +61,8 @@ export class JoinCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
-					title: "Join",
-					description: `Joined \`${(interaction.member as GuildMember).voice.channel.name}\` 🔊`
+					title: this.container.getTranslation(interaction, "commands/join:success.title"),
+					description: this.container.getTranslation(interaction, "commands/join:success.description", { replace: { channel: (interaction.member as GuildMember).voice.channel.name}})
 				})
 			]
 		});

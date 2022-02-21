@@ -23,8 +23,8 @@ export class QueueCommand extends Command {
 				embeds: [
 					new MessageEmbed({
 						color: "RED",
-						title: "Queue empty",
-						description: "There are no songs in the queue"
+						title: this.container.getTranslation(interaction, "commands/queue:error.title"),
+						description: this.container.getTranslation(interaction, "commands/queue:error.description")
 					})
 				]
 			});
@@ -34,14 +34,14 @@ export class QueueCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "BLUE",
-					title: "Queue",
+					title: this.container.getTranslation(interaction, "commands/queue:success.title"),
 					fields: [
 						{
-							name: "__Now Playing__",
+							name: `__${this.container.getTranslation(interaction, "commands/queue:success.nowPlaying")}__`,
 							value: `${nowPlaying.author} | [${nowPlaying.title}](${nowPlaying.url}) | \`${nowPlaying.duration}\``
 						},
 						{
-							name: "__Up Next__",
+							name: `__${this.container.getTranslation(interaction, "commands/queue:success.upNext")}__`,
 							value: queue.tracks
 								.map(
 									(track, index) =>

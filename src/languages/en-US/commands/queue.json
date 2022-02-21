@@ -1,0 +1,11 @@
+{
+    "success": {
+        "title": "Queue",
+        "nowPlaying": "Now Playing",
+        "upNext": "Up Next"
+    },
+    "error": {
+        "title": "Queue empty",
+        "description": "There are no songs in the queue"
+    }
+}

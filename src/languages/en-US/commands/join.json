@@ -1,0 +1,10 @@
+{
+    "success": {
+        "title": "Join",
+        "description": "Joined `{{channel}}` 🔊"
+    },
+    "error": {
+        "title": "Can't join voice channel",
+        "description": "Unable to join your voice channel"
+    }
+}

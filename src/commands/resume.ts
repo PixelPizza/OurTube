@@ -23,8 +23,8 @@ export class ResumeCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
-					title: "Resume",
-					description: `Resumed the current playing song`
+					title: this.container.getTranslation(interaction, "commands/resume:success.title"),
+					description: this.container.getTranslation(interaction, "commands/resume:success.description")
 				})
 			]
 		});

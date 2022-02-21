@@ -36,7 +36,7 @@ export class VolumeCommand extends Command {
                     new MessageEmbed({
                         color: "BLUE",
                         title: "Volume",
-                        description: `The current volume is ${queue.volume}%`
+                        description: this.container.getTranslation(interaction, "commands/volume:success.description.current", { replace: { volume: queue.volume } })
                     })
                 ]
             });
@@ -48,8 +48,8 @@ export class VolumeCommand extends Command {
             embeds: [
                 new MessageEmbed({
                     color: "GREEN",
-                    title: "Volume",
-                    description: `The volume has been set to ${volume}%`
+                    title: this.container.getTranslation(interaction, "commands/volume:success.title"),
+                    description: this.container.getTranslation(interaction, "commands/volume:success.description.changed", { replace: { volume } })
                 })
             ]
         });
