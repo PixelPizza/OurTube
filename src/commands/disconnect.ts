@@ -24,8 +24,8 @@ export class DisconnectCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
-					title: "Disconnect",
-					description: `Disconnected from \`${channel.name}\` 🔊`
+					title: this.container.getTranslation(interaction, "commands/disconnect:success.title"),
+					description: this.container.getTranslation(interaction, "commands/disconnect:success.description", { replace: { channel: channel.name } })
 				})
 			]
 		});

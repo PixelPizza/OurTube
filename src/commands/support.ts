@@ -19,14 +19,14 @@ export class SupportCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "RED",
-					title: "Support",
-					description: `Here is the invite for the [support server](${await guild.invites.create(
+					title: this.container.getTranslation(interaction, "commands/support:success.title"),
+					description: this.container.getTranslation(interaction, "commands/support:success.description", { replace: { invite: (await guild.invites.create(
 						guild.systemChannel,
 						{
 							maxAge: 0,
 							reason: `${interaction.user} used the support command`
 						}
-					)})`
+					)).url } })
 				})
 			]
 		});

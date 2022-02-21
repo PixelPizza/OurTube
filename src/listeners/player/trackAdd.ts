@@ -14,8 +14,8 @@ export class TrackAddListener extends Listener {
 			embeds: [
 				new MessageEmbed({
 					color: "BLUE",
-					title: "Play",
-					description: `[${track.title}](${track.url}) has been added to the queue`
+					title: this.container.getTranslation(queue.metadata, "listeners/trackadd:title"),
+					description: this.container.getTranslation(queue.metadata, "listeners/trackadd:description", { replace: { track: `[${track.title}](${track.url})` } })
 				})
 			]
 		});

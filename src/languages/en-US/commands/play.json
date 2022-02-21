@@ -1,0 +1,16 @@
+{
+    "success": {
+        "title": {
+            "playlist": "Loading playlist",
+            "song": "Loading song"
+        },
+        "description": {
+            "playlist": "Now loading your requested playlist",
+            "song": "Now loading your requested song"
+        }
+    },
+    "error": {
+        "title": "No song found",
+        "description": "No results were found"
+    }
+}

@@ -24,8 +24,8 @@ export class NowPlayingCommand extends Command {
 				embeds: [
 					new MessageEmbed({
 						color: "RED",
-						title: "Not playing",
-						description: "I'm not playing anything"
+						title: this.container.getTranslation(interaction, "commands/nowplaying:error.title"),
+						description: this.container.getTranslation(interaction, "commands/nowplaying:error.description")
 					})
 				]
 			});
@@ -34,12 +34,12 @@ export class NowPlayingCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "BLUE",
-					title: "Now playing",
+					title: this.container.getTranslation(interaction, "commands/nowplaying:success.title"),
 					description: stripIndents`
 						[${nowPlaying.title}](${nowPlaying.url})
 						${queue.createProgressBar()}
 
-						Requested by: ${nowPlaying.requestedBy}
+						${this.container.getTranslation(interaction, "commands/nowplaying:success.requestedBy", { replace: { user: nowPlaying.requestedBy.toString() } })}
 					`
 				})
 			]

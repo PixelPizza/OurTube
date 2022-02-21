@@ -20,12 +20,12 @@ export class InviteCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "BLUE",
-					title: "OurTube invite links",
+					title: this.container.getTranslation(interaction, "commands/invite:success.title"),
 					description: stripIndents`
-						[Recommended](${client.generateInvite({
+						[${this.container.getTranslation(interaction, "commands/invite:success.recommended")}](${client.generateInvite({
 							scopes: ["bot", "applications.commands"]
 						})})
-						[Admin](${client.generateInvite({
+						[${this.container.getTranslation(interaction, "commands/invite:success.admin")}](${client.generateInvite({
 							scopes: ["bot", "applications.commands"],
 							permissions: ["ADMINISTRATOR"]
 						})})

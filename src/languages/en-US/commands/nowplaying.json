@@ -1,0 +1,10 @@
+{
+    "success": {
+        "title": "Now Playing",
+        "requestedBy": "Requested by {{user}}"
+    },
+    "error": {
+        "title": "Not playing",
+        "description": "I'm not playing anything"
+    }
+}

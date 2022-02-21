@@ -23,8 +23,8 @@ export class PauseCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
-					title: "Pause",
-					description: `Paused the current playing song`
+					title: this.container.getTranslation(interaction, "commands/pause:success.title"),
+					description: this.container.getTranslation(interaction, "commands/pause:success.description")
 				})
 			]
 		});
