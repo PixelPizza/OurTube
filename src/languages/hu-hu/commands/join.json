@@ -1,10 +1,10 @@
 {
     "success": {
-        "title": "Verbonden",
-        "description": "Verbonden met `{{channel}}` 🔊"
+        "title": "Csatlakozik",
+        "description": "Csatlakozott `{{channel}}` 🔊"
     },
     "error": {
-        "title": "Kan geen verbinding maken met spraakkanaal",
-        "description": "Het lukt niet om met je spraakkanaal te verbinden"
+        "title": "Nem lehet csatlakozni a hangcsatornához",
+        "description": "Nem sikerült csatlakozni a hangcsatornádhoz"
     }
 }
