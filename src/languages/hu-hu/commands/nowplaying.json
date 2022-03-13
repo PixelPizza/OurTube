@@ -1,10 +1,10 @@
 {
     "success": {
-        "title": "Nu aan het afspelen",
-        "requestedBy": "Aangevraagd door {{user}}"
+        "title": "Most játszik",
+        "requestedBy": "Által kért {{user}}"
     },
     "error": {
-        "title": "Niks aan het afspelen",
-        "description": "Ik ben niks aan het afspelen"
+        "title": "Nem játszom",
+        "description": "Nem játszok semmit"
     }
 }
