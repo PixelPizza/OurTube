@@ -1,0 +1,16 @@
+{
+    "success": {
+        "title": {
+            "playlist": "Lejátszási lista betöltése",
+            "song": "Dal betöltése"
+        },
+        "description": {
+            "playlist": "A kért lejátszási lista betöltése folyamatban van",
+            "song": "A kért dal betöltése folyamatban van"
+        }
+    },
+    "error": {
+        "title": "Nem található dal",
+        "description": "Nincs találat"
+    }
+}
