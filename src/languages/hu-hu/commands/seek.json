@@ -1,6 +1,6 @@
 {
     "success": {
-        "title": "Seek",
-        "description": "Seeked to the specified time"
+        "title": "Keress",
+        "description": "A megadott időpontig keresték"
     }
 }
