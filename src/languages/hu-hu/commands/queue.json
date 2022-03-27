@@ -1,11 +1,11 @@
 {
     "success": {
-        "title": "Wachtrij",
-        "nowPlaying": "Nu aan het afspelen",
-        "upNext": "Volgende"
+        "title": "Sor",
+        "nowPlaying": "Most játszik",
+        "upNext": "Fel Következő"
     },
     "error": {
-        "title": "Wachtrij leeg",
-        "description": "Er zitten geen nummers in de wachtrij"
+        "title": "A sor üres",
+        "description": "Nincsenek dalok a sorban"
     }
 }
