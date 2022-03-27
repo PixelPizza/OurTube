@@ -1,0 +1,6 @@
+{
+    "success": {
+        "title": "Távolítsa el",
+        "description": "{{track}} eltávolították a sorból index {{index}}"
+    }
+}

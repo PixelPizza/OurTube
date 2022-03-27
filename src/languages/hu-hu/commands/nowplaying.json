@@ -1,0 +1,10 @@
+{
+    "success": {
+        "title": "Most játszik",
+        "requestedBy": "Által kért {{user}}"
+    },
+    "error": {
+        "title": "Nem játszom",
+        "description": "Nem játszok semmit"
+    }
+}
