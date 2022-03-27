@@ -1,9 +1,9 @@
 {
     "success": {
-        "title": "Volume",
+        "title": "Hangerő",
         "description": {
-            "current": "Het huidige volume is {{volume}}%",
-            "changed": "Het volume is veranderd naar {{volume}}%"
+            "current": "A jelenlegi hangerő az {{volume}}%",
+            "changed": "A hangerő a következőre lett állítva {{volume}}%"
         }
     }
 }
