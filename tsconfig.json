@@ -1,13 +1,11 @@
 {
-	"compilerOptions": {
-		"target": "ESNext",
-		"module": "CommonJS",
-		"outDir": "dist",
-		"allowJs": true,
-		"removeComments": true,
-		"esModuleInterop": true,
-		"experimentalDecorators": true,
-		"resolveJsonModule": true
-	},
-	"include": ["src", "src/languages/**/*.json"]
+    "compileOnSave": true,
+    "extends": "@sapphire/ts-config",
+    "compilerOptions": {
+        "importHelpers": true,
+        "noEmitHelpers": true,
+        "skipLibCheck": true,
+        "module": "es2022",
+        "target": "es2022"
+    }
 }
