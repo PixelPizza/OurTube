@@ -3,12 +3,21 @@
   "version": "1.0.0",
   "description": "A music discord bot written in discord.js",
   "main": "dist/sharder.js",
+  "directories": {
+    "lib": "src"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "start": "node dist/sharder.js",
-    "register": "node dist/deploy.js",
-    "build": "tsc",
-    "watch": "tsc -w",
-    "prettier": "prettier --write src/**/*.ts"
+    "update": "yarn up \"*\" -i",
+    "clean": "node scripts/clean-dist.mjs",
+    "prebuild": "yarn clean",
+    "build": "tsup",
+    "lint": "eslint --ext mjs,js,ts",
+    "lint:fix": "eslint --ext mjs,js,ts --fix",
+    "format": "prettier --write **/*.{ts,js,json,yml,yaml}",
+    "start": "node dist/sharder.js"
   },
   "repository": {
     "type": "git",
@@ -35,12 +44,15 @@
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.0",
     "sodium": "^3.0.2",
+    "tslib": "^2.3.1",
     "ytdl-core": "^4.10.1"
   },
   "devDependencies": {
+    "@sapphire/ts-config": "^3.3.3",
     "@types/common-tags": "^1.8.1",
     "@types/node": "^17.0.17",
     "prettier": "^2.5.1",
+    "tsup": "^5.12.1",
     "typescript": "^4.5.5"
   }
 }
