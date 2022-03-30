@@ -11,6 +11,6 @@ const client = new SapphireClient({
 	intents: ["GUILDS", "GUILD_VOICE_STATES"]
 });
 container.player = new Player(client);
-container.logger = new Logger({level: LogLevel.Debug});
+container.logger = new Logger(container, {level: LogLevel.Debug});
 
 client.login(process.env.TOKEN);
