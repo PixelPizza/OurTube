@@ -17,6 +17,7 @@
     "lint": "eslint --ext mjs,js,ts",
     "lint:fix": "eslint --ext mjs,js,ts --fix",
     "format": "prettier --write **/*.{ts,js,json,yml,yaml}",
+    "prestart": "yarn build",
     "start": "node dist/sharder.mjs"
   },
   "repository": {
