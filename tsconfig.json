@@ -5,7 +5,7 @@
         "importHelpers": true,
         "noEmitHelpers": true,
         "skipLibCheck": true,
-        "module": "es2022",
-        "target": "es2022"
+        "module": "ESNext",
+        "target": "ESNext",
     }
 }
