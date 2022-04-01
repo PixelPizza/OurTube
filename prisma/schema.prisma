@@ -9,3 +9,9 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model Blacklist {
+  user   String @id
+  reason String
+  author String
+}
