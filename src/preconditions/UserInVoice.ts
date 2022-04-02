@@ -1,5 +1,5 @@
 import { Precondition } from "@sapphire/framework";
-import { CommandInteraction, GuildMember } from "discord.js";
+import type { CommandInteraction, GuildMember } from "discord.js";
 
 export class UserInVoicePrecondition extends Precondition {
 	public chatInputRun(interaction: CommandInteraction) {

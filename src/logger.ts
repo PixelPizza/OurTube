@@ -23,6 +23,7 @@ export class Logger extends SapphireLogger {
 		[LogLevel.Warn, new WebhookLogFormat("YELLOW", "Warn")],
 		[LogLevel.Error, new WebhookLogFormat("RED", "Error")],
 		[LogLevel.Fatal, new WebhookLogFormat("DARK_RED", "Fatal")],
+		// @ts-ignore
 		[LogLevel.None, new WebhookLogFormat("DEFAULT", null)]
 	]);
 
@@ -39,15 +40,15 @@ export class Logger extends SapphireLogger {
 
 		this.webhook.send({
 			embeds: [{
-				color: format.color,
-				title: format.title,
+				color: format!.color,
+				title: format!.title,
 				description: values
 					.map(value => (typeof value === "string" ? value : inspect(value, {colors: false, depth: this.depth})))
 					.join(this.join),
 				timestamp: Date.now()
 			}],
 			username: "OurTube Console",
-			avatarURL: this.container.client.user?.displayAvatarURL()
+			avatarURL: this.container.client?.user?.displayAvatarURL()
 		});
 	}
 }

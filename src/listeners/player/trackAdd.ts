@@ -1,6 +1,6 @@
 import { ApplyOptions } from "@sapphire/decorators";
 import { container, Listener, ListenerOptions } from "@sapphire/framework";
-import { Queue, Track } from "discord-player";
+import type { Queue, Track } from "discord-player";
 import { CommandInteraction, MessageEmbed } from "discord.js";
 
 @ApplyOptions<ListenerOptions>({
@@ -10,12 +10,12 @@ import { CommandInteraction, MessageEmbed } from "discord.js";
 export class TrackAddListener extends Listener {
 	public run(queue: Queue<CommandInteraction>, track: Track) {
 		if (queue.nowPlaying() == track) return;
-		queue.metadata.followUp({
+		queue.metadata!.followUp({
 			embeds: [
 				new MessageEmbed({
 					color: "BLUE",
-					title: this.container.getTranslation(queue.metadata, "listeners/trackadd:title"),
-					description: this.container.getTranslation(queue.metadata, "listeners/trackadd:description", { replace: { track: `[${track.title}](${track.url})` } })
+					title: this.container.getTranslation(queue.metadata!, "listeners/trackadd:title"),
+					description: this.container.getTranslation(queue.metadata!, "listeners/trackadd:description", { replace: { track: `[${track.title}](${track.url})` } })
 				})
 			]
 		});

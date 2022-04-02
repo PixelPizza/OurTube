@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { ApplyOptions } from "@sapphire/decorators";
-import { ApplicationCommandRegistry, Command, CommandOptions, RegisterBehavior } from "@sapphire/framework";
+import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/framework";
 import { CommandInteraction, MessageEmbed } from "discord.js";
 import { Duration } from "@sapphire/time-utilities";
 import { stripIndents } from "common-tags";
@@ -27,7 +27,7 @@ export class SeekCommand extends Command {
         await interaction.deferReply();
 
         const time = interaction.options.getString("time", true);
-        const queue = this.container.player.getQueue(interaction.guild);
+        const queue = this.container.player.getQueue(interaction.guild!);
         const duration = new Duration(time).offset;
         if (isNaN(duration)) return interaction.editReply({
             embeds: [

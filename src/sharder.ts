@@ -1,11 +1,11 @@
 import {config} from "dotenv";
 import {Shard, ShardingManager} from "discord.js";
 import {join} from "path";
-import {LogLevel} from "@sapphire/framework";
+import {container, LogLevel} from "@sapphire/framework";
 import {Logger} from "./logger";
 config();
 
-const logger = new Logger({
+const logger = new Logger(container, {
 	level: LogLevel.Debug
 })
 
@@ -21,7 +21,7 @@ new ShardingManager(join(__dirname, "bot.mjs"), {
 			.on("death", () => logShardEvent(shard, "died"))
 			.on("ready", () => logShardEvent(shard, "ready"))
 			.on("disconnect", () => logShardEvent(shard, "disconnected"))
-			.on("reconnecting", () => logShardEvent(shard, "reconnecting"));
+			.on("reconnection", () => logShardEvent(shard, "reconnecting"));
 	})
 	.spawn()
 	.catch(reason => logger.error("Shard spawn error", reason));
