@@ -30,8 +30,8 @@ export class BlacklistCommand extends Command {
 	public async chatInputRun(interaction: CommandInteraction) {
 		await interaction.deferReply();
 
-		const reason = interaction.options.getString("reason");
-		const user = interaction.options.getUser("user");
+		const user = interaction.options.getUser("user", true);
+		const reason = interaction.options.getString("reason", true);
 
 		await this.container.prisma.blacklist.create({
             data: {
