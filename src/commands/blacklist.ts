@@ -36,7 +36,7 @@ export class BlacklistCommand extends Command {
 		await this.container.prisma.blacklist.create({
             data: {
                 user: user.id,
-                reason: reason,
+                reason,
                 author: interaction.user.id
             }
         });
