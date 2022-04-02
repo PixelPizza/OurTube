@@ -16,16 +16,16 @@ export class DisconnectCommand extends Command {
 		await interaction.deferReply();
 
 		const {guild} = interaction,
-			{channel} = guild.me.voice;
+			{channel} = guild!.me!.voice;
 
-		this.container.player.deleteQueue(guild);
+		this.container.player.deleteQueue(guild!);
 
 		interaction.editReply({
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
 					title: this.container.getTranslation(interaction, "commands/disconnect:success.title"),
-					description: this.container.getTranslation(interaction, "commands/disconnect:success.description", { replace: { channel: channel.name } })
+					description: this.container.getTranslation(interaction, "commands/disconnect:success.description", { replace: { channel: channel!.name } })
 				})
 			]
 		});

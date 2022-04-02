@@ -12,7 +12,7 @@ export class ClearCommand extends Command {
     }
     public async chatInputRun(interaction: CommandInteraction) {
         await interaction.deferReply();
-        this.container.player.getQueue(interaction.guild).clear();
+        this.container.player.getQueue(interaction.guild!).clear();
         interaction.editReply({
             embeds: [
                 new MessageEmbed({

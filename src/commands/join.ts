@@ -23,7 +23,7 @@ export class JoinCommand extends Command {
 			{player} = this.container,
 			{voice} = member as GuildMember;
 		
-		const queue = player.createQueue(guild, {
+		const queue = player.createQueue(guild!, {
 			leaveOnEmpty: false,
 			leaveOnEnd: false,
 			ytdlOptions: {
@@ -36,9 +36,9 @@ export class JoinCommand extends Command {
 		});
 
 		try {
-			if (!queue.connection) await queue.connect(voice.channel);
+			if (!queue.connection) await queue.connect(voice.channel!);
 		} catch {
-			player.deleteQueue(guild);
+			player.deleteQueue(guild!);
 			return void interaction.editReply({
 				embeds: [
 					new MessageEmbed({
@@ -62,7 +62,7 @@ export class JoinCommand extends Command {
 				new MessageEmbed({
 					color: "GREEN",
 					title: this.container.getTranslation(interaction, "commands/join:success.title"),
-					description: this.container.getTranslation(interaction, "commands/join:success.description", { replace: { channel: (interaction.member as GuildMember).voice.channel.name}})
+					description: this.container.getTranslation(interaction, "commands/join:success.description", { replace: { channel: (interaction.member as GuildMember).voice.channel!.name}})
 				})
 			]
 		});
