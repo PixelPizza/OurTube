@@ -5,6 +5,7 @@ import {container, LogLevel, SapphireClient} from "@sapphire/framework";
 import "@sapphire/plugin-logger/register";
 import "@sapphire/plugin-i18next/register";
 import "./container";
+import { PrismaClient } from "@prisma/client";
 config();
 
 const client = new SapphireClient({
@@ -12,5 +13,6 @@ const client = new SapphireClient({
 });
 container.player = new Player(client);
 container.logger = new Logger(container, {level: LogLevel.Debug});
+container.prisma = new PrismaClient();
 
-void client.login(process.env.TOKEN);
+void client.login(process.env.TOKEN).finally(() => container.prisma.$disconnect());
