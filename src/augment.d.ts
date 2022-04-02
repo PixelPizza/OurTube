@@ -6,3 +6,13 @@ declare module "@sapphire/pieces" {
 		player: Player;
 	}
 }
+
+declare global {
+	namespace NodeJS {
+		interface ProcessEnv {
+			GUILD: string;
+			OWNER: string;
+			CONSOLE_URL: string;
+		}
+	}
+}

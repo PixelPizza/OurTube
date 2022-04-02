@@ -28,7 +28,7 @@ export class VolumeCommand extends Command {
         await interaction.deferReply();
 
         const volume = interaction.options.getInteger("volume");
-        const queue = this.container.player.getQueue(interaction.guild);
+        const queue = this.container.player.getQueue(interaction.guild!);
 
         if (!volume) {
             return interaction.editReply({
@@ -44,7 +44,7 @@ export class VolumeCommand extends Command {
 
         queue.setVolume(volume);
 
-        interaction.editReply({
+        return interaction.editReply({
             embeds: [
                 new MessageEmbed({
                     color: "GREEN",

@@ -1,5 +1,5 @@
 import { container } from "@sapphire/pieces";
-import { TOptions } from "@sapphire/plugin-i18next";
+import type { TOptions } from "@sapphire/plugin-i18next";
 import type { CommandInteraction } from "discord.js";
 
 declare module "@sapphire/pieces" {

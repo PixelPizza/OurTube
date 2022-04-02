@@ -3,7 +3,7 @@ import { ApplyOptions } from "@sapphire/decorators";
 import { ApplicationCommandRegistry, Command, CommandOptions, SapphireClient } from "@sapphire/framework";
 import { QueryType } from "discord-player";
 import { CommandInteraction, MessageEmbed } from "discord.js";
-import { JoinCommand } from "./join";
+import type { JoinCommand } from "./join";
 
 @ApplyOptions<CommandOptions>({
 	description: "play a song",
@@ -37,7 +37,7 @@ export class PlayCommand extends Command {
 		);
 	}
 
-	public async chatInputRun(interaction: CommandInteraction) {
+	public async chatInputRun(interaction: CommandInteraction): Promise<any> {
 		await interaction.deferReply();
 
 		const client = interaction.client as SapphireClient<true>,

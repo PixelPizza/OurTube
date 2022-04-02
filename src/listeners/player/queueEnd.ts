@@ -1,6 +1,6 @@
 import { ApplyOptions } from "@sapphire/decorators";
 import { container, Listener, ListenerOptions } from "@sapphire/framework";
-import { Queue, Util } from "discord-player";
+import { type Queue, Util } from "discord-player";
 
 @ApplyOptions<ListenerOptions>({
 	emitter: container.player,

@@ -15,7 +15,7 @@ export class QueueCommand extends Command {
 	public async chatInputRun(interaction: CommandInteraction) {
 		await interaction.deferReply({ephemeral: true});
 
-		const queue = this.container.player.getQueue(interaction.guild),
+		const queue = this.container.player.getQueue(interaction.guild!),
 			nowPlaying = queue?.nowPlaying();
 
 		if (!queue.tracks.length && !nowPlaying) {
@@ -30,7 +30,7 @@ export class QueueCommand extends Command {
 			});
 		}
 
-		interaction.editReply({
+		return interaction.editReply({
 			embeds: [
 				new MessageEmbed({
 					color: "BLUE",
