@@ -11,7 +11,7 @@ const logger = new Logger(container, {
 
 const logShardEvent = (shard: Shard, event: string) => logger.debug(`Shard ${shard.id} ${event}`);
 
-new ShardingManager(join(__dirname, "bot.mjs"), {
+new ShardingManager(join(__dirname, "bot.js"), {
 	token: process.env.TOKEN,
 	mode: "worker"
 })
