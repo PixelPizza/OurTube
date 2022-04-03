@@ -1,11 +1,10 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { ApplyOptions } from "@sapphire/decorators";
 import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/framework";
-import type { CommandInteraction } from "discord.js";
+import { CommandInteraction, MessageEmbed } from "discord.js";
 
 @ApplyOptions<CommandOptions>({
-	description: "blacklist",
-	preconditions: ["GuildOnly", "BotInVoice", "InSameVoice"]
+	description: "blacklist"
 })
 export class BlacklistCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
@@ -40,5 +39,12 @@ export class BlacklistCommand extends Command {
                 author: interaction.user.id
             }
         });
+					
+		interaction.editReply({
+			embeds: [
+				new MessageEmbed()
+					.setDescription("this user has been blacklisted")
+			]
+		});
 	}
 }
