@@ -1,8 +1,9 @@
 import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
-import {ApplicationCommandRegistry, Command, CommandOptions} from "@sapphire/framework";
+import {ApplicationCommandRegistry, CommandOptions} from "@sapphire/framework";
 import {stripIndents} from "common-tags";
 import {CommandInteraction, MessageEmbed} from "discord.js";
+import {Command} from "../lib/Command";
 
 @ApplyOptions<CommandOptions>({
 	description: "get the invite link of the bot"

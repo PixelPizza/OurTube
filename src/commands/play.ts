@@ -1,9 +1,10 @@
 import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
-import {ApplicationCommandRegistry, Command, CommandOptions, SapphireClient} from "@sapphire/framework";
+import {ApplicationCommandRegistry, CommandOptions, SapphireClient} from "@sapphire/framework";
 import {QueryType} from "discord-player";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 import type {JoinCommand} from "./join";
+import {Command} from "../lib/Command";
 
 @ApplyOptions<CommandOptions>({
 	description: "play a song",
