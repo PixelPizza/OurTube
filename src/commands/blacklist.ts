@@ -45,6 +45,8 @@ export class BlacklistCommand extends Command {
 		switch (interaction.options.getSubcommand(true)) {
 			case "add":
 				return this.chatInputAdd(interaction);
+			case "remove":
+				return this.chatInputRemove(interaction);
 		}
 	}
 
