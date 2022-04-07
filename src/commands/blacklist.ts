@@ -13,9 +13,16 @@ export class BlacklistCommand extends Command {
 			new SlashCommandBuilder()
 				.setName(this.name)
 				.setDescription(this.description)
-				.addUserOption(input => input.setName("user").setDescription("the user to blacklist").setRequired(true))
-				.addStringOption(input =>
-					input.setName("reason").setDescription("reason why for being blacklisted").setRequired(true)
+				.addSubcommand(input =>
+					input
+						.setName("add")
+						.setDescription("Add a user to the blacklist")
+						.addUserOption(input =>
+							input.setName("user").setDescription("the user to blacklist").setRequired(true)
+						)
+						.addStringOption(input =>
+							input.setName("reason").setDescription("reason why for being blacklisted").setRequired(true)
+						)
 				),
 			{
 				guildIds: ["863878432697614337"]
@@ -23,7 +30,14 @@ export class BlacklistCommand extends Command {
 		);
 	}
 
-	public async chatInputRun(interaction: CommandInteraction) {
+	public chatInputRun(interaction: CommandInteraction): any {
+		switch (interaction.options.getSubcommand(true)) {
+			case "add":
+				return this.chatInputAdd(interaction);
+		}
+	}
+
+	public async chatInputAdd(interaction: CommandInteraction) {
 		await interaction.deferReply();
 
 		const user = interaction.options.getUser("user", true);
