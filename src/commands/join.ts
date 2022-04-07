@@ -1,6 +1,6 @@
 import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
-import {ApplicationCommandRegistry, CommandOptions} from "@sapphire/framework";
+import type {ApplicationCommandRegistry, CommandOptions} from "@sapphire/framework";
 import {CommandInteraction, GuildMember, MessageEmbed} from "discord.js";
 import {Command} from "../lib/Command";
 

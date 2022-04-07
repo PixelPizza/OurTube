@@ -1,6 +1,6 @@
 import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
-import {ApplicationCommandRegistry, CommandOptions, SapphireClient} from "@sapphire/framework";
+import type {ApplicationCommandRegistry, CommandOptions, SapphireClient} from "@sapphire/framework";
 import {QueryType} from "discord-player";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 import type {JoinCommand} from "./join";
