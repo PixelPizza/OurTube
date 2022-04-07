@@ -7,7 +7,7 @@ config();
 
 const logger = new Logger(container, {
 	level: LogLevel.Debug
-})
+});
 
 const logShardEvent = (shard: Shard, event: string) => logger.debug(`Shard ${shard.id} ${event}`);
 

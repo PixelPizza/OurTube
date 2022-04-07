@@ -13,4 +13,4 @@ const client = new SapphireClient({
 container.player = new Player(client);
 container.logger = new Logger(container, {level: LogLevel.Debug});
 
-client.login(process.env.TOKEN);
+void client.login(process.env.TOKEN);
