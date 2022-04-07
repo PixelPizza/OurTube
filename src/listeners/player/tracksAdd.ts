@@ -1,7 +1,7 @@
-import { ApplyOptions } from "@sapphire/decorators";
-import { container, Listener, ListenerOptions } from "@sapphire/framework";
-import type { Queue, Track } from "discord-player";
-import { CommandInteraction, MessageEmbed } from "discord.js";
+import {ApplyOptions} from "@sapphire/decorators";
+import {container, Listener, ListenerOptions} from "@sapphire/framework";
+import type {Queue, Track} from "discord-player";
+import {CommandInteraction, MessageEmbed} from "discord.js";
 
 @ApplyOptions<ListenerOptions>({
 	emitter: container.player,
@@ -14,7 +14,9 @@ export class TracksAddListener extends Listener {
 				new MessageEmbed({
 					color: "BLUE",
 					title: this.container.getTranslation(queue.metadata!, "listeners/tracksadd:title"),
-					description: this.container.getTranslation(queue.metadata!, "listeners/tracksadd:description", { replace: { count: tracks.length } })
+					description: this.container.getTranslation(queue.metadata!, "listeners/tracksadd:description", {
+						replace: {count: tracks.length}
+					})
 				})
 			]
 		});

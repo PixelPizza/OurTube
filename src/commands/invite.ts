@@ -1,15 +1,17 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
-import { ApplyOptions } from "@sapphire/decorators";
-import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/framework";
-import { stripIndents } from "common-tags";
-import { CommandInteraction, MessageEmbed } from "discord.js";
+import {SlashCommandBuilder} from "@discordjs/builders";
+import {ApplyOptions} from "@sapphire/decorators";
+import {ApplicationCommandRegistry, Command, CommandOptions} from "@sapphire/framework";
+import {stripIndents} from "common-tags";
+import {CommandInteraction, MessageEmbed} from "discord.js";
 
 @ApplyOptions<CommandOptions>({
 	description: "get the invite link of the bot"
 })
 export class InviteCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
-		registry.registerChatInputCommand(new SlashCommandBuilder().setName(this.name).setDescription(this.description));
+		registry.registerChatInputCommand(
+			new SlashCommandBuilder().setName(this.name).setDescription(this.description)
+		);
 	}
 
 	public async chatInputRun(interaction: CommandInteraction) {
@@ -23,12 +25,12 @@ export class InviteCommand extends Command {
 					title: this.container.getTranslation(interaction, "commands/invite:success.title"),
 					description: stripIndents`
 						[${this.container.getTranslation(interaction, "commands/invite:success.recommended")}](${client.generateInvite({
-							scopes: ["bot", "applications.commands"]
-						})})
+						scopes: ["bot", "applications.commands"]
+					})})
 						[${this.container.getTranslation(interaction, "commands/invite:success.admin")}](${client.generateInvite({
-							scopes: ["bot", "applications.commands"],
-							permissions: ["ADMINISTRATOR"]
-						})})
+						scopes: ["bot", "applications.commands"],
+						permissions: ["ADMINISTRATOR"]
+					})})
 					`
 				})
 			]

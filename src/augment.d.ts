@@ -1,4 +1,4 @@
-import { Player } from "discord-player";
+import {Player} from "discord-player";
 
 export * from "@sapphire/pieces";
 declare module "@sapphire/pieces" {

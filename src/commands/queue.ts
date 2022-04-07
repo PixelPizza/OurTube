@@ -1,7 +1,7 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
-import { ApplyOptions } from "@sapphire/decorators";
-import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/framework";
-import { CommandInteraction, MessageEmbed } from "discord.js";
+import {SlashCommandBuilder} from "@discordjs/builders";
+import {ApplyOptions} from "@sapphire/decorators";
+import {ApplicationCommandRegistry, Command, CommandOptions} from "@sapphire/framework";
+import {CommandInteraction, MessageEmbed} from "discord.js";
 
 @ApplyOptions<CommandOptions>({
 	description: "show the current queue",
@@ -9,14 +9,16 @@ import { CommandInteraction, MessageEmbed } from "discord.js";
 })
 export class QueueCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
-		registry.registerChatInputCommand(new SlashCommandBuilder().setName(this.name).setDescription(this.description));
+		registry.registerChatInputCommand(
+			new SlashCommandBuilder().setName(this.name).setDescription(this.description)
+		);
 	}
 
 	public async chatInputRun(interaction: CommandInteraction) {
 		await interaction.deferReply({ephemeral: true});
 
-		const queue = this.container.player.getQueue(interaction.guild!),
-			nowPlaying = queue?.nowPlaying();
+		const queue = this.container.player.getQueue(interaction.guild!);
+		const nowPlaying = queue?.nowPlaying();
 
 		if (!queue.tracks.length && !nowPlaying) {
 			return interaction.editReply({
@@ -37,7 +39,10 @@ export class QueueCommand extends Command {
 					title: this.container.getTranslation(interaction, "commands/queue:success.title"),
 					fields: [
 						{
-							name: `__${this.container.getTranslation(interaction, "commands/queue:success.nowPlaying")}__`,
+							name: `__${this.container.getTranslation(
+								interaction,
+								"commands/queue:success.nowPlaying"
+							)}__`,
 							value: `${nowPlaying.author} | [${nowPlaying.title}](${nowPlaying.url}) | \`${nowPlaying.duration}\``
 						},
 						{

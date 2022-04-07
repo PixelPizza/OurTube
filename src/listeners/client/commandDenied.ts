@@ -1,6 +1,6 @@
-import { ApplyOptions } from "@sapphire/decorators";
-import { ChatInputCommandDeniedPayload, Listener, ListenerOptions, UserError } from "@sapphire/framework";
-import { MessageEmbed } from "discord.js";
+import {ApplyOptions} from "@sapphire/decorators";
+import {ChatInputCommandDeniedPayload, Listener, ListenerOptions, UserError} from "@sapphire/framework";
+import {MessageEmbed} from "discord.js";
 
 @ApplyOptions<ListenerOptions>({
 	event: "chatInputCommandDenied"

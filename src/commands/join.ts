@@ -1,7 +1,7 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
-import { ApplyOptions } from "@sapphire/decorators";
-import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/framework";
-import { CommandInteraction, GuildMember, MessageEmbed } from "discord.js";
+import {SlashCommandBuilder} from "@discordjs/builders";
+import {ApplyOptions} from "@sapphire/decorators";
+import {ApplicationCommandRegistry, Command, CommandOptions} from "@sapphire/framework";
+import {CommandInteraction, GuildMember, MessageEmbed} from "discord.js";
 
 @ApplyOptions<CommandOptions>({
 	description: "let the bot join your voice channel",
@@ -10,7 +10,9 @@ import { CommandInteraction, GuildMember, MessageEmbed } from "discord.js";
 })
 export class JoinCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
-		registry.registerChatInputCommand(new SlashCommandBuilder().setName(this.name).setDescription(this.description));
+		registry.registerChatInputCommand(
+			new SlashCommandBuilder().setName(this.name).setDescription(this.description)
+		);
 	}
 
 	/**
@@ -19,10 +21,10 @@ export class JoinCommand extends Command {
 	 * @returns The created queue of the interaction guild
 	 */
 	public async joinChannel(interaction: CommandInteraction) {
-		const {member, guild} = interaction,
-			{player} = this.container,
-			{voice} = member as GuildMember;
-		
+		const {member, guild} = interaction;
+		const {player} = this.container;
+		const {voice} = member as GuildMember;
+
 		const queue = player.createQueue(guild!, {
 			leaveOnEmpty: false,
 			leaveOnEnd: false,
@@ -55,14 +57,16 @@ export class JoinCommand extends Command {
 
 	public async chatInputRun(interaction: CommandInteraction) {
 		await interaction.deferReply();
-		if(!await this.joinChannel(interaction)) return;
+		if (!(await this.joinChannel(interaction))) return;
 
 		interaction.editReply({
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
 					title: this.container.getTranslation(interaction, "commands/join:success.title"),
-					description: this.container.getTranslation(interaction, "commands/join:success.description", { replace: { channel: (interaction.member as GuildMember).voice.channel!.name}})
+					description: this.container.getTranslation(interaction, "commands/join:success.description", {
+						replace: {channel: (interaction.member as GuildMember).voice.channel!.name}
+					})
 				})
 			]
 		});

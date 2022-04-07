@@ -1,17 +1,15 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
-import { ApplyOptions } from "@sapphire/decorators";
-import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/framework";
-import { CommandInteraction, MessageEmbed } from "discord.js";
+import {SlashCommandBuilder} from "@discordjs/builders";
+import {ApplyOptions} from "@sapphire/decorators";
+import {ApplicationCommandRegistry, Command, CommandOptions} from "@sapphire/framework";
+import {CommandInteraction, MessageEmbed} from "discord.js";
 
 @ApplyOptions<CommandOptions>({
-	description: "skip the current song",
+	description: "skip the current song"
 })
 export class SkipCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
 		registry.registerChatInputCommand(
-			new SlashCommandBuilder()
-				.setName(this.name)
-				.setDescription(this.description)
+			new SlashCommandBuilder().setName(this.name).setDescription(this.description)
 		);
 	}
 

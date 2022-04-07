@@ -1,5 +1,5 @@
 import {LogLevel} from "@sapphire/framework";
-import type { Container } from "@sapphire/pieces";
+import type {Container} from "@sapphire/pieces";
 import {Logger as SapphireLogger, LoggerOptions} from "@sapphire/plugin-logger";
 import {ColorResolvable, WebhookClient} from "discord.js";
 import {inspect} from "util";
@@ -33,20 +33,24 @@ export class Logger extends SapphireLogger {
 
 	public write(level: LogLevel, ...values: readonly unknown[]): void {
 		if (level < this.level) return;
-		
+
 		super.write(level, ...values);
 
 		const format = this.webhookFormats.get(level) ?? this.webhookFormats.get(LogLevel.None);
 
 		this.webhook.send({
-			embeds: [{
-				color: format!.color,
-				title: format!.title,
-				description: values
-					.map(value => (typeof value === "string" ? value : inspect(value, {colors: false, depth: this.depth})))
-					.join(this.join),
-				timestamp: Date.now()
-			}],
+			embeds: [
+				{
+					color: format!.color,
+					title: format!.title,
+					description: values
+						.map(value =>
+							typeof value === "string" ? value : inspect(value, {colors: false, depth: this.depth})
+						)
+						.join(this.join),
+					timestamp: Date.now()
+				}
+			],
 			username: "OurTube Console",
 			avatarURL: this.container.client?.user?.displayAvatarURL()
 		});

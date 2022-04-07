@@ -1,7 +1,7 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
-import { ApplyOptions } from "@sapphire/decorators";
-import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/framework";
-import { CommandInteraction, MessageEmbed } from "discord.js";
+import {SlashCommandBuilder} from "@discordjs/builders";
+import {ApplyOptions} from "@sapphire/decorators";
+import {ApplicationCommandRegistry, Command, CommandOptions} from "@sapphire/framework";
+import {CommandInteraction, MessageEmbed} from "discord.js";
 
 @ApplyOptions<CommandOptions>({
 	description: "let the bot disconnect from the currently joined voice channel",
@@ -9,14 +9,16 @@ import { CommandInteraction, MessageEmbed } from "discord.js";
 })
 export class DisconnectCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
-		registry.registerChatInputCommand(new SlashCommandBuilder().setName(this.name).setDescription(this.description));
+		registry.registerChatInputCommand(
+			new SlashCommandBuilder().setName(this.name).setDescription(this.description)
+		);
 	}
 
 	public async chatInputRun(interaction: CommandInteraction) {
 		await interaction.deferReply();
 
-		const {guild} = interaction,
-			{channel} = guild!.me!.voice;
+		const {guild} = interaction;
+		const {channel} = guild!.me!.voice;
 
 		this.container.player.deleteQueue(guild!);
 
@@ -25,7 +27,9 @@ export class DisconnectCommand extends Command {
 				new MessageEmbed({
 					color: "GREEN",
 					title: this.container.getTranslation(interaction, "commands/disconnect:success.title"),
-					description: this.container.getTranslation(interaction, "commands/disconnect:success.description", { replace: { channel: channel!.name } })
+					description: this.container.getTranslation(interaction, "commands/disconnect:success.description", {
+						replace: {channel: channel!.name}
+					})
 				})
 			]
 		});

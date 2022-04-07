@@ -1,14 +1,16 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
-import { ApplyOptions } from "@sapphire/decorators";
-import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/framework";
-import { CommandInteraction, MessageEmbed } from "discord.js";
+import {SlashCommandBuilder} from "@discordjs/builders";
+import {ApplyOptions} from "@sapphire/decorators";
+import {ApplicationCommandRegistry, Command, CommandOptions} from "@sapphire/framework";
+import {CommandInteraction, MessageEmbed} from "discord.js";
 
 @ApplyOptions<CommandOptions>({
 	description: "get the invite link of the support server"
 })
 export class SupportCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
-		registry.registerChatInputCommand(new SlashCommandBuilder().setName(this.name).setDescription(this.description));
+		registry.registerChatInputCommand(
+			new SlashCommandBuilder().setName(this.name).setDescription(this.description)
+		);
 	}
 
 	public async chatInputRun(interaction: CommandInteraction) {
@@ -20,13 +22,16 @@ export class SupportCommand extends Command {
 				new MessageEmbed({
 					color: "RED",
 					title: this.container.getTranslation(interaction, "commands/support:success.title"),
-					description: this.container.getTranslation(interaction, "commands/support:success.description", { replace: { invite: (await guild.invites.create(
-						guild.systemChannel!,
-						{
-							maxAge: 0,
-							reason: `${interaction.user} used the support command`
+					description: this.container.getTranslation(interaction, "commands/support:success.description", {
+						replace: {
+							invite: (
+								await guild.invites.create(guild.systemChannel!, {
+									maxAge: 0,
+									reason: `${interaction.user} used the support command`
+								})
+							).url
 						}
-					)).url } })
+					})
 				})
 			]
 		});
