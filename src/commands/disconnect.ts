@@ -22,7 +22,7 @@ export class DisconnectCommand extends Command {
 
 		this.container.player.deleteQueue(guild!);
 
-		interaction.editReply({
+		return interaction.editReply({
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",

@@ -6,7 +6,7 @@ import type {ActivityOptions} from "discord.js";
 	event: "ready"
 })
 export class ReadyListener extends Listener<"ready"> {
-	async run(client: SapphireClient<true>) {
+	public async run(client: SapphireClient<true>) {
 		const {logger} = this.container;
 
 		try {

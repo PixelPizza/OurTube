@@ -9,7 +9,7 @@ import {CommandInteraction, MessageEmbed} from "discord.js";
 })
 export class TrackStartListener extends Listener {
 	public run(queue: Queue<CommandInteraction>, track: Track) {
-		queue.metadata!.followUp({
+		return queue.metadata!.followUp({
 			embeds: [
 				new MessageEmbed({
 					color: "BLUE",

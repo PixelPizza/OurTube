@@ -26,7 +26,7 @@ export class RemoveCommand extends Command {
 		const index = interaction.options.getInteger("index", true);
 		const removed = queue.remove(index - 1);
 
-		interaction.editReply({
+		return interaction.editReply({
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",

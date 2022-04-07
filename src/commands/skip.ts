@@ -20,7 +20,7 @@ export class SkipCommand extends Command {
 
 		queue.skip();
 
-		interaction.editReply({
+		return interaction.editReply({
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",

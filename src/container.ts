@@ -9,13 +9,13 @@ declare module "@sapphire/pieces" {
 	}
 }
 
-container.getLanguage = function (interaction) {
+container.getLanguage = function getLanguage(interaction) {
 	const {locale} = interaction;
 	if (!locale.includes("-")) return `${locale}-${locale}`;
 	return locale;
 };
 
-container.getTranslation = function (this: typeof container, interaction, key, options) {
+container.getTranslation = function getTranslation(this: typeof container, interaction, key, options) {
 	const lang = this.getLanguage(interaction);
 	return this.i18n.format(this.i18n.languages.has(lang) ? lang : "en-US", key, options);
 };

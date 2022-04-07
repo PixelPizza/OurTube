@@ -21,7 +21,7 @@ export class ResumeCommand extends Command {
 
 		queue.setPaused(false);
 
-		interaction.editReply({
+		return interaction.editReply({
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",

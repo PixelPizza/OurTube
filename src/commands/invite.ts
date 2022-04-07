@@ -18,7 +18,7 @@ export class InviteCommand extends Command {
 		await interaction.deferReply({ephemeral: true});
 
 		const {client} = interaction;
-		interaction.editReply({
+		return interaction.editReply({
 			embeds: [
 				new MessageEmbed({
 					color: "BLUE",

@@ -17,7 +17,7 @@ export class SupportCommand extends Command {
 		await interaction.deferReply({ephemeral: true});
 
 		const guild = await interaction.client.guilds.fetch(process.env.GUILD);
-		interaction.editReply({
+		return interaction.editReply({
 			embeds: [
 				new MessageEmbed({
 					color: "RED",

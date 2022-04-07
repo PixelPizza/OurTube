@@ -21,7 +21,7 @@ export class PauseCommand extends Command {
 
 		queue.setPaused(true);
 
-		interaction.editReply({
+		return interaction.editReply({
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",

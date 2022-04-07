@@ -59,7 +59,7 @@ export class JoinCommand extends Command {
 		await interaction.deferReply();
 		if (!(await this.joinChannel(interaction))) return;
 
-		interaction.editReply({
+		return interaction.editReply({
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",

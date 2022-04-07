@@ -6,7 +6,7 @@ import {MessageEmbed} from "discord.js";
 	event: "chatInputCommandDenied"
 })
 export class CommandDeniedListener extends Listener<"chatInputCommandDenied"> {
-	run(error: UserError, {interaction}: ChatInputCommandDeniedPayload) {
+	public run(error: UserError, {interaction}: ChatInputCommandDeniedPayload) {
 		return interaction.reply({
 			embeds: [
 				new MessageEmbed({

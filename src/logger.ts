@@ -23,8 +23,7 @@ export class Logger extends SapphireLogger {
 		[LogLevel.Warn, new WebhookLogFormat("YELLOW", "Warn")],
 		[LogLevel.Error, new WebhookLogFormat("RED", "Error")],
 		[LogLevel.Fatal, new WebhookLogFormat("DARK_RED", "Fatal")],
-		// @ts-ignore
-		[LogLevel.None, new WebhookLogFormat("DEFAULT", null)]
+		[LogLevel.None, new WebhookLogFormat("DEFAULT", "")]
 	]);
 
 	public constructor(public readonly container: Container, options?: LoggerOptions) {
@@ -38,7 +37,7 @@ export class Logger extends SapphireLogger {
 
 		const format = this.webhookFormats.get(level) ?? this.webhookFormats.get(LogLevel.None);
 
-		this.webhook.send({
+		void this.webhook.send({
 			embeds: [
 				{
 					color: format!.color,
