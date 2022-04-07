@@ -1,6 +1,7 @@
 import {ApplyOptions} from "@sapphire/decorators";
-import {ApplicationCommandRegistry, Command, CommandOptions} from "@sapphire/framework";
+import type {ApplicationCommandRegistry, CommandOptions} from "@sapphire/framework";
 import {CommandInteraction, MessageEmbed} from "discord.js";
+import {Command} from "../lib/Command";
 
 @ApplyOptions<CommandOptions>({
 	description: "set the volume of the player",

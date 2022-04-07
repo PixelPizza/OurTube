@@ -2,7 +2,7 @@
   "name": "ourtube",
   "version": "1.0.0",
   "description": "A music discord bot written in discord.js",
-  "main": "dist/sharder.mjs",
+  "main": "dist/sharder.js",
   "directories": {
     "lib": "src"
   },
@@ -15,8 +15,8 @@
     "build": "yarn clean && tsup && tsc --p tsconfig.lang.json",
     "lint": "eslint src scripts --ext mjs,ts --fix",
     "format": "prettier --write **/*.{ts,js,json,yml,yaml}",
-    "prepare": "husky install",
-    "start": "yarn build && node dist/sharder.mjs"
+	"prepare": "husky install",
+    "start": "yarn build && node ."
   },
   "repository": {
     "type": "git",
