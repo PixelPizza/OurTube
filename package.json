@@ -13,10 +13,9 @@
     "update": "yarn up \"*\" -i",
     "clean": "node scripts/clean-dist.mjs",
     "build": "yarn clean && tsup && tsc --p tsconfig.lang.json",
-    "lint": "eslint --ext mjs,js,ts",
-    "lint:fix": "eslint --ext mjs,js,ts --fix",
+    "lint": "eslint src scripts --ext mjs,ts --fix",
     "format": "prettier --write **/*.{ts,js,json,yml,yaml}",
-		"prepare": "husky install",
+    "prepare": "husky install",
     "start": "yarn build && node dist/sharder.mjs"
   },
   "repository": {
