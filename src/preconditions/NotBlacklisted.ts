@@ -13,9 +13,8 @@ export class NotBlacklistedPrecondition extends Precondition {
 	}
 }
 
-declare module "@sapphire/framework"  {
+declare module "@sapphire/framework" {
 	interface Preconditions {
 		NotBlacklisted: never;
 	}
 }
-
