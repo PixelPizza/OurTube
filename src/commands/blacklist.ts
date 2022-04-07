@@ -29,6 +29,17 @@ export class BlacklistCommand extends Command {
 		const user = interaction.options.getUser("user", true);
 		const reason = interaction.options.getString("reason", true);
 
+		if (await this.container.prisma.blacklist.findUnique({where: {user: user.id}})) {
+			return interaction.editReply({
+				embeds: [
+					new MessageEmbed()
+						.setColor("RED")
+						.setTitle("User already blacklisted")
+						.setDescription(`${user} is already blacklisted.`)
+				]
+			});
+		}
+
 		await this.container.prisma.blacklist.create({
 			data: {
 				user: user.id,
@@ -38,7 +49,12 @@ export class BlacklistCommand extends Command {
 		});
 
 		return interaction.editReply({
-			embeds: [new MessageEmbed().setDescription("this user has been blacklisted")]
+			embeds: [
+				new MessageEmbed()
+					.setColor("GREEN")
+					.setTitle("User blacklisted")
+					.setDescription(`${user} has been blacklisted`)
+			]
 		});
 	}
 }
