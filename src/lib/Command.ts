@@ -4,7 +4,7 @@ export abstract class Command extends SapphireCommand {
 	public constructor(context: PieceContext, options: SapphireCommand.Options) {
 		super(context, {
 			...options,
-			preconditions: [...(options.preconditions ?? []), "NotBlacklisted"]
+			preconditions: ["NotBlacklisted", ...(options.preconditions ?? [])]
 		});
 	}
 }
