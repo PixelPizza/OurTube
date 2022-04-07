@@ -5,7 +5,7 @@ import {container, LogLevel, SapphireClient} from "@sapphire/framework";
 import "@sapphire/plugin-logger/register";
 import "@sapphire/plugin-i18next/register";
 import "./container";
-import { PrismaClient } from "@prisma/client";
+import {PrismaClient} from "@prisma/client";
 config();
 
 const client = new SapphireClient({
