@@ -1,7 +1,9 @@
 import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
-import {ApplicationCommandRegistry, Command, CommandOptions} from "@sapphire/framework";
+import type {ApplicationCommandRegistry, CommandOptions} from "@sapphire/framework";
 import {CommandInteraction, MessageEmbed} from "discord.js";
+import {Command} from "../lib/Command";
+
 @ApplyOptions<CommandOptions>({
 	description: "clear the queue",
 	preconditions: ["GuildOnly", "BotInVoice", "InSameVoice"]

@@ -1,9 +1,10 @@
 import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
-import {ApplicationCommandRegistry, Command, CommandOptions} from "@sapphire/framework";
+import type {ApplicationCommandRegistry, CommandOptions} from "@sapphire/framework";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 import {Duration} from "@sapphire/time-utilities";
 import {stripIndents} from "common-tags";
+import {Command} from "../lib/Command";
 
 @ApplyOptions<CommandOptions>({
 	description: "seek to a specific time in the current song"
