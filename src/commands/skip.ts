@@ -8,7 +8,7 @@ import {Command} from "../lib/Command";
 	description: "skip the current song"
 })
 export class SkipCommand extends Command {
-	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
+	public registerApplicationCommands(registry: ApplicationCommandRegistry): void  {
 		registry.registerChatInputCommand(
 			new SlashCommandBuilder().setName(this.name).setDescription(this.description)
 		);

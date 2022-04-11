@@ -5,7 +5,7 @@ import {Listener, ListenerOptions} from "@sapphire/framework";
 	event: "warn"
 })
 export class DebugListener extends Listener<"warn"> {
-	public run(warning: string) {
+	public run(warning: string): void  {
 		this.container.logger.warn(warning);
 	}
 }

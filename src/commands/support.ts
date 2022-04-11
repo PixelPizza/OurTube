@@ -8,7 +8,7 @@ import {Command} from "../lib/Command";
 	description: "get the invite link of the support server"
 })
 export class SupportCommand extends Command {
-	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
+	public registerApplicationCommands(registry: ApplicationCommandRegistry): void  {
 		registry.registerChatInputCommand(
 			new SlashCommandBuilder().setName(this.name).setDescription(this.description)
 		);

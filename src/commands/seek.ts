@@ -10,7 +10,7 @@ import {Command} from "../lib/Command";
 	description: "seek to a specific time in the current song"
 })
 export class SeekCommand extends Command {
-	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
+	public registerApplicationCommands(registry: ApplicationCommandRegistry): void  {
 		registry.registerChatInputCommand(
 			new SlashCommandBuilder()
 				.setName(this.name)

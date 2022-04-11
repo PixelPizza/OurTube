@@ -10,7 +10,7 @@ import {Command} from "../lib/Command";
 	preconditions: ["GuildOnly", "BotInVoice", "InSameVoice"]
 })
 export class NowPlayingCommand extends Command {
-	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
+	public registerApplicationCommands(registry: ApplicationCommandRegistry): void  {
 		registry.registerChatInputCommand(
 			new SlashCommandBuilder().setName("nowplaying").setDescription(this.description)
 		);
