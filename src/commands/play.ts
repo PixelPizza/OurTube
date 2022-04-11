@@ -12,7 +12,7 @@ import {Command} from "../lib/Command";
 	requiredClientPermissions: ["CONNECT", "SPEAK"]
 })
 export class PlayCommand extends Command {
-	public registerApplicationCommands(registry: ApplicationCommandRegistry): void  {
+	public registerApplicationCommands(registry: ApplicationCommandRegistry): void {
 		registry.registerChatInputCommand(
 			new SlashCommandBuilder()
 				.setName(this.name)

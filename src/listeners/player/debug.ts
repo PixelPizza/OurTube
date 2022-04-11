@@ -8,7 +8,7 @@ import type {Queue} from "discord-player";
 	event: "debug"
 })
 export class DebugListener extends Listener {
-	public run(queue: Queue, message: string): void  {
+	public run(queue: Queue, message: string): void {
 		this.container.logger.debug(`[${queue.guild.name}] ${message}`);
 	}
 }

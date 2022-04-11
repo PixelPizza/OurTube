@@ -7,7 +7,7 @@ import type {Queue} from "discord-player";
 	event: "channelEmpty"
 })
 export class ChannelEmptyListener extends Listener {
-	public run(queue: Queue): void  {
+	public run(queue: Queue): void {
 		if (!queue.nowPlaying()) {
 			queue.destroy();
 			this.container.logger.debug(`[${queue.guild.name}] Voice channel empty, now leaving...`);

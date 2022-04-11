@@ -9,7 +9,7 @@ import {Command} from "../lib/Command";
 	preconditions: ["GuildOnly", "BotInVoice", "InSameVoice"]
 })
 export class PauseCommand extends Command {
-	public registerApplicationCommands(registry: ApplicationCommandRegistry): void  {
+	public registerApplicationCommands(registry: ApplicationCommandRegistry): void {
 		registry.registerChatInputCommand(
 			new SlashCommandBuilder().setName(this.name).setDescription(this.description)
 		);
