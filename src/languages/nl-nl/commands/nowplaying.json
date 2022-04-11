@@ -1,10 +1,10 @@
 {
-    "success": {
-        "title": "Nu aan het afspelen",
-        "requestedBy": "Aangevraagd door {{user}}"
-    },
-    "error": {
-        "title": "Niks aan het afspelen",
-        "description": "Ik ben niks aan het afspelen"
-    }
+	"success": {
+		"title": "Nu aan het afspelen",
+		"requestedBy": "Aangevraagd door {{user}}"
+	},
+	"error": {
+		"title": "Niks aan het afspelen",
+		"description": "Ik ben niks aan het afspelen"
+	}
 }

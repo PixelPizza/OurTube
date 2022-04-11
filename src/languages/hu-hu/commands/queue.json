@@ -1,11 +1,11 @@
 {
-    "success": {
-        "title": "Sor",
-        "nowPlaying": "Most játszik",
-        "upNext": "Fel Következő"
-    },
-    "error": {
-        "title": "A sor üres",
-        "description": "Nincsenek dalok a sorban"
-    }
+	"success": {
+		"title": "Sor",
+		"nowPlaying": "Most játszik",
+		"upNext": "Fel Következő"
+	},
+	"error": {
+		"title": "A sor üres",
+		"description": "Nincsenek dalok a sorban"
+	}
 }

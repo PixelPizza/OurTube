@@ -1,16 +1,16 @@
 {
-    "success": {
-        "title": {
-            "playlist": "Afspeellijst aan het laden",
-            "song": "Nummer aan het laden"
-        },
-        "description": {
-            "playlist": "Nu je aangevraagde afspeellijst aan het laden",
-            "song": "Nu je aangevraagde nummer aan het laden"
-        }
-    },
-    "error": {
-        "title": "Geen nummer gevonden",
-        "description": "Er zijn geen resultaten gevonden"
-    }
+	"success": {
+		"title": {
+			"playlist": "Afspeellijst aan het laden",
+			"song": "Nummer aan het laden"
+		},
+		"description": {
+			"playlist": "Nu je aangevraagde afspeellijst aan het laden",
+			"song": "Nu je aangevraagde nummer aan het laden"
+		}
+	},
+	"error": {
+		"title": "Geen nummer gevonden",
+		"description": "Er zijn geen resultaten gevonden"
+	}
 }
