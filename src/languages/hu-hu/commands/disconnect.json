@@ -1,6 +1,6 @@
 {
-    "success": {
-        "title": "Szétkapcsolt",
-        "description": "Lekapcsolva `{{channel}}` 🔊"
-    }
+	"success": {
+		"title": "Szétkapcsolt",
+		"description": "Lekapcsolva `{{channel}}` 🔊"
+	}
 }

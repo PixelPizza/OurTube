@@ -1,9 +1,9 @@
 {
-    "success": {
-        "title": "Volume",
-        "description": {
-            "current": "The current volume is {{volume}}%",
-            "changed": "The volume has been set to {{volume}}%"
-        }
-    }
+	"success": {
+		"title": "Volume",
+		"description": {
+			"current": "The current volume is {{volume}}%",
+			"changed": "The volume has been set to {{volume}}%"
+		}
+	}
 }

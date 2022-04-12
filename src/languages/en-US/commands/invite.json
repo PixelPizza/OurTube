@@ -1,7 +1,7 @@
 {
-    "success": {
-        "title": "OurTube invite links",
-        "recommended": "Recommended",
-        "admin": "Admin"
-    }
+	"success": {
+		"title": "OurTube invite links",
+		"recommended": "Recommended",
+		"admin": "Admin"
+	}
 }

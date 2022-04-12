@@ -1,10 +1,10 @@
 {
-    "success": {
-        "title": "Csatlakozik",
-        "description": "Csatlakozott `{{channel}}` 🔊"
-    },
-    "error": {
-        "title": "Nem lehet csatlakozni a hangcsatornához",
-        "description": "Nem sikerült csatlakozni a hangcsatornádhoz"
-    }
+	"success": {
+		"title": "Csatlakozik",
+		"description": "Csatlakozott `{{channel}}` 🔊"
+	},
+	"error": {
+		"title": "Nem lehet csatlakozni a hangcsatornához",
+		"description": "Nem sikerült csatlakozni a hangcsatornádhoz"
+	}
 }

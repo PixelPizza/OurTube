@@ -1,4 +1,4 @@
 {
-    "title": "Play",
-    "description": "Now Playing {{track}}"
+	"title": "Play",
+	"description": "Now Playing {{track}}"
 }

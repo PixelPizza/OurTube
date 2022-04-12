@@ -1,6 +1,6 @@
 {
-    "success": {
-        "title": "Remove",
-        "description": "Removed {{track}} from the queue at index {{index}}"
-    }
+	"success": {
+		"title": "Remove",
+		"description": "Removed {{track}} from the queue at index {{index}}"
+	}
 }
