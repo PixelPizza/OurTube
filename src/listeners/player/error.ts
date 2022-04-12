@@ -8,7 +8,7 @@ import type {Queue} from "discord-player";
 	event: "error"
 })
 export class ErrorListener extends Listener {
-	public run(queue: Queue, error: Error) {
+	public run(queue: Queue, error: Error): void {
 		this.container.logger.error(`[${queue.guild.name}] Error from the queue`, error);
 	}
 }

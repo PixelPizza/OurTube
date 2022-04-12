@@ -7,7 +7,7 @@ import type {Queue} from "discord-player";
 	event: "botDisconnect"
 })
 export class BotDisconnectListener extends Listener {
-	public run(queue: Queue) {
+	public run(queue: Queue): void {
 		this.container.logger.debug(`[${queue.guild.name}] Got disconnected from guild, now clearing queue!`);
 	}
 }
