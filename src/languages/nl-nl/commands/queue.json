@@ -1,11 +1,11 @@
 {
-    "success": {
-        "title": "Wachtrij",
-        "nowPlaying": "Nu aan het afspelen",
-        "upNext": "Volgende"
-    },
-    "error": {
-        "title": "Wachtrij leeg",
-        "description": "Er zitten geen nummers in de wachtrij"
-    }
+	"success": {
+		"title": "Wachtrij",
+		"nowPlaying": "Nu aan het afspelen",
+		"upNext": "Volgende"
+	},
+	"error": {
+		"title": "Wachtrij leeg",
+		"description": "Er zitten geen nummers in de wachtrij"
+	}
 }

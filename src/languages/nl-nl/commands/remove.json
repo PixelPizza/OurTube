@@ -1,6 +1,6 @@
 {
-    "success": {
-        "title": "Verwijderen",
-        "description": "{{track}} verwijderd van de wachtrij op index {{index}}"
-    }
+	"success": {
+		"title": "Verwijderen",
+		"description": "{{track}} verwijderd van de wachtrij op index {{index}}"
+	}
 }

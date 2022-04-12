@@ -1,6 +1,6 @@
 {
-    "success": {
-        "title": "Verbinding verbroken",
-        "description": "Verbinden verbroken van `{{channel}}` 🔊"
-    }
+	"success": {
+		"title": "Verbinding verbroken",
+		"description": "Verbinden verbroken van `{{channel}}` 🔊"
+	}
 }

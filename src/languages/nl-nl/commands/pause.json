@@ -1,6 +1,6 @@
 {
-    "success": {
-        "title": "Pauze",
-        "description": "Het huidige nummer is gepauzeerd"
-    }
+	"success": {
+		"title": "Pauze",
+		"description": "Het huidige nummer is gepauzeerd"
+	}
 }
