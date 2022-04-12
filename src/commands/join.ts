@@ -10,7 +10,7 @@ import {Command} from "../lib/Command";
 	requiredClientPermissions: ["CONNECT"]
 })
 export class JoinCommand extends Command {
-	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
+	public registerApplicationCommands(registry: ApplicationCommandRegistry): void {
 		registry.registerChatInputCommand(
 			new SlashCommandBuilder().setName(this.name).setDescription(this.description)
 		);

@@ -8,7 +8,7 @@ import {Command} from "../lib/Command";
 	preconditions: ["GuildOnly", "BotInVoice", "InSameVoice"]
 })
 export class VolumeCommand extends Command {
-	public registerApplicationCommands(registry: ApplicationCommandRegistry) {
+	public registerApplicationCommands(registry: ApplicationCommandRegistry): void {
 		registry.registerChatInputCommand({
 			name: this.name,
 			description: this.description,

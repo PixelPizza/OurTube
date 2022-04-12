@@ -7,7 +7,7 @@ import type {Queue, StreamDispatcher} from "discord-player";
 	event: "connectionCreate"
 })
 export class ConnectionCreateListener extends Listener {
-	public run(queue: Queue, connection: StreamDispatcher) {
+	public run(queue: Queue, connection: StreamDispatcher): void {
 		this.container.logger.debug(`[${queue.guild.name}] Now connected to 🔊 ${connection.channel.name}`);
 	}
 }
