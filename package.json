@@ -20,15 +20,15 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/JTTechnic/OurTube.git"
+		"url": "git+https://github.com/PixelPizza/OurTube.git"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/JTTechnic/OurTube/issues"
+		"url": "https://github.com/PixelPizza/OurTube/issues"
 	},
-	"homepage": "https://github.com/JTTechnic/OurTube#readme",
+	"homepage": "https://github.com/PixelPizza/OurTube#readme",
 	"dependencies": {
 		"@discordjs/builders": "^0.12.0",
 		"@discordjs/opus": "^0.5.3",
