@@ -1,13 +1,15 @@
 import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
-import type {ApplicationCommandRegistry, CommandOptions} from "@sapphire/framework";
+import {ApplicationCommandRegistry, BucketScope, CommandOptions} from "@sapphire/framework";
 import {CommandInteraction, MessageEmbed} from "discord.js";
-import {Duration} from "@sapphire/time-utilities";
 import {stripIndents} from "common-tags";
 import {Command} from "../lib/Command";
+import {Duration, Time} from "@sapphire/time-utilities";
 
 @ApplyOptions<CommandOptions>({
-	description: "seek to a specific time in the current song"
+	description: "seek to a specific time in the current song",
+	cooldownDelay: Time.Minute * 5,
+	cooldownScope: BucketScope.Guild
 })
 export class SeekCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry): void {
