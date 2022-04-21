@@ -5,7 +5,7 @@ import {CommandInteraction, MessageEmbed} from "discord.js";
 import {Command} from "../lib/Command";
 
 @ApplyOptions<CommandOptions>({
-	description: "blacklist commands"
+	description: "blacklist"
 })
 export class BlacklistCommand extends Command {
 	public registerApplicationCommands(registry: ApplicationCommandRegistry): void {
