@@ -1,6 +1,7 @@
 import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
 import type {ApplicationCommandRegistry, CommandOptions} from "@sapphire/framework";
+import {resolveKey} from "@sapphire/plugin-i18next";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 import {Command} from "../lib/Command";
 
@@ -22,8 +23,8 @@ export class SupportCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "RED",
-					title: this.container.getTranslation(interaction, "commands/support:success.title"),
-					description: this.container.getTranslation(interaction, "commands/support:success.description", {
+					title: await resolveKey<string>(interaction, "commands/support:success.title"),
+					description: await resolveKey<string>(interaction, "commands/support:success.description", {
 						replace: {
 							invite: (
 								await guild.invites.create(guild.systemChannel!, {
