@@ -9,7 +9,14 @@ import {PrismaClient} from "@prisma/client";
 config();
 
 const client = new SapphireClient({
-	intents: ["GUILDS", "GUILD_VOICE_STATES"]
+	intents: ["GUILDS", "GUILD_VOICE_STATES"],
+	i18n: {
+		fetchLanguage(context) {
+			if (context.interactionLocale && !context.interactionLocale.includes("-"))
+				context.interactionLocale = `${context.interactionLocale}-${context.interactionLocale}`;
+			return context.interactionLocale ?? "en-US";
+		}
+	}
 });
 container.player = new Player(client);
 container.logger = new Logger(container, {level: LogLevel.Debug});
