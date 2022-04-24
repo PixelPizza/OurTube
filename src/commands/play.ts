@@ -5,6 +5,7 @@ import {QueryType} from "discord-player";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 import type {JoinCommand} from "./join";
 import {Command} from "../lib/Command";
+import {resolveKey} from "@sapphire/plugin-i18next";
 
 @ApplyOptions<CommandOptions>({
 	description: "play a song",
@@ -51,8 +52,8 @@ export class PlayCommand extends Command {
 				embeds: [
 					new MessageEmbed({
 						color: "RED",
-						title: this.container.getTranslation(interaction, "commands/play:error.title"),
-						description: this.container.getTranslation(interaction, "commands/play:error.description")
+						title: await resolveKey<string>(interaction, "commands/play:error.title"),
+						description: await resolveKey<string>(interaction, "commands/play:error.description")
 					})
 				]
 			});
@@ -66,8 +67,8 @@ export class PlayCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "BLUE",
-					title: this.container.getTranslation(interaction, `commands/play:success.title.${type}`),
-					description: this.container.getTranslation(interaction, `commands/play:success.description.${type}`)
+					title: await resolveKey<string>(interaction, `commands/play:success.title.${type}`),
+					description: await resolveKey<string>(interaction, `commands/play:success.description.${type}`)
 				})
 			]
 		});

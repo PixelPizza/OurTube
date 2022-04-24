@@ -1,5 +1,6 @@
 import {ApplyOptions} from "@sapphire/decorators";
 import type {ApplicationCommandRegistry, CommandOptions} from "@sapphire/framework";
+import {resolveKey} from "@sapphire/plugin-i18next";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 import {Command} from "../lib/Command";
 
@@ -37,7 +38,7 @@ export class VolumeCommand extends Command {
 					new MessageEmbed({
 						color: "BLUE",
 						title: "Volume",
-						description: this.container.getTranslation(
+						description: await resolveKey<string>(
 							interaction,
 							"commands/volume:success.description.current",
 							{replace: {volume: queue.volume}}
@@ -53,12 +54,10 @@ export class VolumeCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
-					title: this.container.getTranslation(interaction, "commands/volume:success.title"),
-					description: this.container.getTranslation(
-						interaction,
-						"commands/volume:success.description.changed",
-						{replace: {volume}}
-					)
+					title: await resolveKey<string>(interaction, "commands/volume:success.title"),
+					description: await resolveKey<string>(interaction, "commands/volume:success.description.changed", {
+						replace: {volume}
+					})
 				})
 			]
 		});

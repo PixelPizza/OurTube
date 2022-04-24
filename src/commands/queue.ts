@@ -1,6 +1,7 @@
 import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
 import type {ApplicationCommandRegistry, CommandOptions} from "@sapphire/framework";
+import {resolveKey} from "@sapphire/plugin-i18next";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 import {Command} from "../lib/Command";
 
@@ -26,8 +27,8 @@ export class QueueCommand extends Command {
 				embeds: [
 					new MessageEmbed({
 						color: "RED",
-						title: this.container.getTranslation(interaction, "commands/queue:error.title"),
-						description: this.container.getTranslation(interaction, "commands/queue:error.description")
+						title: await resolveKey<string>(interaction, "commands/queue:error.title"),
+						description: await resolveKey<string>(interaction, "commands/queue:error.description")
 					})
 				]
 			});
@@ -37,17 +38,14 @@ export class QueueCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "BLUE",
-					title: this.container.getTranslation(interaction, "commands/queue:success.title"),
+					title: await resolveKey<string>(interaction, "commands/queue:success.title"),
 					fields: [
 						{
-							name: `__${this.container.getTranslation(
-								interaction,
-								"commands/queue:success.nowPlaying"
-							)}__`,
+							name: `__${await resolveKey(interaction, "commands/queue:success.nowPlaying")}__`,
 							value: `${nowPlaying.author} | [${nowPlaying.title}](${nowPlaying.url}) | \`${nowPlaying.duration}\``
 						},
 						{
-							name: `__${this.container.getTranslation(interaction, "commands/queue:success.upNext")}__`,
+							name: `__${await resolveKey(interaction, "commands/queue:success.upNext")}__`,
 							value: queue.tracks
 								.map(
 									(track, index) =>

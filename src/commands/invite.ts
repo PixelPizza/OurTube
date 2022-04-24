@@ -1,6 +1,7 @@
 import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
 import type {ApplicationCommandRegistry, CommandOptions} from "@sapphire/framework";
+import {resolveKey} from "@sapphire/plugin-i18next";
 import {stripIndents} from "common-tags";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 import {Command} from "../lib/Command";
@@ -23,12 +24,12 @@ export class InviteCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "BLUE",
-					title: this.container.getTranslation(interaction, "commands/invite:success.title"),
+					title: await resolveKey<string>(interaction, "commands/invite:success.title"),
 					description: stripIndents`
-						[${this.container.getTranslation(interaction, "commands/invite:success.recommended")}](${client.generateInvite({
+						[${await resolveKey(interaction, "commands/invite:success.recommended")}](${client.generateInvite({
 						scopes: ["bot", "applications.commands"]
 					})})
-						[${this.container.getTranslation(interaction, "commands/invite:success.admin")}](${client.generateInvite({
+						[${await resolveKey(interaction, "commands/invite:success.admin")}](${client.generateInvite({
 						scopes: ["bot", "applications.commands"],
 						permissions: ["ADMINISTRATOR"]
 					})})
