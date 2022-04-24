@@ -46,8 +46,8 @@ export class JoinCommand extends Command {
 				embeds: [
 					new MessageEmbed({
 						color: "RED",
-						title: this.container.getTranslation(interaction, "commands/join:error.title"),
-						description: this.container.getTranslation(interaction, "commands/join:error.description")
+						title: await this.container.getTranslation(interaction, "commands/join:error.title"),
+						description: await this.container.getTranslation(interaction, "commands/join:error.description")
 					})
 				]
 			});
@@ -64,8 +64,8 @@ export class JoinCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
-					title: this.container.getTranslation(interaction, "commands/join:success.title"),
-					description: this.container.getTranslation(interaction, "commands/join:success.description", {
+					title: await this.container.getTranslation(interaction, "commands/join:success.title"),
+					description: await this.container.getTranslation(interaction, "commands/join:success.description", {
 						replace: {channel: (interaction.member as GuildMember).voice.channel!.name}
 					})
 				})
