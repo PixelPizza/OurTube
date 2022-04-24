@@ -14,7 +14,12 @@ const client = new SapphireClient({
 		fetchLanguage(context) {
 			if (context.interactionLocale && !context.interactionLocale.includes("-"))
 				context.interactionLocale = `${context.interactionLocale}-${context.interactionLocale}`;
-			return context.interactionLocale ?? "en-US";
+			return (
+				(context.interactionLocale &&
+					container.i18n.languages.has(context.interactionLocale) &&
+					context.interactionLocale) ||
+				"en-US"
+			);
 		}
 	}
 });
