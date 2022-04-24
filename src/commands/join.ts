@@ -1,6 +1,7 @@
 import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
 import type {ApplicationCommandRegistry, CommandOptions} from "@sapphire/framework";
+import {resolveKey} from "@sapphire/plugin-i18next";
 import {CommandInteraction, GuildMember, MessageEmbed} from "discord.js";
 import {Command} from "../lib/Command";
 
@@ -46,8 +47,8 @@ export class JoinCommand extends Command {
 				embeds: [
 					new MessageEmbed({
 						color: "RED",
-						title: await this.container.getTranslation(interaction, "commands/join:error.title"),
-						description: await this.container.getTranslation(interaction, "commands/join:error.description")
+						title: await resolveKey<string>(interaction, "commands/join:error.title"),
+						description: await resolveKey<string>(interaction, "commands/join:error.description")
 					})
 				]
 			});
@@ -64,8 +65,8 @@ export class JoinCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
-					title: await this.container.getTranslation(interaction, "commands/join:success.title"),
-					description: await this.container.getTranslation(interaction, "commands/join:success.description", {
+					title: await resolveKey<string>(interaction, "commands/join:success.title"),
+					description: await resolveKey<string>(interaction, "commands/join:success.description", {
 						replace: {channel: (interaction.member as GuildMember).voice.channel!.name}
 					})
 				})

@@ -1,11 +1,12 @@
 import {Precondition} from "@sapphire/framework";
+import {resolveKey} from "@sapphire/plugin-i18next";
 import type {CommandInteraction} from "discord.js";
 
 export class BotInVoicePrecondition extends Precondition {
-	public chatInputRun(interaction: CommandInteraction) {
+	public async chatInputRun(interaction: CommandInteraction) {
 		return interaction.guild!.me!.voice.channel
 			? this.ok()
-			: this.error({message: this.container.getTranslation(interaction, "preconditions/botinvoice:error")});
+			: this.error({message: await resolveKey(interaction, "preconditions/botinvoice:error")});
 	}
 }
 

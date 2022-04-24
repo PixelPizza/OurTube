@@ -5,6 +5,7 @@ import {CommandInteraction, MessageEmbed} from "discord.js";
 import {stripIndents} from "common-tags";
 import {Command} from "../lib/Command";
 import {Duration, Time} from "@sapphire/time-utilities";
+import {resolveKey} from "@sapphire/plugin-i18next";
 
 @ApplyOptions<CommandOptions>({
 	description: "seek to a specific time in the current song",
@@ -43,9 +44,9 @@ export class SeekCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
-					title: this.container.getTranslation(interaction, "commands/seek:success.title"),
+					title: await resolveKey<string>(interaction, "commands/seek:success.title"),
 					description: stripIndents`
-                        ${this.container.getTranslation(interaction, "commands/seek:success.description")}
+                        ${await resolveKey(interaction, "commands/seek:success.description")}
                         ${queue.createProgressBar()}
                     `
 				})

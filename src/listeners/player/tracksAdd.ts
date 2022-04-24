@@ -1,5 +1,6 @@
 import {ApplyOptions} from "@sapphire/decorators";
 import {container, Listener, ListenerOptions} from "@sapphire/framework";
+import {resolveKey} from "@sapphire/plugin-i18next";
 import type {Queue, Track} from "discord-player";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 
@@ -8,13 +9,13 @@ import {CommandInteraction, MessageEmbed} from "discord.js";
 	event: "tracksAdd"
 })
 export class TracksAddListener extends Listener {
-	public run(queue: Queue<CommandInteraction>, tracks: Track[]) {
+	public async run(queue: Queue<CommandInteraction>, tracks: Track[]) {
 		return queue.metadata!.followUp({
 			embeds: [
 				new MessageEmbed({
 					color: "BLUE",
-					title: this.container.getTranslation(queue.metadata!, "listeners/tracksadd:title"),
-					description: this.container.getTranslation(queue.metadata!, "listeners/tracksadd:description", {
+					title: await resolveKey<string>(queue.metadata!, "listeners/tracksadd:title"),
+					description: await resolveKey<string>(queue.metadata!, "listeners/tracksadd:description", {
 						replace: {count: tracks.length}
 					})
 				})

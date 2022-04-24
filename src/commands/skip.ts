@@ -1,6 +1,7 @@
 import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
 import type {ApplicationCommandRegistry, CommandOptions} from "@sapphire/framework";
+import {resolveKey} from "@sapphire/plugin-i18next";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 import {Command} from "../lib/Command";
 
@@ -25,8 +26,8 @@ export class SkipCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
-					title: this.container.getTranslation(interaction, "commands/skip:success.title"),
-					description: this.container.getTranslation(interaction, "commands/skip:success.description")
+					title: await resolveKey<string>(interaction, "commands/skip:success.title"),
+					description: await resolveKey<string>(interaction, "commands/skip:success.description")
 				})
 			]
 		});
