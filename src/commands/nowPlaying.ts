@@ -1,6 +1,7 @@
 import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
 import type {ApplicationCommandRegistry, CommandOptions} from "@sapphire/framework";
+import {resolveKey} from "@sapphire/plugin-i18next";
 import {stripIndents} from "common-tags";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 import {Command} from "../lib/Command";
@@ -27,8 +28,8 @@ export class NowPlayingCommand extends Command {
 				embeds: [
 					new MessageEmbed({
 						color: "RED",
-						title: this.container.getTranslation(interaction, "commands/nowplaying:error.title"),
-						description: this.container.getTranslation(interaction, "commands/nowplaying:error.description")
+						title: await resolveKey<string>(interaction, "commands/nowplaying:error.title"),
+						description: await resolveKey<string>(interaction, "commands/nowplaying:error.description")
 					})
 				]
 			});
@@ -37,12 +38,12 @@ export class NowPlayingCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "BLUE",
-					title: this.container.getTranslation(interaction, "commands/nowplaying:success.title"),
+					title: await resolveKey<string>(interaction, "commands/nowplaying:success.title"),
 					description: stripIndents`
 						[${nowPlaying.title}](${nowPlaying.url})
 						${queue.createProgressBar()}
 
-						${this.container.getTranslation(interaction, "commands/nowplaying:success.requestedBy", {
+						${await resolveKey(interaction, "commands/nowplaying:success.requestedBy", {
 							replace: {user: nowPlaying.requestedBy.toString()}
 						})}
 					`
