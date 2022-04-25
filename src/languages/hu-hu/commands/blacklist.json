@@ -1,22 +1,22 @@
 {
 	"add": {
 		"success": {
-			"title": "User blacklisted",
-			"description": "{{user}} has been blacklisted."
+			"title": "A felhasználó feketelistára került",
+			"description": "{{user}} feketelistára került."
 		},
 		"error": {
-			"title": "User already blacklisted",
-			"description": "{{user}} is already blacklisted."
+			"title": "A felhasználó már feketelistán szerepel",
+			"description": "{{user}} már feketelistán van."
 		}
 	},
 	"remove": {
 		"success": {
-			"title": "User unblacklisted",
-			"description": "{{user}} has been unblacklisted."
+			"title": "A felhasználó nincs tiltólistán",
+			"description": "{{user}} feketelistára került."
 		},
 		"error": {
-			"title": "User not blacklisted",
-			"description": "{{user}} is not blacklisted."
+			"title": "A felhasználó nincs feketelistán",
+			"description": "{{user}} nincs feketelistán."
 		}
 	}
 }
