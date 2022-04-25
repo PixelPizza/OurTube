@@ -1,22 +1,22 @@
 {
 	"add": {
 		"success": {
-			"title": "User blacklisted",
-			"description": "{{user}} has been blacklisted."
+			"title": "Gebruiker op de zwarte lijst",
+			"description": "{{user}} staat op de zwarte lijst."
 		},
 		"error": {
-			"title": "User already blacklisted",
-			"description": "{{user}} is already blacklisted."
+			"title": "Gebruiker al op de zwarte lijst",
+			"description": "{{user}} staat al op de zwarte lijst."
 		}
 	},
 	"remove": {
 		"success": {
-			"title": "User unblacklisted",
-			"description": "{{user}} has been unblacklisted."
+			"title": "Gebruiker van de zwarte lijst",
+			"description": "{{user}} staat niet meer op de zwarte lijst."
 		},
 		"error": {
-			"title": "User not blacklisted",
-			"description": "{{user}} is not blacklisted."
+			"title": "Gebruiker niet op de zwarte lijst",
+			"description": "{{user}} staat niet op de zwarte lijst."
 		}
 	}
 }
