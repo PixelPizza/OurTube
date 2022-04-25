@@ -1,4 +1,5 @@
 import {Precondition} from "@sapphire/framework";
+import {resolveKey} from "@sapphire/plugin-i18next";
 import type {CommandInteraction} from "discord.js";
 
 export class NotBlacklistedPrecondition extends Precondition {
@@ -8,7 +9,7 @@ export class NotBlacklistedPrecondition extends Precondition {
 				user: interaction.user.id
 			}
 		}))
-			? this.error({message: "You are blacklisted"})
+			? this.error({message: await resolveKey(interaction, "preconditions/notblacklisted:error")})
 			: this.ok();
 	}
 }
