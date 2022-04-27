@@ -49,7 +49,7 @@
 	},
 	"devDependencies": {
 		"@commitlint/config-angular": "^16.2.3",
-		"@sapphire/eslint-config": "^4.3.2",
+		"@sapphire/eslint-config": "^4.3.4",
 		"@sapphire/ts-config": "^3.3.3",
 		"@types/common-tags": "^1.8.1",
 		"@types/eslint": "^8",
