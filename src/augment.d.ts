@@ -15,6 +15,7 @@ declare global {
 			GUILD: string;
 			OWNER: string;
 			CONSOLE_URL: string;
+			GUILDS_URL: string;
 		}
 	}
 }
