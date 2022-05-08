@@ -30,12 +30,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-angular@npm:16.2.3":
-  version: 16.2.3
-  resolution: "@commitlint/config-angular@npm:16.2.3"
+"@commitlint/config-angular@npm:16.2.4":
+  version: 16.2.4
+  resolution: "@commitlint/config-angular@npm:16.2.4"
   dependencies:
     "@commitlint/config-angular-type-enum": ^16.2.1
-  checksum: 8a54fa231781d9bb7aedac67386567e84516d588844e5576271f947b346507278732246d7c7df08db343b4f373ed7af07450d4c11eb8e9645b6949f8a81979f7
+  checksum: 593368679f24a9e885fc2598be31ed9f065bbeff84a3ef08eaabc46c22f823da85543a5037cc8b73d339bd7db9c5060b0d0e93ffa69ca2090a70e8b9dbb39cf7
   languageName: node
   linkType: hard
 
@@ -3232,7 +3232,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ourtube@workspace:."
   dependencies:
-    "@commitlint/config-angular": 16.2.3
+    "@commitlint/config-angular": 16.2.4
     "@discordjs/builders": ^0.12.0
     "@discordjs/opus": ^0.5.3
     "@prisma/client": ^3.11.1

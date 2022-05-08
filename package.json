@@ -48,7 +48,7 @@
 		"ytdl-core": "^4.10.1"
 	},
 	"devDependencies": {
-		"@commitlint/config-angular": "16.2.3",
+		"@commitlint/config-angular": "16.2.4",
 		"@sapphire/eslint-config": "4.3.4",
 		"@sapphire/ts-config": "3.3.4",
 		"@types/common-tags": "1.8.1",
