@@ -79,7 +79,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@discordjs/node-pre-gyp@npm:^0.4.0":
+"@discordjs/node-pre-gyp@npm:^0.4.2":
   version: 0.4.2
   resolution: "@discordjs/node-pre-gyp@npm:0.4.2"
   dependencies:
@@ -98,13 +98,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@discordjs/opus@npm:^0.5.3":
-  version: 0.5.3
-  resolution: "@discordjs/opus@npm:0.5.3"
+"@discordjs/opus@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "@discordjs/opus@npm:0.7.0"
   dependencies:
-    "@discordjs/node-pre-gyp": ^0.4.0
-    node-addon-api: ^3.2.1
-  checksum: 749677a9de93e20a72aac77356f49ce831fad8601f5e6d6b7b70774b85bcf8d0e0c6bc1fbb6faa0cf72db4c4cddda00844badb490dfbdb9155a12c022fd05ac5
+    "@discordjs/node-pre-gyp": ^0.4.2
+    node-addon-api: ^4.2.0
+  checksum: ed26a46eb050e2e6a09cf37bd4e747240df946e2bee0ed6ee61150e8d9e678c6eac87b1a9affba3d3f5b9c52ed312ec1d517f09a728ee8842a805bee5ae7d6f4
   languageName: node
   linkType: hard
 
@@ -2788,21 +2788,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-addon-api@npm:*":
+"node-addon-api@npm:*, node-addon-api@npm:^4.2.0":
   version: 4.3.0
   resolution: "node-addon-api@npm:4.3.0"
   dependencies:
     node-gyp: latest
   checksum: 3de396e23cc209f539c704583e8e99c148850226f6e389a641b92e8967953713228109f919765abc1f4355e801e8f41842f96210b8d61c7dcc10a477002dcf00
-  languageName: node
-  linkType: hard
-
-"node-addon-api@npm:^3.2.1":
-  version: 3.2.1
-  resolution: "node-addon-api@npm:3.2.1"
-  dependencies:
-    node-gyp: latest
-  checksum: 2369986bb0881ccd9ef6bacdf39550e07e089a9c8ede1cbc5fc7712d8e2faa4d50da0e487e333d4125f8c7a616c730131d1091676c9d499af1d74560756b4a18
   languageName: node
   linkType: hard
 
@@ -3028,7 +3019,7 @@ __metadata:
   dependencies:
     "@commitlint/config-angular": 16.2.3
     "@discordjs/builders": ^0.12.0
-    "@discordjs/opus": ^0.5.3
+    "@discordjs/opus": ^0.7.0
     "@prisma/client": ^3.11.1
     "@sapphire/decorators": ^4.2.3
     "@sapphire/eslint-config": 4.3.3
