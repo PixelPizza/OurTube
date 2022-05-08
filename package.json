@@ -31,7 +31,7 @@
 	"homepage": "https://github.com/PixelPizza/OurTube#readme",
 	"dependencies": {
 		"@discordjs/builders": "^0.12.0",
-		"@discordjs/opus": "^0.5.3",
+		"@discordjs/opus": "^0.7.0",
 		"@prisma/client": "^3.11.1",
 		"@sapphire/decorators": "^4.2.3",
 		"@sapphire/framework": "^3.0.0-next.9ed3d98.0",
