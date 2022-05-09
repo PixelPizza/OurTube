@@ -1,6 +1,7 @@
 import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
 import type {ApplicationCommandRegistry, CommandOptions} from "@sapphire/framework";
+import {resolveKey} from "@sapphire/plugin-i18next";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 import {Command} from "../lib/Command";
 
@@ -22,8 +23,8 @@ export class ClearCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
-					title: this.container.getTranslation(interaction, "commands/clear:success.title"),
-					description: this.container.getTranslation(interaction, "commands/clear:success.description")
+					title: await resolveKey<string>(interaction, "commands/clear:success.title"),
+					description: await resolveKey<string>(interaction, "commands/clear:success.description")
 				})
 			]
 		});
