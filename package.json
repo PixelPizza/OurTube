@@ -42,7 +42,7 @@
 		"common-tags": "^1.8.2",
 		"discord-player": "^5.2.2",
 		"discord.js": "^13.6.0",
-		"dotenv": "^16.0.0",
+		"dotenv": "^16.0.1",
 		"sodium": "^3.0.2",
 		"tslib": "^2.4.0",
 		"ytdl-core": "^4.11.0"
