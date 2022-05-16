@@ -14,19 +14,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-angular-type-enum@npm:^16.3.0":
-  version: 16.3.0
-  resolution: "@commitlint/config-angular-type-enum@npm:16.3.0"
-  checksum: ecd6b96134369a4641cf2962a417882c4fc4d5010797291a6a3660f8c6a4a6ff6cb68a9cd22b8421ac6dfeb27e63f300f8050230b8743c3bb7c3fed056746dee
+"@commitlint/config-angular-type-enum@npm:^17.0.0":
+  version: 17.0.0
+  resolution: "@commitlint/config-angular-type-enum@npm:17.0.0"
+  checksum: f5ef60302a3fb6fd181406d19f307c02e92df70cfc2ead33ec54def1b07298417d51a16b44513403bab7bfd68a08f3c5bf82064b3074e43b9c1b8b25f973a656
   languageName: node
   linkType: hard
 
-"@commitlint/config-angular@npm:16.3.0":
-  version: 16.3.0
-  resolution: "@commitlint/config-angular@npm:16.3.0"
+"@commitlint/config-angular@npm:17.0.0":
+  version: 17.0.0
+  resolution: "@commitlint/config-angular@npm:17.0.0"
   dependencies:
-    "@commitlint/config-angular-type-enum": ^16.3.0
-  checksum: c98d284268516d341398cad8c943125bc80443d655ec4d74c3a76a21fe9ac93d719123b3a407f0ccfff4203c376b58d7d225f907fc903f0a92ef48eb2419fda9
+    "@commitlint/config-angular-type-enum": ^17.0.0
+  checksum: e507cd810bf0221f8fd0bf4727c792b86b967ccccb68b3f997a7e029ea592a2cb19f7fbadb0ade5948e23467b11815cfd5037ad8fff2527875fca2e3eeb8b681
   languageName: node
   linkType: hard
 
@@ -3013,7 +3013,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ourtube@workspace:."
   dependencies:
-    "@commitlint/config-angular": 16.3.0
+    "@commitlint/config-angular": 17.0.0
     "@discordjs/builders": ^0.13.0
     "@discordjs/opus": ^0.7.0
     "@prisma/client": ^3.14.0
