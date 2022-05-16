@@ -14,8 +14,10 @@ declare global {
 		interface ProcessEnv {
 			GUILD: string;
 			OWNER: string;
+			CLIENT_ID: string;
 			CONSOLE_URL: string;
 			GUILDS_URL: string;
+			STATCORD_API_KEY: string;
 		}
 	}
 }

@@ -4,6 +4,7 @@ import {Logger} from "./logger";
 import {container, LogLevel, SapphireClient} from "@sapphire/framework";
 import "@sapphire/plugin-logger/register";
 import "@sapphire/plugin-i18next/register";
+import "@kaname-png/plugin-statcord/register";
 import {PrismaClient} from "@prisma/client";
 config();
 
@@ -20,6 +21,12 @@ const client = new SapphireClient({
 				"en-US"
 			);
 		}
+	},
+	statcord: {
+		client_id: process.env.CLIENT_ID,
+		key: process.env.STATCORD_API_KEY,
+		autopost: true,
+		debug: true
 	}
 });
 container.player = new Player(client);
