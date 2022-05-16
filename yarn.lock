@@ -143,6 +143,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@kaname-png/plugin-statcord@npm:^1.3.4":
+  version: 1.3.4
+  resolution: "@kaname-png/plugin-statcord@npm:1.3.4"
+  dependencies:
+    "@sapphire/fetch": ^2.3.1
+    systeminformation: ^5.11.14
+    tslib: ^2.4.0
+  checksum: 2870011a4d0c55eea916b734536fe7bd4ab1a8eb196ac7f13e757280bf93cc8a9fd994ecb007a51edac6d65e8be516d0de17be2734d31d8a4c5c662d888a8188
+  languageName: node
+  linkType: hard
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -267,6 +278,15 @@ __metadata:
     prettier: ^2.6.2
     typescript: ^4.6.4
   checksum: ede88a3196b884b773b083d342390e0dcaeecfdcdc3192a4cb0c06406f130e0089d21f9174bfccc1c6ddb098e2b3f87d3ff75d3706ca95159b66da65711442e6
+  languageName: node
+  linkType: hard
+
+"@sapphire/fetch@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "@sapphire/fetch@npm:2.3.1"
+  dependencies:
+    cross-fetch: ^3.1.5
+  checksum: 3cb6d2a74fd107901d6902b8949ae7b3780da7efb519fc411fee1496d4d0d72cec1a68e19fc6ac47984f37f509567dbbc4ce82bea5c1ff437f119fc0afa8359d
   languageName: node
   linkType: hard
 
@@ -1075,7 +1095,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-fetch@npm:~3.1.4":
+"cross-fetch@npm:^3.1.5, cross-fetch@npm:~3.1.4":
   version: 3.1.5
   resolution: "cross-fetch@npm:3.1.5"
   dependencies:
@@ -3016,6 +3036,7 @@ __metadata:
     "@commitlint/config-angular": 17.0.0
     "@discordjs/builders": ^0.13.0
     "@discordjs/opus": ^0.7.0
+    "@kaname-png/plugin-statcord": ^1.3.4
     "@prisma/client": ^3.14.0
     "@sapphire/decorators": ^4.3.4
     "@sapphire/eslint-config": 4.3.5
@@ -3694,6 +3715,16 @@ __metadata:
   dependencies:
     has-flag: ^4.0.0
   checksum: 3dda818de06ebbe5b9653e07842d9479f3555ebc77e9a0280caf5a14fb877ffee9ed57007c3b78f5a6324b8dbeec648d9e97a24e2ed9fdb81ddc69ea07100f4a
+  languageName: node
+  linkType: hard
+
+"systeminformation@npm:^5.11.14":
+  version: 5.11.15
+  resolution: "systeminformation@npm:5.11.15"
+  bin:
+    systeminformation: lib/cli.js
+  checksum: 29bfd93cd6b733a2730a40daba415ecccb030b1dd965f872d0d0b272a935d31ab35c092ad273ce174f10f123899de03d95295336e5f9c68df0eb4a93b8eaed21
+  conditions: (os=darwin | os=linux | os=win32 | os=freebsd | os=openbsd | os=netbsd | os=sunos | os=android)
   languageName: node
   linkType: hard
 
