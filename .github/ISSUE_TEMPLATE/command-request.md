@@ -1,9 +1,10 @@
 ---
 name: Command request
 about: Suggest a command for this project
-title: ""
-labels: "type: enhancement"
-assignees: ""
+title: ''
+labels: 'Meta: Feature'
+assignees: ''
+
 ---
 
 Is your command request related to a problem? Please describe. A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
