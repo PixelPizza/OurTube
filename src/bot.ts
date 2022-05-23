@@ -10,18 +10,6 @@ config();
 
 const client = new SapphireClient({
 	intents: ["GUILDS", "GUILD_VOICE_STATES"],
-	i18n: {
-		fetchLanguage(context) {
-			if (context.interactionLocale && !context.interactionLocale.includes("-"))
-				context.interactionLocale = `${context.interactionLocale}-${context.interactionLocale}`;
-			return (
-				(context.interactionLocale &&
-					container.i18n.languages.has(context.interactionLocale) &&
-					context.interactionLocale) ||
-				"en-US"
-			);
-		}
-	},
 	statcord: {
 		client_id: process.env.CLIENT_ID,
 		key: process.env.STATCORD_API_KEY,
