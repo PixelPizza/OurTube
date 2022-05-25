@@ -1,6 +1,7 @@
 import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
 import {ApplicationCommandRegistry, Command, CommandOptions} from "@sapphire/framework";
+import {resolveKey} from "@sapphire/plugin-i18next";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 
 @ApplyOptions<CommandOptions>({
@@ -24,21 +25,21 @@ export class ReplayCommand extends Command {
 				embeds: [
 					new MessageEmbed({
 						color: "RED",
-						title: this.container.getTranslation(interaction, "commands/replay:nosong.title"),
-						description: this.container.getTranslation(interaction, "commands/replay:nosong.description")
+						title: await resolveKey<string>(interaction, "commands/replay:nosong.title"),
+						description: await resolveKey<string>(interaction, "commands/replay:nosong.description")
 					})
 				]
 			});
 		}
 
-		await queue.play();
+		await queue.seek(0);
 
 		return interaction.editReply({
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
-					title: this.container.getTranslation(interaction, "commands/replay:success.title"),
-					description: this.container.getTranslation(interaction, "commands/replay:success.description")
+					title: await resolveKey<string>(interaction, "commands/replay:success.title"),
+					description: await resolveKey<string>(interaction, "commands/replay:success.description")
 				})
 			]
 		});
