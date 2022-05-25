@@ -1,0 +1,10 @@
+{
+	"nosong": {
+		"title": "Niks aan het afspelen",
+		"description": "Ik ben niks aan het afspelen"
+	},
+	"success": {
+		"title": "Nummer opnieuw afspelen",
+		"description": "Nu het huidige nummer opnieuw aan het afspelen"
+	}
+}
