@@ -1,6 +1,7 @@
 import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
 import type {ApplicationCommandRegistry, CommandOptions} from "@sapphire/framework";
+import {resolveKey} from "@sapphire/plugin-i18next";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 import {Command} from "../lib/Command";
 
@@ -59,8 +60,14 @@ export class BlacklistCommand extends Command {
 				embeds: [
 					new MessageEmbed()
 						.setColor("RED")
-						.setTitle("User already blacklisted")
-						.setDescription(`${user} is already blacklisted.`)
+						.setTitle(await resolveKey(interaction, "commands/blacklist:add.error.title"))
+						.setDescription(
+							await resolveKey(interaction, "commands/blacklist:add.error.description", {
+								replace: {
+									user: user.toString()
+								}
+							})
+						)
 				]
 			});
 		}
@@ -77,8 +84,14 @@ export class BlacklistCommand extends Command {
 			embeds: [
 				new MessageEmbed()
 					.setColor("GREEN")
-					.setTitle("User blacklisted")
-					.setDescription(`${user} has been blacklisted`)
+					.setTitle(await resolveKey(interaction, "commands/blacklist:add.success.title"))
+					.setDescription(
+						await resolveKey(interaction, "commands/blacklist:add.success.description", {
+							replace: {
+								user: user.toString()
+							}
+						})
+					)
 			]
 		});
 	}
@@ -91,8 +104,14 @@ export class BlacklistCommand extends Command {
 				embeds: [
 					new MessageEmbed()
 						.setColor("RED")
-						.setTitle("User not blacklisted")
-						.setDescription(`${user} is not blacklisted.`)
+						.setTitle(await resolveKey(interaction, "commands/blacklist:remove.error.title"))
+						.setDescription(
+							await resolveKey(interaction, "commands/blacklist:remove.error.description", {
+								replace: {
+									user: user.toString()
+								}
+							})
+						)
 				]
 			});
 		}
@@ -107,8 +126,14 @@ export class BlacklistCommand extends Command {
 			embeds: [
 				new MessageEmbed()
 					.setColor("GREEN")
-					.setTitle("User unblacklisted")
-					.setDescription(`${user} has been unblacklisted`)
+					.setTitle(await resolveKey(interaction, "commands/blacklist:remove.success.title"))
+					.setDescription(
+						await resolveKey(interaction, "commands/blacklist:remove.success.description", {
+							replace: {
+								user: user.toString()
+							}
+						})
+					)
 			]
 		});
 	}

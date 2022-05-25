@@ -2,7 +2,7 @@
 name: Command request
 about: Suggest a command for this project
 title: ""
-labels: "type: enhancement"
+labels: "Meta: Feature"
 assignees: ""
 ---
 
