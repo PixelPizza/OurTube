@@ -1,10 +1,9 @@
 import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
-import type {ApplicationCommandRegistry, CommandOptions, SapphireClient} from "@sapphire/framework";
+import {ApplicationCommandRegistry, CommandOptions, SapphireClient, Command} from "@sapphire/framework";
 import {QueryType} from "discord-player";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 import type {JoinCommand} from "./join";
-import {Command} from "../lib/Command";
 import {resolveKey} from "@sapphire/plugin-i18next";
 
 @ApplyOptions<CommandOptions>({

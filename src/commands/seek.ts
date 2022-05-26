@@ -1,9 +1,8 @@
 import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
-import {ApplicationCommandRegistry, BucketScope, CommandOptions} from "@sapphire/framework";
+import {ApplicationCommandRegistry, BucketScope, CommandOptions, Command} from "@sapphire/framework";
 import {CommandInteraction, MessageEmbed} from "discord.js";
 import {stripIndents} from "common-tags";
-import {Command} from "../lib/Command";
 import {Duration, Time} from "@sapphire/time-utilities";
 import {resolveKey} from "@sapphire/plugin-i18next";
 

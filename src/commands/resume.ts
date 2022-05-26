@@ -1,9 +1,8 @@
 import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
-import type {ApplicationCommandRegistry, CommandOptions} from "@sapphire/framework";
+import {ApplicationCommandRegistry, CommandOptions, Command} from "@sapphire/framework";
 import {resolveKey} from "@sapphire/plugin-i18next";
 import {CommandInteraction, MessageEmbed} from "discord.js";
-import {Command} from "../lib/Command";
 
 @ApplyOptions<CommandOptions>({
 	description: "resume the current song",
