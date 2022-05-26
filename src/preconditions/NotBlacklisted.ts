@@ -1,7 +1,11 @@
+import {ApplyOptions} from "@sapphire/decorators";
 import {Precondition} from "@sapphire/framework";
 import {resolveKey} from "@sapphire/plugin-i18next";
 import type {CommandInteraction} from "discord.js";
 
+@ApplyOptions<Precondition.Options>({
+	position: 1
+})
 export class NotBlacklistedPrecondition extends Precondition {
 	public async chatInputRun(interaction: CommandInteraction) {
 		return (await this.container.prisma.blacklist.findUnique({
