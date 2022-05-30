@@ -1,12 +1,12 @@
 import {ApplyOptions} from "@sapphire/decorators";
-import {Events, Listener, ListenerOptions} from "@sapphire/framework";
+import {Events, Listener} from "@sapphire/framework";
 import {Guild, MessageEmbed, WebhookClient} from "discord.js";
 
-@ApplyOptions<ListenerOptions>({
+@ApplyOptions<Listener.Options>({
 	event: Events.GuildCreate
 })
 export class GuildCreateListener extends Listener<typeof Events.GuildCreate> {
-	public run(guild: Guild) {
+	public run(guild: Guild): any {
 		return new WebhookClient({url: process.env.GUILDS_URL}).send({
 			embeds: [
 				new MessageEmbed()

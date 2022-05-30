@@ -1,21 +1,17 @@
-import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
-import {ApplicationCommandRegistry, CommandOptions, Command} from "@sapphire/framework";
-import {resolveKey} from "@sapphire/plugin-i18next";
 import {stripIndents} from "common-tags";
-import {CommandInteraction, MessageEmbed} from "discord.js";
+import {MessageEmbed} from "discord.js";
+import {Command} from "../lib/Command";
 
-@ApplyOptions<CommandOptions>({
+@ApplyOptions<Command.Options>({
 	description: "get the invite link of the bot"
 })
 export class InviteCommand extends Command {
-	public registerApplicationCommands(registry: ApplicationCommandRegistry): void {
-		registry.registerChatInputCommand(
-			new SlashCommandBuilder().setName(this.name).setDescription(this.description)
-		);
+	public registerApplicationCommands(registry: Command.Registry): void {
+		registry.registerChatInputCommand(this.defaultChatInputCommand);
 	}
 
-	public async chatInputRun(interaction: CommandInteraction) {
+	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply({ephemeral: true});
 
 		const {client} = interaction;
@@ -23,12 +19,12 @@ export class InviteCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "BLUE",
-					title: await resolveKey<string>(interaction, "commands/invite:success.title"),
+					title: await this.resolveCommandKey(interaction, "success.title"),
 					description: stripIndents`
-						[${await resolveKey(interaction, "commands/invite:success.recommended")}](${client.generateInvite({
+						[${await this.resolveCommandKey(interaction, "success.recommended")}](${client.generateInvite({
 						scopes: ["bot", "applications.commands"]
 					})})
-						[${await resolveKey(interaction, "commands/invite:success.admin")}](${client.generateInvite({
+						[${await this.resolveCommandKey(interaction, "success.admin")}](${client.generateInvite({
 						scopes: ["bot", "applications.commands"],
 						permissions: ["ADMINISTRATOR"]
 					})})

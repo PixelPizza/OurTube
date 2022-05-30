@@ -1,26 +1,21 @@
-import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
-import {ApplicationCommandRegistry, CommandOptions, Command} from "@sapphire/framework";
-import {resolveKey} from "@sapphire/plugin-i18next";
-import {CommandInteraction, MessageEmbed} from "discord.js";
+import {MessageEmbed} from "discord.js";
+import {Command} from "../lib/Command";
 
-@ApplyOptions<CommandOptions>({
+@ApplyOptions<Command.Options>({
 	description: "remove a song from the current queue",
 	preconditions: ["GuildOnly", "BotInVoice", "InSameVoice"]
 })
 export class RemoveCommand extends Command {
-	public registerApplicationCommands(registry: ApplicationCommandRegistry): void {
+	public registerApplicationCommands(registry: Command.Registry): void {
 		registry.registerChatInputCommand(
-			new SlashCommandBuilder()
-				.setName(this.name)
-				.setDescription(this.description)
-				.addIntegerOption(input =>
-					input.setName("index").setDescription("The queue index of the song to remove").setRequired(true)
-				)
+			this.defaultChatInputCommand.addIntegerOption(input =>
+				input.setName("index").setDescription("The queue index of the song to remove").setRequired(true)
+			)
 		);
 	}
 
-	public async chatInputRun(interaction: CommandInteraction) {
+	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply({ephemeral: true});
 
 		const queue = this.container.player.getQueue(interaction.guild!);
@@ -31,8 +26,8 @@ export class RemoveCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
-					title: await resolveKey<string>(interaction, "commands/remove:success.title"),
-					description: await resolveKey<string>(interaction, "commands/remove:success.description", {
+					title: await this.resolveCommandKey(interaction, "success.title"),
+					description: await this.resolveCommandKey(interaction, "success.description", {
 						replace: {track: `[${removed.title}](${removed.url})`, index}
 					})
 				})
