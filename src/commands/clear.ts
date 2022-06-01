@@ -1,29 +1,25 @@
-import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
-import {ApplicationCommandRegistry, CommandOptions, Command} from "@sapphire/framework";
-import {resolveKey} from "@sapphire/plugin-i18next";
-import {CommandInteraction, MessageEmbed} from "discord.js";
+import {MessageEmbed} from "discord.js";
+import {Command} from "../lib/Command";
 
-@ApplyOptions<CommandOptions>({
+@ApplyOptions<Command.Options>({
 	description: "clear the queue",
 	preconditions: ["GuildOnly", "BotInVoice", "InSameVoice"]
 })
 export class ClearCommand extends Command {
-	public registerApplicationCommands(registry: ApplicationCommandRegistry): void {
-		registry.registerChatInputCommand(
-			new SlashCommandBuilder().setName(this.name).setDescription(this.description)
-		);
+	public registerApplicationCommands(registry: Command.Registry): void {
+		registry.registerChatInputCommand(this.defaultChatInputCommand);
 	}
 
-	public async chatInputRun(interaction: CommandInteraction) {
+	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply();
 		this.container.player.getQueue(interaction.guild!).clear();
 		return interaction.editReply({
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
-					title: await resolveKey<string>(interaction, "commands/clear:success.title"),
-					description: await resolveKey<string>(interaction, "commands/clear:success.description")
+					title: await this.resolveCommandKey(interaction, "success.title"),
+					description: await this.resolveCommandKey(interaction, "success.description")
 				})
 			]
 		});

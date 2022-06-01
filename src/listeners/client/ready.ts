@@ -1,8 +1,8 @@
 import {ApplyOptions} from "@sapphire/decorators";
-import {Listener, ListenerOptions, SapphireClient} from "@sapphire/framework";
+import {Listener, SapphireClient} from "@sapphire/framework";
 import type {ActivityOptions} from "discord.js";
 
-@ApplyOptions<ListenerOptions>({
+@ApplyOptions<Listener.Options>({
 	event: "ready"
 })
 export class ReadyListener extends Listener<"ready"> {

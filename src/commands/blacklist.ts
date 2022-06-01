@@ -1,18 +1,14 @@
-import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
-import {ApplicationCommandRegistry, CommandOptions, Command} from "@sapphire/framework";
-import {resolveKey} from "@sapphire/plugin-i18next";
-import {CommandInteraction, MessageEmbed} from "discord.js";
+import {MessageEmbed} from "discord.js";
+import {Command} from "../lib/Command";
 
-@ApplyOptions<CommandOptions>({
+@ApplyOptions<Command.Options>({
 	description: "blacklist"
 })
 export class BlacklistCommand extends Command {
-	public registerApplicationCommands(registry: ApplicationCommandRegistry): void {
+	public registerApplicationCommands(registry: Command.Registry): void {
 		registry.registerChatInputCommand(
-			new SlashCommandBuilder()
-				.setName(this.name)
-				.setDescription(this.description)
+			this.defaultChatInputCommand
 				.addSubcommand(input =>
 					input
 						.setName("add")
@@ -39,7 +35,7 @@ export class BlacklistCommand extends Command {
 		);
 	}
 
-	public async chatInputRun(interaction: CommandInteraction): Promise<any> {
+	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply();
 
 		switch (interaction.options.getSubcommand(true)) {
@@ -50,7 +46,7 @@ export class BlacklistCommand extends Command {
 		}
 	}
 
-	public async chatInputAdd(interaction: CommandInteraction) {
+	public async chatInputAdd(interaction: Command.ChatInputInteraction): Promise<any> {
 		const user = interaction.options.getUser("user", true);
 		const reason = interaction.options.getString("reason", true);
 
@@ -59,9 +55,9 @@ export class BlacklistCommand extends Command {
 				embeds: [
 					new MessageEmbed()
 						.setColor("RED")
-						.setTitle(await resolveKey(interaction, "commands/blacklist:add.error.title"))
+						.setTitle(await this.resolveCommandKey(interaction, "add.error.title"))
 						.setDescription(
-							await resolveKey(interaction, "commands/blacklist:add.error.description", {
+							await this.resolveCommandKey(interaction, "add.error.description", {
 								replace: {
 									user: user.toString()
 								}
@@ -83,9 +79,9 @@ export class BlacklistCommand extends Command {
 			embeds: [
 				new MessageEmbed()
 					.setColor("GREEN")
-					.setTitle(await resolveKey(interaction, "commands/blacklist:add.success.title"))
+					.setTitle(await this.resolveCommandKey(interaction, "add.success.title"))
 					.setDescription(
-						await resolveKey(interaction, "commands/blacklist:add.success.description", {
+						await this.resolveCommandKey(interaction, "add.success.description", {
 							replace: {
 								user: user.toString()
 							}
@@ -95,7 +91,7 @@ export class BlacklistCommand extends Command {
 		});
 	}
 
-	public async chatInputRemove(interaction: CommandInteraction) {
+	public async chatInputRemove(interaction: Command.ChatInputInteraction): Promise<any> {
 		const user = interaction.options.getUser("user", true);
 
 		if (!(await this.container.prisma.blacklist.findUnique({where: {user: user.id}}))) {
@@ -103,9 +99,9 @@ export class BlacklistCommand extends Command {
 				embeds: [
 					new MessageEmbed()
 						.setColor("RED")
-						.setTitle(await resolveKey(interaction, "commands/blacklist:remove.error.title"))
+						.setTitle(await this.resolveCommandKey(interaction, "remove.error.title"))
 						.setDescription(
-							await resolveKey(interaction, "commands/blacklist:remove.error.description", {
+							await this.resolveCommandKey(interaction, "remove.error.description", {
 								replace: {
 									user: user.toString()
 								}
@@ -125,9 +121,9 @@ export class BlacklistCommand extends Command {
 			embeds: [
 				new MessageEmbed()
 					.setColor("GREEN")
-					.setTitle(await resolveKey(interaction, "commands/blacklist:remove.success.title"))
+					.setTitle(await this.resolveCommandKey(interaction, "remove.success.title"))
 					.setDescription(
-						await resolveKey(interaction, "commands/blacklist:remove.success.description", {
+						await this.resolveCommandKey(interaction, "remove.success.description", {
 							replace: {
 								user: user.toString()
 							}

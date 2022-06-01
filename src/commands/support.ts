@@ -1,20 +1,16 @@
-import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
-import {ApplicationCommandRegistry, CommandOptions, Command} from "@sapphire/framework";
-import {resolveKey} from "@sapphire/plugin-i18next";
-import {CommandInteraction, MessageEmbed} from "discord.js";
+import {MessageEmbed} from "discord.js";
+import {Command} from "../lib/Command";
 
-@ApplyOptions<CommandOptions>({
+@ApplyOptions<Command.Options>({
 	description: "get the invite link of the support server"
 })
 export class SupportCommand extends Command {
-	public registerApplicationCommands(registry: ApplicationCommandRegistry): void {
-		registry.registerChatInputCommand(
-			new SlashCommandBuilder().setName(this.name).setDescription(this.description)
-		);
+	public registerApplicationCommands(registry: Command.Registry): void {
+		registry.registerChatInputCommand(this.defaultChatInputCommand);
 	}
 
-	public async chatInputRun(interaction: CommandInteraction) {
+	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply({ephemeral: true});
 
 		const guild = await interaction.client.guilds.fetch(process.env.GUILD);
@@ -22,8 +18,8 @@ export class SupportCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "RED",
-					title: await resolveKey<string>(interaction, "commands/support:success.title"),
-					description: await resolveKey<string>(interaction, "commands/support:success.description", {
+					title: await this.resolveCommandKey(interaction, "success.title"),
+					description: await this.resolveCommandKey(interaction, "success.description", {
 						replace: {
 							invite: (
 								await guild.invites.create(guild.systemChannel!, {

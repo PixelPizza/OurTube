@@ -1,21 +1,17 @@
-import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
-import {ApplicationCommandRegistry, Command, CommandOptions} from "@sapphire/framework";
-import {resolveKey} from "@sapphire/plugin-i18next";
-import {CommandInteraction, MessageEmbed} from "discord.js";
+import {MessageEmbed} from "discord.js";
+import {Command} from "../lib/Command";
 
-@ApplyOptions<CommandOptions>({
+@ApplyOptions<Command.Options>({
 	description: "replay the current song",
 	preconditions: ["GuildOnly", "BotInVoice", "InSameVoice"]
 })
 export class ReplayCommand extends Command {
-	public override registerApplicationCommands(registry: ApplicationCommandRegistry) {
-		registry.registerChatInputCommand(
-			new SlashCommandBuilder().setName(this.name).setDescription(this.description)
-		);
+	public override registerApplicationCommands(registry: Command.Registry) {
+		registry.registerChatInputCommand(this.defaultChatInputCommand);
 	}
 
-	public override async chatInputRun(interaction: CommandInteraction) {
+	public override async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply();
 
 		const queue = this.container.player.getQueue(interaction.guild!);
@@ -25,8 +21,8 @@ export class ReplayCommand extends Command {
 				embeds: [
 					new MessageEmbed({
 						color: "RED",
-						title: await resolveKey<string>(interaction, "commands/replay:nosong.title"),
-						description: await resolveKey<string>(interaction, "commands/replay:nosong.description")
+						title: await this.resolveCommandKey(interaction, "nosong.title"),
+						description: await this.resolveCommandKey(interaction, "nosong.description")
 					})
 				]
 			});
@@ -38,8 +34,8 @@ export class ReplayCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
-					title: await resolveKey<string>(interaction, "commands/replay:success.title"),
-					description: await resolveKey<string>(interaction, "commands/replay:success.description")
+					title: await this.resolveCommandKey(interaction, "success.title"),
+					description: await this.resolveCommandKey(interaction, "success.description")
 				})
 			]
 		});

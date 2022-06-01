@@ -1,27 +1,25 @@
-import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
-import {ApplicationCommandRegistry, BucketScope, CommandOptions, Command} from "@sapphire/framework";
-import {CommandInteraction, MessageEmbed} from "discord.js";
+import {BucketScope} from "@sapphire/framework";
+import {MessageEmbed} from "discord.js";
 import {stripIndents} from "common-tags";
 import {Duration, Time} from "@sapphire/time-utilities";
-import {resolveKey} from "@sapphire/plugin-i18next";
+import {Command} from "../lib/Command";
 
-@ApplyOptions<CommandOptions>({
+@ApplyOptions<Command.Options>({
 	description: "seek to a specific time in the current song",
 	cooldownDelay: Time.Minute * 5,
 	cooldownScope: BucketScope.Guild
 })
 export class SeekCommand extends Command {
-	public registerApplicationCommands(registry: ApplicationCommandRegistry): void {
+	public registerApplicationCommands(registry: Command.Registry): void {
 		registry.registerChatInputCommand(
-			new SlashCommandBuilder()
-				.setName(this.name)
-				.setDescription(this.description)
-				.addStringOption(input => input.setName("time").setDescription("the time to seek to").setRequired(true))
+			this.defaultChatInputCommand.addStringOption(input =>
+				input.setName("time").setDescription("the time to seek to").setRequired(true)
+			)
 		);
 	}
 
-	public async chatInputRun(interaction: CommandInteraction) {
+	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply();
 
 		const time = interaction.options.getString("time", true);
@@ -43,9 +41,9 @@ export class SeekCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
-					title: await resolveKey<string>(interaction, "commands/seek:success.title"),
+					title: await this.resolveCommandKey(interaction, "success.title"),
 					description: stripIndents`
-                        ${await resolveKey(interaction, "commands/seek:success.description")}
+                        ${await this.resolveCommandKey(interaction, "success.description")}
                         ${queue.createProgressBar()}
                     `
 				})
