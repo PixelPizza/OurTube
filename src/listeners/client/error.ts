@@ -1,7 +1,7 @@
 import {ApplyOptions} from "@sapphire/decorators";
-import {Listener, ListenerOptions} from "@sapphire/framework";
+import {Listener} from "@sapphire/framework";
 
-@ApplyOptions<ListenerOptions>({
+@ApplyOptions<Listener.Options>({
 	event: "error"
 })
 export class DebugListener extends Listener<"error"> {

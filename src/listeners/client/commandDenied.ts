@@ -1,9 +1,9 @@
 import {ApplyOptions} from "@sapphire/decorators";
-import {ChatInputCommandDeniedPayload, Listener, ListenerOptions, UserError} from "@sapphire/framework";
+import {ChatInputCommandDeniedPayload, Listener, UserError} from "@sapphire/framework";
 import {resolveKey} from "@sapphire/plugin-i18next";
 import {MessageEmbed} from "discord.js";
 
-@ApplyOptions<ListenerOptions>({
+@ApplyOptions<Listener.Options>({
 	event: "chatInputCommandDenied"
 })
 export class CommandDeniedListener extends Listener<"chatInputCommandDenied"> {

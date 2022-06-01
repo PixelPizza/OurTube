@@ -1,14 +1,13 @@
 import {ApplyOptions} from "@sapphire/decorators";
-import {ApplicationCommandRegistry, CommandOptions, Command} from "@sapphire/framework";
-import {resolveKey} from "@sapphire/plugin-i18next";
-import {CommandInteraction, MessageEmbed} from "discord.js";
+import {MessageEmbed} from "discord.js";
+import {Command} from "../lib/Command";
 
-@ApplyOptions<CommandOptions>({
+@ApplyOptions<Command.Options>({
 	description: "set the volume of the player",
 	preconditions: ["GuildOnly", "BotInVoice", "InSameVoice"]
 })
 export class VolumeCommand extends Command {
-	public registerApplicationCommands(registry: ApplicationCommandRegistry): void {
+	public registerApplicationCommands(registry: Command.Registry): void {
 		registry.registerChatInputCommand({
 			name: this.name,
 			description: this.description,
@@ -25,7 +24,7 @@ export class VolumeCommand extends Command {
 		});
 	}
 
-	public async chatInputRun(interaction: CommandInteraction) {
+	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply();
 
 		const volume = interaction.options.getInteger("volume");
@@ -37,11 +36,9 @@ export class VolumeCommand extends Command {
 					new MessageEmbed({
 						color: "BLUE",
 						title: "Volume",
-						description: await resolveKey<string>(
-							interaction,
-							"commands/volume:success.description.current",
-							{replace: {volume: queue.volume}}
-						)
+						description: await this.resolveCommandKey(interaction, "success.description.current", {
+							replace: {volume: queue.volume}
+						})
 					})
 				]
 			});
@@ -53,8 +50,8 @@ export class VolumeCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
-					title: await resolveKey<string>(interaction, "commands/volume:success.title"),
-					description: await resolveKey<string>(interaction, "commands/volume:success.description.changed", {
+					title: await this.resolveCommandKey(interaction, "success.title"),
+					description: await this.resolveCommandKey(interaction, "success.description.changed", {
 						replace: {volume}
 					})
 				})

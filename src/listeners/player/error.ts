@@ -1,8 +1,8 @@
 import {ApplyOptions} from "@sapphire/decorators";
-import {container, Listener, ListenerOptions} from "@sapphire/framework";
+import {container, Listener} from "@sapphire/framework";
 import type {Queue} from "discord-player";
 
-@ApplyOptions<ListenerOptions>({
+@ApplyOptions<Listener.Options>({
 	emitter: container.player,
 	name: "playerError",
 	event: "error"

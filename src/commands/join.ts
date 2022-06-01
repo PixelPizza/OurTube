@@ -1,19 +1,15 @@
-import {SlashCommandBuilder} from "@discordjs/builders";
 import {ApplyOptions} from "@sapphire/decorators";
-import {ApplicationCommandRegistry, CommandOptions, Command} from "@sapphire/framework";
-import {resolveKey} from "@sapphire/plugin-i18next";
-import {CommandInteraction, GuildMember, MessageEmbed} from "discord.js";
+import {GuildMember, MessageEmbed} from "discord.js";
+import {Command} from "../lib/Command";
 
-@ApplyOptions<CommandOptions>({
+@ApplyOptions<Command.Options>({
 	description: "let the bot join your voice channel",
 	preconditions: ["GuildOnly", "UserInVoice"],
 	requiredClientPermissions: ["CONNECT"]
 })
 export class JoinCommand extends Command {
-	public registerApplicationCommands(registry: ApplicationCommandRegistry): void {
-		registry.registerChatInputCommand(
-			new SlashCommandBuilder().setName(this.name).setDescription(this.description)
-		);
+	public registerApplicationCommands(registry: Command.Registry): void {
+		registry.registerChatInputCommand(this.defaultChatInputCommand);
 	}
 
 	/**
@@ -21,7 +17,7 @@ export class JoinCommand extends Command {
 	 * @param interaction The interaction to get guild data from
 	 * @returns The created queue of the interaction guild
 	 */
-	public async joinChannel(interaction: CommandInteraction) {
+	public async joinChannel(interaction: Command.ChatInputInteraction) {
 		const {member, guild} = interaction;
 		const {player} = this.container;
 		const {voice} = member as GuildMember;
@@ -46,8 +42,8 @@ export class JoinCommand extends Command {
 				embeds: [
 					new MessageEmbed({
 						color: "RED",
-						title: await resolveKey<string>(interaction, "commands/join:error.title"),
-						description: await resolveKey<string>(interaction, "commands/join:error.description")
+						title: await this.resolveCommandKey(interaction, "error.title"),
+						description: await this.resolveCommandKey(interaction, "error.description")
 					})
 				]
 			});
@@ -56,7 +52,7 @@ export class JoinCommand extends Command {
 		return queue;
 	}
 
-	public async chatInputRun(interaction: CommandInteraction) {
+	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply();
 		if (!(await this.joinChannel(interaction))) return;
 
@@ -64,8 +60,8 @@ export class JoinCommand extends Command {
 			embeds: [
 				new MessageEmbed({
 					color: "GREEN",
-					title: await resolveKey<string>(interaction, "commands/join:success.title"),
-					description: await resolveKey<string>(interaction, "commands/join:success.description", {
+					title: await this.resolveCommandKey(interaction, "success.title"),
+					description: await this.resolveCommandKey(interaction, "success.description", {
 						replace: {channel: (interaction.member as GuildMember).voice.channel!.name}
 					})
 				})
