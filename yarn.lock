@@ -3111,6 +3111,8 @@ __metadata:
     discord.js: ^13.7.0
     dotenv: ^16.0.1
     eslint: 8.17.0
+    eslint-config-prettier: ^8.5.0
+    eslint-plugin-prettier: ^4.0.0
     husky: 8.0.1
     prettier: 2.6.2
     prisma: 3.14.0
