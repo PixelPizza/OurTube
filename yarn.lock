@@ -215,9 +215,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@prisma/client@npm:^3.15.1":
-  version: 3.15.1
-  resolution: "@prisma/client@npm:3.15.1"
+"@prisma/client@npm:^3.15.2":
+  version: 3.15.2
+  resolution: "@prisma/client@npm:3.15.2"
   dependencies:
     "@prisma/engines-version": 3.15.1-1.461d6a05159055555eb7dfb337c9fb271cbd4d7e
   peerDependencies:
@@ -225,7 +225,7 @@ __metadata:
   peerDependenciesMeta:
     prisma:
       optional: true
-  checksum: ade441292ff19b9559521680b6d72998dae24914a85a4136c43c85f763e47ef7c4a0c2c68d20e4698a2f7dda31d244c28cbcaccaf52a26a312631cf88233aa02
+  checksum: ef7eaeba6c9b85b0c4ebd95ce87083ca0deb0a588b46a8fac1f9769228e550785c53eb991be774746a7e6bf36c4bcb199bffa20795737aa59384216273d981be
   languageName: node
   linkType: hard
 
@@ -3063,7 +3063,7 @@ __metadata:
     "@discordjs/builders": ^0.15.0
     "@discordjs/opus": ^0.7.0
     "@kaname-png/plugin-statcord": ^1.3.5
-    "@prisma/client": ^3.15.1
+    "@prisma/client": ^3.15.2
     "@sapphire/decorators": ^4.3.6
     "@sapphire/eslint-config": 4.3.7
     "@sapphire/framework": 3.0.0-next.fd7be0b.0
@@ -3086,8 +3086,8 @@ __metadata:
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.0.0
     husky: 8.0.1
-    prettier: 2.7.0
-    prisma: 3.15.1
+    prettier: 2.7.1
+    prisma: 3.15.2
     sodium: ^3.0.2
     tslib: ^2.4.0
     tsup: 6.1.2
@@ -3209,12 +3209,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.7.0":
-  version: 2.7.0
-  resolution: "prettier@npm:2.7.0"
+"prettier@npm:2.7.1":
+  version: 2.7.1
+  resolution: "prettier@npm:2.7.1"
   bin:
     prettier: bin-prettier.js
-  checksum: 5b55bb1dced9d16635b83229df8e670d150890fdb343f19e8a66e610094a108e960c0f57352b3e5cdbc4eff4ef00a834406047ffcd9f20bd22a6497ba143c81f
+  checksum: 55a4409182260866ab31284d929b3cb961e5fdb91fe0d2e099dac92eaecec890f36e524b4c19e6ceae839c99c6d7195817579cdffc8e2c80da0cb794463a748b
   languageName: node
   linkType: hard
 
@@ -3248,15 +3248,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prisma@npm:3.15.1":
-  version: 3.15.1
-  resolution: "prisma@npm:3.15.1"
+"prisma@npm:3.15.2":
+  version: 3.15.2
+  resolution: "prisma@npm:3.15.2"
   dependencies:
     "@prisma/engines": 3.15.1-1.461d6a05159055555eb7dfb337c9fb271cbd4d7e
   bin:
     prisma: build/index.js
     prisma2: build/index.js
-  checksum: 75f74ff1134115aa3094d8ae5aae5154ccb8834f55da59297d88c393013db202ba1e4dc798ad3f487ef68d588e5130284b467da414be95424e368725731fcf69
+  checksum: 2efdd77cadad51c7c2ff6fcfe0b594849733dffee73755b0e48cefd426e75f0cb5dbe134360a92e47865d331b11308878be91c009acf9f51ca57f86212492118
   languageName: node
   linkType: hard
 
