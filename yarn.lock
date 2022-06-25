@@ -21,12 +21,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-angular@npm:17.0.0":
-  version: 17.0.0
-  resolution: "@commitlint/config-angular@npm:17.0.0"
+"@commitlint/config-angular@npm:17.0.3":
+  version: 17.0.3
+  resolution: "@commitlint/config-angular@npm:17.0.3"
   dependencies:
     "@commitlint/config-angular-type-enum": ^17.0.0
-  checksum: e507cd810bf0221f8fd0bf4727c792b86b967ccccb68b3f997a7e029ea592a2cb19f7fbadb0ade5948e23467b11815cfd5037ad8fff2527875fca2e3eeb8b681
+  checksum: 3eeb7158c50721cb583ce2dfb78dc8c39103bd4bc60ec44a7f81efa8383ab7350ebeecaafe72d60ae94de6fe203919438f64e1032f2dfe645f28310785da8b50
   languageName: node
   linkType: hard
 
@@ -157,14 +157,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@kaname-png/plugin-statcord@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@kaname-png/plugin-statcord@npm:2.0.1"
+"@kaname-png/plugin-statcord@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@kaname-png/plugin-statcord@npm:2.1.0"
   dependencies:
     "@sapphire/fetch": ^2.4.0
-    systeminformation: ^5.11.21
+    systeminformation: ^5.11.22
     tslib: ^2.4.0
-  checksum: 5767ddd9abbd9d93b513bc0a989612bb6b654158c169d6e9d279688bff9fcb5f51ed8ab5401398e957b29ab53682fca8370873d1a24ebc9760ed968c3cd81aca
+  checksum: b49056c84b1da2b995e99d30d5eafbea966d101aeca443f85a139b44004bb8bc03510a5775cb6e0ea94cdfcd17ad0330ea8002ffae2154781ff2a5a07d6b9c2a
   languageName: node
   linkType: hard
 
@@ -3221,10 +3221,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ourtube@workspace:."
   dependencies:
-    "@commitlint/config-angular": 17.0.0
+    "@commitlint/config-angular": 17.0.3
     "@discordjs/builders": ^0.15.0
     "@discordjs/opus": ^0.7.0
-    "@kaname-png/plugin-statcord": ^2.0.1
+    "@kaname-png/plugin-statcord": ^2.1.0
     "@prisma/client": ^3.15.2
     "@sapphire/decorators": ^4.3.6
     "@sapphire/eslint-config": 4.3.7
@@ -3921,12 +3921,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"systeminformation@npm:^5.11.21":
-  version: 5.11.21
-  resolution: "systeminformation@npm:5.11.21"
+"systeminformation@npm:^5.11.22":
+  version: 5.11.22
+  resolution: "systeminformation@npm:5.11.22"
   bin:
     systeminformation: lib/cli.js
-  checksum: 4cd9a7fee381e0e8c8998c7f73a9023074672698b0d5713ff2e8b2b2faed3ffe228fffbb02dc8420971eaa1ed3f6dd88c8d513d3445ce3b098838eff7284fbee
+  checksum: 82edcb6e6e4f7feec44e9bfddf7a7dff280977a504171cc0affa98541667a01baee53c87d1d587f47c75c38c7a4abc002d50b06dee63af34ecb2ffeb4365c743
   conditions: (os=darwin | os=linux | os=win32 | os=freebsd | os=openbsd | os=netbsd | os=sunos | os=android)
   languageName: node
   linkType: hard
