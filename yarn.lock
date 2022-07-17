@@ -433,13 +433,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sindresorhus/is@npm:^4.6.0":
-  version: 4.6.0
-  resolution: "@sindresorhus/is@npm:4.6.0"
-  checksum: 83839f13da2c29d55c97abc3bc2c55b250d33a0447554997a85c539e058e57b8da092da396e252b11ec24a0279a0bed1f537fa26302209327060643e327f81d2
-  languageName: node
-  linkType: hard
-
 "@skyra/i18next-backend@npm:^1.0.1":
   version: 1.0.1
   resolution: "@skyra/i18next-backend@npm:1.0.1"
@@ -3242,7 +3235,7 @@ __metadata:
   resolution: "ourtube@workspace:."
   dependencies:
     "@commitlint/config-angular": 17.0.3
-    "@discordjs/builders": ^0.15.0
+    "@discordjs/builders": ^1.0.0
     "@discordjs/opus": ^0.8.0
     "@kaname-png/plugin-statcord": ^2.1.0
     "@prisma/client": ^4.0.0
