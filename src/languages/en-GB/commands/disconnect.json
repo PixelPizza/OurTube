@@ -1,0 +1,6 @@
+{
+	"success": {
+		"title": "Disconnect",
+		"description": "Disconnected from `{{channel}}` 🔊"
+	}
+}
