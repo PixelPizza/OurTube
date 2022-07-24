@@ -300,7 +300,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/framework@npm:3.0.0-next.f75351b.0":
+"@sapphire/framework@npm:^3.0.0-next.ecea95b.0":
   version: 3.0.0-next.f75351b.0
   resolution: "@sapphire/framework@npm:3.0.0-next.f75351b.0"
   dependencies:
@@ -318,18 +318,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/pieces@npm:^3.3.4":
-  version: 3.3.4
-  resolution: "@sapphire/pieces@npm:3.3.4"
-  dependencies:
-    "@discordjs/collection": ^0.7.0
-    "@sapphire/utilities": ^3.6.2
-    tslib: ^2.4.0
-  checksum: 64f1c8248f3d08db39654bf8aee8560ccf21b15fd508e8bcb97215702dd9e8bf08d6e4720dbd9a4b3c4196b8db34d214172ada8f210b119a51bc0eae4eec36e4
-  languageName: node
-  linkType: hard
-
-"@sapphire/pieces@npm:^3.3.5":
+"@sapphire/pieces@npm:^3.3.4, @sapphire/pieces@npm:^3.3.5":
   version: 3.3.5
   resolution: "@sapphire/pieces@npm:3.3.5"
   dependencies:
@@ -3262,7 +3251,7 @@ __metadata:
     "@prisma/client": ^4.1.0
     "@sapphire/decorators": ^4.3.8
     "@sapphire/eslint-config": 4.3.7
-    "@sapphire/framework": 3.0.0-next.f75351b.0
+    "@sapphire/framework": ^3.0.0-next.ecea95b.0
     "@sapphire/pieces": ^3.3.5
     "@sapphire/plugin-i18next": ^2.5.4
     "@sapphire/plugin-logger": ^2.2.3
