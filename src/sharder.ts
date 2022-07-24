@@ -21,7 +21,7 @@ new ShardingManager(join(__dirname, "bot.js"), {
 			.on("death", () => logShardEvent(shard, "died"))
 			.on("ready", () => logShardEvent(shard, "ready"))
 			.on("disconnect", () => logShardEvent(shard, "disconnected"))
-			.on("reconnection", () => logShardEvent(shard, "reconnecting"));
+			.on("reconnecting", () => logShardEvent(shard, "reconnecting"));
 	})
 	.spawn()
 	.catch(reason => logger.error("Shard spawn error", reason));
