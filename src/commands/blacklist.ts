@@ -8,26 +8,32 @@ import {Command} from "../lib/Command";
 export class BlacklistCommand extends Command {
 	public registerApplicationCommands(registry: Command.Registry): void {
 		registry.registerChatInputCommand(
-			this.defaultChatInputCommand
-				.addSubcommand(input =>
-					input
-						.setName("add")
-						.setDescription("Add a user to the blacklist")
-						.addUserOption(input =>
-							input.setName("user").setDescription("the user to blacklist").setRequired(true)
-						)
-						.addStringOption(input =>
-							input.setName("reason").setDescription("reason why for being blacklisted").setRequired(true)
-						)
-				)
-				.addSubcommand(input =>
-					input
-						.setName("remove")
-						.setDescription("Remove a user from the blacklist")
-						.addUserOption(input =>
-							input.setName("user").setDescription("the user to unblacklist").setRequired(true)
-						)
-				),
+			builder =>
+				builder
+					.setName(this.name)
+					.setDescription(this.description)
+					.addSubcommand(input =>
+						input
+							.setName("add")
+							.setDescription("Add a user to the blacklist")
+							.addUserOption(input =>
+								input.setName("user").setDescription("the user to blacklist").setRequired(true)
+							)
+							.addStringOption(input =>
+								input
+									.setName("reason")
+									.setDescription("reason why for being blacklisted")
+									.setRequired(true)
+							)
+					)
+					.addSubcommand(input =>
+						input
+							.setName("remove")
+							.setDescription("Remove a user from the blacklist")
+							.addUserOption(input =>
+								input.setName("user").setDescription("the user to unblacklist").setRequired(true)
+							)
+					),
 			{
 				guildIds: ["863878432697614337"],
 				idHints: ["960218037863215195"]

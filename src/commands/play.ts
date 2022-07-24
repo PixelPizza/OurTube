@@ -11,8 +11,10 @@ import {Command} from "../lib/Command";
 })
 export class PlayCommand extends Command {
 	public registerApplicationCommands(registry: Command.Registry): void {
-		registry.registerChatInputCommand(
-			this.defaultChatInputCommand
+		registry.registerChatInputCommand(builder =>
+			builder
+				.setName(this.name)
+				.setDescription(this.description)
 				.addStringOption(input => input.setName("query").setDescription("the song to play").setRequired(true))
 				.addStringOption(input =>
 					input

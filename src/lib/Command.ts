@@ -1,12 +1,7 @@
-import {SlashCommandBuilder} from "@discordjs/builders";
 import {Command as SapphireCommand} from "@sapphire/framework";
 import {resolveKey, StringMap, Target, TOptions} from "@sapphire/plugin-i18next";
 
 export abstract class Command extends SapphireCommand {
-	protected get defaultChatInputCommand() {
-		return new SlashCommandBuilder().setName(this.name).setDescription(this.description);
-	}
-
 	protected resolveCommandKey(target: Target, key: string | string[], options?: TOptions<StringMap>) {
 		return resolveKey(target, `commands/${this.name}:${key}`, options);
 	}

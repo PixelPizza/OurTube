@@ -8,10 +8,13 @@ import {Command} from "../lib/Command";
 })
 export class RemoveCommand extends Command {
 	public registerApplicationCommands(registry: Command.Registry): void {
-		registry.registerChatInputCommand(
-			this.defaultChatInputCommand.addIntegerOption(input =>
-				input.setName("index").setDescription("The queue index of the song to remove").setRequired(true)
-			)
+		registry.registerChatInputCommand(builder =>
+			builder
+				.setName(this.name)
+				.setDescription(this.description)
+				.addIntegerOption(input =>
+					input.setName("index").setDescription("The queue index of the song to remove").setRequired(true)
+				)
 		);
 	}
 
