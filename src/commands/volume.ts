@@ -8,20 +8,19 @@ import {Command} from "../lib/Command";
 })
 export class VolumeCommand extends Command {
 	public registerApplicationCommands(registry: Command.Registry): void {
-		registry.registerChatInputCommand({
-			name: this.name,
-			description: this.description,
-			options: [
-				{
-					type: "INTEGER",
-					name: "volume",
-					description: "the volume to set the player to",
-					minValue: 10,
-					maxValue: 200,
-					required: false
-				}
-			]
-		});
+		registry.registerChatInputCommand(builder =>
+			builder
+				.setName(this.name)
+				.setDescription(this.description)
+				.addIntegerOption(input =>
+					input
+						.setName("volume")
+						.setDescription("the volume to set the player to")
+						.setMinValue(10)
+						.setMaxValue(200)
+						.setRequired(false)
+				)
+		);
 	}
 
 	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {

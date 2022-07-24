@@ -7,7 +7,7 @@ import {Command} from "../lib/Command";
 })
 export class SkipCommand extends Command {
 	public registerApplicationCommands(registry: Command.Registry): void {
-		registry.registerChatInputCommand(this.defaultChatInputCommand);
+		registry.registerChatInputCommand(builder => builder.setName(this.name).setDescription(this.description));
 	}
 
 	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {

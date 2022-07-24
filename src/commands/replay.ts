@@ -8,7 +8,7 @@ import {Command} from "../lib/Command";
 })
 export class ReplayCommand extends Command {
 	public override registerApplicationCommands(registry: Command.Registry) {
-		registry.registerChatInputCommand(this.defaultChatInputCommand);
+		registry.registerChatInputCommand(builder => builder.setName(this.name).setDescription(this.description));
 	}
 
 	public override async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {

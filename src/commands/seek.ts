@@ -12,10 +12,11 @@ import {Command} from "../lib/Command";
 })
 export class SeekCommand extends Command {
 	public registerApplicationCommands(registry: Command.Registry): void {
-		registry.registerChatInputCommand(
-			this.defaultChatInputCommand.addStringOption(input =>
-				input.setName("time").setDescription("the time to seek to").setRequired(true)
-			)
+		registry.registerChatInputCommand(builder =>
+			builder
+				.setName(this.name)
+				.setDescription(this.description)
+				.addStringOption(input => input.setName("time").setDescription("the time to seek to").setRequired(true))
 		);
 	}
 

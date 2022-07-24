@@ -9,7 +9,7 @@ import {Command} from "../lib/Command";
 })
 export class JoinCommand extends Command {
 	public registerApplicationCommands(registry: Command.Registry): void {
-		registry.registerChatInputCommand(this.defaultChatInputCommand);
+		registry.registerChatInputCommand(builder => builder.setName(this.name).setDescription(this.description));
 	}
 
 	/**
