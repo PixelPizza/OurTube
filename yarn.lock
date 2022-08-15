@@ -1405,7 +1405,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord-player@npm:5.3.1":
+"discord-player@npm:^5.2.2":
   version: 5.3.1
   resolution: "discord-player@npm:5.3.1"
   dependencies:
@@ -3337,7 +3337,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": 5.33.0
     "@typescript-eslint/parser": 5.33.0
     common-tags: ^1.8.2
-    discord-player: 5.3.1
+    discord-player: ^5.2.2
     discord.js: ^13.10.2
     dotenv: ^16.0.1
     eslint: 8.22.0
