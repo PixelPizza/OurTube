@@ -351,16 +351,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/plugin-i18next@npm:^2.5.4":
-  version: 2.5.4
-  resolution: "@sapphire/plugin-i18next@npm:2.5.4"
+"@sapphire/plugin-i18next@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@sapphire/plugin-i18next@npm:3.0.0"
   dependencies:
-    "@sapphire/utilities": ^3.7.0
-    "@skyra/i18next-backend": ^1.0.1
+    "@sapphire/utilities": ^3.9.2
+    "@skyra/i18next-backend": ^1.0.2
     chokidar: ^3.5.3
-    i18next: ^21.8.13
+    i18next: ^21.9.1
     tslib: ^2.4.0
-  checksum: 79f470ba126f88e19eaac9db8604bcd9b9f0b895d101dedcd2911c88e40c075a27bbad2eff7cd78ada3f2e3fae44dcde06bddd36fd55b8dd7040fd181d66640a
+  checksum: ae33cfabb227f0fdfae45e9ef02873e7d76ea58ff753412cd78fb2a17eaaf4f87303a2123e6381190040c85bf36e6974a0cdd074c751a12114a860f615a2ec2d
   languageName: node
   linkType: hard
 
@@ -475,12 +475,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@skyra/i18next-backend@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@skyra/i18next-backend@npm:1.0.1"
+"@skyra/i18next-backend@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@skyra/i18next-backend@npm:1.0.2"
   dependencies:
     tslib: ^2.4.0
-  checksum: 9963be4cabf929feac2c22dd93d44a2ea1fcaac492b587c477be6c7734fe93fed4ae52ad38a0c07ec39daab3d72d7258fd8d829bbd3f0ce70727e27315bcb25e
+  checksum: 2f94a15203c4b1815a085daaee30ec06b6326648766dfded1164e257969ea269be466f0ad2cd578f2f7c7a7c613a74d35bd60d406c47f50aa23f82f9e079dee4
   languageName: node
   linkType: hard
 
@@ -2519,12 +2519,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^21.8.13":
-  version: 21.8.14
-  resolution: "i18next@npm:21.8.14"
+"i18next@npm:^21.9.1":
+  version: 21.9.1
+  resolution: "i18next@npm:21.9.1"
   dependencies:
     "@babel/runtime": ^7.17.2
-  checksum: 83b1a57d761c3d29b90f4e87eb9945902fa13d7750f11bc7f22e8c9999f7e5bf9b2a30c44a9b47569c8ea704573b02a562c2678cf2281073197ace07657d21be
+  checksum: 1bc59c61fbb27385841f76436c7dd60e9f42a3fb326797db44a65dd165c489420e549b5370e3de75b85f8d61239f4869fc9fbcf63deae5f40ee606bc04916e6d
   languageName: node
   linkType: hard
 
@@ -3342,7 +3342,7 @@ __metadata:
     "@sapphire/eslint-config": 4.3.7
     "@sapphire/framework": ^3.0.0-next.6b63c67.0
     "@sapphire/pieces": ^3.5.0
-    "@sapphire/plugin-i18next": ^2.5.4
+    "@sapphire/plugin-i18next": ^3.0.0
     "@sapphire/plugin-logger": ^3.0.0
     "@sapphire/time-utilities": ^1.7.5
     "@sapphire/ts-config": 3.3.4
