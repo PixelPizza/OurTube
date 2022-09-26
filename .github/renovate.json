@@ -12,6 +12,10 @@
 				"automerge": true
 			},
 			{
+				"matchPackageNames": ["discord-player"],
+				"groupName": "Discord Player Dependency"
+			},
+			{
 				"matchDepTypes": ["engines"],
 				"enabled": false
 			}
