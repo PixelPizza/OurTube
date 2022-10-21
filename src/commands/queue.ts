@@ -14,8 +14,8 @@ export class QueueCommand extends Command {
 	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply({ephemeral: true});
 
-		const queue = this.container.player.getQueue(interaction.guild!);
-		const nowPlaying = queue?.nowPlaying();
+		const queue = this.container.player.getQueue(interaction.guild!)!;
+		const nowPlaying = queue.nowPlaying();
 
 		if (!queue.tracks.length && !nowPlaying) {
 			return interaction.editReply({

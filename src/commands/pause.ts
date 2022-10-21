@@ -16,7 +16,7 @@ export class PauseCommand extends Command {
 
 		const queue = this.container.player.getQueue(interaction.guild!);
 
-		queue.setPaused(true);
+		queue!.setPaused(true);
 
 		return interaction.editReply({
 			embeds: [

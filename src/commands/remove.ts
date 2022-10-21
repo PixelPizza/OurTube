@@ -21,7 +21,7 @@ export class RemoveCommand extends Command {
 	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply({ephemeral: true});
 
-		const queue = this.container.player.getQueue(interaction.guild!);
+		const queue = this.container.player.getQueue(interaction.guild!)!;
 		const index = interaction.options.getInteger("index", true);
 		const removed = queue.remove(index - 1);
 

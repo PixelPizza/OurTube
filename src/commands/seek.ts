@@ -24,7 +24,7 @@ export class SeekCommand extends Command {
 		await interaction.deferReply();
 
 		const time = interaction.options.getString("time", true);
-		const queue = this.container.player.getQueue(interaction.guild!);
+		const queue = this.container.player.getQueue(interaction.guild!)!;
 		const duration = new Duration(time).offset;
 		if (isNaN(duration))
 			return interaction.editReply({
