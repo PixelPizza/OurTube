@@ -9,9 +9,9 @@ export abstract class Command extends SapphireCommand {
 
 export namespace Command {
 	export type AutocompleteInteraction = SapphireCommand.AutocompleteInteraction;
-	export type ChatInputInteraction = SapphireCommand.ChatInputInteraction;
+	export type ChatInputInteraction = SapphireCommand.ChatInputCommandInteraction;
 	export type Context = SapphireCommand.Context;
-	export type ContextMenuInteraction = SapphireCommand.ContextMenuInteraction;
+	export type ContextMenuInteraction = SapphireCommand.ContextMenuCommandInteraction;
 	export type JSON = SapphireCommand.JSON;
 	export type Options = SapphireCommand.Options;
 	export type Registry = SapphireCommand.Registry;
