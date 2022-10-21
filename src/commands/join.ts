@@ -1,11 +1,11 @@
 import {ApplyOptions} from "@sapphire/decorators";
-import {GuildMember, MessageEmbed} from "discord.js";
+import {GuildMember, EmbedBuilder, Colors, PermissionFlagsBits} from "discord.js";
 import {Command} from "../lib/Command";
 
 @ApplyOptions<Command.Options>({
 	description: "let the bot join your voice channel",
 	preconditions: ["GuildOnly", "UserInVoice"],
-	requiredClientPermissions: ["CONNECT"]
+	requiredClientPermissions: [PermissionFlagsBits.Connect]
 })
 export class JoinCommand extends Command {
 	public registerApplicationCommands(registry: Command.Registry): void {
@@ -40,11 +40,10 @@ export class JoinCommand extends Command {
 			player.deleteQueue(guild!);
 			return void interaction.editReply({
 				embeds: [
-					new MessageEmbed({
-						color: "RED",
-						title: await this.resolveCommandKey(interaction, "error.title"),
-						description: await this.resolveCommandKey(interaction, "error.description")
-					})
+					new EmbedBuilder()
+						.setColor(Colors.Red)
+						.setTitle(await this.resolveCommandKey(interaction, "error.title"))
+						.setDescription(await this.resolveCommandKey(interaction, "error.description"))
 				]
 			});
 		}
@@ -58,13 +57,14 @@ export class JoinCommand extends Command {
 
 		return interaction.editReply({
 			embeds: [
-				new MessageEmbed({
-					color: "GREEN",
-					title: await this.resolveCommandKey(interaction, "success.title"),
-					description: await this.resolveCommandKey(interaction, "success.description", {
-						replace: {channel: (interaction.member as GuildMember).voice.channel!.name}
-					})
-				})
+				new EmbedBuilder()
+					.setColor(Colors.Green)
+					.setTitle(await this.resolveCommandKey(interaction, "success.title"))
+					.setDescription(
+						await this.resolveCommandKey(interaction, "success.description", {
+							replace: {channel: (interaction.member as GuildMember).voice.channel!.name}
+						})
+					)
 			]
 		});
 	}

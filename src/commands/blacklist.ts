@@ -1,5 +1,5 @@
 import {ApplyOptions} from "@sapphire/decorators";
-import {MessageEmbed} from "discord.js";
+import {EmbedBuilder, Colors} from "discord.js";
 import {Command} from "../lib/Command";
 
 @ApplyOptions<Command.Options>({
@@ -59,8 +59,8 @@ export class BlacklistCommand extends Command {
 		if (await this.container.prisma.blacklist.findUnique({where: {user: user.id}})) {
 			return interaction.editReply({
 				embeds: [
-					new MessageEmbed()
-						.setColor("RED")
+					new EmbedBuilder()
+						.setColor(Colors.Red)
 						.setTitle(await this.resolveCommandKey(interaction, "add.error.title"))
 						.setDescription(
 							await this.resolveCommandKey(interaction, "add.error.description", {
@@ -83,8 +83,8 @@ export class BlacklistCommand extends Command {
 
 		return interaction.editReply({
 			embeds: [
-				new MessageEmbed()
-					.setColor("GREEN")
+				new EmbedBuilder()
+					.setColor(Colors.Green)
 					.setTitle(await this.resolveCommandKey(interaction, "add.success.title"))
 					.setDescription(
 						await this.resolveCommandKey(interaction, "add.success.description", {
@@ -103,8 +103,8 @@ export class BlacklistCommand extends Command {
 		if (!(await this.container.prisma.blacklist.findUnique({where: {user: user.id}}))) {
 			return interaction.editReply({
 				embeds: [
-					new MessageEmbed()
-						.setColor("RED")
+					new EmbedBuilder()
+						.setColor(Colors.Red)
 						.setTitle(await this.resolveCommandKey(interaction, "remove.error.title"))
 						.setDescription(
 							await this.resolveCommandKey(interaction, "remove.error.description", {
@@ -125,8 +125,8 @@ export class BlacklistCommand extends Command {
 
 		return interaction.editReply({
 			embeds: [
-				new MessageEmbed()
-					.setColor("GREEN")
+				new EmbedBuilder()
+					.setColor(Colors.Green)
 					.setTitle(await this.resolveCommandKey(interaction, "remove.success.title"))
 					.setDescription(
 						await this.resolveCommandKey(interaction, "remove.success.description", {

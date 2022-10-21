@@ -1,5 +1,5 @@
 import {ApplyOptions} from "@sapphire/decorators";
-import {MessageEmbed} from "discord.js";
+import {EmbedBuilder, Colors} from "discord.js";
 import {Command} from "../lib/Command";
 
 @ApplyOptions<Command.Options>({
@@ -20,11 +20,10 @@ export class ResumeCommand extends Command {
 
 		return interaction.editReply({
 			embeds: [
-				new MessageEmbed({
-					color: "GREEN",
-					title: await this.resolveCommandKey(interaction, "success.title"),
-					description: await this.resolveCommandKey(interaction, "success.description")
-				})
+				new EmbedBuilder()
+					.setColor(Colors.Green)
+					.setTitle(await this.resolveCommandKey(interaction, "success.title"))
+					.setDescription(await this.resolveCommandKey(interaction, "success.description"))
 			]
 		});
 	}
