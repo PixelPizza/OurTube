@@ -1,5 +1,5 @@
 import {ApplyOptions} from "@sapphire/decorators";
-import {MessageEmbed} from "discord.js";
+import {EmbedBuilder, Colors} from "discord.js";
 import {Command} from "../lib/Command";
 
 @ApplyOptions<Command.Options>({
@@ -19,11 +19,10 @@ export class ReplayCommand extends Command {
 		if (!queue.nowPlaying()) {
 			return interaction.editReply({
 				embeds: [
-					new MessageEmbed({
-						color: "RED",
-						title: await this.resolveCommandKey(interaction, "nosong.title"),
-						description: await this.resolveCommandKey(interaction, "nosong.description")
-					})
+					new EmbedBuilder()
+						.setColor(Colors.Red)
+						.setTitle(await this.resolveCommandKey(interaction, "nosong.title"))
+						.setDescription(await this.resolveCommandKey(interaction, "nosong.description"))
 				]
 			});
 		}
@@ -32,11 +31,10 @@ export class ReplayCommand extends Command {
 
 		return interaction.editReply({
 			embeds: [
-				new MessageEmbed({
-					color: "GREEN",
-					title: await this.resolveCommandKey(interaction, "success.title"),
-					description: await this.resolveCommandKey(interaction, "success.description")
-				})
+				new EmbedBuilder()
+					.setColor(Colors.Green)
+					.setTitle(await this.resolveCommandKey(interaction, "success.title"))
+					.setDescription(await this.resolveCommandKey(interaction, "success.description"))
 			]
 		});
 	}

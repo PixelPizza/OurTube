@@ -1,6 +1,6 @@
 import {ApplyOptions} from "@sapphire/decorators";
 import {stripIndents} from "common-tags";
-import {MessageEmbed} from "discord.js";
+import {EmbedBuilder, Colors, OAuth2Scopes, PermissionFlagsBits} from "discord.js";
 import {Command} from "../lib/Command";
 
 @ApplyOptions<Command.Options>({
@@ -17,19 +17,20 @@ export class InviteCommand extends Command {
 		const {client} = interaction;
 		return interaction.editReply({
 			embeds: [
-				new MessageEmbed({
-					color: "BLUE",
-					title: await this.resolveCommandKey(interaction, "success.title"),
-					description: stripIndents`
+				new EmbedBuilder()
+					.setColor(Colors.Blue)
+					.setTitle(await this.resolveCommandKey(interaction, "success.title"))
+					.setDescription(
+						stripIndents`
 						[${await this.resolveCommandKey(interaction, "success.recommended")}](${client.generateInvite({
-						scopes: ["bot", "applications.commands"]
-					})})
+							scopes: [OAuth2Scopes.Bot, OAuth2Scopes.ApplicationsCommands]
+						})})
 						[${await this.resolveCommandKey(interaction, "success.admin")}](${client.generateInvite({
-						scopes: ["bot", "applications.commands"],
-						permissions: ["ADMINISTRATOR"]
-					})})
-					`
-				})
+							scopes: [OAuth2Scopes.Bot, OAuth2Scopes.ApplicationsCommands],
+							permissions: [PermissionFlagsBits.Administrator]
+						})})
+						`
+					)
 			]
 		});
 	}
