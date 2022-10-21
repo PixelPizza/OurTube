@@ -1,5 +1,5 @@
 import {ApplyOptions} from "@sapphire/decorators";
-import {MessageEmbed} from "discord.js";
+import {EmbedBuilder, Colors} from "discord.js";
 import {Command} from "../lib/Command";
 
 @ApplyOptions<Command.Options>({
@@ -32,13 +32,14 @@ export class VolumeCommand extends Command {
 		if (!volume) {
 			return interaction.editReply({
 				embeds: [
-					new MessageEmbed({
-						color: "BLUE",
-						title: "Volume",
-						description: await this.resolveCommandKey(interaction, "success.description.current", {
-							replace: {volume: queue.volume}
-						})
-					})
+					new EmbedBuilder()
+						.setColor(Colors.Blue)
+						.setTitle("Volume")
+						.setDescription(
+							await this.resolveCommandKey(interaction, "success.description.current", {
+								replace: {volume: queue.volume}
+							})
+						)
 				]
 			});
 		}
@@ -47,13 +48,14 @@ export class VolumeCommand extends Command {
 
 		return interaction.editReply({
 			embeds: [
-				new MessageEmbed({
-					color: "GREEN",
-					title: await this.resolveCommandKey(interaction, "success.title"),
-					description: await this.resolveCommandKey(interaction, "success.description.changed", {
-						replace: {volume}
-					})
-				})
+				new EmbedBuilder()
+					.setColor(Colors.Green)
+					.setTitle(await this.resolveCommandKey(interaction, "success.title"))
+					.setDescription(
+						await this.resolveCommandKey(interaction, "success.description.changed", {
+							replace: {volume}
+						})
+					)
 			]
 		});
 	}

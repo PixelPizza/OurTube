@@ -1,7 +1,7 @@
 import {LogLevel} from "@sapphire/framework";
 import type {Container} from "@sapphire/pieces";
 import {Logger as SapphireLogger, LoggerOptions} from "@sapphire/plugin-logger";
-import {ColorResolvable, WebhookClient} from "discord.js";
+import {ColorResolvable, WebhookClient, Colors, EmbedBuilder} from "discord.js";
 import {inspect} from "util";
 
 export class WebhookLogFormat {
@@ -17,13 +17,13 @@ export class WebhookLogFormat {
 export class Logger extends SapphireLogger {
 	private readonly webhook = new WebhookClient({url: process.env.CONSOLE_URL});
 	private readonly webhookFormats = new Map<LogLevel, WebhookLogFormat>([
-		[LogLevel.Trace, new WebhookLogFormat("GREY", "Trace")],
+		[LogLevel.Trace, new WebhookLogFormat(Colors.Grey, "Trace")],
 		[LogLevel.Debug, new WebhookLogFormat("#ff00ff", "Debug")], // Magenta
 		[LogLevel.Info, new WebhookLogFormat("#00ffff", "Info")], // Cyan
-		[LogLevel.Warn, new WebhookLogFormat("YELLOW", "Warn")],
-		[LogLevel.Error, new WebhookLogFormat("RED", "Error")],
-		[LogLevel.Fatal, new WebhookLogFormat("DARK_RED", "Fatal")],
-		[LogLevel.None, new WebhookLogFormat("DEFAULT", "")]
+		[LogLevel.Warn, new WebhookLogFormat(Colors.Yellow, "Warn")],
+		[LogLevel.Error, new WebhookLogFormat(Colors.Red, "Error")],
+		[LogLevel.Fatal, new WebhookLogFormat(Colors.DarkRed, "Fatal")],
+		[LogLevel.None, new WebhookLogFormat(Colors.Default, "")]
 	]);
 
 	public constructor(public readonly container: Container, options?: LoggerOptions) {
@@ -35,20 +35,21 @@ export class Logger extends SapphireLogger {
 
 		super.write(level, ...values);
 
-		const format = this.webhookFormats.get(level) ?? this.webhookFormats.get(LogLevel.None);
+		const format = (this.webhookFormats.get(level) ?? this.webhookFormats.get(LogLevel.None))!;
 
 		void this.webhook.send({
 			embeds: [
-				{
-					color: format!.color,
-					title: format!.title,
-					description: values
-						.map(value =>
-							typeof value === "string" ? value : inspect(value, {colors: false, depth: this.depth})
-						)
-						.join(this.join),
-					timestamp: Date.now()
-				}
+				new EmbedBuilder()
+					.setColor(format.color)
+					.setTitle(format.title)
+					.setDescription(
+						values
+							.map(value =>
+								typeof value === "string" ? value : inspect(value, {colors: false, depth: this.depth})
+							)
+							.join(this.join)
+					)
+					.setTimestamp()
 			],
 			username: "OurTube Console",
 			avatarURL: this.container.client?.user?.displayAvatarURL()

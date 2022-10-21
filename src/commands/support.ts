@@ -1,5 +1,5 @@
 import {ApplyOptions} from "@sapphire/decorators";
-import {MessageEmbed} from "discord.js";
+import {EmbedBuilder, Colors} from "discord.js";
 import {Command} from "../lib/Command";
 
 @ApplyOptions<Command.Options>({
@@ -16,20 +16,21 @@ export class SupportCommand extends Command {
 		const guild = await interaction.client.guilds.fetch(process.env.GUILD);
 		return interaction.editReply({
 			embeds: [
-				new MessageEmbed({
-					color: "RED",
-					title: await this.resolveCommandKey(interaction, "success.title"),
-					description: await this.resolveCommandKey(interaction, "success.description", {
-						replace: {
-							invite: (
-								await guild.invites.create(guild.systemChannel!, {
-									maxAge: 0,
-									reason: `${interaction.user} used the support command`
-								})
-							).url
-						}
-					})
-				})
+				new EmbedBuilder()
+					.setColor(Colors.Red)
+					.setTitle(await this.resolveCommandKey(interaction, "success.title"))
+					.setDescription(
+						await this.resolveCommandKey(interaction, "success.description", {
+							replace: {
+								invite: (
+									await guild.invites.create(guild.systemChannel!, {
+										maxAge: 0,
+										reason: `${interaction.user} used the support command`
+									})
+								).url
+							}
+						})
+					)
 			]
 		});
 	}

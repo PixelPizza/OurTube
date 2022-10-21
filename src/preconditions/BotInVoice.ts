@@ -4,7 +4,7 @@ import type {CommandInteraction} from "discord.js";
 
 export class BotInVoicePrecondition extends Precondition {
 	public async chatInputRun(interaction: CommandInteraction) {
-		return interaction.guild!.me!.voice.channel
+		return interaction.guild!.members.me!.voice.channel
 			? this.ok()
 			: this.error({message: await resolveKey(interaction, "preconditions/botinvoice:error")});
 	}

@@ -2,7 +2,7 @@ import {ApplyOptions} from "@sapphire/decorators";
 import {container, Listener} from "@sapphire/framework";
 import {resolveKey} from "@sapphire/plugin-i18next";
 import type {Queue, Track} from "discord-player";
-import {CommandInteraction, MessageEmbed} from "discord.js";
+import {CommandInteraction, EmbedBuilder, Colors} from "discord.js";
 
 @ApplyOptions<Listener.Options>({
 	emitter: container.player,
@@ -12,13 +12,14 @@ export class TrackStartListener extends Listener {
 	public async run(queue: Queue<CommandInteraction>, track: Track): Promise<any> {
 		return queue.metadata!.followUp({
 			embeds: [
-				new MessageEmbed({
-					color: "BLUE",
-					title: await resolveKey<string>(queue.metadata!, "listeners/trackstart:title"),
-					description: await resolveKey<string>(queue.metadata!, "listeners/trackstart:description", {
-						replace: {track: `[${track.title}](${track.url})`}
-					})
-				})
+				new EmbedBuilder()
+					.setColor(Colors.Blue)
+					.setTitle(await resolveKey(queue.metadata!, "listeners/trackstart:title"))
+					.setDescription(
+						await resolveKey(queue.metadata!, "listeners/trackstart:description", {
+							replace: {track: `[${track.title}](${track.url})`}
+						})
+					)
 			]
 		});
 	}

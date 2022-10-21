@@ -1,5 +1,5 @@
 import {ApplyOptions} from "@sapphire/decorators";
-import {MessageEmbed} from "discord.js";
+import {EmbedBuilder, Colors} from "discord.js";
 import {Command} from "../lib/Command";
 
 @ApplyOptions<Command.Options>({
@@ -15,19 +15,20 @@ export class DisconnectCommand extends Command {
 		await interaction.deferReply();
 
 		const {guild} = interaction;
-		const {channel} = guild!.me!.voice;
+		const {channel} = guild!.members.me!.voice;
 
 		this.container.player.deleteQueue(guild!);
 
 		return interaction.editReply({
 			embeds: [
-				new MessageEmbed({
-					color: "GREEN",
-					title: await this.resolveCommandKey(interaction, "success.title"),
-					description: await this.resolveCommandKey(interaction, "success.description", {
-						replace: {channel: channel!.name}
-					})
-				})
+				new EmbedBuilder()
+					.setColor(Colors.Green)
+					.setTitle(await this.resolveCommandKey(interaction, "success.title"))
+					.setDescription(
+						await this.resolveCommandKey(interaction, "success.description", {
+							replace: {channel: channel!.name}
+						})
+					)
 			]
 		});
 	}

@@ -1,6 +1,6 @@
 import {ApplyOptions} from "@sapphire/decorators";
 import {BucketScope} from "@sapphire/framework";
-import {MessageEmbed} from "discord.js";
+import {EmbedBuilder, Colors} from "discord.js";
 import {stripIndents} from "common-tags";
 import {Duration, Time} from "@sapphire/time-utilities";
 import {Command} from "../lib/Command";
@@ -29,25 +29,25 @@ export class SeekCommand extends Command {
 		if (isNaN(duration))
 			return interaction.editReply({
 				embeds: [
-					new MessageEmbed({
-						color: "RED",
-						title: "Invalid time",
-						description: "The time you provided is invalid"
-					})
+					new EmbedBuilder()
+						.setColor(Colors.Red)
+						.setTitle("Invalid time")
+						.setDescription("The time you provided is invalid")
 				]
 			});
 		await queue.seek(duration);
 
 		return interaction.editReply({
 			embeds: [
-				new MessageEmbed({
-					color: "GREEN",
-					title: await this.resolveCommandKey(interaction, "success.title"),
-					description: stripIndents`
-                        ${await this.resolveCommandKey(interaction, "success.description")}
-                        ${queue.createProgressBar()}
-                    `
-				})
+				new EmbedBuilder()
+					.setColor(Colors.Green)
+					.setTitle(await this.resolveCommandKey(interaction, "success.title"))
+					.setDescription(
+						stripIndents`
+							${await this.resolveCommandKey(interaction, "success.description")}
+							${queue.createProgressBar()}
+						`
+					)
 			]
 		});
 	}

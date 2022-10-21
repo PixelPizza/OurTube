@@ -1,41 +1,19 @@
 import {ApplyOptions} from "@sapphire/decorators";
 import {Listener, SapphireClient} from "@sapphire/framework";
-import type {ActivityOptions} from "discord.js";
+import {ActivityOptions, ActivityType} from "discord.js";
 
 @ApplyOptions<Listener.Options>({
 	event: "ready"
 })
 export class ReadyListener extends Listener<"ready"> {
-	public async run(client: SapphireClient<true>) {
-		const {logger} = this.container;
-
-		try {
-			logger.info("Setting default permission for guild (/) commands.");
-
-			for (const command of (await (await client.guilds.fetch(process.env.GUILD)).commands.fetch()).values()) {
-				await command.permissions.add({
-					permissions: [
-						{
-							id: process.env.OWNER,
-							type: "USER",
-							permission: true
-						}
-					]
-				});
-			}
-
-			logger.info("Successfully set default permission for guild (/) commands.");
-		} catch (error) {
-			logger.error(error);
-		}
-
+	public run(client: SapphireClient<true>) {
 		const activities: ActivityOptions[] = [
 			{
-				type: "PLAYING",
+				type: ActivityType.Playing,
 				name: "Music"
 			},
 			{
-				type: "LISTENING",
+				type: ActivityType.Listening,
 				name: `${client.guilds.cache.size} guilds`
 			}
 		];
@@ -46,6 +24,6 @@ export class ReadyListener extends Listener<"ready"> {
 			client.user.setActivity(activities[activityIndex]);
 		}, 5 * 60 * 1000);
 
-		logger.info(`${client.user.username} is ready`);
+		this.container.logger.info(`${client.user.username} is ready`);
 	}
 }
