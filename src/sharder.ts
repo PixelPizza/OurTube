@@ -1,6 +1,6 @@
 import {config} from "dotenv";
+import {dirname, join} from "path";
 import {Shard, ShardingManager} from "discord.js";
-import {join} from "path";
 import {container, LogLevel} from "@sapphire/framework";
 import {Logger} from "./logger";
 config();
@@ -11,7 +11,7 @@ const logger = new Logger(container, {
 
 const logShardEvent = (shard: Shard, event: string) => logger.debug(`Shard ${shard.id} ${event}`);
 
-new ShardingManager(join(__dirname, "bot.js"), {
+new ShardingManager(join(dirname(new URL(import.meta.url).pathname), "bot.mjs").substring(1), {
 	token: process.env.TOKEN,
 	mode: "worker"
 })

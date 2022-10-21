@@ -14,7 +14,7 @@ export class ReplayCommand extends Command {
 	public override async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply();
 
-		const queue = this.container.player.getQueue(interaction.guild!);
+		const queue = this.container.player.getQueue(interaction.guild!)!;
 
 		if (!queue.nowPlaying()) {
 			return interaction.editReply({

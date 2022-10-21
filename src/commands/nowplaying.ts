@@ -36,7 +36,7 @@ export class NowPlayingCommand extends Command {
 					title: await this.resolveCommandKey(interaction, "success.title"),
 					description: stripIndents`
 						[${nowPlaying.title}](${nowPlaying.url})
-						${queue.createProgressBar()}
+						${queue!.createProgressBar()}
 
 						${await this.resolveCommandKey(interaction, "success.requestedBy", {
 							replace: {user: nowPlaying.requestedBy.toString()}
