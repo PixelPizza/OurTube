@@ -214,14 +214,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@kaname-png/plugin-statcord@npm:^2.1.4":
-  version: 2.1.4
-  resolution: "@kaname-png/plugin-statcord@npm:2.1.4"
+"@kaname-png/plugin-statcord@npm:^2.1.5":
+  version: 2.1.5
+  resolution: "@kaname-png/plugin-statcord@npm:2.1.5"
   dependencies:
     "@sapphire/fetch": ^2.4.1
-    systeminformation: ^5.12.6
+    systeminformation: ^5.12.7
     tslib: ^2.4.0
-  checksum: 875b32d81b753378e9e12b6fcba4371ee33855eba1f6a2e011b6b64c3ca6bd4b05f6f2c6a3fec1c91af2472d5737c67ec7d3d66201b74cdb99519495517b7af4
+  checksum: a32cb8b814076167a2a854436c66558f094b0a293a8b4e59c9bda8ac536b0be0d1d1b0997347f4aab9ec537dd010fd215634976cf0a29d001aa470f1df890472
   languageName: node
   linkType: hard
 
@@ -3266,7 +3266,7 @@ __metadata:
   dependencies:
     "@commitlint/config-angular": 17.1.0
     "@discordjs/opus": ^0.9.0
-    "@kaname-png/plugin-statcord": ^2.1.4
+    "@kaname-png/plugin-statcord": ^2.1.5
     "@prisma/client": ^4.5.0
     "@sapphire/decorators": ^5.0.0
     "@sapphire/eslint-config": 4.3.8
@@ -3964,12 +3964,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"systeminformation@npm:^5.12.6":
-  version: 5.12.6
-  resolution: "systeminformation@npm:5.12.6"
+"systeminformation@npm:^5.12.7":
+  version: 5.12.8
+  resolution: "systeminformation@npm:5.12.8"
   bin:
     systeminformation: lib/cli.js
-  checksum: ae112148530bc31c4c43c4966b8f56822c874caa93daa1f146ea2372ec32738b315f10c58fb968611d082d9614bac054a9a3740b7e7df1201a2a581c73f3306c
+  checksum: 54427687cb4ecb7606c62be2c2607ae41f69f891f7022dbdbe17ef56905300c8e548b59290ff7f90279a3b81a2c52f64207ff6e731e52e78391c1792ad09a752
   conditions: (os=darwin | os=linux | os=win32 | os=freebsd | os=openbsd | os=netbsd | os=sunos | os=android)
   languageName: node
   linkType: hard
