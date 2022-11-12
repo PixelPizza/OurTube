@@ -12,6 +12,14 @@
 				"automerge": true
 			},
 			{
+				"matchPackagePatterns": ["@sapphire"],
+				"groupName": "Sapphire Dependencies"
+			},
+			{
+				"matchPackagePatterns": ["@discordjs", "discord.js"],
+				"groupName": "Discord.JS Dependencies"
+			},
+			{
 				"matchPackageNames": ["discord-player"],
 				"groupName": "Discord Player Dependency"
 			},
