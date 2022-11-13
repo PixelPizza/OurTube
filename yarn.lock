@@ -420,6 +420,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sapphire/pieces@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "@sapphire/pieces@npm:3.6.0"
+  dependencies:
+    "@discordjs/collection": ^1.2.0
+    "@sapphire/utilities": ^3.11.0
+    tslib: ^2.4.0
+  checksum: ef93f1cd4cf3983cab43d45415590a4cbd32c01cbfde78b8eb230035637250e90fd9a7fa96377a719ef6ddde364d27f87c027d9cbebef82a93ca800ab21201b9
+  languageName: node
+  linkType: hard
+
 "@sapphire/plugin-i18next@npm:^4.0.1":
   version: 4.0.1
   resolution: "@sapphire/plugin-i18next@npm:4.0.1"
@@ -3279,7 +3290,7 @@ __metadata:
     "@sapphire/decorators": ^5.0.0
     "@sapphire/eslint-config": 4.3.8
     "@sapphire/framework": pr-512
-    "@sapphire/pieces": ^3.5.2
+    "@sapphire/pieces": ^3.6.0
     "@sapphire/plugin-i18next": ^4.0.1
     "@sapphire/plugin-logger": ^3.0.1
     "@sapphire/time-utilities": ^1.7.8
