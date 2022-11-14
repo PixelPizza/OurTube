@@ -3279,7 +3279,6 @@ __metadata:
     "@sapphire/decorators": ^5.0.0
     "@sapphire/eslint-config": 4.3.8
     "@sapphire/framework": pr-512
-    "@sapphire/pieces": ^3.5.2
     "@sapphire/plugin-i18next": ^4.0.1
     "@sapphire/plugin-logger": ^3.0.1
     "@sapphire/time-utilities": ^1.7.8
