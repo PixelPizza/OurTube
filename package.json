@@ -42,7 +42,7 @@
 		"discord-player": "^5.3.2",
 		"discord.js": "^14.6.0",
 		"dotenv": "^16.0.3",
-		"sodium": "^3.0.2",
+		"sodium-native": "^3.4.1",
 		"tslib": "^2.4.1",
 		"ytdl-core": "^4.11.2"
 	},
