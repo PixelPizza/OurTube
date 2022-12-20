@@ -31,8 +31,8 @@
 	"homepage": "https://github.com/PixelPizza/OurTube#readme",
 	"dependencies": {
 		"@discordjs/opus": "^0.9.0",
-		"@kaname-png/plugin-statcord": "^2.1.5",
-		"@prisma/client": "^4.6.1",
+		"@kaname-png/plugin-statcord": "^2.1.7",
+		"@prisma/client": "^4.8.0",
 		"@sapphire/decorators": "^5.0.0",
 		"@sapphire/framework": "pr-512",
 		"@sapphire/plugin-i18next": "^4.0.1",
@@ -52,18 +52,18 @@
 		"@sapphire/ts-config": "3.3.4",
 		"@types/common-tags": "1.8.1",
 		"@types/eslint": "8.4.10",
-		"@types/node": "18.11.9",
-		"@types/prettier": "2.7.1",
-		"@typescript-eslint/eslint-plugin": "5.44.0",
-		"@typescript-eslint/parser": "5.44.0",
-		"eslint": "8.28.0",
+		"@types/node": "18.11.17",
+		"@types/prettier": "2.7.2",
+		"@typescript-eslint/eslint-plugin": "5.47.0",
+		"@typescript-eslint/parser": "5.47.0",
+		"eslint": "8.30.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.2.1",
 		"husky": "8.0.2",
-		"prettier": "2.8.0",
-		"prisma": "4.6.1",
+		"prettier": "2.8.1",
+		"prisma": "4.8.0",
 		"tsup": "6.5.0",
-		"typescript": "4.9.3"
+		"typescript": "4.9.4"
 	},
-	"packageManager": "yarn@3.3.0"
+	"packageManager": "yarn@3.3.1"
 }
