@@ -2,7 +2,7 @@
 	"name": "ourtube",
 	"version": "1.0.0",
 	"description": "A music discord bot written in discord.js",
-	"main": "dist/sharder.mjs",
+	"main": "dist/sharder.js",
 	"directories": {
 		"lib": "src"
 	},
@@ -40,10 +40,13 @@
 		"@sapphire/time-utilities": "^1.7.8",
 		"common-tags": "^1.8.2",
 		"discord-player": "^5.3.2",
-		"discord.js": "^14.7.1",
+		"discord.js": "^14.5.0",
 		"dotenv": "^16.0.3",
 		"sodium-native": "^3.4.1",
+		"soundcloud-scraper": "^5.0.3",
+		"spotify-url-info": "^3.1.10",
 		"tslib": "^2.4.1",
+		"youtube-sr": "^4.3.4",
 		"ytdl-core": "^4.11.2"
 	},
 	"devDependencies": {

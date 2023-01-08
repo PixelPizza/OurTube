@@ -1,9 +1,10 @@
 import {Command as SapphireCommand} from "@sapphire/framework";
-import {resolveKey, StringMap, Target, TOptions} from "@sapphire/plugin-i18next";
+import type {StringMap, Target, TOptions} from "@sapphire/plugin-i18next";
+import {resolveMaybeKey} from "../utils";
 
 export abstract class Command extends SapphireCommand {
-	protected resolveCommandKey(target: Target, key: string | string[], options?: TOptions<StringMap>) {
-		return resolveKey(target, `commands/${this.name}:${key}`, options);
+	protected resolveCommandKey(target: Target, key: string, options?: TOptions<StringMap>) {
+		return resolveMaybeKey(target, `commands/${this.name}:${key}`, options);
 	}
 }
 

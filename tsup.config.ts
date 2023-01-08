@@ -10,7 +10,7 @@ export const tsup: Options = {
 		"src/listeners/**/*.ts",
 		"src/preconditions/**/*.ts"
 	],
-	format: ["esm"],
+	format: ["cjs"],
 	minify: true,
 	skipNodeModulesBundle: true,
 	sourcemap: false,
