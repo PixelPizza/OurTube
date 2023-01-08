@@ -1,8 +1,8 @@
 import {ApplyOptions} from "@sapphire/decorators";
 import {container, Listener} from "@sapphire/framework";
-import {resolveKey} from "@sapphire/plugin-i18next";
 import type {Queue, Track} from "discord-player";
 import {CommandInteraction, EmbedBuilder, Colors} from "discord.js";
+import {resolveMaybeKey} from "../../utils";
 
 @ApplyOptions<Listener.Options>({
 	emitter: container.player,
@@ -15,9 +15,9 @@ export class TrackAddListener extends Listener {
 			embeds: [
 				new EmbedBuilder()
 					.setColor(Colors.Blue)
-					.setTitle(await resolveKey(queue.metadata!, "listeners/trackadd:title"))
+					.setTitle(await resolveMaybeKey(queue.metadata!, "listeners/trackadd:title"))
 					.setDescription(
-						await resolveKey(queue.metadata!, "listeners/trackadd:description", {
+						await resolveMaybeKey(queue.metadata!, "listeners/trackadd:description", {
 							replace: {track: `[${track.title}](${track.url})`}
 						})
 					)

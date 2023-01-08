@@ -1,7 +1,7 @@
 import {ApplyOptions} from "@sapphire/decorators";
 import {Precondition} from "@sapphire/framework";
-import {resolveKey} from "@sapphire/plugin-i18next";
 import type {CommandInteraction} from "discord.js";
+import {resolveMaybeKey} from "../utils";
 
 @ApplyOptions<Precondition.Options>({
 	position: 1
@@ -13,7 +13,9 @@ export class NotBlacklistedPrecondition extends Precondition {
 				user: interaction.user.id
 			}
 		}))
-			? this.error({message: await resolveKey(interaction, "preconditions/notblacklisted:error")})
+			? this.error({
+					message: await resolveMaybeKey(interaction, "preconditions/notblacklisted:error")
+			  })
 			: this.ok();
 	}
 }
