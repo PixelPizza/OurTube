@@ -44,7 +44,7 @@
 		"dotenv": "^16.0.3",
 		"sodium-native": "^3.4.1",
 		"soundcloud-scraper": "^5.0.3",
-		"spotify-url-info": "^3.1.10",
+		"spotify-url-info": "^3.2.3",
 		"tslib": "^2.4.1",
 		"youtube-sr": "^4.3.4",
 		"ytdl-core": "^4.11.2"
