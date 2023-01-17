@@ -3071,7 +3071,7 @@ __metadata:
     husky: 8.0.3
     prettier: 2.8.2
     prisma: 4.8.1
-    sodium-native: ^3.4.1
+    sodium-native: ^4.0.0
     soundcloud-scraper: ^5.0.3
     spotify-url-info: ^3.2.3
     tslib: ^2.4.1
@@ -3513,13 +3513,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sodium-native@npm:^3.4.1":
-  version: 3.4.1
-  resolution: "sodium-native@npm:3.4.1"
+"sodium-native@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "sodium-native@npm:4.0.0"
   dependencies:
     node-gyp: latest
     node-gyp-build: ^4.3.0
-  checksum: 88f2f8c9ecb3c7952098b667ee3803f24253d72a3b3874b126e0e36b2ac20432e12ad44bde3664024e6d0ae1bc6d24fdebc81273af161e735f2eec22f10d26dd
+  checksum: a9d4986a34e78789205310d2b25deac4abc4dcef08e1cc7535d9232182e7a9180dfacbcc95275d0ed13ef3e01292368d9a541abbb838f020bdae02faaa66341d
   languageName: node
   linkType: hard
 
