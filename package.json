@@ -55,7 +55,7 @@
 		"@sapphire/ts-config": "3.3.4",
 		"@types/common-tags": "1.8.1",
 		"@types/eslint": "8.21.1",
-		"@types/node": "18.14.2",
+		"@types/node": "18.14.6",
 		"@types/prettier": "2.7.2",
 		"@typescript-eslint/eslint-plugin": "5.54.0",
 		"@typescript-eslint/parser": "5.54.0",
