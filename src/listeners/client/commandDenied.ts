@@ -1,7 +1,7 @@
 import {ApplyOptions} from "@sapphire/decorators";
 import {ChatInputCommandDeniedPayload, Listener, UserError} from "@sapphire/framework";
-import {resolveKey} from "@sapphire/plugin-i18next";
 import {EmbedBuilder, Colors} from "discord.js";
+import {resolveMaybeKey} from "../../utils";
 
 @ApplyOptions<Listener.Options>({
 	event: "chatInputCommandDenied"
@@ -12,7 +12,7 @@ export class CommandDeniedListener extends Listener<"chatInputCommandDenied"> {
 			embeds: [
 				new EmbedBuilder()
 					.setColor(Colors.Red)
-					.setTitle(await resolveKey(interaction, "listeners/commanddenied:title"))
+					.setTitle(await resolveMaybeKey(interaction, "listeners/commanddenied:title"))
 					.setDescription(error.message)
 			]
 		});
