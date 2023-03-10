@@ -9,7 +9,7 @@ import {type Queue, Util} from "discord-player";
 export class QueueEndListener extends Listener {
 	public run(queue: Queue): void {
 		if (Util.isVoiceEmpty(queue.connection.channel)) {
-			queue.destroy();
+			queue.delete();
 			this.container.logger.debug(`[${queue.guild.name}] Queue finished!`);
 		}
 	}
