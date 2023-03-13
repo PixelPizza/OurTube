@@ -2,7 +2,3 @@
 	"extends": "./tsconfig.json",
 	"include": ["src", "scripts", "tsup.config.ts"]
 }
-{
-
-	"extends": ["plugin:@sapphire/result/recommended"]
-}
