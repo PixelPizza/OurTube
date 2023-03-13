@@ -1,7 +1,3 @@
 {
-	"extends": "@sapphire"
-}
-{
-
-	"extends": ["plugin:@sapphire/result/recommended"]
+	"extends": ["@sapphire", "plugin:@sapphire/result/recommended"]
 }
