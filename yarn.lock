@@ -4179,3 +4179,5 @@ __metadata:
   checksum: 57df38b5b1e4955db0e0c0be8d185f34de9eaee102ad1281d69de91628230cc84e8d46d278409eafa68c4aab4085a0f9fe8de30e9ea8644e011e20cae7f37c0e
   languageName: node
   linkType: hard
+  
+  "@sapphire/eslint-plugin-result:"
