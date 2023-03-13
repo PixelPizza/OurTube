@@ -48,6 +48,8 @@
 		"tslib": "^2.5.0",
 		"youtube-sr": "^4.3.4",
 		"ytdl-core": "^4.11.2"
+		@sapphire/eslint-plugin-result
+		
 	},
 	"devDependencies": {
 		"@commitlint/config-angular": "17.4.4",
@@ -67,6 +69,6 @@
 		"prisma": "4.11.0",
 		"tsup": "6.6.3",
 		"typescript": "4.9.5"
-	},
+		@sapphire/eslint-plugin-result
 	"packageManager": "yarn@3.4.1"
 }
