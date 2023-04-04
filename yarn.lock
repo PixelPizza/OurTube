@@ -649,27 +649,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/plugin-i18next@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "@sapphire/plugin-i18next@npm:5.0.1"
+"@sapphire/plugin-i18next@npm:^5.0.2":
+  version: 5.0.2
+  resolution: "@sapphire/plugin-i18next@npm:5.0.2"
   dependencies:
     "@sapphire/utilities": ^3.11.0
-    "@skyra/i18next-backend": ^2.0.1
+    "@skyra/i18next-backend": ^2.0.2
     chokidar: ^3.5.3
-    i18next: ^22.4.10
+    i18next: ^22.4.14
     tslib: ^2.5.0
-  checksum: 72d32776c2964f6826e00df81f47f40fe2e5efe864194f96710accced3b4e13c43252bba61ba7ee8420e6d5fecfaaba1de14674a690bf5e62cd5a5b7ad88ffca
+  checksum: 4f5c9ddaf68d5c9265459bc813c59c193d62a4f1d23da31ba6b58223256b3fdf45e1a96060cfb532fb7fad779858543fd44d161bf73d43d4d30c41bf69215d7a
   languageName: node
   linkType: hard
 
-"@sapphire/plugin-logger@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "@sapphire/plugin-logger@npm:3.0.1"
+"@sapphire/plugin-logger@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "@sapphire/plugin-logger@npm:3.0.2"
   dependencies:
-    "@sapphire/timestamp": ^1.0.0
+    "@sapphire/timestamp": ^1.0.1
     colorette: ^2.0.19
-    tslib: ^2.4.0
-  checksum: ed95258441b958e1618489c5e5ad336bf5a304a2d3efbfc15104c99133d92938bade2ed5eaf2739eba14d7e153db87af1d77891e15ad2b2414f4f3ecab6d3a27
+    tslib: ^2.5.0
+  checksum: 70b049c5e9bc954c69bf91d1c455e6c909bf1383e3c85f3185a1abed0657367fddf8095a5fff4db8e31f74944ac048ef28a7df5c8beb20b58c2753d9ea68dd7b
   languageName: node
   linkType: hard
 
@@ -751,13 +751,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/timestamp@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@sapphire/timestamp@npm:1.0.0"
-  checksum: 2852210825626431cb7aee4da9cd04518778854f5b9e8eafc0fa0a57d499251030ad115f0d0c58e15e5b176cfb495301df7418d95e51c4826e9fadc09ff98bbb
-  languageName: node
-  linkType: hard
-
 "@sapphire/timestamp@npm:^1.0.1":
   version: 1.0.1
   resolution: "@sapphire/timestamp@npm:1.0.1"
@@ -789,12 +782,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@skyra/i18next-backend@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@skyra/i18next-backend@npm:2.0.1"
+"@skyra/i18next-backend@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@skyra/i18next-backend@npm:2.0.2"
   dependencies:
-    tslib: ^2.4.1
-  checksum: d9bb3500d0cdb908ecee0cf710a6f320c64248251dd52a0a4e2eafea3654cd4dcc84a1b69635be8cac4c1a62626d7e1485c15005e169c32e5c759275106543b0
+    tslib: ^2.5.0
+  checksum: cae046575a6da70dad4f93177fe8793d64ff1b3d0c6aed576a2fde98dfae71355ffe138076fc9e1e1049eff511a3d30dc6c886cc261764d7be9fdb65f550ac2c
   languageName: node
   linkType: hard
 
@@ -2551,12 +2544,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^22.4.10":
-  version: 22.4.10
-  resolution: "i18next@npm:22.4.10"
+"i18next@npm:^22.4.14":
+  version: 22.4.14
+  resolution: "i18next@npm:22.4.14"
   dependencies:
     "@babel/runtime": ^7.20.6
-  checksum: 731423e3fafe4ecaf0fc3c5867b69ae5c35c9021f7b5aad8392a9bf5cf56fbf1503376ba5aa935f2b21e12a97862fa31be0e4b35e98eefb747e2008b5808e35c
+  checksum: 963b70c7e1fee9666ef4d9ea87a63d0c9483007e2a0ea9520356e43a2cd550f3eb1cab24c57a102f3e84fd737fdff41bafc953dafc3bd6589dc9ea52ddb49905
   languageName: node
   linkType: hard
 
@@ -3240,8 +3233,8 @@ __metadata:
     "@sapphire/eslint-config": 4.3.8
     "@sapphire/eslint-plugin-result": ^1.0.0
     "@sapphire/framework": pr-512
-    "@sapphire/plugin-i18next": ^5.0.1
-    "@sapphire/plugin-logger": ^3.0.1
+    "@sapphire/plugin-i18next": ^5.0.2
+    "@sapphire/plugin-logger": ^3.0.2
     "@sapphire/time-utilities": ^1.7.9
     "@sapphire/ts-config": 3.3.4
     "@types/common-tags": 1.8.1
