@@ -1,15 +1,15 @@
 import {ApplyOptions} from "@sapphire/decorators";
 import {container, Listener} from "@sapphire/framework";
-import type {Queue} from "discord-player";
+import type {GuildQueue} from "discord-player";
 
 @ApplyOptions<Listener.Options>({
-	emitter: container.player,
+	emitter: container.player.events,
 	event: "channelEmpty"
 })
 export class ChannelEmptyListener extends Listener {
-	public run(queue: Queue): void {
-		if (!queue.nowPlaying()) {
-			queue.destroy();
+	public run(queue: GuildQueue): void {
+		if (!queue.currentTrack) {
+			queue.delete();
 			this.container.logger.debug(`[${queue.guild.name}] Voice channel empty, now leaving...`);
 		}
 	}

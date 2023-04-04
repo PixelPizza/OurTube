@@ -18,7 +18,14 @@ const client = new SapphireClient({
 		debug: true
 	}
 });
-container.player = new Player(client);
+container.player = Player.singleton(client, {
+	ytdlOptions: {
+		quality: "highest",
+		filter: "audioonly",
+		highWaterMark: 1 << 25,
+		dlChunkSize: 0
+	}
+});
 container.logger = new Logger(container, {level: LogLevel.Debug});
 container.prisma = new PrismaClient();
 

@@ -1,15 +1,15 @@
 import {ApplyOptions} from "@sapphire/decorators";
 import {container, Listener} from "@sapphire/framework";
-import type {Queue, Track} from "discord-player";
+import type {GuildQueue, Track} from "discord-player";
 import {CommandInteraction, EmbedBuilder, Colors} from "discord.js";
 import {resolveMaybeKey} from "../../utils";
 
 @ApplyOptions<Listener.Options>({
-	emitter: container.player,
+	emitter: container.player.events,
 	event: "tracksAdd"
 })
 export class TracksAddListener extends Listener {
-	public async run(queue: Queue<CommandInteraction>, tracks: Track[]): Promise<any> {
+	public async run(queue: GuildQueue<CommandInteraction>, tracks: Track[]): Promise<any> {
 		return queue.metadata!.followUp({
 			embeds: [
 				new EmbedBuilder()

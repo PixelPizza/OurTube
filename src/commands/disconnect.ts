@@ -17,7 +17,7 @@ export class DisconnectCommand extends Command {
 		const {guild} = interaction;
 		const {channel} = guild!.members.me!.voice;
 
-		this.container.player.deleteQueue(guild!);
+		this.container.player.queues.delete(guild!);
 
 		return interaction.editReply({
 			embeds: [

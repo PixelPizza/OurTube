@@ -21,9 +21,9 @@ export class RemoveCommand extends Command {
 	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply({ephemeral: true});
 
-		const queue = this.container.player.getQueue(interaction.guild!)!;
+		const queue = this.container.player.nodes.get(interaction.guild!)!;
 		const index = interaction.options.getInteger("index", true);
-		const removed = queue.remove(index - 1);
+		const removed = queue.node.remove(index - 1);
 
 		return interaction.editReply({
 			embeds: [
@@ -32,7 +32,7 @@ export class RemoveCommand extends Command {
 					.setTitle(await this.resolveCommandKey(interaction, "success.title"))
 					.setDescription(
 						await this.resolveCommandKey(interaction, "success.description", {
-							replace: {track: `[${removed.title}](${removed.url})`, index}
+							replace: {track: `[${removed?.title}](${removed?.url})`, index}
 						})
 					)
 			]
