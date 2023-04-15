@@ -21,12 +21,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-angular@npm:17.4.4":
-  version: 17.4.4
-  resolution: "@commitlint/config-angular@npm:17.4.4"
+"@commitlint/config-angular@npm:17.6.1":
+  version: 17.6.1
+  resolution: "@commitlint/config-angular@npm:17.6.1"
   dependencies:
     "@commitlint/config-angular-type-enum": ^17.4.0
-  checksum: 7dbb42097d7c4a7bc19fcdfc691702a239595c6119d1cee6d044dd61726a5e30c5c1e69380950c707726347ded4e40a19057b4878a1638bb9c48e84af6247b02
+  checksum: 66d833db2585a788ae9360afb14827b7087891abe8c1a4c8cd95fe6a5b62d0a7743c2bdabaa3c9dfc373f1f3744ed9e3086405f5b7c0a6c1a06206d980ce8b9a
   languageName: node
   linkType: hard
 
@@ -2918,7 +2918,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ourtube@workspace:."
   dependencies:
-    "@commitlint/config-angular": 17.4.4
+    "@commitlint/config-angular": 17.6.1
     "@discordjs/opus": ^0.9.0
     "@kaname-png/plugin-statcord": ^2.1.10
     "@prisma/client": ^4.12.0
@@ -2953,7 +2953,7 @@ __metadata:
     tsup: 6.7.0
     typescript: 4.9.5
     youtube-sr: ^4.3.4
-    ytdl-core: ^4.11.3
+    ytdl-core: ^4.11.4
   languageName: unknown
   linkType: soft
 
@@ -3956,13 +3956,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ytdl-core@npm:^4.11.3":
-  version: 4.11.3
-  resolution: "ytdl-core@npm:4.11.3"
+"ytdl-core@npm:^4.11.4":
+  version: 4.11.4
+  resolution: "ytdl-core@npm:4.11.4"
   dependencies:
     m3u8stream: ^0.8.6
     miniget: ^4.2.2
     sax: ^1.1.3
-  checksum: 433137a17b8727cfaf674e237d753babb13764d04922b490ee4c5a03b711261fc22b559adc39a2dc4856886c120d8730d2992f922b5e818375ea9d87866c5255
+  checksum: 62c83baf85b4fc4808a149d2ec9a2afdd86f60597362aa8ceebb3dac5c11d9a54f9de11bb4b3d34e70d4a55679457b879a1e3f079124e2933dac036d086bc378
   languageName: node
   linkType: hard
