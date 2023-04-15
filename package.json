@@ -47,10 +47,10 @@
 		"spotify-url-info": "^3.2.3",
 		"tslib": "^2.5.0",
 		"youtube-sr": "^4.3.4",
-		"ytdl-core": "^4.11.3"
+		"ytdl-core": "^4.11.4"
 	},
 	"devDependencies": {
-		"@commitlint/config-angular": "17.4.4",
+		"@commitlint/config-angular": "17.6.1",
 		"@sapphire/eslint-config": "4.4.1",
 		"@sapphire/eslint-plugin-result": "^1.0.1",
 		"@sapphire/ts-config": "3.3.4",
