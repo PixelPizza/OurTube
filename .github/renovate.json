@@ -12,6 +12,10 @@
 				"automerge": true
 			},
 			{
+				"matchPackageNames": ["@sapphire/ts-config", "typescript"],
+				"groupName": "TypeScript Dependencies"
+			},
+			{
 				"matchPackagePatterns": ["@sapphire"],
 				"groupName": "Sapphire Dependencies"
 			},
