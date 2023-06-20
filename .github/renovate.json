@@ -17,6 +17,7 @@
 			},
 			{
 				"matchPackagePatterns": ["@sapphire"],
+				"excludePackageNames": ["@sapphire/ts-config"],
 				"groupName": "Sapphire Dependencies"
 			},
 			{
