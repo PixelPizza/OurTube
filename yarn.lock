@@ -21,12 +21,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-angular@npm:17.6.5":
-  version: 17.6.5
-  resolution: "@commitlint/config-angular@npm:17.6.5"
+"@commitlint/config-angular@npm:17.6.6":
+  version: 17.6.6
+  resolution: "@commitlint/config-angular@npm:17.6.6"
   dependencies:
     "@commitlint/config-angular-type-enum": ^17.4.0
-  checksum: a380aee9e42c7b8250b66189ad40e178a7e2010d6c02cd6394b28740b2fcdaf6df7ff8da18aabcb4fa24751da2f4be7a2acd4fc31a3fb8e10a0ce51bf0d41162
+  checksum: a650d1d93fd594da25af479fdc1b5e95f33b3d7526db5faf2a9ea670052c214ac41a7a5cc96817e5f732561fd3b1aedbe58023aecf077d99df5f0110523962bc
   languageName: node
   linkType: hard
 
@@ -3124,7 +3124,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ourtube@workspace:."
   dependencies:
-    "@commitlint/config-angular": 17.6.5
+    "@commitlint/config-angular": 17.6.6
     "@discordjs/opus": ^0.9.0
     "@kaname-png/plugin-statcord": ^2.1.12
     "@prisma/client": ^4.16.1
@@ -3156,7 +3156,7 @@ __metadata:
     soundcloud-scraper: ^5.0.3
     spotify-url-info: ^3.2.5
     tslib: ^2.5.3
-    tsup: 7.0.0
+    tsup: 7.1.0
     typescript: 4.9.5
     youtube-sr: ^4.3.4
     ytdl-core: ^4.11.4
@@ -3869,9 +3869,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsup@npm:7.0.0":
-  version: 7.0.0
-  resolution: "tsup@npm:7.0.0"
+"tsup@npm:7.1.0":
+  version: 7.1.0
+  resolution: "tsup@npm:7.1.0"
   dependencies:
     bundle-require: ^4.0.0
     cac: ^6.7.12
@@ -3901,7 +3901,7 @@ __metadata:
   bin:
     tsup: dist/cli-default.js
     tsup-node: dist/cli-node.js
-  checksum: 25dda9ca37ab1763986dc34a8eabf2c3d3184834b33b2026907b7bbcf1cea3a4841e645cc3cdd1011eb8aaf9ce9959ddfb9cfeeee8efee0e485f3bae232aacf5
+  checksum: 5639c0f4990a89de6e55f9d77f53b8c3706e6d24700e37dd1fc696abda83017b02be7f514f4e7ce655b1e443b8f4d09ca0aca398b5767cad23466a18bd6e06b2
   languageName: node
   linkType: hard
 
