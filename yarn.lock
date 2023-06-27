@@ -30,10 +30,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@discord-player/equalizer@npm:^0.1.2":
-  version: 0.1.4
-  resolution: "@discord-player/equalizer@npm:0.1.4"
-  checksum: 5043e4fd392c09815cae68e9a74d52df8aa25d982772f62cab9b7c8a9343262ff514f7b3c64fb542373d124b5387f73fde74d91dffd6746210d06114d137c30e
+"@discord-player/equalizer@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "@discord-player/equalizer@npm:0.2.2"
+  checksum: 33b9991a840d6f87cea7e5f5d9c8e4e3cb73e90152c3797f44545916899794cf4e0efa0c6c595cdfdddf0ac7619cf23a3f51b508f2439870a2fbd7d4dfe59c05
+  languageName: node
+  linkType: hard
+
+"@discord-player/ffmpeg@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "@discord-player/ffmpeg@npm:0.1.0"
+  checksum: 95653c0f7888799657ab0268f3e5f53ed910d12b56dbd7b280f8f7a27a492d4a9324c60ae76a450e37f61daca5581ef185216fed828b0317c92bfa4b236561a3
+  languageName: node
+  linkType: hard
+
+"@discord-player/utils@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "@discord-player/utils@npm:0.2.1"
+  dependencies:
+    "@discordjs/collection": ^1.1.0
+  checksum: 65fc1d663e969057f258857d85d262fc165d0573512b611285cfe752c4c3f746c527a02dd29eda67d3dbaad0f5d7ddaf78738f3167b933f75b96cc856d60bcde
   languageName: node
   linkType: hard
 
@@ -148,16 +164,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@discordjs/voice@npm:^0.11.0":
-  version: 0.11.0
-  resolution: "@discordjs/voice@npm:0.11.0"
+"@discordjs/voice@npm:latest":
+  version: 0.16.0
+  resolution: "@discordjs/voice@npm:0.16.0"
   dependencies:
-    "@types/ws": ^8.5.3
-    discord-api-types: ^0.36.2
-    prism-media: ^1.3.4
-    tslib: ^2.4.0
-    ws: ^8.8.1
-  checksum: f8d2bb597ccc073995aa493bff8889f7e663e072a82943aeb018137dd5e45d9ff515c8e820d257dbe5afa3d9947536ddc2c933a218feac2dbddc8ae37c6968b9
+    "@types/ws": ^8.5.4
+    discord-api-types: ^0.37.37
+    prism-media: ^1.3.5
+    tslib: ^2.5.0
+    ws: ^8.13.0
+  checksum: 521824475c5257cf2098b7e7303e44c7906c2126603c7d85de14ad5f6ec12e61e459e18af92b97a11d504db91209aeb5b3e0c324b1f4f790c20e8db925fd66e9
   languageName: node
   linkType: hard
 
@@ -870,15 +886,6 @@ __metadata:
   version: 7.3.12
   resolution: "@types/semver@npm:7.3.12"
   checksum: 35536b2fc5602904f21cae681f6c9498e177dab3f54ae37c92f9a1b7e43c35f18bcd81e1c98c1cf0d33ee046bb06c771e9928c1c00a401d56a03f56549252a15
-  languageName: node
-  linkType: hard
-
-"@types/ws@npm:^8.5.3":
-  version: 8.5.3
-  resolution: "@types/ws@npm:8.5.3"
-  dependencies:
-    "@types/node": "*"
-  checksum: 0ce46f850d41383fcdc2149bcacc86d7232fa7a233f903d2246dff86e31701a02f8566f40af5f8b56d1834779255c04ec6ec78660fe0f9b2a69cf3d71937e4ae
   languageName: node
   linkType: hard
 
@@ -1611,17 +1618,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord-api-types@npm:^0.36.2":
-  version: 0.36.3
-  resolution: "discord-api-types@npm:0.36.3"
-  checksum: 3089c0fb37425dc5df03c76d82988d43fcc272699b06a02fc830d0a3bef550009aaebdf6d646529e8a7ccea76ae3f43b099d736ea5ef37a0be143142ab49871d
-  languageName: node
-  linkType: hard
-
 "discord-api-types@npm:^0.37.12":
   version: 0.37.14
   resolution: "discord-api-types@npm:0.37.14"
   checksum: 8f45f202e66acfd7b25624c8f4d225b363d9d8991d766959bcf246761548b99e21c12d9f7eafe00903913af66058595e5e56329dfb219eab8bb75a84f6413983
+  languageName: node
+  linkType: hard
+
+"discord-api-types@npm:^0.37.37":
+  version: 0.37.46
+  resolution: "discord-api-types@npm:0.37.46"
+  checksum: 86da1a4ed1d57164fa7bbda10bc6126c72685e55b6ed8b30299406fc8cace721e78d3aebe0fe1b35039fad37be4d52a208c9e53f2abfde1bfc3d1aa034f8d264
   languageName: node
   linkType: hard
 
@@ -1632,21 +1639,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord-player@npm:^5.4.0":
-  version: 5.4.0
-  resolution: "discord-player@npm:5.4.0"
+"discord-player@npm:^6.6.0":
+  version: 6.6.0
+  resolution: "discord-player@npm:6.6.0"
   dependencies:
-    "@discord-player/equalizer": ^0.1.2
-    "@discordjs/voice": ^0.11.0
+    "@discord-player/equalizer": ^0.2.2
+    "@discord-player/ffmpeg": ^0.1.0
+    "@discord-player/utils": ^0.2.1
+    "@discordjs/voice": latest
     libsodium-wrappers: ^0.7.10
-    tiny-typed-emitter: ^2.1.0
-    tslib: ^2.4.0
   peerDependencies:
-    soundcloud-scraper: 5.x
-    spotify-url-info: 3.x
+    "@discord-player/extractor": ^4.3.1
+    discord.js: 14.x
     youtube-sr: 4.x
-    ytdl-core: 4.x
-  checksum: cc7cd59abcec89680e381f1ca1062bfcf5087b4b43f63866cb306ccc9c1d81b5d33300b341574fdec1b7d379b1f060c8b1a6675da02e006d3d68e0ceaae3bb66
+  checksum: 76dc343930216b10dddd1dced68f08fd93201071a41c285f0b02c17c1f9201889949f0cdf4c2f24bcbe2330490161849d6826c68752590206d2bb367c849ff03
   languageName: node
   linkType: hard
 
@@ -3143,7 +3149,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": 5.60.0
     "@typescript-eslint/parser": 5.60.0
     common-tags: ^1.8.2
-    discord-player: ^5.4.0
+    discord-player: ^6.6.0
     discord.js: ^14.11.0
     dotenv: ^16.3.1
     eslint: 8.43.0
@@ -3310,11 +3316,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prism-media@npm:^1.3.4":
-  version: 1.3.4
-  resolution: "prism-media@npm:1.3.4"
+"prism-media@npm:^1.3.5":
+  version: 1.3.5
+  resolution: "prism-media@npm:1.3.5"
   peerDependencies:
-    "@discordjs/opus": ^0.8.0
+    "@discordjs/opus": ">=0.8.0 <1.0.0"
     ffmpeg-static: ^5.0.2 || ^4.2.7 || ^3.0.0 || ^2.4.0
     node-opus: ^0.3.3
     opusscript: ^0.0.8
@@ -3327,7 +3333,7 @@ __metadata:
       optional: true
     opusscript:
       optional: true
-  checksum: 703be28c87b4694714a52a0ea84516b19d2e62e510d0f204efc074b044ad93dde00241d4b4741c25aa2e27a00e3b472e60ad0f6c94e88710f0827dc63889373a
+  checksum: a4fbe5c91f2aa5aca6e0d7fb72c37627db814f59b2ffd702aced11d4cc6f6f15022a5830df48fc008e805f2d1fe79305e5d1b091307981a0083edf7223418679
   languageName: node
   linkType: hard
 
@@ -3769,13 +3775,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tiny-typed-emitter@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "tiny-typed-emitter@npm:2.1.0"
-  checksum: 709bca410054e08df4dc29d5ea0916328bb2900d60245c6a743068ea223887d9fd2c945b6070eb20336275a557a36c2808e5c87d2ed4b60633458632be4a3e10
-  languageName: node
-  linkType: hard
-
 "to-regex-range@npm:^5.0.1":
   version: 5.0.1
   resolution: "to-regex-range@npm:5.0.1"
@@ -4116,21 +4115,6 @@ __metadata:
     utf-8-validate:
       optional: true
   checksum: 53e991bbf928faf5dc6efac9b8eb9ab6497c69feeb94f963d648b7a3530a720b19ec2e0ec037344257e05a4f35bd9ad04d9de6f289615ffb133282031b18c61c
-  languageName: node
-  linkType: hard
-
-"ws@npm:^8.8.1":
-  version: 8.8.1
-  resolution: "ws@npm:8.8.1"
-  peerDependencies:
-    bufferutil: ^4.0.1
-    utf-8-validate: ^5.0.2
-  peerDependenciesMeta:
-    bufferutil:
-      optional: true
-    utf-8-validate:
-      optional: true
-  checksum: 2152cf862cae0693f3775bc688a6afb2e989d19d626d215e70f5fcd8eb55b1c3b0d3a6a4052905ec320e2d7734e20aeedbf9744496d62f15a26ad79cf4cf7dae
   languageName: node
   linkType: hard
 
