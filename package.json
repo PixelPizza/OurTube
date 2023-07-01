@@ -56,11 +56,11 @@
 		"@sapphire/ts-config": "4.0.0",
 		"@types/common-tags": "1.8.1",
 		"@types/eslint": "8.40.2",
-		"@types/node": "18.16.18",
+		"@types/node": "18.16.19",
 		"@types/prettier": "2.7.3",
 		"@typescript-eslint/eslint-plugin": "5.60.1",
 		"@typescript-eslint/parser": "5.60.1",
-		"eslint": "8.43.0",
+		"eslint": "8.44.0",
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-prettier": "^4.2.1",
 		"husky": "8.0.3",
@@ -69,5 +69,5 @@
 		"tsup": "7.1.0",
 		"typescript": "5.1.6"
 	},
-	"packageManager": "yarn@3.6.0"
+	"packageManager": "yarn@3.6.1"
 }
