@@ -6,6 +6,7 @@
 		"noEmitHelpers": true,
 		"skipLibCheck": true,
 		"module": "ESNext",
-		"target": "ESNext"
+		"target": "ESNext",
+		"isolatedModules": true
 	}
 }
