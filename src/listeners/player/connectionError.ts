@@ -4,7 +4,7 @@ import type {GuildQueue} from "discord-player";
 
 @ApplyOptions<Listener.Options>({
 	emitter: container.player.events,
-	event: "connectionError"
+	event: "playerError"
 })
 export class ConnectionErrorListener extends Listener {
 	public run(queue: GuildQueue, error: Error): void {
