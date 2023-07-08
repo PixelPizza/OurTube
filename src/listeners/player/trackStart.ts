@@ -6,7 +6,7 @@ import {resolveMaybeKey} from "../../utils";
 
 @ApplyOptions<Listener.Options>({
 	emitter: container.player.events,
-	event: "trackStart"
+	event: "playerStart"
 })
 export class TrackStartListener extends Listener {
 	public async run(queue: GuildQueue<CommandInteraction>, track: Track): Promise<any> {
