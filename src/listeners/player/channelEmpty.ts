@@ -4,7 +4,7 @@ import type {GuildQueue} from "discord-player";
 
 @ApplyOptions<Listener.Options>({
 	emitter: container.player.events,
-	event: "channelEmpty"
+	event: "emptychannel"
 })
 export class ChannelEmptyListener extends Listener {
 	public run(queue: GuildQueue): void {
