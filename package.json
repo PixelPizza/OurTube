@@ -62,9 +62,9 @@
 		"@typescript-eslint/parser": "5.61.0",
 		"eslint": "8.44.0",
 		"eslint-config-prettier": "^8.8.0",
-		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-prettier": "alpha",
 		"husky": "8.0.3",
-		"prettier": "2.8.8",
+		"prettier": "3.0.0",
 		"prisma": "4.16.2",
 		"tsup": "7.1.0",
 		"typescript": "5.1.6"
