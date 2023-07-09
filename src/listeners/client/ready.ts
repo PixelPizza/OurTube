@@ -19,10 +19,13 @@ export class ReadyListener extends Listener<"ready"> {
 		];
 		let activityIndex = 0;
 		client.user.setActivity(activities[activityIndex]);
-		setInterval(() => {
-			activityIndex = activityIndex === activities.length - 1 ? 0 : activityIndex + 1;
-			client.user.setActivity(activities[activityIndex]);
-		}, 5 * 60 * 1000);
+		setInterval(
+			() => {
+				activityIndex = activityIndex === activities.length - 1 ? 0 : activityIndex + 1;
+				client.user.setActivity(activities[activityIndex]);
+			},
+			5 * 60 * 1000
+		);
 
 		this.container.logger.info(`${client.user.username} is ready`);
 	}
