@@ -1,5 +1,5 @@
 import {ApplyOptions} from "@sapphire/decorators";
-import {ChatInputCommandDeniedPayload, Listener, UserError} from "@sapphire/framework";
+import {type ChatInputCommandDeniedPayload, Listener, UserError} from "@sapphire/framework";
 import {EmbedBuilder, Colors} from "discord.js";
 import {resolveMaybeKey} from "../../utils";
 

@@ -1,6 +1,6 @@
 import {LogLevel, container as sapphireContainer} from "@sapphire/framework";
-import {Logger as SapphireLogger, LoggerOptions} from "@sapphire/plugin-logger";
-import {ColorResolvable, WebhookClient, Colors, EmbedBuilder} from "discord.js";
+import {Logger as SapphireLogger, type LoggerOptions} from "@sapphire/plugin-logger";
+import {type ColorResolvable, WebhookClient, Colors, EmbedBuilder} from "discord.js";
 import {inspect} from "util";
 
 export class WebhookLogFormat {
