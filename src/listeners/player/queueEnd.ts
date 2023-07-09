@@ -4,7 +4,7 @@ import {type GuildQueue, Util} from "discord-player";
 
 @ApplyOptions<Listener.Options>({
 	emitter: container.player.events,
-	event: "queueEnd"
+	event: "emptyQueue"
 })
 export class QueueEndListener extends Listener {
 	public run(queue: GuildQueue): void {
