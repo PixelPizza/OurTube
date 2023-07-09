@@ -6,6 +6,8 @@
 		"noEmitHelpers": true,
 		"skipLibCheck": true,
 		"module": "ESNext",
-		"target": "ESNext"
+		"target": "ESNext",
+		// Temporary fix
+		"verbatimModuleSyntax": false
 	}
 }
