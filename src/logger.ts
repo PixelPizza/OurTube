@@ -25,10 +25,7 @@ export class Logger extends SapphireLogger {
 		[LogLevel.None, new WebhookLogFormat(Colors.Default, "")]
 	]);
 
-	public constructor(
-		public readonly container: typeof sapphireContainer,
-		options?: LoggerOptions
-	) {
+	public constructor(public readonly container: typeof sapphireContainer, options?: LoggerOptions) {
 		super(options);
 	}
 
