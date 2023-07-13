@@ -29,4 +29,10 @@ container.player = Player.singleton(client, {
 container.logger = new Logger(container, {level: LogLevel.Debug});
 container.prisma = new PrismaClient();
 
-void client.login(process.env.TOKEN).finally(() => container.prisma.$disconnect());
+async function main() {
+	await container.player.extractors.loadDefault();
+
+	await client.login(process.env.TOKEN).finally(() => container.prisma.$disconnect());
+}
+
+void main();
