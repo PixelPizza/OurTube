@@ -27,7 +27,7 @@ export class VolumeCommand extends Command {
 		await interaction.deferReply();
 
 		const volume = interaction.options.getInteger("volume");
-		const queue = this.container.player.getQueue(interaction.guild!)!;
+		const queue = this.container.player.nodes.get(interaction.guild!)!;
 
 		if (!volume) {
 			return interaction.editReply({
@@ -37,14 +37,14 @@ export class VolumeCommand extends Command {
 						.setTitle("Volume")
 						.setDescription(
 							await this.resolveCommandKey(interaction, "success.description.current", {
-								replace: {volume: queue.volume}
+								replace: {volume: queue.node.volume}
 							})
 						)
 				]
 			});
 		}
 
-		queue.setVolume(volume);
+		queue.node.setVolume(volume);
 
 		return interaction.editReply({
 			embeds: [

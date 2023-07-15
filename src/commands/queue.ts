@@ -14,10 +14,10 @@ export class QueueCommand extends Command {
 	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply({ephemeral: true});
 
-		const queue = this.container.player.getQueue(interaction.guild!)!;
-		const nowPlaying = queue.nowPlaying();
+		const queue = this.container.player.nodes.get(interaction.guild!)!;
+		const nowPlaying = queue.currentTrack;
 
-		if (!queue.tracks.length && !nowPlaying) {
+		if (!queue.tracks.size && !nowPlaying) {
 			return interaction.editReply({
 				embeds: [
 					new EmbedBuilder()
@@ -37,7 +37,7 @@ export class QueueCommand extends Command {
 						[
 							{
 								name: `__${await this.resolveCommandKey(interaction, "success.nowPlaying")}__`,
-								value: `${nowPlaying.author} | [${nowPlaying.title}](${nowPlaying.url}) | \`${nowPlaying.duration}\``
+								value: `${nowPlaying?.author} | [${nowPlaying?.title}](${nowPlaying?.url}) | \`${nowPlaying?.duration}\``
 							},
 							{
 								name: `__${await this.resolveCommandKey(interaction, "success.upNext")}__`,

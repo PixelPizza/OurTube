@@ -15,8 +15,8 @@ export class NowPlayingCommand extends Command {
 	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply({ephemeral: true});
 
-		const queue = this.container.player.getQueue(interaction.guild!);
-		const nowPlaying = queue?.nowPlaying();
+		const queue = this.container.player.queues.get(interaction.guild!);
+		const nowPlaying = queue?.currentTrack;
 
 		if (!nowPlaying)
 			return interaction.editReply({
@@ -36,10 +36,10 @@ export class NowPlayingCommand extends Command {
 					.setDescription(
 						stripIndents`
 							[${nowPlaying.title}](${nowPlaying.url})
-							${queue!.createProgressBar()}
+							${queue!.node.createProgressBar()}
 
 							${await this.resolveCommandKey(interaction, "success.requestedBy", {
-								replace: {user: nowPlaying.requestedBy.toString()}
+								replace: {user: nowPlaying.requestedBy?.toString()}
 							})}
 						`
 					)

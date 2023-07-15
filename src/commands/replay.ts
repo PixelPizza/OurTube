@@ -14,9 +14,9 @@ export class ReplayCommand extends Command {
 	public override async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply();
 
-		const queue = this.container.player.getQueue(interaction.guild!)!;
+		const queue = this.container.player.nodes.get(interaction.guild!)!;
 
-		if (!queue.nowPlaying()) {
+		if (!queue.currentTrack) {
 			return interaction.editReply({
 				embeds: [
 					new EmbedBuilder()
@@ -27,7 +27,7 @@ export class ReplayCommand extends Command {
 			});
 		}
 
-		await queue.seek(0);
+		await queue.node.seek(0);
 
 		return interaction.editReply({
 			embeds: [

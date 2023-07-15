@@ -14,9 +14,9 @@ export class PauseCommand extends Command {
 	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply({ephemeral: true});
 
-		const queue = this.container.player.getQueue(interaction.guild!);
+		const queue = this.container.player.queues.get(interaction.guild!);
 
-		queue!.setPaused(true);
+		queue!.node.setPaused(true);
 
 		return interaction.editReply({
 			embeds: [
