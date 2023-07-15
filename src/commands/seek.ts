@@ -24,7 +24,7 @@ export class SeekCommand extends Command {
 		await interaction.deferReply();
 
 		const time = interaction.options.getString("time", true);
-		const queue = this.container.player.getQueue(interaction.guild!)!;
+		const queue = this.container.player.nodes.get(interaction.guild!)!;
 		const duration = new Duration(time).offset;
 		if (isNaN(duration))
 			return interaction.editReply({
@@ -35,7 +35,7 @@ export class SeekCommand extends Command {
 						.setDescription("The time you provided is invalid")
 				]
 			});
-		await queue.seek(duration);
+		await queue.node.seek(duration);
 
 		return interaction.editReply({
 			embeds: [
@@ -45,7 +45,7 @@ export class SeekCommand extends Command {
 					.setDescription(
 						stripIndents`
 							${await this.resolveCommandKey(interaction, "success.description")}
-							${queue.createProgressBar()}
+							${queue.node.createProgressBar()}
 						`
 					)
 			]

@@ -41,7 +41,7 @@ export class PlayCommand extends Command {
 		const query = interaction.options.getString("query", true);
 		const result = await this.container.player.search(query, {
 			requestedBy: interaction.user,
-			searchEngine: interaction.options.getString("type") ?? QueryType.AUTO
+			searchEngine: (interaction.options.getString("type") as keyof typeof QueryType) ?? QueryType.AUTO
 		});
 
 		if (!result || !result.tracks.length)
@@ -67,7 +67,7 @@ export class PlayCommand extends Command {
 					.setDescription(await this.resolveCommandKey(interaction, `success.description.${type}`))
 			]
 		});
-		result.playlist ? queue.addTracks(result.tracks) : queue.addTrack(result.tracks[0]);
-		if (!queue.playing) await queue.play();
+		result.playlist ? queue.addTrack(result.tracks) : queue.addTrack(result.tracks[0]);
+		if (!queue.isPlaying()) await queue.node.play();
 	}
 }

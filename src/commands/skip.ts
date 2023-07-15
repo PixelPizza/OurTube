@@ -13,9 +13,9 @@ export class SkipCommand extends Command {
 	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply();
 
-		const queue = this.container.player.getQueue(interaction.guild!)!;
+		const queue = this.container.player.nodes.get(interaction.guild!)!;
 
-		queue.skip();
+		queue.node.skip();
 
 		return interaction.editReply({
 			embeds: [

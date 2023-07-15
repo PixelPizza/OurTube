@@ -22,22 +22,16 @@ export class JoinCommand extends Command {
 		const {player} = this.container;
 		const {voice} = member as GuildMember;
 
-		const queue = player.createQueue(guild!, {
+		const queue = player.nodes.create(guild!, {
 			leaveOnEmpty: false,
 			leaveOnEnd: false,
-			ytdlOptions: {
-				quality: "highest",
-				filter: "audioonly",
-				highWaterMark: 1 << 25,
-				dlChunkSize: 0
-			},
 			metadata: interaction
 		});
 
 		try {
 			if (!queue.connection) await queue.connect(voice.channel!);
 		} catch {
-			player.deleteQueue(guild!);
+			player.queues.delete(guild!);
 			return void interaction.editReply({
 				embeds: [
 					new EmbedBuilder()
