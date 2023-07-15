@@ -25,7 +25,7 @@
 				"groupName": "Discord.JS Dependencies"
 			},
 			{
-				"matchPakagePatterns": ["@discord-player", "discord-player"],
+				"matchPackagePatterns": ["@discord-player", "discord-player"],
 				"groupName": "Discord Player Dependencies"
 			},
 			{
