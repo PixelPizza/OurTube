@@ -11,8 +11,7 @@
 	],
 	"scripts": {
 		"update": "yarn up \"*\" -i",
-		"clean": "node scripts/clean-dist.mjs",
-		"build": "yarn clean && tsup && tsc --p tsconfig.lang.json && tsc --noEmit",
+		"build": "tsup && tsc --p tsconfig.lang.json && tsc --noEmit",
 		"lint": "eslint src scripts --ext mjs,ts --fix",
 		"format": "prettier --write **/*.{ts,js,json,yml,yaml}",
 		"prepare": "husky install",
