@@ -1,9 +1,9 @@
-import type {Options} from "tsup";
+import {defineConfig} from "tsup";
 
-export const tsup: Options = {
+export default defineConfig({
 	clean: true,
 	dts: false,
-	entryPoints: [
+	entry: [
 		"src/sharder.ts",
 		"src/bot.ts",
 		"src/commands/**/*.ts",
@@ -15,4 +15,4 @@ export const tsup: Options = {
 	skipNodeModulesBundle: true,
 	sourcemap: false,
 	target: "esnext"
-};
+});
