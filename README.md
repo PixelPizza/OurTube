@@ -1,5 +1,7 @@
 # OurTube
 
+[![codecov](https://codecov.io/gh/PixelPizza/OurTube/branch/tests/unit-testing/graph/badge.svg?token=NTYYW4YM1O)](https://codecov.io/gh/PixelPizza/OurTube)
+
 A music discord bot written in discord.js
 
 ## Contributors
