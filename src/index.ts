@@ -1,4 +1,6 @@
-// Used for exporting all the components that need to be tested
+//
+// Note to PixelPizza developers: This file is used for exporting all the components that need to be tested
+//
 export * from "./commands/blacklist";
 export * from "./commands/clear";
 export * from "./commands/disconnect";
