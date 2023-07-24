@@ -1,6 +1,6 @@
 import {describe, expect, test} from "vitest";
 import {DiscordMocker} from "../../DiscordMocker";
-import {InviteCommand} from "../../../src/commands/invite";
+import {InviteCommand} from "../../../src";
 import {CommandStore, container} from "@sapphire/framework";
 import "@sapphire/plugin-i18next/register";
 import {Colors, EmbedBuilder} from "discord.js";
