@@ -1,6 +1,6 @@
 {
 	"compileOnSave": true,
-	"extends": "@sapphire/ts-config",
+	"extends": "../tsconfig.base.json",
 	"compilerOptions": {
 		"importHelpers": true,
 		"noEmitHelpers": true,
