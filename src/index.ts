@@ -35,3 +35,5 @@ export * from "./listeners/player/trackAdd";
 export * from "./listeners/player/tracksAdd";
 export * from "./listeners/player/trackStart";
 export * from "./listeners/process/unhandledRejection";
+export * from "./logger";
+export * from "./utils";
