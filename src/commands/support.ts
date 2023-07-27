@@ -13,7 +13,7 @@ export class SupportCommand extends Command {
 	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply({ephemeral: true});
 
-		const guild = await interaction.client.guilds.fetch(process.env.GUILD);
+		const guild = await interaction.client.guilds.fetch(this.container.env.GUILD);
 		return interaction.editReply({
 			embeds: [
 				new EmbedBuilder()
