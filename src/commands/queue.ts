@@ -1,6 +1,6 @@
-import {ApplyOptions} from "@sapphire/decorators";
-import {EmbedBuilder, Colors} from "discord.js";
-import {Command} from "../lib/Command";
+import { ApplyOptions } from "@sapphire/decorators";
+import { EmbedBuilder, Colors } from "discord.js";
+import { Command } from "../lib/Command";
 
 @ApplyOptions<Command.Options>({
 	description: "show the current queue",
@@ -12,7 +12,7 @@ export class QueueCommand extends Command {
 	}
 
 	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
-		await interaction.deferReply({ephemeral: true});
+		await interaction.deferReply({ ephemeral: true });
 
 		const queue = this.container.player.nodes.get(interaction.guild!)!;
 		const nowPlaying = queue.currentTrack;

@@ -1,7 +1,7 @@
-import {LogLevel, container as sapphireContainer} from "@sapphire/framework";
-import {Logger as SapphireLogger, type LoggerOptions} from "@sapphire/plugin-logger";
-import {type ColorResolvable, WebhookClient, Colors, EmbedBuilder} from "discord.js";
-import {inspect} from "util";
+import { LogLevel, container as sapphireContainer } from "@sapphire/framework";
+import { Logger as SapphireLogger, type LoggerOptions } from "@sapphire/plugin-logger";
+import { type ColorResolvable, WebhookClient, Colors, EmbedBuilder } from "discord.js";
+import { inspect } from "util";
 
 export class WebhookLogFormat {
 	public readonly color: ColorResolvable;
@@ -14,7 +14,7 @@ export class WebhookLogFormat {
 }
 
 export class Logger extends SapphireLogger {
-	private readonly webhook = new WebhookClient({url: sapphireContainer.env.CONSOLE_URL});
+	private readonly webhook = new WebhookClient({ url: sapphireContainer.env.CONSOLE_URL });
 	private readonly webhookFormats = new Map<LogLevel, WebhookLogFormat>([
 		[LogLevel.Trace, new WebhookLogFormat(Colors.Grey, "Trace")],
 		[LogLevel.Debug, new WebhookLogFormat("#ff00ff", "Debug")], // Magenta
@@ -47,7 +47,7 @@ export class Logger extends SapphireLogger {
 					.setDescription(
 						values
 							.map(value =>
-								typeof value === "string" ? value : inspect(value, {colors: false, depth: this.depth})
+								typeof value === "string" ? value : inspect(value, { colors: false, depth: this.depth })
 							)
 							.join(this.join)
 					)
