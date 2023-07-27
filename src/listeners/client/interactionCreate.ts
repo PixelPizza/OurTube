@@ -1,6 +1,6 @@
-import {ApplyOptions} from "@sapphire/decorators";
-import {Events, Listener} from "@sapphire/framework";
-import type {Interaction, CacheType} from "discord.js";
+import { ApplyOptions } from "@sapphire/decorators";
+import { Events, Listener } from "@sapphire/framework";
+import type { Interaction, CacheType } from "discord.js";
 
 @ApplyOptions<Listener.Options>({
 	event: Events.InteractionCreate

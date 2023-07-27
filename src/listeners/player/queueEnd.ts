@@ -1,6 +1,6 @@
-import {ApplyOptions} from "@sapphire/decorators";
-import {container, Listener} from "@sapphire/framework";
-import {type GuildQueue, Util} from "discord-player";
+import { ApplyOptions } from "@sapphire/decorators";
+import { container, Listener } from "@sapphire/framework";
+import { type GuildQueue, Util } from "discord-player";
 
 @ApplyOptions<Listener.Options>({
 	emitter: container.player.events,

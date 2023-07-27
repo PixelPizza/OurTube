@@ -1,6 +1,6 @@
-import {s} from "@sapphire/shapeshift";
+import { s } from "@sapphire/shapeshift";
 
-const envWebhookURL = s.string.url({allowedProtocols: ["https:"], allowedDomains: ["discord.com"]});
+const envWebhookURL = s.string.url({ allowedProtocols: ["https:"], allowedDomains: ["discord.com"] });
 
 const envVariables = s.object({
 	TOKEN: s.string,

@@ -1,9 +1,9 @@
-import {container, SapphireClient} from "@sapphire/framework";
-import {IntentsBitField} from "discord.js";
+import { container, SapphireClient } from "@sapphire/framework";
+import { IntentsBitField } from "discord.js";
 import "@sapphire/plugin-logger/register";
 import "@sapphire/plugin-i18next/register";
 import "@kaname-png/plugin-statcord/register";
-import {setContainerPlayer} from "./container";
+import { setContainerPlayer } from "./container";
 
 const client = new SapphireClient({
 	intents: [IntentsBitField.Flags.Guilds, IntentsBitField.Flags.GuildVoiceStates],

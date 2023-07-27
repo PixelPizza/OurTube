@@ -1,6 +1,6 @@
-import {ApplyOptions} from "@sapphire/decorators";
-import {EmbedBuilder, Colors} from "discord.js";
-import {Command} from "../lib/Command";
+import { ApplyOptions } from "@sapphire/decorators";
+import { EmbedBuilder, Colors } from "discord.js";
+import { Command } from "../lib/Command";
 
 @ApplyOptions<Command.Options>({
 	description: "blacklist"
@@ -56,7 +56,7 @@ export class BlacklistCommand extends Command {
 		const user = interaction.options.getUser("user", true);
 		const reason = interaction.options.getString("reason", true);
 
-		if (await this.container.prisma.blacklist.findUnique({where: {user: user.id}})) {
+		if (await this.container.prisma.blacklist.findUnique({ where: { user: user.id } })) {
 			return interaction.editReply({
 				embeds: [
 					new EmbedBuilder()
@@ -100,7 +100,7 @@ export class BlacklistCommand extends Command {
 	public async chatInputRemove(interaction: Command.ChatInputInteraction): Promise<any> {
 		const user = interaction.options.getUser("user", true);
 
-		if (!(await this.container.prisma.blacklist.findUnique({where: {user: user.id}}))) {
+		if (!(await this.container.prisma.blacklist.findUnique({ where: { user: user.id } }))) {
 			return interaction.editReply({
 				embeds: [
 					new EmbedBuilder()

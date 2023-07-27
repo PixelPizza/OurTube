@@ -1,6 +1,6 @@
-import {ApplyOptions} from "@sapphire/decorators";
-import {EmbedBuilder, Colors} from "discord.js";
-import {Command} from "../lib/Command";
+import { ApplyOptions } from "@sapphire/decorators";
+import { EmbedBuilder, Colors } from "discord.js";
+import { Command } from "../lib/Command";
 
 @ApplyOptions<Command.Options>({
 	description: "set the volume of the player",
@@ -37,7 +37,7 @@ export class VolumeCommand extends Command {
 						.setTitle("Volume")
 						.setDescription(
 							await this.resolveCommandKey(interaction, "success.description.current", {
-								replace: {volume: queue.node.volume}
+								replace: { volume: queue.node.volume }
 							})
 						)
 				]
@@ -53,7 +53,7 @@ export class VolumeCommand extends Command {
 					.setTitle(await this.resolveCommandKey(interaction, "success.title"))
 					.setDescription(
 						await this.resolveCommandKey(interaction, "success.description.changed", {
-							replace: {volume}
+							replace: { volume }
 						})
 					)
 			]

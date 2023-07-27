@@ -1,6 +1,6 @@
-import {ApplyOptions} from "@sapphire/decorators";
-import {EmbedBuilder, Colors} from "discord.js";
-import {Command} from "../lib/Command";
+import { ApplyOptions } from "@sapphire/decorators";
+import { EmbedBuilder, Colors } from "discord.js";
+import { Command } from "../lib/Command";
 
 @ApplyOptions<Command.Options>({
 	description: "get the invite link of the support server"
@@ -11,7 +11,7 @@ export class SupportCommand extends Command {
 	}
 
 	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
-		await interaction.deferReply({ephemeral: true});
+		await interaction.deferReply({ ephemeral: true });
 
 		const guild = await interaction.client.guilds.fetch(this.container.env.GUILD);
 		return interaction.editReply({

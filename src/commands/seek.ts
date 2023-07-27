@@ -1,9 +1,9 @@
-import {ApplyOptions} from "@sapphire/decorators";
-import {BucketScope} from "@sapphire/framework";
-import {EmbedBuilder, Colors} from "discord.js";
-import {stripIndents} from "common-tags";
-import {Duration, Time} from "@sapphire/time-utilities";
-import {Command} from "../lib/Command";
+import { ApplyOptions } from "@sapphire/decorators";
+import { BucketScope } from "@sapphire/framework";
+import { EmbedBuilder, Colors } from "discord.js";
+import { stripIndents } from "common-tags";
+import { Duration, Time } from "@sapphire/time-utilities";
+import { Command } from "../lib/Command";
 
 @ApplyOptions<Command.Options>({
 	description: "seek to a specific time in the current song",

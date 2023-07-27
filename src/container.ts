@@ -1,9 +1,9 @@
-import {config} from "dotenv";
-import {PrismaClient} from "@prisma/client";
-import {Player} from "discord-player";
-import {parseEnv} from "./lib/Env";
-import {container, LogLevel, SapphireClient} from "@sapphire/framework";
-import {Logger} from "./logger";
+import { config } from "dotenv";
+import { PrismaClient } from "@prisma/client";
+import { Player } from "discord-player";
+import { parseEnv } from "./lib/Env";
+import { container, LogLevel, SapphireClient } from "@sapphire/framework";
+import { Logger } from "./logger";
 config();
 
 declare module "@sapphire/pieces" {
@@ -15,7 +15,7 @@ declare module "@sapphire/pieces" {
 }
 
 container.env = parseEnv();
-container.logger = new Logger(container, {level: LogLevel.Debug});
+container.logger = new Logger(container, { level: LogLevel.Debug });
 container.prisma = new PrismaClient();
 
 export function setContainerPlayer(client: SapphireClient) {

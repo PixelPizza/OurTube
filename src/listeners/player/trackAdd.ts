@@ -1,8 +1,8 @@
-import {ApplyOptions} from "@sapphire/decorators";
-import {container, Listener} from "@sapphire/framework";
-import type {GuildQueue, Track} from "discord-player";
-import {CommandInteraction, EmbedBuilder, Colors} from "discord.js";
-import {resolveMaybeKey} from "../../utils";
+import { ApplyOptions } from "@sapphire/decorators";
+import { container, Listener } from "@sapphire/framework";
+import type { GuildQueue, Track } from "discord-player";
+import { CommandInteraction, EmbedBuilder, Colors } from "discord.js";
+import { resolveMaybeKey } from "../../utils";
 
 @ApplyOptions<Listener.Options>({
 	emitter: container.player.events,
@@ -18,7 +18,7 @@ export class TrackAddListener extends Listener {
 					.setTitle(await resolveMaybeKey(queue.metadata!, "listeners/trackadd:title"))
 					.setDescription(
 						await resolveMaybeKey(queue.metadata!, "listeners/trackadd:description", {
-							replace: {track: `[${track.title}](${track.url})`}
+							replace: { track: `[${track.title}](${track.url})` }
 						})
 					)
 			]

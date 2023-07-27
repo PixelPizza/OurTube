@@ -1,6 +1,6 @@
-import {ApplyOptions} from "@sapphire/decorators";
-import {EmbedBuilder, Colors} from "discord.js";
-import {Command} from "../lib/Command";
+import { ApplyOptions } from "@sapphire/decorators";
+import { EmbedBuilder, Colors } from "discord.js";
+import { Command } from "../lib/Command";
 
 @ApplyOptions<Command.Options>({
 	description: "let the bot disconnect from the currently joined voice channel",
@@ -14,8 +14,8 @@ export class DisconnectCommand extends Command {
 	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply();
 
-		const {guild} = interaction;
-		const {channel} = guild!.members.me!.voice;
+		const { guild } = interaction;
+		const { channel } = guild!.members.me!.voice;
 
 		this.container.player.queues.delete(guild!);
 
@@ -26,7 +26,7 @@ export class DisconnectCommand extends Command {
 					.setTitle(await this.resolveCommandKey(interaction, "success.title"))
 					.setDescription(
 						await this.resolveCommandKey(interaction, "success.description", {
-							replace: {channel: channel!.name}
+							replace: { channel: channel!.name }
 						})
 					)
 			]

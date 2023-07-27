@@ -1,8 +1,8 @@
-import {ApplyOptions} from "@sapphire/decorators";
-import {QueryType} from "discord-player";
-import {EmbedBuilder, Colors, PermissionFlagsBits} from "discord.js";
-import type {JoinCommand} from "./join";
-import {Command} from "../lib/Command";
+import { ApplyOptions } from "@sapphire/decorators";
+import { QueryType } from "discord-player";
+import { EmbedBuilder, Colors, PermissionFlagsBits } from "discord.js";
+import type { JoinCommand } from "./join";
+import { Command } from "../lib/Command";
 
 @ApplyOptions<Command.Options>({
 	description: "play a song",
@@ -28,7 +28,7 @@ export class PlayCommand extends Command {
 											value.toString()
 										)
 								)
-								.map(value => ({name: value.toString().replace("_", " "), value: value.toString()}))
+								.map(value => ({ name: value.toString().replace("_", " "), value: value.toString() }))
 						)
 				)
 		);
@@ -37,7 +37,7 @@ export class PlayCommand extends Command {
 	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
 		await interaction.deferReply();
 
-		const {client} = this.container;
+		const { client } = this.container;
 		const query = interaction.options.getString("query", true);
 		const result = await this.container.player.search(query, {
 			requestedBy: interaction.user,
