@@ -1,7 +1,7 @@
-import {ApplyOptions} from "@sapphire/decorators";
-import {Precondition} from "@sapphire/framework";
-import type {CommandInteraction} from "discord.js";
-import {resolveMaybeKey} from "../utils";
+import { ApplyOptions } from "@sapphire/decorators";
+import { Precondition } from "@sapphire/framework";
+import type { CommandInteraction } from "discord.js";
+import { resolveMaybeKey } from "../utils";
 
 @ApplyOptions<Precondition.Options>({
 	position: 1

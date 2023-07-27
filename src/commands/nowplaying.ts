@@ -1,7 +1,7 @@
-import {ApplyOptions} from "@sapphire/decorators";
-import {stripIndents} from "common-tags";
-import {EmbedBuilder, Colors} from "discord.js";
-import {Command} from "../lib/Command";
+import { ApplyOptions } from "@sapphire/decorators";
+import { stripIndents } from "common-tags";
+import { EmbedBuilder, Colors } from "discord.js";
+import { Command } from "../lib/Command";
 
 @ApplyOptions<Command.Options>({
 	description: "show the current playing song",
@@ -13,7 +13,7 @@ export class NowPlayingCommand extends Command {
 	}
 
 	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
-		await interaction.deferReply({ephemeral: true});
+		await interaction.deferReply({ ephemeral: true });
 
 		const queue = this.container.player.queues.get(interaction.guild!);
 		const nowPlaying = queue?.currentTrack;
@@ -39,7 +39,7 @@ export class NowPlayingCommand extends Command {
 							${queue!.node.createProgressBar()}
 
 							${await this.resolveCommandKey(interaction, "success.requestedBy", {
-								replace: {user: nowPlaying.requestedBy?.toString()}
+								replace: { user: nowPlaying.requestedBy?.toString() }
 							})}
 						`
 					)

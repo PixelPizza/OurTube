@@ -1,6 +1,6 @@
-import {Precondition} from "@sapphire/framework";
-import type {CommandInteraction} from "discord.js";
-import {resolveMaybeKey} from "../utils";
+import { Precondition } from "@sapphire/framework";
+import type { CommandInteraction } from "discord.js";
+import { resolveMaybeKey } from "../utils";
 
 export class BotInVoicePrecondition extends Precondition {
 	public async chatInputRun(interaction: CommandInteraction) {

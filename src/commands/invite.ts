@@ -1,7 +1,7 @@
-import {ApplyOptions} from "@sapphire/decorators";
-import {stripIndents} from "common-tags";
-import {EmbedBuilder, Colors, OAuth2Scopes, PermissionFlagsBits} from "discord.js";
-import {Command} from "../lib/Command";
+import { ApplyOptions } from "@sapphire/decorators";
+import { stripIndents } from "common-tags";
+import { EmbedBuilder, Colors, OAuth2Scopes, PermissionFlagsBits } from "discord.js";
+import { Command } from "../lib/Command";
 
 @ApplyOptions<Command.Options>({
 	description: "get the invite link of the bot"
@@ -12,9 +12,9 @@ export class InviteCommand extends Command {
 	}
 
 	public async chatInputRun(interaction: Command.ChatInputInteraction): Promise<any> {
-		await interaction.deferReply({ephemeral: true});
+		await interaction.deferReply({ ephemeral: true });
 
-		const {client} = interaction;
+		const { client } = interaction;
 		return interaction.editReply({
 			embeds: [
 				new EmbedBuilder()
