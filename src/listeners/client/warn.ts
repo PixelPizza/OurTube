@@ -1,5 +1,5 @@
-import {ApplyOptions} from "@sapphire/decorators";
-import {Listener} from "@sapphire/framework";
+import { ApplyOptions } from "@sapphire/decorators";
+import { Listener } from "@sapphire/framework";
 
 @ApplyOptions<Listener.Options>({
 	event: "warn"

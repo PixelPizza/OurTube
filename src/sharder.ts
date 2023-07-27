@@ -1,8 +1,8 @@
 import "./container";
-import {join} from "path";
-import {Shard, ShardingManager} from "discord.js";
-import {container, LogLevel} from "@sapphire/framework";
-import {Logger} from "./logger";
+import { join } from "path";
+import { Shard, ShardingManager } from "discord.js";
+import { container, LogLevel } from "@sapphire/framework";
+import { Logger } from "./logger";
 
 const logger = new Logger(container, {
 	level: LogLevel.Debug
