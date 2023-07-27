@@ -1,10 +1,13 @@
 import {config} from "dotenv";
-import {container, SapphireClient} from "@sapphire/framework";
+import {Player} from "discord-player";
+import {Logger} from "./logger";
+import {container, LogLevel, SapphireClient} from "@sapphire/framework";
 import {IntentsBitField} from "discord.js";
 import "@sapphire/plugin-logger/register";
 import "@sapphire/plugin-i18next/register";
 import "@kaname-png/plugin-statcord/register";
-import {setupContainer} from "./container";
+import {PrismaClient} from "@prisma/client";
+import {parseEnv} from "./lib/Env";
 config();
 
 const client = new SapphireClient({
@@ -16,12 +19,22 @@ const client = new SapphireClient({
 		debug: true
 	}
 });
-setupContainer(client);
+container.player = Player.singleton(client, {
+	ytdlOptions: {
+		quality: "highest",
+		filter: "audioonly",
+		highWaterMark: 1 << 25,
+		dlChunkSize: 0
+	}
+});
+container.logger = new Logger(container, {level: LogLevel.Debug});
+container.prisma = new PrismaClient();
+container.env = parseEnv();
 
 async function main() {
 	await container.player.extractors.loadDefault();
 
-	await client.login(process.env.TOKEN).finally(() => container.prisma.$disconnect());
+	await client.login(container.env.TOKEN).finally(() => container.prisma.$disconnect());
 }
 
 void main();
