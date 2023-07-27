@@ -21,19 +21,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-angular-type-enum@npm:^17.4.0":
-  version: 17.4.0
-  resolution: "@commitlint/config-angular-type-enum@npm:17.4.0"
-  checksum: 4694dead27ccf8ce1efdf7d574b81905f45ea3bede13fc338dff70c175856a284b46c41ddef45446f1b1686959313a88a3465f38b754013b515749905824cba3
-  languageName: node
-  linkType: hard
-
-"@commitlint/config-angular@npm:17.6.7":
+"@commitlint/config-conventional@npm:^17.6.7":
   version: 17.6.7
-  resolution: "@commitlint/config-angular@npm:17.6.7"
+  resolution: "@commitlint/config-conventional@npm:17.6.7"
   dependencies:
-    "@commitlint/config-angular-type-enum": ^17.4.0
-  checksum: c2906e7329db42856e6b895ee32aa26f147ca6469b590e33401202f18443a667d2abd2e36463d615826b95f8d8e091d70349811ab5ef98589130a33554a7d058
+    conventional-changelog-conventionalcommits: ^5.0.0
+  checksum: e8574db1a98ff5f3da80b47277e953a072170976920baa4b468bbcc28b83348d3d2bfa13f85c66ca00d51a7184befe1ef3588c8ae4247f0d8488c6a33ebc2a56
   languageName: node
   linkType: hard
 
@@ -1170,6 +1163,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"array-ify@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "array-ify@npm:1.0.0"
+  checksum: c0502015b319c93dd4484f18036bcc4b654eb76a4aa1f04afbcef11ac918859bb1f5d71ba1f0f1141770db9eef1a4f40f1761753650873068010bbf7bcdae4a4
+  languageName: node
+  linkType: hard
+
 "array-union@npm:^2.1.0":
   version: 2.1.0
   resolution: "array-union@npm:2.1.0"
@@ -1423,6 +1423,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"compare-func@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "compare-func@npm:2.0.0"
+  dependencies:
+    array-ify: ^1.0.0
+    dot-prop: ^5.1.0
+  checksum: fb71d70632baa1e93283cf9d80f30ac97f003aabee026e0b4426c9716678079ef5fea7519b84d012cbed938c476493866a38a79760564a9e21ae9433e40e6f0d
+  languageName: node
+  linkType: hard
+
 "concat-map@npm:0.0.1":
   version: 0.0.1
   resolution: "concat-map@npm:0.0.1"
@@ -1434,6 +1444,17 @@ __metadata:
   version: 1.1.0
   resolution: "console-control-strings@npm:1.1.0"
   checksum: 8755d76787f94e6cf79ce4666f0c5519906d7f5b02d4b884cf41e11dcd759ed69c57da0670afd9236d229a46e0f9cf519db0cd829c6dca820bb5a5c3def584ed
+  languageName: node
+  linkType: hard
+
+"conventional-changelog-conventionalcommits@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "conventional-changelog-conventionalcommits@npm:5.0.0"
+  dependencies:
+    compare-func: ^2.0.0
+    lodash: ^4.17.15
+    q: ^1.5.1
+  checksum: b67d12e4e0fdde5baa32c3d77af472de38646a18657b26f5543eecce041a318103092fbfcef247e2319a16957c9ac78c6ea78acc11a5db6acf74be79a28c561f
   languageName: node
   linkType: hard
 
@@ -1652,6 +1673,15 @@ __metadata:
     domelementtype: ^2.3.0
     domhandler: ^5.0.3
   checksum: e5757456ddd173caa411cfc02c2bb64133c65546d2c4081381a3bafc8a57411a41eed70494551aa58030be9e58574fcc489828bebd673863d39924fb4878f416
+  languageName: node
+  linkType: hard
+
+"dot-prop@npm:^5.1.0":
+  version: 5.3.0
+  resolution: "dot-prop@npm:5.3.0"
+  dependencies:
+    is-obj: ^2.0.0
+  checksum: d5775790093c234ef4bfd5fbe40884ff7e6c87573e5339432870616331189f7f5d86575c5b5af2dcf0f61172990f4f734d07844b1f23482fff09e3c4bead05ea
   languageName: node
   linkType: hard
 
@@ -2570,6 +2600,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-obj@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "is-obj@npm:2.0.0"
+  checksum: c9916ac8f4621962a42f5e80e7ffdb1d79a3fab7456ceaeea394cd9e0858d04f985a9ace45be44433bf605673c8be8810540fe4cc7f4266fc7526ced95af5a08
+  languageName: node
+  linkType: hard
+
 "is-path-inside@npm:^3.0.3":
   version: 3.0.3
   resolution: "is-path-inside@npm:3.0.3"
@@ -2729,7 +2766,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.21":
+"lodash@npm:^4.17.15, lodash@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
@@ -3212,7 +3249,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ourtube@workspace:."
   dependencies:
-    "@commitlint/config-angular": 17.6.7
+    "@commitlint/config-conventional": ^17.6.7
     "@discord-player/extractor": ^4.4.0
     "@discordjs/opus": ^0.9.0
     "@kaname-png/plugin-statcord": ^2.1.12
@@ -3477,6 +3514,13 @@ __metadata:
   version: 2.3.0
   resolution: "punycode@npm:2.3.0"
   checksum: 39f760e09a2a3bbfe8f5287cf733ecdad69d6af2fe6f97ca95f24b8921858b91e9ea3c9eeec6e08cede96181b3bb33f95c6ffd8c77e63986508aa2e8159fa200
+  languageName: node
+  linkType: hard
+
+"q@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "q@npm:1.5.1"
+  checksum: 147baa93c805bc1200ed698bdf9c72e9e42c05f96d007e33a558b5fdfd63e5ea130e99313f28efc1783e90e6bdb4e48b67a36fcc026b7b09202437ae88a1fb12
   languageName: node
   linkType: hard
 
