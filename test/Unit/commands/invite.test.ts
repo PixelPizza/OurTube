@@ -1,16 +1,16 @@
-import {describe, expect, test} from "vitest";
-import {DiscordMocker} from "../../DiscordMocker";
-import {InviteCommand} from "../../../src";
-import {CommandStore, container} from "@sapphire/framework";
+import { describe, expect, test } from "vitest";
+import { DiscordMocker } from "../../DiscordMocker";
+import { InviteCommand } from "../../../src";
+import { CommandStore, container } from "@sapphire/framework";
 import "@sapphire/plugin-i18next/register";
-import {Colors, EmbedBuilder} from "discord.js";
-import {stripIndents} from "common-tags";
+import { Colors, EmbedBuilder } from "discord.js";
+import { stripIndents } from "common-tags";
 
 describe("InviteCommand tests", () => {
 	describe("chatInputRun tests", () => {
 		test("MISSING TEST NAME", async () => {
 			const mocker = new DiscordMocker();
-			const {client} = mocker;
+			const { client } = mocker;
 			const store = new CommandStore();
 			const command = store.construct(InviteCommand, {
 				name: "invite",
@@ -30,7 +30,7 @@ describe("InviteCommand tests", () => {
 				commandName: interaction.commandName
 			});
 
-			expect(spyDeferReply).toHaveBeenCalledWith({ephemeral: true});
+			expect(spyDeferReply).toHaveBeenCalledWith({ ephemeral: true });
 			expect(spyEditReply).toHaveBeenCalledWith({
 				embeds: [
 					new EmbedBuilder({
