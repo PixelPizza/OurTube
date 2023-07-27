@@ -7,6 +7,7 @@ import "@sapphire/plugin-logger/register";
 import "@sapphire/plugin-i18next/register";
 import "@kaname-png/plugin-statcord/register";
 import {PrismaClient} from "@prisma/client";
+import {parseEnv} from "./lib/Env";
 config();
 
 const client = new SapphireClient({
@@ -28,11 +29,12 @@ container.player = Player.singleton(client, {
 });
 container.logger = new Logger(container, {level: LogLevel.Debug});
 container.prisma = new PrismaClient();
+container.env = parseEnv();
 
 async function main() {
 	await container.player.extractors.loadDefault();
 
-	await client.login(process.env.TOKEN).finally(() => container.prisma.$disconnect());
+	await client.login(container.env.TOKEN).finally(() => container.prisma.$disconnect());
 }
 
 void main();
