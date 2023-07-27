@@ -14,7 +14,7 @@ export class WebhookLogFormat {
 }
 
 export class Logger extends SapphireLogger {
-	private readonly webhook = new WebhookClient({url: process.env.CONSOLE_URL});
+	private readonly webhook = new WebhookClient({url: sapphireContainer.env.CONSOLE_URL});
 	private readonly webhookFormats = new Map<LogLevel, WebhookLogFormat>([
 		[LogLevel.Trace, new WebhookLogFormat(Colors.Grey, "Trace")],
 		[LogLevel.Debug, new WebhookLogFormat("#ff00ff", "Debug")], // Magenta
