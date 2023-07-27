@@ -10,11 +10,12 @@ import {PrismaClient} from "@prisma/client";
 import {parseEnv} from "./lib/Env";
 config();
 
+container.env = parseEnv();
 const client = new SapphireClient({
 	intents: [IntentsBitField.Flags.Guilds, IntentsBitField.Flags.GuildVoiceStates],
 	statcord: {
-		client_id: process.env.CLIENT_ID,
-		key: process.env.STATCORD_API_KEY,
+		client_id: container.env.CLIENT,
+		key: container.env.STATCORD_API_KEY,
 		autopost: true,
 		debug: true
 	}
@@ -29,7 +30,6 @@ container.player = Player.singleton(client, {
 });
 container.logger = new Logger(container, {level: LogLevel.Debug});
 container.prisma = new PrismaClient();
-container.env = parseEnv();
 
 async function main() {
 	await container.player.extractors.loadDefault();
