@@ -1,7 +1,7 @@
 {
-	"name": "ourtube",
+	"name": "@pixelpizza/ourtube",
 	"version": "1.0.0",
-	"description": "A music discord bot written in discord.js",
+	"description": "A music discord bot written in the sapphire framework",
 	"main": "dist/sharder.js",
 	"directories": {
 		"lib": "src"
@@ -14,7 +14,9 @@
 		"build": "tsup && tsc --p tsconfig.lang.json && tsc --noEmit",
 		"lint": "eslint src --ext mjs,ts --fix",
 		"format": "prettier --write **/*.{ts,js,json,yml,yaml}",
+		"prepack": "pinst --disable",
 		"prepare": "husky install",
+		"postpack": "pinst --enable",
 		"start": "yarn build && node ."
 	},
 	"repository": {
@@ -22,8 +24,8 @@
 		"url": "git+https://github.com/PixelPizza/OurTube.git"
 	},
 	"keywords": [],
-	"author": "",
-	"license": "ISC",
+	"author": "@pixelpizza",
+	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/PixelPizza/OurTube/issues"
 	},
@@ -65,6 +67,7 @@
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-prettier": "alpha",
 		"husky": "8.0.3",
+		"pinst": "^3.0.0",
 		"prettier": "3.0.0",
 		"prisma": "5.0.0",
 		"tsup": "7.1.0",
