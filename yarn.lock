@@ -699,6 +699,52 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@pixelpizza/ourtube@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@pixelpizza/ourtube@workspace:."
+  dependencies:
+    "@commitlint/config-conventional": ^17.6.7
+    "@discord-player/extractor": ^4.4.0
+    "@discordjs/opus": ^0.9.0
+    "@kaname-png/plugin-statcord": ^2.1.12
+    "@prisma/client": ^5.0.0
+    "@sapphire/decorators": ^6.0.2
+    "@sapphire/eslint-config": 5.0.0
+    "@sapphire/eslint-plugin-result": ^2.0.0
+    "@sapphire/framework": ^4.5.1
+    "@sapphire/plugin-i18next": ^5.0.4
+    "@sapphire/plugin-logger": ^3.0.5
+    "@sapphire/shapeshift": ^3.9.2
+    "@sapphire/time-utilities": ^1.7.10
+    "@sapphire/ts-config": 4.0.1
+    "@types/common-tags": 1.8.1
+    "@types/eslint": 8.44.0
+    "@types/node": 18.17.0
+    "@types/prettier": 2.7.3
+    "@typescript-eslint/eslint-plugin": 6.1.0
+    "@typescript-eslint/parser": 6.1.0
+    common-tags: ^1.8.2
+    discord-player: ^6.6.1
+    discord.js: ^14.11.0
+    dotenv: ^16.3.1
+    eslint: 8.45.0
+    eslint-config-prettier: ^8.8.0
+    eslint-plugin-prettier: alpha
+    husky: 8.0.3
+    pinst: ^3.0.0
+    prettier: 3.0.0
+    prisma: 5.0.0
+    sodium-native: ^4.0.4
+    soundcloud-scraper: ^5.0.3
+    spotify-url-info: ^3.2.5
+    tslib: ^2.6.0
+    tsup: 7.1.0
+    typescript: 5.1.6
+    youtube-sr: ^4.3.4
+    ytdl-core: ^4.11.5
+  languageName: unknown
+  linkType: soft
+
 "@pkgjs/parseargs@npm:^0.11.0":
   version: 0.11.0
   resolution: "@pkgjs/parseargs@npm:0.11.0"
@@ -3785,54 +3831,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ourtube@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "ourtube@workspace:."
-  dependencies:
-    "@commitlint/config-conventional": ^17.6.7
-    "@discord-player/extractor": ^4.4.0
-    "@discordjs/opus": ^0.9.0
-    "@kaname-png/plugin-statcord": ^2.1.12
-    "@prisma/client": ^5.0.0
-    "@sapphire/decorators": ^6.0.2
-    "@sapphire/eslint-config": 5.0.0
-    "@sapphire/eslint-plugin-result": ^2.0.0
-    "@sapphire/framework": ^4.5.1
-    "@sapphire/plugin-i18next": ^5.0.4
-    "@sapphire/plugin-logger": ^3.0.5
-    "@sapphire/shapeshift": ^3.9.2
-    "@sapphire/time-utilities": ^1.7.10
-    "@sapphire/ts-config": 4.0.1
-    "@types/common-tags": 1.8.1
-    "@types/eslint": 8.44.0
-    "@types/node": 18.17.0
-    "@types/prettier": 2.7.3
-    "@typescript-eslint/eslint-plugin": 6.1.0
-    "@typescript-eslint/parser": 6.1.0
-    "@vitest/coverage-v8": ^0.33.0
-    common-tags: ^1.8.2
-    discord-api-types: ^0.37.50
-    discord-player: ^6.6.1
-    discord.js: ^14.11.0
-    dotenv: ^16.3.1
-    eslint: 8.45.0
-    eslint-config-prettier: ^8.8.0
-    eslint-plugin-prettier: alpha
-    husky: 8.0.3
-    prettier: 3.0.0
-    prisma: 5.0.0
-    sodium-native: ^4.0.4
-    soundcloud-scraper: ^5.0.3
-    spotify-url-info: ^3.2.5
-    tslib: ^2.6.0
-    tsup: 7.1.0
-    typescript: 5.1.6
-    vitest: ^0.33.0
-    youtube-sr: ^4.3.4
-    ytdl-core: ^4.11.5
-  languageName: unknown
-  linkType: soft
-
 "p-limit@npm:^3.0.2":
   version: 3.1.0
   resolution: "p-limit@npm:3.1.0"
@@ -3981,6 +3979,15 @@ __metadata:
   version: 2.3.1
   resolution: "picomatch@npm:2.3.1"
   checksum: 050c865ce81119c4822c45d3c84f1ced46f93a0126febae20737bd05ca20589c564d6e9226977df859ed5e03dc73f02584a2b0faad36e896936238238b0446cf
+  languageName: node
+  linkType: hard
+
+"pinst@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "pinst@npm:3.0.0"
+  bin:
+    pinst: bin.js
+  checksum: 4ae48a6a60f79c37071233af51b4d91bfc85cfa3c12b66ccda60cdb642b4d14a4ab0cb3587afc55b1f6192cea1772a5e4822026a0d0d3528296edef00cc2d61f
   languageName: node
   linkType: hard
 
