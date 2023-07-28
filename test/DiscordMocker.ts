@@ -5,6 +5,7 @@ import {
 	AutocompleteInteraction,
 	ChatInputCommandInteraction,
 	ClientApplication,
+	Guild,
 	type Interaction,
 	SnowflakeUtil,
 	User
@@ -14,7 +15,8 @@ import type {
 	APIUser,
 	APIApplicationCommandInteractionData,
 	APIApplicationCommandAutocompleteInteraction,
-	APIChatInputApplicationCommandInteractionData
+	APIChatInputApplicationCommandInteractionData,
+	APIGuild
 } from "discord-api-types/v10";
 import { ChannelType, InteractionType } from "discord-api-types/v10";
 import type { RawClientApplicationData } from "discord.js/typings/rawDataTypes";
@@ -118,6 +120,16 @@ export class DiscordMocker {
 			{
 				id: this.generateSnowflake()
 			} as APIUser
+		]);
+	}
+
+	public mockGuild(): Guild {
+		return Reflect.construct(Guild, [
+			this.#client,
+			{
+				id: this.generateSnowflake(),
+				name: "test-guild"
+			} as APIGuild
 		]);
 	}
 
