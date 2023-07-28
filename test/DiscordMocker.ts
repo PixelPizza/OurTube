@@ -1,13 +1,19 @@
-import {SapphireClient} from "@sapphire/framework";
-import {vi} from "vitest";
-import {ApplicationCommandType, ChatInputCommandInteraction, ClientApplication, SnowflakeUtil, User} from "discord.js";
+import { ApplicationCommandRegistry, Command, SapphireClient } from "@sapphire/framework";
+import { vi } from "vitest";
+import {
+	ApplicationCommandType,
+	ChatInputCommandInteraction,
+	ClientApplication,
+	SnowflakeUtil,
+	User
+} from "discord.js";
 import type {
 	APIChatInputApplicationCommandInteraction,
 	APIUser,
 	APIApplicationCommandInteractionData
 } from "discord-api-types/v10";
-import {ChannelType, InteractionType} from "discord-api-types/v10";
-import type {RawClientApplicationData} from "discord.js/typings/rawDataTypes";
+import { ChannelType, InteractionType } from "discord-api-types/v10";
+import type { RawClientApplicationData } from "discord.js/typings/rawDataTypes";
 
 export class DiscordMocker {
 	readonly #client: SapphireClient;
@@ -18,6 +24,20 @@ export class DiscordMocker {
 
 	public get client() {
 		return this.#client;
+	}
+
+	public mockCommandRegistry(command: Command) {
+		const registry = new ApplicationCommandRegistry(command.name);
+		Object.defineProperty(registry, "command", {
+			get: vi.fn(() => command)
+		});
+		const oldRegisterChatInputCommand = registry.registerChatInputCommand.bind(registry);
+		registry.registerChatInputCommand = vi.fn((command, options) => oldRegisterChatInputCommand(command, options));
+		const oldRegisterContextMenuCommand = registry.registerContextMenuCommand.bind(registry);
+		registry.registerContextMenuCommand = vi.fn((command, options) =>
+			oldRegisterContextMenuCommand(command, options)
+		);
+		return registry;
 	}
 
 	public mockInteraction(
