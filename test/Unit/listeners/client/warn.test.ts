@@ -1,6 +1,5 @@
 import { container, ListenerStore, Logger, LogLevel } from "@sapphire/framework";
 import { WarnListener } from "../../../../src";
-import { expect } from "vitest";
 
 describe("WarnListener tests", () => {
 	test("GIVEN warning then logs warning with warn level", () => {
