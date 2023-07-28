@@ -14,7 +14,7 @@ describe("CommandDeniedListener tests", () => {
 			root: "",
 			extension: ".js"
 		});
-		const interaction = mocker.mockInteraction({
+		const interaction = mocker.mockCommandInteraction({
 			name: "error"
 		});
 		const error = new UserError({

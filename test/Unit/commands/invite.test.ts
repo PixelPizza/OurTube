@@ -39,7 +39,7 @@ describe("InviteCommand tests", () => {
 				root: "",
 				extension: ".js"
 			});
-			const interaction = mocker.mockInteraction({
+			const interaction = mocker.mockCommandInteraction({
 				name: "invite"
 			});
 			const spyDeferReply = vi.spyOn(interaction, "deferReply");

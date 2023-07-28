@@ -2,15 +2,19 @@ import { ApplicationCommandRegistry, Command, SapphireClient } from "@sapphire/f
 import { vi } from "vitest";
 import {
 	ApplicationCommandType,
+	AutocompleteInteraction,
 	ChatInputCommandInteraction,
 	ClientApplication,
+	type Interaction,
 	SnowflakeUtil,
 	User
 } from "discord.js";
 import type {
 	APIChatInputApplicationCommandInteraction,
 	APIUser,
-	APIApplicationCommandInteractionData
+	APIApplicationCommandInteractionData,
+	APIApplicationCommandAutocompleteInteraction,
+	APIChatInputApplicationCommandInteractionData
 } from "discord-api-types/v10";
 import { ChannelType, InteractionType } from "discord-api-types/v10";
 import type { RawClientApplicationData } from "discord.js/typings/rawDataTypes";
@@ -40,7 +44,39 @@ export class DiscordMocker {
 		return registry;
 	}
 
-	public mockInteraction(
+	public mockAutocompleteInteraction(
+		data: Omit<APIChatInputApplicationCommandInteractionData, "id" | "type">
+	): AutocompleteInteraction {
+		const interaction = Reflect.construct(AutocompleteInteraction, [
+			this.#client,
+			{
+				id: this.generateSnowflake(),
+				type: InteractionType.ApplicationCommandAutocomplete,
+				version: 1,
+				token: "",
+				channel: {
+					id: this.generateSnowflake(),
+					type: ChannelType.GuildText,
+					name: "test-channel",
+					position: 0
+				},
+				data: {
+					...data,
+					id: this.generateSnowflake(),
+					type: ApplicationCommandType.ChatInput
+				},
+				application_id: this.generateSnowflake(),
+				locale: "en-US",
+				user: this.mockUser().toJSON()
+			} as APIApplicationCommandAutocompleteInteraction
+		]);
+		this.mockSharedInteractionMethods(interaction, {
+			isAutocomplete: true
+		});
+		return interaction;
+	}
+
+	public mockCommandInteraction(
 		data: Omit<APIApplicationCommandInteractionData, "id" | "type">
 	): ChatInputCommandInteraction {
 		const interaction = Reflect.construct(ChatInputCommandInteraction, [
@@ -69,7 +105,10 @@ export class DiscordMocker {
 		interaction.deferReply = vi.fn();
 		interaction.reply = vi.fn();
 		interaction.editReply = vi.fn();
-		interaction.isCommand = vi.fn(() => true);
+		this.mockSharedInteractionMethods(interaction, {
+			isCommand: true,
+			isChatInputCommand: true
+		});
 		return interaction;
 	}
 
@@ -102,5 +141,58 @@ export class DiscordMocker {
 		]);
 		client.login = vi.fn(() => Promise.resolve("DISCORD_TOKEN"));
 		return client;
+	}
+
+	private mockSharedInteractionMethods(
+		interaction: Interaction,
+		options: Partial<{
+			isButton: boolean;
+			isAnySelectMenu: boolean;
+			isAutocomplete: boolean;
+			isCommand: boolean;
+			isChatInputCommand: boolean;
+			isChannelSelectMenu: boolean;
+			isContextMenuCommand: boolean;
+			isMentionableSelectMenu: boolean;
+			isMessageComponent: boolean;
+			isMessageContextMenuCommand: boolean;
+			isModalSubmit: boolean;
+			isRepliable: boolean;
+			isRoleSelectMenu: boolean;
+			isSelectMenu: boolean;
+			isStringSelectMenu: boolean;
+			isUserContextMenuCommand: boolean;
+			isUserSelectMenu: boolean;
+		}>
+	) {
+		options = Object.assign(
+			{
+				isButton: false,
+				isAnySelectMenu: false,
+				isAutocomplete: false,
+				isCommand: false,
+				isChatInputCommand: false,
+				isChannelSelectMenu: false,
+				isContextMenuCommand: false,
+				isMentionableSelectMenu: false,
+				isMessageComponent: false,
+				isMessageContextMenuCommand: false,
+				isModalSubmit: false,
+				isRepliable: false,
+				isRoleSelectMenu: false,
+				isSelectMenu: false,
+				isStringSelectMenu: false,
+				isUserContextMenuCommand: false,
+				isUserSelectMenu: false
+			},
+			options
+		);
+		Object.keys(options).forEach(key => {
+			Reflect.set(
+				interaction,
+				key,
+				vi.fn(() => options[key as keyof typeof options])
+			);
+		});
 	}
 }
