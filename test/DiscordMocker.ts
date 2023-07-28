@@ -73,6 +73,19 @@ export class DiscordMocker {
 		return interaction;
 	}
 
+	public mockUser(): User {
+		return Reflect.construct(User, [
+			this.#client,
+			{
+				id: this.generateSnowflake()
+			} as APIUser
+		]);
+	}
+
+	public generateSnowflake(): string {
+		return SnowflakeUtil.generate().toString();
+	}
+
 	private mockClient(): SapphireClient {
 		const client = new SapphireClient({
 			intents: [],
@@ -89,18 +102,5 @@ export class DiscordMocker {
 		]);
 		client.login = vi.fn(() => Promise.resolve("DISCORD_TOKEN"));
 		return client;
-	}
-
-	private mockUser(): User {
-		return Reflect.construct(User, [
-			this.#client,
-			{
-				id: this.generateSnowflake()
-			} as APIUser
-		]);
-	}
-
-	private generateSnowflake(): string {
-		return SnowflakeUtil.generate().toString();
 	}
 }

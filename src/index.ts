@@ -42,5 +42,6 @@ export * from "./preconditions/BotInVoice";
 export * from "./preconditions/InSameVoice";
 export * from "./preconditions/NotBlacklisted";
 export * from "./preconditions/UserInVoice";
+export type * from "./container";
 export * from "./logger";
 export * from "./utils";
