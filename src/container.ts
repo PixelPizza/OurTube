@@ -1,4 +1,4 @@
-import { config } from "dotenv";
+import { config } from "dotenv-cra";
 import { PrismaClient } from "@prisma/client";
 import { Player } from "discord-player";
 import { parseEnv } from "./lib/Env";

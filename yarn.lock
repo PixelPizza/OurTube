@@ -728,7 +728,7 @@ __metadata:
     discord-api-types: ^0.37.50
     discord-player: ^6.6.1
     discord.js: ^14.11.0
-    dotenv: ^16.3.1
+    dotenv-cra: ^3.0.3
     eslint: 8.45.0
     eslint-config-prettier: ^8.8.0
     eslint-plugin-prettier: alpha
@@ -2088,6 +2088,23 @@ __metadata:
   dependencies:
     is-obj: ^2.0.0
   checksum: d5775790093c234ef4bfd5fbe40884ff7e6c87573e5339432870616331189f7f5d86575c5b5af2dcf0f61172990f4f734d07844b1f23482fff09e3c4bead05ea
+  languageName: node
+  linkType: hard
+
+"dotenv-cra@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "dotenv-cra@npm:3.0.3"
+  dependencies:
+    dotenv: ^10.0.0
+    dotenv-expand: ^5.1.0
+  checksum: 2e4b60113757273685453a30f405601258f8d73066babad772f22d238bf9dd5f93d92e7e6e22c76bf1d4f74a2e4f694be78bb2e324bd7d9b36e0476d61abc930
+  languageName: node
+  linkType: hard
+
+"dotenv-expand@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "dotenv-expand@npm:5.1.0"
+  checksum: 8017675b7f254384915d55f9eb6388e577cf0a1231a28d54b0ca03b782be9501b0ac90ac57338636d395fa59051e6209e9b44b8ddf169ce6076dffb5dea227d3
   languageName: node
   linkType: hard
 

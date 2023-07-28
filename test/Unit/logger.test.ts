@@ -4,7 +4,7 @@ import type { APIEmbed, APIMessage, JSONEncodable, WebhookClient, WebhookMessage
 import { EmbedBuilder, MessageType } from "discord.js";
 import { DiscordMocker } from "../DiscordMocker";
 import type { APIUser } from "discord-api-types/v10";
-import { config } from "dotenv";
+import { config } from "dotenv-cra";
 import { expect } from "vitest";
 config();
 

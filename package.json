@@ -48,7 +48,7 @@
 		"common-tags": "^1.8.2",
 		"discord-player": "^6.6.1",
 		"discord.js": "^14.11.0",
-		"dotenv": "^16.3.1",
+		"dotenv-cra": "^3.0.3",
 		"sodium-native": "^4.0.4",
 		"soundcloud-scraper": "^5.0.3",
 		"spotify-url-info": "^3.2.5",
@@ -79,6 +79,9 @@
 		"tsup": "7.1.0",
 		"typescript": "5.1.6",
 		"vitest": "^0.33.0"
+	},
+	"resolutions": {
+		"dotenv-cra/dotenv": "^16.3.1"
 	},
 	"packageManager": "yarn@3.6.1"
 }
