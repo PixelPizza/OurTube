@@ -43,7 +43,7 @@
 		"@sapphire/time-utilities": "^1.7.10",
 		"common-tags": "^1.8.2",
 		"discord-player": "^6.6.2",
-		"discord.js": "^14.12.1",
+		"discord.js": "^14.13.0",
 		"dotenv": "^16.3.1",
 		"sodium-native": "^4.0.4",
 		"soundcloud-scraper": "^5.0.3",
