@@ -31,7 +31,7 @@
 	},
 	"homepage": "https://github.com/PixelPizza/OurTube#readme",
 	"dependencies": {
-		"@discord-player/extractor": "^4.4.3",
+		"@discord-player/extractor": "^4.4.4",
 		"@discordjs/opus": "^0.9.0",
 		"@kaname-png/plugin-statcord": "^2.1.12",
 		"@prisma/client": "^5.2.0",
@@ -42,7 +42,7 @@
 		"@sapphire/shapeshift": "^3.9.2",
 		"@sapphire/time-utilities": "^1.7.10",
 		"common-tags": "^1.8.2",
-		"discord-player": "^6.6.3",
+		"discord-player": "^6.6.4",
 		"discord.js": "^14.13.0",
 		"dotenv": "^16.3.1",
 		"sodium-native": "^4.0.4",
