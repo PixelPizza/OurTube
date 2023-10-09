@@ -552,7 +552,7 @@ __metadata:
     "@sapphire/decorators": ^6.0.2
     "@sapphire/eslint-config": 5.0.2
     "@sapphire/eslint-plugin-result": ^2.0.1
-    "@sapphire/framework": ^4.6.0
+    "@sapphire/framework": ^4.6.1
     "@sapphire/plugin-i18next": ^5.1.1
     "@sapphire/plugin-logger": ^3.0.6
     "@sapphire/shapeshift": ^3.9.2
@@ -724,20 +724,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/framework@npm:^4.6.0":
-  version: 4.6.0
-  resolution: "@sapphire/framework@npm:4.6.0"
+"@sapphire/framework@npm:^4.6.1":
+  version: 4.6.1
+  resolution: "@sapphire/framework@npm:4.6.1"
   dependencies:
     "@discordjs/builders": ^1.6.5
     "@sapphire/discord-utilities": ^3.1.1
     "@sapphire/discord.js-utilities": ^7.0.2
     "@sapphire/lexure": ^1.1.5
     "@sapphire/pieces": ^3.7.0
-    "@sapphire/ratelimits": ^2.4.6
+    "@sapphire/ratelimits": ^2.4.7
     "@sapphire/result": ^2.6.4
     "@sapphire/stopwatch": ^1.5.0
     "@sapphire/utilities": ^3.13.0
-  checksum: 8051de49f764b98f366eeb4db36817fc339373b76526ea6bda0d32124dee612652ff4f3570e3ab00d602037aa33b9a3aee007bf06b7693e402c08b1dde41dbd2
+  checksum: a24656792a6e95744f84f488b621f6f41168709b55ca9bc1048a48031ba1accd7c30dae7f64ae0d6954775bf8d89b4b4f403f77c89e930f7279092f8e8a43cde
   languageName: node
   linkType: hard
 
@@ -783,10 +783,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/ratelimits@npm:^2.4.6":
-  version: 2.4.6
-  resolution: "@sapphire/ratelimits@npm:2.4.6"
-  checksum: cbec157ea8dc660a8dd045f2d57100289c5eb1ecd9e9bac786b9703cbd9dcea1d39b7d1ea1ca03dac9e266285ddf1767f50195dc7bf88a7cbd5bf25fcca3174f
+"@sapphire/ratelimits@npm:^2.4.7":
+  version: 2.4.7
+  resolution: "@sapphire/ratelimits@npm:2.4.7"
+  checksum: e5e52ab8d3219678761ec0fe051b05711d85e29692f8048077bc443d71ed7df1be4e1dc9b2f5f11816ea15b389706ea6789e2ba1055f4c8adccd00711bb0d29d
   languageName: node
   linkType: hard
 
