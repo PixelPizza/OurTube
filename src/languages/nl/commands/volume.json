@@ -1,9 +1,0 @@
-{
-	"success": {
-		"title": "Volume",
-		"description": {
-			"current": "Het huidige volume is {{volume}}%",
-			"changed": "Het volume is veranderd naar {{volume}}%"
-		}
-	}
-}
