@@ -1,9 +1,0 @@
-{
-	"success": {
-		"title": "Hangerő",
-		"description": {
-			"current": "A jelenlegi hangerő az {{volume}}%",
-			"changed": "A hangerő a következőre lett állítva {{volume}}%"
-		}
-	}
-}
