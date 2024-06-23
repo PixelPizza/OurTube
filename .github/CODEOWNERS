@@ -2,7 +2,7 @@
 LICENSE @jaronz
 
 /scripts/ @jaronz
-/.github/ @jaronz
+/.github/ @jaronz @mcpsbot
 /.vscode/ @jaronz
 package.json @jaronz @mcpsbot
 README.md @jaronz @mcpsbot
