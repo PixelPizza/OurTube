@@ -1,0 +1,94 @@
+    {
+		  "name": "Purge 300",
+		    "type": "action",
+			  "trigger": "slashCommand",
+			    "actions": [
+					    {
+							      "name": "Bulk Delete",
+								        "file": "bulkDeleteMessages.js",
+										      "data": {
+												        "name": "Bulk Delete",
+														        "user": {
+																	          "type": "any",
+																			            "value": ""
+																},
+																        "channel": {
+																			          "type": "command",
+																					            "value": ""
+																		},
+																		        "amount": "Maximum (300)",
+																				        "delete": "",
+																						        "include": "Nothing",
+																								        "keyword": "",
+																										        "reason": "/purge 300 command ",
+																												        "deletedCountStorage": {
+																															          "type": "temporary",
+																																	            "value": ""
+																														}
+											  },
+											        "id": 1718375215496
+						},
+						    {
+								      "name": "Send Message",
+									        "file": "sendmessage.js",
+											      "data": {
+													        "name": "Send Message",
+															        "messageContent": "you have deleted [${tempVars('count')}] messages",
+																	        "actionRows": [],
+																			        "embeds": [],
+																					        "channel": {
+																								          "type": "command",
+																										            "value": ""
+																							},
+																							        "replyToInteraction": true,
+																									        "storeAs": {
+																												          "value": "",
+																														            "type": "temporary"
+																											},
+																											        "options": [
+																														          {
+																																	            "type": "options"
+																																  }
+																													],
+																													        "attachments": [],
+																															        "poll": [],
+																																	        "mentions": false,
+																																			        "dontSend": false,
+																																					        "ephemeral": true,
+																																							        "updateMessage": {
+																																										          "type": "none",
+																																												            "value": ""
+																																									}
+												  },
+												        "id": 1719240122765
+							}
+				],
+				  "customId": 1718375207193,
+				    "boundary": {
+						    "worksIn": "guild",
+							    "limits": []
+					},
+					  "parameters": [],
+					    "description": "Purge 300",
+						  "folder": [
+							    1719772282275
+						  ],
+						    "color": null
+	}
+	    
+						  ]
+					}
+																																									}
+																																  }
+																													]
+																											}
+																							}
+												  }
+							}
+																														}
+																		}
+																}
+											  }
+						}
+				]
+	}
