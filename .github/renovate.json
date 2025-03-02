@@ -30,7 +30,7 @@
 			},
 			{
 				"matchDepTypes": ["engines"],
-				"enabled": false
+				"enabled": true
 			}
 		]
 	}
