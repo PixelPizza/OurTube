@@ -1,0 +1,23 @@
+{
+	"name": "ourtube",
+	"private": true,
+	"version": "2.0.0-dev",
+	"description": "A discord bot that plays music.",
+	"author": "@pixelpizza",
+	"license": "MIT",
+	"scripts": {
+		"test": "vitest run",
+		"lint": "eslint src test --ext ts --fix -c ../../eslint.config.mjs",
+		"build": "tsup",
+		"bump": "cliff-jumper",
+		"check-update": "cliff-jumper --dry-run"
+	},
+	"devDependencies": {
+		"@favware/cliff-jumper": "^6.0.0",
+		"@vitest/coverage-v8": "^3.2.2",
+		"esbuild-plugin-file-path-extensions": "^2.1.4",
+		"tsup": "^8.5.0",
+		"typescript": "^5.8.3",
+		"vitest": "^3.2.2"
+	}
+}

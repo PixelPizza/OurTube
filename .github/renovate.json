@@ -1,0 +1,33 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["config:recommended", "group:allNonMajor", "schedule:weekends"],
+	"labels": ["Meta: Dependencies"],
+	"reviewers": ["jaronz", "mcpsbot"],
+	"cloneSubmodules": true,
+	"npm": {
+		"packageRules": [
+			{
+				"automerge": true,
+				"matchCurrentVersion": "/^0\\./",
+				"matchUpdateTypes": ["patch"],
+				"platformAutomerge": true
+			},
+			{
+				"automerge": true,
+				"matchCurrentVersion": ">=1.0.0",
+				"matchUpdateTypes": ["minor", "patch"],
+				"platformAutomerge": true
+			},
+			{
+				"enabled": false,
+				"matchDepTypes": ["engines"]
+			},
+			{
+				"enabled": false,
+				"matchPackageNames": ["/typescript/"]
+			}
+		],
+		"postUpdateOptions": ["yarnDedupeHighest"],
+		"rangeStrategy": "bump"
+	}
+}

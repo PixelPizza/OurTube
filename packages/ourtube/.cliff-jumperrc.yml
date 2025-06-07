@@ -1,0 +1,10 @@
+name: ourtube
+org: pixelpizza
+install: true
+packagePath: packages/ourtube
+identifierBase: false
+pushTag: true
+githubRelease: true
+githubReleaseLatest: true
+gitRepo: pixelpizza/ourtube
+gitHostVariant: github

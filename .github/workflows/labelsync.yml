@@ -1,0 +1,26 @@
+name: Automatic Label Sync
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  label-sync:
+    name: Label Sync
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          sparse-checkout: .github/labels.yml
+          sparse-checkout-cone-mode: false
+          repository: PixelPizza/.github
+      - name: Run Label Sync
+        uses: crazy-max/ghaction-github-labeler@24d110aa46a59976b8a7f35518cb7f14f434c916 # v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          yaml-file: .github/labels.yml
