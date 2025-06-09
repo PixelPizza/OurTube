@@ -10,3 +10,6 @@
 
 # Coverage
 coverage/
+
+# Turbo
+.turbo/
