@@ -6,7 +6,7 @@ import { Listener } from "@sapphire/framework";
 	event: "unhandledRejection"
 })
 export class UnhandledPromiseRejectionListener extends Listener {
-	public override run(reason: string, promise: Promise<any>): void {
+	public override run(reason: string, promise: Promise<unknown>): void {
 		console.error("[ERROR] Unhandled Promise Rejection:", reason, promise);
 	}
 }
