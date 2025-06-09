@@ -3,7 +3,7 @@ import { Listener } from "@sapphire/framework";
 
 @ApplyOptions<Listener.Options>({
 	emitter: process,
-	event: "warning",
+	event: "warning"
 })
 export class WarningListener extends Listener {
 	public override run(warning: Error): void {
