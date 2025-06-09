@@ -4,5 +4,6 @@ import { esbuildPluginFilePathExtensions } from "esbuild-plugin-file-path-extens
 export default createTsupConfig({
 	dts: false,
 	entry: ["src/**/*.ts"],
-	esbuildPlugins: [esbuildPluginFilePathExtensions()]
+	esbuildPlugins: [esbuildPluginFilePathExtensions()],
+	target: "esnext"
 });
