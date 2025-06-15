@@ -16,10 +16,7 @@
 		"dev": "yarn build && cross-env NODE_ENV=development node ."
 	},
 	"dependencies": {
-		"@sapphire/decorators": "^6.2.0",
-		"@sapphire/framework": "^5.3.6",
 		"cross-env": "^7.0.3",
-		"discord.js": "14.19.3",
 		"dotenv-cra": "^3.0.3"
 	},
 	"devDependencies": {
