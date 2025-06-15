@@ -67,7 +67,7 @@ commit_preprocessors = [
 	{ pattern = '\s\((\w+\s)?#([0-9]+)\)', replace = "" },
 ]
 filter_commits = true
-tag_pattern = "ourtube@[0-9]*"
+tag_pattern = "@ourtube/discord-bot@[0-9]*"
 ignore_tags = ""
 topo_order = false
 sort_commits = "newest"
