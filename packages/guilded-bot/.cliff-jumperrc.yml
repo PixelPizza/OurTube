@@ -1,0 +1,10 @@
+name: guilded-bot
+org: pixelpizza
+install: true
+packagePath: packages/guilded-bot
+identifierBase: false
+pushTag: true
+githubRelease: true
+githubReleaseLatest: true
+gitRepo: pixelpizza/ourtube
+gitHostVariant: github

@@ -1,0 +1,7 @@
+{
+	"extends": [
+		"../../../tsconfig.base.json",
+		"@sapphire/ts-config/decorators"
+	],
+	"include": ["."]
+}
