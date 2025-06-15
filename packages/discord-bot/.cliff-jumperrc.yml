@@ -1,7 +1,7 @@
-name: ourtube
-org: pixelpizza
+name: discord-bot
+org: ourtube
 install: true
-packagePath: packages/ourtube
+packagePath: packages/discord-bot
 identifierBase: false
 pushTag: true
 githubRelease: true
