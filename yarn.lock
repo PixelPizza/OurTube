@@ -1421,12 +1421,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^22.18.1":
-  version: 22.18.1
-  resolution: "@types/node@npm:22.18.1"
+"@types/node@npm:*, @types/node@npm:^22.18.3":
+  version: 22.18.3
+  resolution: "@types/node@npm:22.18.3"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10c0/1912b0ea6cb9ef59722b0fed64652388e13b41d52569c16198f1278a882837bbf4c8a4ec913e852893356f07c0c44b4e00fbca289ac7222741d03449104e22fe
+  checksum: 10c0/29ec5674a7eaac50c4c779e937c4449e813ff70c411eb525b6e12837e7b88c39219c3c2f29e39ea8f72cd6b7975f8696dc05f78c07bce35a241e0c9eaf5523a8
   languageName: node
   linkType: hard
 
@@ -4027,7 +4027,7 @@ __metadata:
     "@eslint/js": "npm:^9.35.0"
     "@favware/cliff-jumper": "npm:^6.0.0"
     "@sapphire/ts-config": "npm:^5.0.1"
-    "@types/node": "npm:^22.18.1"
+    "@types/node": "npm:^22.18.3"
     "@vitest/coverage-v8": "npm:^3.2.4"
     eslint: "npm:^9.35.0"
     eslint-config-prettier: "npm:^10.1.8"
@@ -4038,7 +4038,7 @@ __metadata:
     turbo: "npm:^2.5.6"
     typescript: "npm:^5.8.3"
     typescript-eslint: "npm:^8.33.1"
-    vite: "npm:^7.1.4"
+    vite: "npm:^7.1.5"
     vitest: "npm:^3.2.4"
   languageName: unknown
   linkType: soft
@@ -5154,7 +5154,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.0.0 || ^6.0.0 || ^7.0.0-0, vite@npm:^7.1.4":
+"vite@npm:^5.0.0 || ^6.0.0 || ^7.0.0-0, vite@npm:^7.1.5":
   version: 7.1.5
   resolution: "vite@npm:7.1.5"
   dependencies:
