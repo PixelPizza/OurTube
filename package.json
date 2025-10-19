@@ -13,9 +13,9 @@
 		"check-update": "turbo run check-update"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.8.1",
-		"@commitlint/config-conventional": "^19.8.1",
-		"@commitlint/types": "^19.8.1",
+		"@commitlint/cli": "^20.1.0",
+		"@commitlint/config-conventional": "^20.0.0",
+		"@commitlint/types": "^20.0.0",
 		"@eslint/js": "^9.38.0",
 		"@favware/cliff-jumper": "^6.0.0",
 		"@sapphire/ts-config": "^5.0.1",
