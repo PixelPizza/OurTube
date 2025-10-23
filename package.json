@@ -24,13 +24,13 @@
 		"eslint": "^9.38.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-prettier": "^5.5.4",
-		"lint-staged": "^16.2.5",
+		"lint-staged": "^16.2.6",
 		"prettier": "^3.6.2",
 		"tsup": "^8.5.0",
 		"turbo": "^2.5.8",
 		"typescript": "^5.8.3",
 		"typescript-eslint": "^8.33.1",
-		"vite": "^7.1.11",
+		"vite": "^7.1.12",
 		"vitest": "^3.2.4"
 	},
 	"packageManager": "yarn@4.10.3"
