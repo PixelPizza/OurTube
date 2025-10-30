@@ -19,16 +19,16 @@
 		"@sapphire/decorators": "^6.2.0",
 		"@sapphire/framework": "^5.3.7",
 		"cross-env": "^10.1.0",
-		"discord.js": "14.24.0",
+		"discord.js": "14.24.1",
 		"dotenv-cra": "^3.0.3"
 	},
 	"devDependencies": {
 		"@favware/cliff-jumper": "^6.0.0",
-		"@swc/core": "^1.13.21",
-		"@vitest/coverage-v8": "^4.0.3",
+		"@swc/core": "^1.14.0",
+		"@vitest/coverage-v8": "^4.0.5",
 		"esbuild-plugin-file-path-extensions": "^2.1.4",
 		"tsup": "^8.5.0",
 		"typescript": "^5.8.3",
-		"vitest": "^4.0.3"
+		"vitest": "^4.0.5"
 	}
 }
