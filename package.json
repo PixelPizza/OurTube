@@ -16,12 +16,12 @@
 		"@commitlint/cli": "^20.1.0",
 		"@commitlint/config-conventional": "^20.0.0",
 		"@commitlint/types": "^20.0.0",
-		"@eslint/js": "^9.39.0",
+		"@eslint/js": "^9.39.1",
 		"@favware/cliff-jumper": "^6.0.0",
 		"@sapphire/ts-config": "^5.0.1",
-		"@types/node": "^24.9.2",
-		"@vitest/coverage-v8": "^4.0.6",
-		"eslint": "^9.39.0",
+		"@types/node": "^24.10.0",
+		"@vitest/coverage-v8": "^4.0.7",
+		"eslint": "^9.39.1",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-prettier": "^5.5.4",
 		"lint-staged": "^16.2.6",
@@ -30,8 +30,8 @@
 		"turbo": "^2.6.0",
 		"typescript": "^5.8.3",
 		"typescript-eslint": "^8.33.1",
-		"vite": "^7.1.12",
-		"vitest": "^4.0.6"
+		"vite": "^7.2.0",
+		"vitest": "^4.0.7"
 	},
 	"packageManager": "yarn@4.10.3"
 }
