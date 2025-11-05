@@ -24,11 +24,11 @@
 	},
 	"devDependencies": {
 		"@favware/cliff-jumper": "^6.0.0",
-		"@swc/core": "^1.14.0",
-		"@vitest/coverage-v8": "^4.0.6",
+		"@swc/core": "^1.15.0",
+		"@vitest/coverage-v8": "^4.0.7",
 		"esbuild-plugin-file-path-extensions": "^2.1.4",
 		"tsup": "^8.5.0",
 		"typescript": "^5.8.3",
-		"vitest": "^4.0.6"
+		"vitest": "^4.0.7"
 	}
 }
