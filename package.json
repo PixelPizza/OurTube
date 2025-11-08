@@ -20,7 +20,7 @@
 		"@favware/cliff-jumper": "^6.0.0",
 		"@sapphire/ts-config": "^5.0.1",
 		"@types/node": "^24.10.0",
-		"@vitest/coverage-v8": "^4.0.7",
+		"@vitest/coverage-v8": "^4.0.8",
 		"eslint": "^9.39.1",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-prettier": "^5.5.4",
@@ -30,8 +30,8 @@
 		"turbo": "^2.6.0",
 		"typescript": "^5.8.3",
 		"typescript-eslint": "^8.33.1",
-		"vite": "^7.2.0",
-		"vitest": "^4.0.7"
+		"vite": "^7.2.2",
+		"vitest": "^4.0.8"
 	},
-	"packageManager": "yarn@4.10.3"
+	"packageManager": "yarn@4.11.0"
 }
