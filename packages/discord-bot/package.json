@@ -24,7 +24,7 @@
 	},
 	"devDependencies": {
 		"@favware/cliff-jumper": "^6.0.0",
-		"@swc/core": "^1.15.3",
+		"@swc/core": "^1.15.4",
 		"@vitest/coverage-v8": "^4.0.15",
 		"esbuild-plugin-file-path-extensions": "^2.1.4",
 		"tsup": "^8.5.1",
