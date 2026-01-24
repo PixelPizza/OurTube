@@ -27,7 +27,7 @@
 		"lint-staged": "^16.2.7",
 		"prettier": "^3.8.1",
 		"tsup": "^8.5.1",
-		"turbo": "^2.7.5",
+		"turbo": "^2.7.6",
 		"typescript": "^5.8.3",
 		"typescript-eslint": "^8.33.1",
 		"vite": "^7.3.1",
