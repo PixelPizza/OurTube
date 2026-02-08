@@ -1,0 +1,19 @@
+{
+  "name": "ourtube",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js", // For web hosts (runs server)
+    "dev": "nodemon server.js", // For local development
+    "build": "npm run install-deps && echo 'Build complete'"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "nodemon": "^3.0.1" // Dev dependency
+  },
+  "engines": {
+    "node": ">=18.x" // Match web host's Node version
+  }
+}
