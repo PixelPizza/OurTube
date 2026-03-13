@@ -13,25 +13,25 @@
 		"check-update": "turbo run check-update"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^20.4.3",
-		"@commitlint/config-conventional": "^20.4.3",
-		"@commitlint/types": "^20.4.3",
+		"@commitlint/cli": "^20.4.4",
+		"@commitlint/config-conventional": "^20.4.4",
+		"@commitlint/types": "^20.4.4",
 		"@eslint/js": "^9.39.4",
 		"@favware/cliff-jumper": "^6.0.0",
 		"@sapphire/ts-config": "^5.0.3",
 		"@types/node": "^24.12.0",
-		"@vitest/coverage-v8": "^4.0.18",
+		"@vitest/coverage-v8": "^4.1.0",
 		"eslint": "^9.39.4",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-prettier": "^5.5.5",
-		"lint-staged": "^16.3.2",
+		"lint-staged": "^16.3.3",
 		"prettier": "^3.8.1",
 		"tsup": "^8.5.1",
-		"turbo": "^2.8.14",
+		"turbo": "^2.8.17",
 		"typescript": "^5.8.3",
 		"typescript-eslint": "^8.33.1",
 		"vite": "^7.3.1",
-		"vitest": "^4.0.18"
+		"vitest": "^4.1.0"
 	},
 	"packageManager": "yarn@4.12.0"
 }
