@@ -14,8 +14,8 @@
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^20.5.0",
-		"@commitlint/config-conventional": "^20.4.4",
-		"@commitlint/types": "^20.4.4",
+		"@commitlint/config-conventional": "^20.5.0",
+		"@commitlint/types": "^20.5.0",
 		"@eslint/js": "^9.39.4",
 		"@favware/cliff-jumper": "^6.0.0",
 		"@sapphire/ts-config": "^5.0.3",
