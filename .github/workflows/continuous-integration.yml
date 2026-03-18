@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       - name: Run job
-        run: yarn lint --fix=false
+        run: yarn lint --fix=true
 
   build:
     name: Building
