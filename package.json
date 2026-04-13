@@ -17,7 +17,7 @@
 		"@commitlint/config-conventional": "^20.5.0",
 		"@commitlint/types": "^20.5.0",
 		"@eslint/js": "^9.39.4",
-		"@favware/cliff-jumper": "^6.0.0",
+		"@favware/cliff-jumper": "^6.1.0",
 		"@sapphire/ts-config": "^5.0.3",
 		"@types/node": "^24.12.2",
 		"@vitest/coverage-v8": "^4.1.4",
