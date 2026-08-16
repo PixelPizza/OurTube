@@ -13,13 +13,14 @@
 		"bump": "cliff-jumper",
 		"check-update": "cliff-jumper --dry-run",
 		"start": "cross-env NODE_ENV=production node .",
-		"dev": "yarn build && cross-env NODE_ENV=development node ."
+		"dev": "yarn build && cross-env NODE_ENV=development node .",
+		"register": "yarn build && cross-env NODE_ENV=development node dist/register-commands.mjs"
 	},
 	"dependencies": {
 		"@sapphire/decorators": "^6.2.0",
 		"@sapphire/framework": "^5.5.0",
 		"cross-env": "^10.1.0",
-		"discord.js": "14.26.2",
+		"discord.js": "14.27.0",
 		"dotenv-cra": "^3.0.3"
 	},
 	"devDependencies": {

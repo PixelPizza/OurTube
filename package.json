@@ -10,7 +10,9 @@
 		"test": "vitest run",
 		"build": "turbo run build",
 		"update": "yarn upgrade-interactive",
-		"check-update": "turbo run check-update"
+		"check-update": "turbo run check-update",
+		"start": "yarn workspace @ourtube/discord-bot start",
+		"dev": "yarn workspace @ourtube/discord-bot dev"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^20.5.0",
